@@ -5,14 +5,26 @@
 .footer {
   position: relative;
   display: flex;
-  color: var(--bs-gray-300);
+  color: var(--bs-body-color);
   justify-content: center; /* Align content to the start (left) */
   align-items: flex-end; /* Align content to the end (bottom) */
-  height: 5vh; 
+  height: 3vh; 
   background-color: transparent;  
   text-align: center;
   padding: 20px;
-  
+
+} 
+
+
+ .footer p {
+  margin: 1em 0;
+  font-size: 1rem;
+}
+
+.footer a {
+  color: var(--bs-link-color);
+  text-decoration: none;
+
 }
 
 .footerContent {
@@ -22,6 +34,7 @@
   bottom: 20px; 
   font-size: 1rem; 
 }
+
 
 @media (max-width: 600px) {
   .footerContent {

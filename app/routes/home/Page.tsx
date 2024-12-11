@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { MenuBar, Header, Footer } from '../../components/Components';
 import styles from './page.module.css';
 import config from "../../config.json";
+import { baseMeta } from '../../utils/meta';
+
+export const meta = () => {
+  return baseMeta({
+    title: 'Stephen J. Lu',
+    description: `Projects portfolio of ${config.name} — Web Design and Development for the Public Good.`,
+  });
+};
 
 export const Page: React.FC = () => {  
   const [activeItem, setActiveItem] = useState<string>('Home');

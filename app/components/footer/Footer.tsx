@@ -6,6 +6,7 @@ const delay = config.delay;
 
 export const Footer = () => {
   return (
+    <>
     <InViewport>
       {(isInViewport) => (
         <div className={styles.footer} data-bs-theme="dark">
@@ -15,12 +16,16 @@ export const Footer = () => {
                 <TextAnim
                   typeText={`© ${new Date().getFullYear()} ${config.name}. All rights reserved.`}
                   delay={delay}
-                />
-              </span>
+                />                
+              </span>              
             </div>
-          )}
-        </div>
+          )}          
+        </div>        
       )}
     </InViewport>
+    <div className={styles.footer} data-bs-theme="dark">
+          <p>Hand-crafted design by <a href="humans.txt">humans</a>.</p>
+          </div>
+    </ >
   );
 };
