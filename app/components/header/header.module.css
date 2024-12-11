@@ -37,7 +37,7 @@
 .header h1 {
   justify-content: center;
   position: relative; 
-  padding: 30px;
+  padding-bottom: 30px;
   font-weight: 700;
   font-size: 5rem;
   font-variant: small-caps;
@@ -53,16 +53,9 @@
 
 @media (max-width: 600px) {
   .header h1 {
+    padding: 0;
     font-size: 2.5rem; /* Adjust the font-size for mobile devices */
   }
 }
 
-
-/* Media query for mobile devices */
-@media (max-width: 600px) {
-  .header h1 {
-    font-size: 2rem; /* Adjust the font-size for mobile devices */
-  } 
- 
-}
 }
