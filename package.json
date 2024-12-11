@@ -1,8 +1,8 @@
 {
-  "name": "stephenjlu-dist",
+  "name": "stephenjlu",
   "homepage": "https://www.stephenjlu.com",
-  "description": "Portfolio site for Stephen J. Lu",
-  "repository": "https://github.com/StephenJLu/stephenjlu-dist",
+  "description": "Projects Portfolio for Stephen J. Lu - Web Design and Development for the Public Good.",
+  "repository": "https://github.com/StephenJLu/stephenjlu",
   "author": "Stephen J. Lu",
   "sideEffects": false,
   "type": "module",

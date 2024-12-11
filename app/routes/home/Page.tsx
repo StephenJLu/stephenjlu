@@ -6,8 +6,8 @@ import { baseMeta } from '../../utils/meta';
 
 export const meta = () => {
   return baseMeta({
-    title: 'Stephen J. Lu',
-    description: `Projects portfolio of ${config.name} — Web Design and Development for the Public Good.`,
+    title: `${config.title}`,
+    description: `Projects Portfolio of ${config.name} — Web Design and Development for the Public Good.`,
   });
 };
 
