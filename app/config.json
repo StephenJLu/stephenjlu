@@ -2,7 +2,7 @@
   "name": "Stephen J. Lu",
   "roles": [
     "Author of CSI to CEO",
-    "Retired CSI and Forensic Firearms Examiner",
+    "Web Design and Development for the Public Good",
     "EMBA | SHRM-CP | Phi Beta Kappa"
   ],  
   "url": "https://www.stephenjlu.com",
@@ -11,7 +11,7 @@
   "github": "StephenJLu",
   "repo": "https://github.com/StephenJLu/Stephenjlu/",
   "ascii": "__  __  __\n\u005C \u005C \u005C \u005C \u005C\u2215\n \u005C \u005C\u2215\u005C \u005C\n  \u005C\u2215  \u005C\u2215\n",
-  "delay": 1000,
+  "delay": 500,
   "menuItems": [
     {
       "label": "Home",
@@ -41,7 +41,7 @@
       "label": "Contact",
       "action": "open",
       "targetID": "",
-      "url": "https://www.StephenJLu.com/contact#main"
+      "url": "https://legacy.StephenJLu.com/contact#main"
     }    
   ]
 }

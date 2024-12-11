@@ -11,7 +11,7 @@
     "dev": "node ./scripts/dev.cjs && remix vite:dev",
     "start": "wrangler pages dev ./build/client",
     "postinstall": "node ./scripts/draco.cjs",
-    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name stephenjlu-dist",
+    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name stephenjlu",
     "dev:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
     "deploy:storybook": "wrangler pages deploy ./storybook-static --project-name portfolio-storybook --branch main"

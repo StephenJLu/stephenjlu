@@ -6,8 +6,24 @@ import {
   ScrollRestoration,  
 } from '@remix-run/react';
 import './global.module.css';
+import AtlasGroteskLC from '~/fonts/AGRegular.woff2';
+import OperatorMonoLig from '~/fonts/OperatorMono.woff2';
 
-export const links = () => [
+export const links = () => [  
+  {
+    rel: 'preload',
+    href: OperatorMonoLig,
+    as: 'font',
+    type: 'font/woff2',
+    crossOrigin: '',
+  },
+  {
+    rel: 'preload',
+    href: AtlasGroteskLC,
+    as: 'font',
+    type: 'font/woff2',
+    crossOrigin: '',
+  },
   
  // { rel: 'manifest', href: '/manifest.json' },
   { rel: 'icon', href: '/favicon.ico' },
