@@ -27,7 +27,7 @@ export const links = () => [
     crossOrigin: '',
   },
   
- // { rel: 'manifest', href: '/manifest.json' },
+  { rel: 'manifest', href: '/manifest.json' },
   { rel: 'icon', href: '/favicon.ico' },
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
   { rel: 'shortcut_icon', href: '/shortcut.png', type: 'image/png', sizes: '64x64' },
