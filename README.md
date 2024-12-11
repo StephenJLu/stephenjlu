@@ -2,7 +2,7 @@
 
 - 🔭 I’m currently working on converting my website to React
 - 🤟 I’m learning American Sign Language (ASL)
-- 👯 I’m looking to collaborate on forensic leadership development and ALS patient support
+- 👯 I will help you reach your personal web design and development goals. [Contact me](https://legacy.stephenjlu.com/contact#main)
 - ⚡ Fun fact: I've gone skydiving twice and I used to work crime scenes
 
 ## Web URL 🌎
@@ -15,24 +15,21 @@ November 30, 2024
 
 ## Languages Used 💻
 
+- TypeScript
+- JavaScript
 - HTML
 - CSS
-- JavaScript
 
 ## Tools and Technologies 🔧
 
-- [Templated](https://TEMPLATED.co)
-- [UIKit](https://getUIKit.com)
-- [GitFolio](https://github.com/imfunniee/gitfolio)
-- [Bluesky Embed](https://github.com/Vincenius/bsky-embed)
-- [GitHub Contribution Graph](https://github.com/lengthylyova/gh-contrib-graph)
+- [React](https://react.dev)
+- [Remix](https://remix.run)
+- [Motion](https://motion.dev)
 
 ## Features 🌟
 
-- Parallax animations
-- Photo slideshow
-- Basic email contact form
+- Still in production!
 
 ## Contact Me 📨
 
-[Contact Stephen](https://www.stephenjlu.com/contact#main)
+[Contact Stephen](https://legacy.stephenjlu.com/contact#main)
