@@ -17,7 +17,7 @@ _______________________________________________________________________________
 DESIGNER | 0100010001100101011100110110100101100111011011100110010101110010
 
 Stephen J. Lu
-Hand-crafted design & web development
+Web Design & Development for the Public Good
 
 bsky.app/profile/stephenjlu.com
 github.com/StephenJLu
