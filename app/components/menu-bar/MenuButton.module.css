@@ -1,0 +1,49 @@
+@import url('../../global.module.css');
+@layer components {
+
+.menuButton {
+  list-style: none;
+  display: inline-block;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 3em;
+  transition: background-color 0.3s ease;
+}
+
+.menuButton.active {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 1);
+  font-weight: 700;  
+  /* Match existing transition */
+  transition: all 0.3s ease;
+}
+
+  /* Ensure hover state doesn't override active state */
+.menuButton.active:hover {
+  background-color: rgba(255, 255, 255, 1);  
+}
+
+
+.menuButton:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+  color: rgba(0, 0, 0, 1);
+  animation: bounce 0.5s; /* Apply the bounce animation on hover */
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+}

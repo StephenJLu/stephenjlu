@@ -1,0 +1,32 @@
+@import url('../../global.module.css');
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+  border: 0;
+  border-radius: 3em;
+  font-weight: 700;
+  line-height: 1;  
+}
+.primary {
+  background-color: var(--bs-primary);
+  color: var(--bs-body-color);
+}
+.secondary {
+  box-shadow: var(--bs-emphasis-color-rgb) 0px 0px 0px 1px inset;
+  background-color: transparent;
+  color: var(--bs-body-color);
+}
+.small {
+  padding: 10px 16px;
+  font-size: 12px;
+}
+.medium {
+  padding: 11px 20px;
+  font-size: 14px;
+}
+.large {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+

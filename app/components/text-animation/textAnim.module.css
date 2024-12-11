@@ -1,0 +1,9 @@
+@import url('../../global.module.css');
+@layer components {
+  .typingText {
+  color: var(--bs-body-color);
+  display: inline-block;
+  vertical-align: top;
+  line-height: 1; /* Ensure the line height is consistent */
+}
+}

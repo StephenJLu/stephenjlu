@@ -1,0 +1,209 @@
+@import url("./bootstrap.min.css");
+
+body {
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  color: var(--bs-body-color);
+  text-align: var(--bs-body-text-align);
+  background-color: var(--bs-body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-image:  
+                    url('./static/images/starry-bg.gif'),
+                    url('./static/images/starry-bg2.gif'),                      
+                    url('./static/images/starry-bg3.gif');
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center center;
+  background-attachment: fixed;         
+}
+
+body[data-bs-theme="dark"] {
+  background-color: #000; /* Fallback background color */
+  background-image: url('./static/images/starry-bg3.gif');
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center center;
+  background-attachment: fixed; /* Optional: Makes the background image fixed */
+  color: var(--bs-body-color); /* Ensure text color is readable */
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./static/images/starry-bg2.gif');                                          
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center center;
+  background-attachment: fixed;   
+  transform: rotate(45deg); /* Rotate the background image */
+  z-index: -1;
+}
+
+body::after {
+  transform: rotate(-45deg); /* Rotate the background image in the opposite direction */
+}
+
+@font-face {
+  font-family: "OperatorMonoLig";
+  src: url("./fonts/OperatorMono.woff2");   
+  src: local("Operator Mono"), local("OperatorMonoLig"),
+    url("./fonts/OperatorMono.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGThin.woff2");
+  src: local("AtlasGroteskLC-Thin"), local("AGThin"),
+    url("./fonts/AGThin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGLight.woff2");
+  src: local("AtlasGroteskLC-Light"), local("AGLight"),
+    url("./fonts/AGLight.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGRegular.woff2");
+  src: local("AtlasGroteskLC-Regular"), local("AGRegular"),
+    url("./fonts/AGRegular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGMedium.woff2");
+  src: local("AtlasGroteskLC-Medium"), local("AGMedium"),
+    url("./fonts/AGMedium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGBold.woff2");
+  src: local("AtlasGroteskLC-Bold"), local("AGBold"),
+    url("./fonts/AGBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGBlack.woff2");
+  src: local("AtlasGroteskLC-Black"), local("AGBlack"),
+    url("./fonts/AGBlack.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGThinItalic.woff2");
+  src: local("AtlasGroteskLC-ThinItalic"), local("AGThinItalic"),
+    url("./fonts/AGThinItalic.woff2") format("woff2");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGLightItalic.woff2");
+  src: local("AtlasGroteskLC-LightItalic"), local("AGLightItalic"),
+    url("./fonts/AGLightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGRegularItalic.woff2");
+  src: local("AtlasGroteskLC-RegularItalic"), local("AGRegularItalic"),
+    url("./fonts/AGRegularItalic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGMediumItalic.woff2");
+  src: local("AtlasGroteskLC-MediumItalic"), local("AGMediumItalic"),
+    url("./fonts/AGMediumItalic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGBoldItalic.woff2");
+  src: local("AtlasGroteskLC-BoldItalic"), local("AGBoldItalic"),
+    url("./fonts/AGBoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "AtlasGroteskLC";
+  src: url("./fonts/AGBlackItalic.woff2");
+  src: local("AtlasGroteskLC-BlackItalic"), local("AGBlackItalic"),
+    url("./fonts/AGBlackItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+}
+
+.link {
+  display: inline-flex;
+}
+
+.date {    
+  display: inline-flex;
+}
+
+.social-media-icons {
+  display: flex;
+  gap: 10px; /* Add space between icons */
+}
+
+.social-media-icons a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.social-media-icons svg {
+  width: 100%;
+  height: 100%;
+}
+
+.subtitle {
+  position: relative;
+  color: lightgray;
+  font-variant: small-caps;
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-family: "AtlasGroteskLC", sans-serif;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem; /* Adjust the font-size for mobile devices */
+  }  
+  .subtitle {
+    font-size: 1rem;
+  }
+}

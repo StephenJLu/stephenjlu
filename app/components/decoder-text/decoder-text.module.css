@@ -1,0 +1,21 @@
+@import url('../../global.module.css');
+
+@layer components {
+  .text {
+    &::after {
+      content: '_';
+      visibility: hidden;
+    }
+  }
+
+  .glyph {
+    opacity: 0.6;
+    font-weight: 500;
+    font-family: 'OperatorMonoLig', monospace;
+    line-height: 0;    
+  }
+
+  .value {
+    opacity: 1;
+  }
+}

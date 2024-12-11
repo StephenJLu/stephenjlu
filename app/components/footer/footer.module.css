@@ -1,0 +1,37 @@
+@import url('../../global.module.css');
+@layer components
+{
+
+.footer {
+  position: relative;
+  display: flex;
+  color: var(--bs-gray-300);
+  justify-content: center; /* Align content to the start (left) */
+  align-items: flex-end; /* Align content to the end (bottom) */
+  height: 5vh; 
+  background-color: transparent;  
+  text-align: center;
+  padding: 20px;
+  
+}
+
+.footerContent {
+  display: flex;
+  align-items: flex-end; /* Align content to the end (bottom) */
+  position: absolute;
+  bottom: 20px; 
+  font-size: 1rem; 
+}
+
+@media (max-width: 600px) {
+  .footerContent {
+    font-size: 0.8rem; /* Adjust the font-size for mobile devices */
+  }    
+
+.footer svg {
+  display: inline-block;
+  vertical-align: top;
+}
+}
+}
+
