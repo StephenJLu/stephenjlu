@@ -1,17 +1,10 @@
 {
   "name": "Stephen J. Lu",
   "title": "Web Design and Development for the Public Good",
-  "roles": [
-    { "role": "Author of CSI to CEO",
-      "delay": 1500
-  },
-  { "role": "Web Design and Development for the Public Good",
-      "delay": 3000
-  },
-  { "role": "EMBA | SHRM-CP | Phi Beta Kappa",
-      "delay": 5000
-  }    
-  ],  
+  "roles": [  "Author of CSI to CEO",    
+              "Web Design and Development for the Public Good",
+              "EMBA | SHRM-CP | Phi Beta Kappa"
+],  
   "url": "https://www.stephenjlu.com",
   "bluesky": "stephenjlu.com",
   "figma": "@StephenJLu",
