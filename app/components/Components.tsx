@@ -6,4 +6,4 @@ export { default as InViewport } from './in-viewport/InViewport';
 export { default as MenuButton } from './button/MenuButton';
 export { ThemeProvider, themeStyles, ThemeContext, useTheme }
      from './theme-provider/theme-provider';
-export { tokens, themes } from './theme-provider/theme';
+export { tokens } from './theme-provider/theme';
