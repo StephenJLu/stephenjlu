@@ -28,8 +28,7 @@ export const Header = () => {
     }
   }, [currentRoleIndex, roles]);
 
-  return (
-    <ThemeProvider theme="dark" className="">
+  return (    
     <header ref={ref}>                
       <div className={styles.header}>
       <div className={`${styles.headerBackground} ${!inView ? styles.hidden : ''}`} />
@@ -48,7 +47,6 @@ export const Header = () => {
         })}
       </span>                                 
       </div>      
-    </header>
-    </ThemeProvider>
+    </header>    
   );
 };

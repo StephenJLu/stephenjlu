@@ -1,5 +1,4 @@
-@import url('../../global.module.css');
-@layer components {
+/* @import url('../../global.module.css'); */
 
 .header {
   position: relative;
@@ -34,6 +33,41 @@
   opacity: 0;
 }
 
+.subtitle {
+  position: relative;
+  color: lightgray;
+  font-variant: small-caps;
+  font-size: 1.2rem;
+  font-weight: 300;
+  
+}
+
+h1 {
+  justify-content: center;
+  position: relative; 
+  padding-bottom: 30px;
+  font-weight: 700;
+  font-size: 5rem;
+  font-variant: small-caps;
+  line-height: 1.2;  
+  width: 100%; 
+  height: auto; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+    padding-bottom: 30px; /* Adjust the font-size for mobile devices */
+  }  
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
 .text {
   max-width: 1024px;
   width: 100%;
@@ -59,34 +93,4 @@
   @media (max-width: 820px) and (max-height: 420px) {
     top: calc(var(--spaceM) * -1);
   }
-}
-
-.header svg {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.header h1 {
-  justify-content: center;
-  position: relative; 
-  padding-bottom: 30px;
-  font-weight: 700;
-  font-size: 5rem;
-  text-transform: small-caps;
-  line-height: 1.2;  
-  width: 100%; 
-  height: auto; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-}
-
-@media (max-width: 600px) {
-  .header h1 {
-    padding-bottom: 30px;
-    font-size: 2.5rem; /* Adjust the font-size for mobile devices */
-  }
-}
-
 }

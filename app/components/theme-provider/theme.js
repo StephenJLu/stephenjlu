@@ -106,27 +106,27 @@ const tokensMobileSmall = {
 
 // Tokens that change based on theme
 const dark = {
-  background: 'oklch(17.76% 0 0)',
-  backgroundLight: 'oklch(21.78% 0 0)',
-  primary: 'oklch(84.42% 0.19 202.24)',
-  accent: 'oklch(84.42% 0.19 202.24)',
-  error: 'oklch(65.91% 0.249 13.76)',
-  text: 'var(--white)',
-  textTitle: 'var(--text)',
-  textBody: 'color-mix(in lab, var(--text) 80%, transparent)',
-  textLight: 'color-mix(in lab, var(--text) 60%, transparent)',
+  background: 'var(--bs-body-bg)',
+  backgroundLight: 'var(--bs-secondary-bg)',
+  primary: 'var(--bs-primary)',
+  accent: 'var(--bs-secondary)',
+  error: 'var(--bs-danger)',
+  text: 'var(--bs-body-color)',
+  textTitle: 'var(--bs-body-color)',
+  textBody: 'color-mix(in lab, var(--bs-body-color) 80%, transparent)',
+  textLight: 'color-mix(in lab, var(--bs-body-color) 60%, transparent)',
 };
 
 const light = {
-  background: 'oklch(96.12% 0 0)',
-  backgroundLight: 'var(--white)',
-  primary: 'var(--black)',
-  accent: 'oklch(84.42% 0.19 202.24)',
-  error: 'oklch(63.17% 0.259 25.41)',
-  text: 'var(--black)',
-  textTitle: 'color-mix(in lab, var(--text) 90%, transparent)',
-  textBody: 'color-mix(in lab, var(--text) 75%, transparent)',
-  textLight: 'color-mix(in lab, var(--text) 55%, transparent)',
+  background: 'var(--bs-body-bg)',
+  backgroundLight: 'var(--bs-secondary-bg)',
+  primary: 'var(--bs-primary)',
+  accent: 'var(--bs-secondary)',
+  error: 'var(--bs-danger)',
+  text: 'var(--bs-body-color)',
+  textTitle: 'var(--bs-body-color)',
+  textBody: 'color-mix(in lab, var(--bs-body-color) 80%, transparent)',
+  textLight: 'color-mix(in lab, var(--bs-body-color) 60%, transparent)',
 };
 
 export const tokens = {
