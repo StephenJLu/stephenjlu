@@ -5,8 +5,10 @@ import {
   Scripts,
   ScrollRestoration,  
 } from '@remix-run/react';
-import './global.module.css';
 import { useEffect } from 'react';
+import './global.module.css';
+import styles from './root.module.css';
+import './reset.module.css';
 import config from '~/config.json';
 import AtlasGroteskLC from '~/fonts/AGRegular.woff2';
 import OperatorMonoLig from '~/fonts/OperatorMono.woff2';
@@ -58,7 +60,13 @@ export default function App() {
         <Links />
       </head>
       <body> 
+            <main
+            id="main-content"
+            className={styles.container}
+            tabIndex={-1}            
+          >
             <Outlet />
+          </main>
         <ScrollRestoration />
         <Scripts />
       </body>
