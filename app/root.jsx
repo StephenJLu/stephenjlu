@@ -5,8 +5,10 @@ import {
   Scripts,
   ScrollRestoration,  
 } from '@remix-run/react';
-import './global.module.css';
 import { useEffect } from 'react';
+import './global.module.css';
+import styles from './root.module.css';
+import './reset.module.css';
 import config from '~/config.json';
 import AtlasGroteskLC from '~/fonts/AGRegular.woff2';
 import OperatorMonoLig from '~/fonts/OperatorMono.woff2';
@@ -50,6 +52,7 @@ export default function App() {
   return (
     <html lang="en">
       <head>
+        <title>Stephen J. Lu | Web Design and Development for the Public Good</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000" />
@@ -57,7 +60,13 @@ export default function App() {
         <Links />
       </head>
       <body> 
+            <main
+            id="main-content"
+            className={styles.container}
+            tabIndex={-1}            
+          >
             <Outlet />
+          </main>
         <ScrollRestoration />
         <Scripts />
       </body>

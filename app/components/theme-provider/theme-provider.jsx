@@ -1,10 +1,16 @@
-import GothamBoldItalic from '~/assets/fonts/gotham-bold-italic.woff2';
-import GothamBold from '~/assets/fonts/gotham-bold.woff2';
-import GothamBookItalic from '~/assets/fonts/gotham-book-italic.woff2';
-import GothamBook from '~/assets/fonts/gotham-book.woff2';
-import GothamMediumItalic from '~/assets/fonts/gotham-medium-italic.woff2';
-import GothamMedium from '~/assets/fonts/gotham-medium.woff2';
-import IPAGothic from '~/assets/fonts/ipa-gothic.woff2';
+import OperatorMonoLig from '../../fonts/OperatorMono.woff2';
+import AtlasGroteskLCThin from '../../fonts/AGThin.woff2';
+import AtlasGroteskLCBlack from '../../fonts/AGBlack.woff2';
+import AtlasGroteskLCBlackItalic from '../../fonts/AGBlackItalic.woff2';
+import AtlasGroteskLCBold from '../../fonts/AGBold.woff2';
+import AtlasGroteskLCBoldItalic from '../../fonts/AGBoldItalic.woff2';
+import AtlasGroteskLCLight from '../../fonts/AGLight.woff2';
+import AtlasGroteskLCLightItalic from '../../fonts/AGLightItalic.woff2';
+import AtlasGroteskLCMedium from '../../fonts/AGMedium.woff2';
+import AtlasGroteskLCMediumItalic from '../../fonts/AGMediumItalic.woff2';
+import AtlasGroteskLCRegular from '../../fonts/AGRegular.woff2';
+import AtlasGroteskLCRegularItalic from '../../fonts/AGRegularItalic.woff2';
+import AtlasGroteskLCThinItalic from '../../fonts/AGThinItalic.woff2';
 import { createContext, useContext } from 'react';
 import { classes, media } from '~/utils/style';
 import { themes, tokens } from './theme';
@@ -16,7 +22,6 @@ export const ThemeProvider = ({
   children,
   className,
   as: Component = 'div',
-  toggleTheme,
   ...rest
 }) => {
   const parentTheme = useTheme();
@@ -25,14 +30,14 @@ export const ThemeProvider = ({
   return (
     <ThemeContext.Provider
       value={{
-        theme,
-        toggleTheme: toggleTheme || parentTheme.toggleTheme,
+        theme,        
       }}
     >
       {isRootProvider && children}
       {/* Nested providers need a div to override theme tokens */}
       {!isRootProvider && (
-        <Component className={classes(className)} data-theme={theme} {...rest}>
+       <Component className={classes(className)} 
+       bs-data-theme={theme} {...rest}>
           {children}
         </Component>
       )}
@@ -115,61 +120,97 @@ const tokenStyles = squish(`
   }
 `);
 
-const fontStyles = squish(`
+const fontStyles = squish(`  
+
   @font-face {
-    font-family: Gotham;
-    font-weight: 400;
-    src: url(${GothamBook}) format('woff2');
-    font-display: block;
+    font-family: "OperatorMonoLig";
+    src: url(${OperatorMonoLig}) format('woff2');
+    font-weight: 100;
     font-style: normal;
   }
 
   @font-face {
-    font-family: Gotham;
-    font-weight: 400;
-    src: url(${GothamBookItalic}) format('woff2');
-    font-display: block;
-    font-style: italic;
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCThin}) format('woff2');
+    font-weight: 100;
+    font-style: normal;
   }
 
   @font-face {
-    font-family: Gotham;
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCLight}) format('woff2');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCRegular}) format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCMedium}) format('woff2');
     font-weight: 500;
-    src: url(${GothamMedium}) format('woff2');
-    font-display: block;
     font-style: normal;
   }
 
   @font-face {
-    font-family: Gotham;
-    font-weight: 500;
-    src: url(${GothamMediumItalic}) format('woff2');
-    font-display: block;
-    font-style: italic;
-  }
-
-  @font-face {
-    font-family: Gotham;
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCBold}) format('woff2');
     font-weight: 700;
-    src: url(${GothamBold}) format('woff2');
-    font-display: block;
     font-style: normal;
   }
 
   @font-face {
-    font-family: Gotham;
-    font-weight: 700;
-    src: url(${GothamBoldItalic}) format('woff2');
-    font-display: block;
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCBlack}) format('woff2');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCThinItalic}) format('woff2');
+    font-weight: 100;
     font-style: italic;
   }
 
   @font-face {
-    font-family: IPA Gothic;
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCLightItalic}) format('woff2');
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCRegularItalic}) format('woff2');
     font-weight: 400;
-    src: url(${IPAGothic}) format('woff2');
-    font-display: swap;
-    font-style: normal;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCMediumItalic}) format('woff2');
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCBoldItalic}) format('woff2');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: "AtlasGroteskLC";
+    src: url(${AtlasGroteskLCBlackItalic}) format('woff2');
+    font-weight: 900;
+    font-style: italic;
   }
 `);
 

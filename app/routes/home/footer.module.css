@@ -5,14 +5,12 @@
 .footer {
   position: relative;
   display: flex;
-  color: var(--bs-body-color);
+  flex-direction: column;
   justify-content: center; /* Align content to the start (left) */
-  align-items: flex-end; /* Align content to the end (bottom) */
-  height: 3vh; 
-  background-color: transparent;  
-  text-align: center;
+  align-items: center; /* Align content to the end (bottom) */
+  height: 5vh; 
+  background-color: transparent;    
   padding: 20px;
-
 } 
 
 

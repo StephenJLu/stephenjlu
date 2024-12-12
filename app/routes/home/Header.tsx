@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { TextFade, DecoderText } from "../../components/Components";
 import { useInView } from 'react-intersection-observer';
+import { tokens } from '../../components/Components';
+import { ThemeProvider } from '../../components/Components';
 import styles from "./header.module.css";
 import config from "../../config.json";
 
-export const Header = () => {    
+
+export const Header = () => {  
   const fadeText = config.name;
   const roles = config.roles;
   const baseDelay = config.delay;  
@@ -25,9 +28,9 @@ export const Header = () => {
     }
   }, [currentRoleIndex, roles]);
 
-  return (
+  return (    
     <header ref={ref}>                
-      <div className={styles.header} data-bs-theme="dark">
+      <div className={styles.header}>
       <div className={`${styles.headerBackground} ${!inView ? styles.hidden : ''}`} />
          <h1>
         <TextFade fadeText={fadeText} delay={baseDelay}/>
@@ -44,6 +47,6 @@ export const Header = () => {
         })}
       </span>                                 
       </div>      
-    </header>
+    </header>    
   );
 };
