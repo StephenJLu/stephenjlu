@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { TextFade, DecoderText } from "../Components";
+import { useInView } from 'react-intersection-observer';
 import styles from "./header.module.css";
 import config from "../../config.json";
 
@@ -8,6 +9,9 @@ export const Header = () => {
   const roles = config.roles;
   const baseDelay = config.delay;  
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });  
 
   useEffect(() => {
     if (currentRoleIndex < roles.length) {
@@ -22,23 +26,23 @@ export const Header = () => {
   }, [currentRoleIndex, roles]);
 
   return (
-    <header>      
+    <header ref={ref}>                
       <div className={styles.header} data-bs-theme="dark">
-        <div className={styles.headerBackground} />
-        <h1>
-          <TextFade fadeText={fadeText} delay={baseDelay}/>
-        </h1>
-        <span className={styles.subtitle}>
-          {roles.slice(0, currentRoleIndex + 1).map((role, index) => {
-            const calculatedDelay = role.length * 75;
-            return (
-              <React.Fragment key={index}>
-                <DecoderText text={role} delay={calculatedDelay} />
-                <br />
-              </React.Fragment>
-            );
-          })}
-        </span>                                 
+      <div className={`${styles.headerBackground} ${!inView ? styles.hidden : ''}`} />
+         <h1>
+        <TextFade fadeText={fadeText} delay={baseDelay}/>
+      </h1>
+      <span className={styles.subtitle}>
+        {roles.slice(0, currentRoleIndex + 1).map((role: string, index: number) => {
+        const calculatedDelay = role.length * 75;
+        return (
+          <React.Fragment key={index}>
+          <DecoderText text={role} delay={calculatedDelay} />
+          <br />
+          </React.Fragment>
+        );
+        })}
+      </span>                                 
       </div>      
     </header>
   );
