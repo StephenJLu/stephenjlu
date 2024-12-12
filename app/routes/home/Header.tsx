@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { TextFade, DecoderText } from "../../components/Components";
 import { useInView } from 'react-intersection-observer';
+import { tokens } from '../../components/Components';
 import styles from "./header.module.css";
 import config from "../../config.json";
 
 
-export const Header = () => {    
+export const Header = () => {  
   const fadeText = config.name;
   const roles = config.roles;
   const baseDelay = config.delay;  
