@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './menuBar.module.css';
-import MenuButton from './MenuButton';
+import { MenuButton } from '../../components/Components';
 
 interface MenuItem {
   label: string;  
@@ -33,7 +33,8 @@ export const MenuBar: React.FC<MenuBarProps> = ({ items, backgroundColor, onSele
             <MenuButton
               key={index}
               item={item}
-              isActive={activeItem === item.label}              
+              isActive={activeItem === item.label}
+              onClick={handleClick}              
             />
           ))}
         </ul>
