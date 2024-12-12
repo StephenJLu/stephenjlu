@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { MenuBar, Header, Footer } from '../../layouts/Layouts';
+import { MenuBar } from '../../layouts/Layouts';
+import { Header } from './Header';
+import { Footer } from './Footer';
 import styles from './page.module.css';
 import config from "../../config.json";
 import { baseMeta } from '../../utils/meta';

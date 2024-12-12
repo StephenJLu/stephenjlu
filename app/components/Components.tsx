@@ -4,3 +4,4 @@ export { default as TextFade } from './text-animation/TextFade';
 export { DecoderText } from './decoder-text/decoder-text';
 export { default as InViewport } from './in-viewport/InViewport';
 export { default as MenuButton } from './button/MenuButton';
+export { ThemeProvider } from './theme-provider/theme-provider';

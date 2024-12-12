@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import styles from "./header.module.css";
 import config from "../../config.json";
 
+
 export const Header = () => {    
   const fadeText = config.name;
   const roles = config.roles;
