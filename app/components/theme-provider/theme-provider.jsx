@@ -22,7 +22,6 @@ export const ThemeProvider = ({
   children,
   className,
   as: Component = 'div',
-  toggleTheme,
   ...rest
 }) => {
   const parentTheme = useTheme();
@@ -31,18 +30,13 @@ export const ThemeProvider = ({
   return (
     <ThemeContext.Provider
       value={{
-        theme,
-        toggleTheme: toggleTheme || parentTheme.toggleTheme,
+        theme,        
       }}
     >
       {isRootProvider && children}
       {/* Nested providers need a div to override theme tokens */}
       {!isRootProvider && (
-       <Component
-          className={classes(className)}          
-          bs-data-theme={theme === 'dark' ? 'dark' : 'light'}
-          {...rest}
-        >
+       <Component className={classes(className)} bs-data-theme={theme} {...rest}>
           {children}
         </Component>
       )}
