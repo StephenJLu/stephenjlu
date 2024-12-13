@@ -1,6 +1,6 @@
 @layer base {
   :global(:root) {
-    font-synthesis: none;
+    font-synthesis: weight style;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
