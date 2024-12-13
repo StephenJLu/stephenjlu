@@ -5,7 +5,7 @@ import {
   Scripts,
   ScrollRestoration,  
 } from '@remix-run/react';
-import { ThemeProvider, themeStyles } from '~/components/theme-provider';
+import { ThemeProvider, themeStyles } from '~/components/Components';
 import { useEffect } from 'react';
 
 import AtlasGroteskLC from '~/fonts/AGRegular.woff2';

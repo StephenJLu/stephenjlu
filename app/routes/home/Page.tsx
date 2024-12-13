@@ -40,7 +40,7 @@ export const Page: React.FC = () => {
         {activeItem === 'Home' && (
         <>
           <Header />
-      <section className={`${styles.page} container-xl`} id="home">        
+      <section className={styles.page} id="home">        
         <h1>Hi!</h1> <h2>This new website is still under construction.</h2>
         <p>I'm currently converting my legacy website to a new, modern, and responsive design, based on <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up.</p>
         <p>In the meantime, you can find me at my <a href="https://legacy.StephenJLu.com/" target='_blank' rel='noopener noreferrer'>legacy website</a> or on <a href="https://www.linkedin.com/in/stephenjlu/" target='_blank' rel='noopener noreferrer'>LinkedIn</a>.
@@ -50,7 +50,7 @@ export const Page: React.FC = () => {
       )}
       {activeItem === 'About' && (
         <>          
-      <section className={`${styles.page} container-xl`} id="about">
+      <section className={styles.page} id="about">
         <h1>About Me</h1>
         <h2>Hi! This new website is still under construction. Check back soon!</h2>
         <p>
@@ -61,14 +61,14 @@ export const Page: React.FC = () => {
       )}
       {activeItem === 'Ledger' && (
         <>          
-      <section className={`${styles.page} container-xl`}>        
+      <section className={styles.page} id="ledger">        
         <h2>You've navigated away from the page, but I'm still here!</h2>
       </section>
       </ >
       )}
       {activeItem === 'Projects' && (
         <>          
-      <section className={`${styles.page} container-xl`} id="projects">
+      <section className={styles.page} id="projects">
         <h1>My Projects</h1>
         <h2>Hi! This new website is still under construction. Check back soon!</h2>
         <p>
@@ -79,7 +79,7 @@ export const Page: React.FC = () => {
       )}
       {activeItem === 'Contact' && (
         <>          
-      <section className={`${styles.page} container-xl`}>        
+      <section className={styles.page} id="contact">        
         <h2>You've navigated away from the page, but I'm still here!</h2>
       </section>
       </ >
