@@ -5,13 +5,16 @@ import {
   Scripts,
   ScrollRestoration,  
 } from '@remix-run/react';
+import { ThemeProvider, themeStyles } from '~/components/Components';
 import { useEffect } from 'react';
-import './global.module.css';
-import styles from './root.module.css';
-import './reset.module.css';
-import config from '~/config.json';
+
 import AtlasGroteskLC from '~/fonts/AGRegular.woff2';
 import OperatorMonoLig from '~/fonts/OperatorMono.woff2';
+import config from '~/config.json';
+import styles from './root.module.css';
+import './reset.module.css';
+import './global.module.css';
+
 
 export const links = () => [  
   {
@@ -40,6 +43,7 @@ export const links = () => [
 
 
 export default function App() {
+  const theme = 'dark';
 
   useEffect(() => {
     console.info(
@@ -56,10 +60,16 @@ export default function App() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000" />
+        <meta
+          name="color-scheme"
+          content={theme === 'light' ? 'light dark' : 'dark light'}
+        />
+        <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
         <Meta />
         <Links />
       </head>
-      <body> 
+      <body data-theme={theme}>
+        <ThemeProvider theme={theme}> 
             <main
             id="main-content"
             className={styles.container}
@@ -67,6 +77,7 @@ export default function App() {
           >
             <Outlet />
           </main>
+          </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
