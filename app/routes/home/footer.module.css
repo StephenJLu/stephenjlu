@@ -3,6 +3,7 @@
 {
 
 .footer {
+  font-family: 'OperatorMonoLig', monospace;
   position: relative;
   display: flex;
   flex-direction: column;
