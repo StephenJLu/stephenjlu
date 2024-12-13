@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { MenuButton, Icon, tokens, Transition, } from '../../components/Components';
+import { MenuButton, Icon, themes, tokens, Transition, } from '../../components/Components';
 import { useScrollToHash } from '../../hooks';
 import { Link as RouterLink, useLocation } from '@remix-run/react';
 import { cssProps, msToNum, numToMs } from '../../utils/style';
@@ -10,7 +10,7 @@ import styles from './menuBar.module.css';
 import config from '../../config.json';
 
 
-export const Navbar = () => {
+export const MenuBar = () => {
       
   const [activeItem, setActiveItem] = useState();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,6 +18,7 @@ export const Navbar = () => {
   const location = useLocation();  
   const headerRef = useRef();  
   const scrollToHash = useScrollToHash();
+  const backgroundColor = (themes.dark.background);
 
 useEffect(() => {
     // Prevent ssr mismatch by storing this in state
@@ -40,7 +41,7 @@ useEffect(() => {
     }
 
     return '';
-  };
+  };  
 
   // Store the current hash to scroll to
   const handleNavItemClick = event => {
@@ -65,34 +66,45 @@ useEffect(() => {
       <RouterLink
         unstable_viewTransition
         prefetch="intent"
-        to={location.pathname === '/' ? '/#intro' : '/'}
+        to={location.pathname === '/' ? '/#home' : '/'}
         data-navbar-item
         className={styles.logo}
         aria-label={`${config.name}, ${config.role}`}
         onClick={handleMobileNavClick}
       >
-        
+        {/* Add your logo or monogram here */}
       </RouterLink>
       <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
-      <nav className={styles.nav}>
-        <div className={styles.navList}>
-          {navLinks.map(({ label, pathname }) => (
-            <RouterLink
-              unstable_viewTransition
-              prefetch="intent"
-              to={pathname}
-              key={label}
-              data-navbar-item
-              className={styles.navLink}
-              aria-current={getCurrent(pathname)}
-              onClick={handleNavItemClick}
-            >
-              {label}
-            </RouterLink>
-          ))}
-        </div>
-        <NavbarIcons desktop />
-      </nav>
+<div
+      className={styles.menuBarContainer}
+      style={{ backgroundColor }}
+      data-bs-theme="dark"
+    >
+     <nav className={styles.nav}>
+          <ul className={styles.menuBarList}>
+            {navLinks.map((item, index) => (
+              <li key={index}>
+                <RouterLink
+                  unstable_viewTransition
+                  prefetch="intent"
+                  to={item.pathname}
+                  data-navbar-item
+                  aria-current={getCurrent(item.pathname)}
+                  onClick={handleNavItemClick}
+                  className={styles.navLink}
+                >
+            <MenuButton
+                    item={item}
+                    isActive={activeItem === item.pathname}
+                    onClick={() => handleNavItemClick}
+                  />
+                </RouterLink>
+         </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <NavbarIcons desktop />
       <Transition unmount in={menuOpen} timeout={msToNum(tokens.base.durationL)}>
         {({ visible, nodeRef }) => (
           <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
@@ -141,30 +153,10 @@ const NavbarIcons = ({ desktop }) => (
   </div>
 );
 
+export default MenuBar;
+
 
 /* OLD CODE
 
-const handleClick = (item: MenuItem) => {
-    if (onSelect) {
-      onSelect(item);
-    }
-  };
-<div
-      className={styles.menuBarContainer}      
-      style={{ backgroundColor }}
-      data-bs-theme="dark"
-    >
-      <nav className={styles.menuBar}>
-        <ul className={styles.menuBarList}>
-          {items.map((item, index) => (
-            <MenuButton
-              key={index}
-              item={item}
-              isActive={activeItem === item.label}
-              onClick={handleClick}              
-            />
-          ))}
-        </ul>
-      </nav>
-    </div>
+
     */

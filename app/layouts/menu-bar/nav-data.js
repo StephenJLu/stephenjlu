@@ -2,20 +2,24 @@ import config from '~/config.json';
 
 export const navLinks = [
   {
+    label: 'Home',
+    pathname: '/#home',
+  },
+  {
+    label: 'About',
+    pathname: '/#about',
+  },
+  {
+    label: 'Ledger',
+    pathname: 'https://ledger.StephenJLu.com',
+  },
+  {
     label: 'Projects',
-    pathname: '/#project-1',
-  },
-  {
-    label: 'Details',
-    pathname: '/#details',
-  },
-  {
-    label: 'Articles',
-    pathname: '/articles',
+    pathname: '/#projects',
   },
   {
     label: 'Contact',
-    pathname: '/contact',
+    pathname: '#home',
   },
 ];
 

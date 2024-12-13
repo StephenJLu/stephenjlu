@@ -1,9 +1,11 @@
 @layer layout {
 
 .menuBarContainer {
+--headerNavFontSize: calc((16 / 16) * 1rem);  
   width: auto;
-  position: fixed; 
-  top: 0;
+  position: fixed;
+  isolation: isolate; 
+  top: 10px;
   left: 50%; 
   transform: translateX(-50%);  
   display: flex;
@@ -12,28 +14,28 @@
   padding: 0;
   border: none;
   border-radius: 30px;
-  z-index: 1;
-  transition: width 0.3s ease;
-}
 
-.menuBar {  
-  display: flex;
-  justify-content: center;      
-  align-items: center;
-  padding: 10px;
-  color: white;
-  border-radius: 30px;
+  @media (--mediaMobile) {
+      --headerNavFontSize: calc((22 / 16) * 1rem);
+    }
+
+    @media (--mediaMobile), (--mediaMobileLS) {
+      bottom: auto;
+    }
+
+
 }
 
 .menuBarList {
   list-style: none;
   display: flex;
+  flex-direction: row;
   gap: 20px;
   padding: 0;
   margin: 0;
 }
 
-@layer layout {
+
   .navbar {
     --headerNavFontSize: calc((16 / 16) * 1rem);
 
@@ -70,13 +72,7 @@
     }
   }
 
-  .nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1 1 auto;
-    max-width: var(--space2XL);
+  .nav {    
 
     @media (--mediaMobile), (--mediaMobileLS) {
       display: none;
@@ -267,7 +263,4 @@
       transform: none;
     }
   }
-}
-
-
 }
