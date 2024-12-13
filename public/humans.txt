@@ -14,7 +14,11 @@ and graphic assets behind this site. Learn more at humanstxt.org.
 
 _______________________________________________________________________________
 
-DESIGNER | 0100010001100101011100110110100101100111011011100110010101110010
+DESIGNER 
+01000100 01100101
+01110011 01101001
+01100111 01101110
+01100101 01110010
 
 Stephen J. Lu
 Web Design & Development for the Public Good
@@ -27,20 +31,30 @@ Design tools:
 Figma
 Photoshop
 Illustrator
+After Effects
 
 Inspiration:
 Hamish Williams
 hamishw.com
 _______________________________________________________________________________
 
-TECHNOLOGY | 01010100011001010110001101101000011011100110111101101100011011110110011101111001
+TECHNOLOGY
+01010100 01100101
+01100011 01101000
+01101110 01101111
+01101100 01101111
+01100111 01111001
 
 React
 Remix
-Framer Motion
+Motion
 _______________________________________________________________________________
 
-FONTS | 0100011001101111011011100111010001110011
+FONTS
+01000110 01101111
+01101110 01110100
+01110011 00000000
 
-Atlas Grotesk
-Operator Mono
+Atlas Grotesk - Atlas Grotesk is a clean and fresh sans serif with relatively long ascenders but short descenders. This allows the typeface to feel spacious and comfortable for extended reading even when set with tight leading. The aesthetic of Atlas was inspired in large part by the sans serifs of the 1950s, specifically Dick Dooijes’s Mercator, released by the Amsterdam Type Foundry in 1957. However, while Atlas takes most of its stylistic cues from Europe, its vertical proportions and contrast have more in common with American gothics, and it sets more like Trade Gothic or Franklin Gothic than like Neue Haas Grotesk or Univers.
+
+Operator Mono - Operator Mono is in the family of fixed-width typefaces, with a broader range of weights than a typical typewriter face, and an italic that positively shines in code. Its more editorial companion is the natural-width Operator family, which offers the voice of typewriting but none of the compromises.
