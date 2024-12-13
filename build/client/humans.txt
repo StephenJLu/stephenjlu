@@ -1,0 +1,46 @@
+
+ _________________       
+(  ____ \__    _( \      
+| (    \/  )  ( | (      
+| (_____   |  | | |      
+(_____  )  |  | | |      
+      ) |  |  | | |      
+/\____) |\_)  ) | (____/\
+\_______(____/  (_______/
+                         
+
+The humans.txt file explains the team, technology,
+and graphic assets behind this site. Learn more at humanstxt.org.
+
+_______________________________________________________________________________
+
+DESIGNER | 0100010001100101011100110110100101100111011011100110010101110010
+
+Stephen J. Lu
+Web Design & Development for the Public Good
+
+bsky.app/profile/stephenjlu.com
+github.com/StephenJLu
+
+
+Design tools:
+Figma
+Photoshop
+Illustrator
+
+Inspiration:
+Hamish Williams
+hamishw.com
+_______________________________________________________________________________
+
+TECHNOLOGY | 01010100011001010110001101101000011011100110111101101100011011110110011101111001
+
+React
+Remix
+Framer Motion
+_______________________________________________________________________________
+
+FONTS | 0100011001101111011011100111010001110011
+
+Atlas Grotesk
+Operator Mono
