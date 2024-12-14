@@ -1,8 +1,13 @@
+import React from 'react';
 import { Button, Icon } from '../../components/Components';
 import styles from './nav-toggle.module.css';
 
+interface NavToggleProps {
+  menuOpen: boolean;
+  [key: string]: any; // Allow additional props
+}
 
-export const NavToggle = ({ menuOpen, ...rest }) => {
+export const NavToggle: React.FC<NavToggleProps> = ({ menuOpen, ...rest }) => {
   return (
     <Button
       iconOnly
