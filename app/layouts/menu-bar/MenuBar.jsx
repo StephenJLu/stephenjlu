@@ -44,9 +44,10 @@ useEffect(() => {
   };  
 
   // Store the current hash to scroll to
-  const handleNavItemClick = event => {
+  const handleNavItemClick = (event, item) => {
     const hash = event.currentTarget.href.split('#')[1];
     setTarget(null);
+    setActiveItem(item.label);
 
     if (hash && location.pathname === '/') {
       setTarget(`#${hash}`);
@@ -54,8 +55,8 @@ useEffect(() => {
     }
   };
 
-  const handleMobileNavClick = event => {
-    handleNavItemClick(event);
+  const handleMobileNavClick = (event, item) => {
+    handleNavItemClick(event, item);
     if (menuOpen) setMenuOpen(false);
   };
   
@@ -70,7 +71,7 @@ useEffect(() => {
         data-navbar-item
         className={styles.logo}
         aria-label={`${config.name}, ${config.role}`}
-        onClick={handleMobileNavClick}
+        onClick={(event) => handleMobileNavClick(event, { label: 'Home', pathname: '/' })}
       >
         {/* Add your logo or monogram here */}
       </RouterLink>
@@ -90,13 +91,12 @@ useEffect(() => {
                   to={item.pathname}
                   data-navbar-item
                   aria-current={getCurrent(item.pathname)}
-                  onClick={handleNavItemClick}
+                  onClick={(event) => handleNavItemClick(event, item)}
                   className={styles.navLink}
                 >
             <MenuButton
                     item={item}
-                    isActive={activeItem === item.pathname}
-                    onClick={() => handleNavItemClick}
+                    isActive={activeItem === item.label}                    
                   />
                 </RouterLink>
          </li>

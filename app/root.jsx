@@ -6,6 +6,7 @@ import {
   ScrollRestoration,  
 } from '@remix-run/react';
 import { ThemeProvider, themeStyles } from '~/components/Components';
+import { MenuBar } from './layouts/Layouts';
 import { useEffect } from 'react';
 
 import AtlasGroteskLC from '~/fonts/AGRegular.woff2';
@@ -69,7 +70,8 @@ export default function App() {
         <Links />
       </head>
       <body data-theme={theme}>
-        <ThemeProvider theme={theme}> 
+        <ThemeProvider theme={theme}>
+          <MenuBar /> 
             <main
             id="main-content"
             className={styles.container}
