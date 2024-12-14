@@ -1,6 +1,6 @@
 @layer layout {
 
-.page {  
+.contact {  
   padding-bottom: 100px;
   overflow-x: hidden;  
   line-height: 1.5;
@@ -10,7 +10,7 @@
 
 
 
-.page h1 {
+.contact h1 {
   text-align: left;  
   padding: 100px 0 50px 30px;
   display: inline-block;
@@ -22,7 +22,7 @@
   
 }
 
-.page h2 {
+.contact h2 {
   display: inline-block;
   vertical-align: top;
   margin: 0 50px 0 30px;
@@ -31,29 +31,29 @@
   line-height: 1.5;
 }
 
-.page p {  
+.contact p {  
   font-size: 1rem;
   margin: 50px 50px 50px 50px;
 }
 
-.page a {
+.contact a {
   color: var(--bs-link-color);
   text-decoration: none;
 }
 
 /* Media query for mobile devices */
 @media (max-width: 696px) {
-  .page h1 {
+  .contact h1 {
     font-size: 2.5rem; /* Adjust font size for mobile */
     padding: 50px 0 25px 15px; /* Adjust padding for mobile */
   }
 
-  .page h2 {
+  .contact h2 {
     font-size: 24px; /* Adjust font size for mobile */
     margin: 0 25px 0 15px; /* Adjust margin for mobile */
   }
 
-  .page p {
+  .contact p {
     font-size: 0.875rem; /* Adjust font size for mobile */
     margin: 25px 25px 25px 25px; /* Adjust margin for mobile */
   }

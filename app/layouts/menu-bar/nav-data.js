@@ -4,23 +4,24 @@ export const navLinks = [
   {
     label: 'Home',
     pathname: '/#home',
-  },
+  },    
   {
-    label: 'About',
-    pathname: '/#about',
+    label: 'Projects',
+    pathname: '/#projects',
   },
   {
     label: 'Ledger',
     pathname: 'https://ledger.StephenJLu.com',
   },
   {
-    label: 'Projects',
-    pathname: '/#projects',
+    label: 'About',
+    pathname: '/#about',
   },
   {
     label: 'Contact',
-    pathname: '#contact',
+    pathname: '/contact',
   },
+  
 ];
 
 export const socialLinks = [
