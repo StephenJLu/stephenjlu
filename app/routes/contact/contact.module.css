@@ -1,6 +1,7 @@
 @layer layout {
 
 .contact {  
+  padding-top: 100px;
   padding-bottom: 100px;
   overflow-x: hidden;  
   line-height: 1.5;
@@ -13,8 +14,7 @@
 .contact h1 {
   text-align: left;  
   padding: 100px 0 50px 30px;
-  display: inline-block;
-  vertical-align: top;
+  display: inline-block;  
   margin: 0 0 4px;
   font-weight: 700;
   font-size: 4rem;
@@ -23,8 +23,7 @@
 }
 
 .contact h2 {
-  display: inline-block;
-  vertical-align: top;
+  display: inline-block;  
   margin: 0 50px 0 30px;
   font-weight: 700;
   font-size: 32px;
