@@ -9395,23 +9395,22 @@ const socialLinks = [
     icon: "github"
   }
 ];
-const menuBarContainer = "_menuBarContainer_zhjia_5";
-const menuBarList = "_menuBarList_zhjia_57";
-const menuButton = "_menuButton_zhjia_75";
-const active$4 = "_active_zhjia_75";
-const bounce = "_bounce_zhjia_1";
-const navbar$4 = "_navbar_zhjia_141";
-const logo = "_logo_zhjia_191";
-const nav$4 = "_nav_zhjia_141";
-const navList = "_navList_zhjia_227";
-const navIcons = "_navIcons_zhjia_243";
-const fadeOut = "_fadeOut_zhjia_293";
-const navIconLink = "_navIconLink_zhjia_301";
-const navIcon = "_navIcon_zhjia_243";
-const mobileNav = "_mobileNav_zhjia_343";
-const mobileNavLink = "_mobileNavLink_zhjia_403";
-const link$6 = "_link_zhjia_1";
-const date$6 = "_date_zhjia_1";
+const menuBarContainer = "_menuBarContainer_1l3wx_5";
+const menuBarList = "_menuBarList_1l3wx_57";
+const menuButton = "_menuButton_1l3wx_75";
+const active$4 = "_active_1l3wx_75";
+const bounce = "_bounce_1l3wx_1";
+const navbar$4 = "_navbar_1l3wx_141";
+const logo = "_logo_1l3wx_191";
+const nav$4 = "_nav_1l3wx_141";
+const navList = "_navList_1l3wx_227";
+const navIcons = "_navIcons_1l3wx_243";
+const navIconLink = "_navIconLink_1l3wx_291";
+const navIcon = "_navIcon_1l3wx_243";
+const mobileNav = "_mobileNav_1l3wx_333";
+const mobileNavLink = "_mobileNavLink_1l3wx_393";
+const link$6 = "_link_1l3wx_1";
+const date$6 = "_date_1l3wx_1";
 const styles$4 = {
   menuBarContainer,
   menuBarList,
@@ -9423,21 +9422,19 @@ const styles$4 = {
   nav: nav$4,
   navList,
   navIcons,
-  fadeOut,
   navIconLink,
   navIcon,
   mobileNav,
   mobileNavLink,
   link: link$6,
   date: date$6,
-  "social-media-icons": "_social-media-icons_zhjia_1"
+  "social-media-icons": "_social-media-icons_1l3wx_1"
 };
 const MenuBar = () => {
   const [activeItem, setActiveItem] = useState();
   const [current, setCurrent] = useState();
   const [menuOpen, setMenuOpen] = useState(false);
   const [target, setTarget] = useState();
-  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const headerRef = useRef();
   const scrollToHash = useScrollToHash();
@@ -9472,15 +9469,6 @@ const MenuBar = () => {
     if (menuOpen)
       setMenuOpen(false);
   };
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return /* @__PURE__ */ jsxs("header", { className: styles$4.navbar, ref: headerRef, children: [
     /* @__PURE__ */ jsx(
       Link,
@@ -9496,36 +9484,37 @@ const MenuBar = () => {
       }
     ),
     /* @__PURE__ */ jsx(NavToggle, { onClick: () => setMenuOpen(!menuOpen), menuOpen }),
-    /* @__PURE__ */ jsx(
-      "div",
-      {
-        className: styles$4.menuBarContainer,
-        style: { backgroundColor },
-        "data-bs-theme": "dark",
-        children: /* @__PURE__ */ jsx("nav", { className: styles$4.nav, children: /* @__PURE__ */ jsx("ul", { className: styles$4.menuBarList, children: navLinks.map((item, index) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-          Link,
-          {
-            unstable_viewTransition: true,
-            prefetch: "intent",
-            to: item.pathname,
-            "data-navbar-item": true,
-            className: styles$4.navLink,
-            "aria-current": getCurrent(item.pathname),
-            onClick: (event) => handleNavItemClick(event, item),
-            children: /* @__PURE__ */ jsx(
-              MenuButton$1,
-              {
-                item,
-                isActive: activeItem === item.label,
-                onClick: () => setActiveItem(item.label)
-              }
-            )
-          },
-          item.label
-        ) }, index)) }) })
-      }
-    ),
-    /* @__PURE__ */ jsx(NavbarIcons, { desktop: true, isScrolled }),
+    /* @__PURE__ */ jsxs("nav", { className: styles$4.nav, children: [
+      /* @__PURE__ */ jsx(
+        "div",
+        {
+          className: styles$4.menuBarContainer,
+          style: { backgroundColor },
+          children: /* @__PURE__ */ jsx("ul", { className: styles$4.menuBarList, children: navLinks.map((item, index) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
+            Link,
+            {
+              unstable_viewTransition: true,
+              prefetch: "intent",
+              to: item.pathname,
+              "data-navbar-item": true,
+              className: styles$4.navLink,
+              "aria-current": getCurrent(item.pathname),
+              onClick: (event) => handleNavItemClick(event, item),
+              children: /* @__PURE__ */ jsx(
+                MenuButton$1,
+                {
+                  item,
+                  isActive: activeItem === item.label,
+                  onClick: () => setActiveItem(item.label)
+                }
+              )
+            },
+            item.label
+          ) }, index)) })
+        }
+      ),
+      /* @__PURE__ */ jsx(NavbarIcons, { desktop: true })
+    ] }),
     /* @__PURE__ */ jsx(Transition, { unmount: true, in: menuOpen, timeout: msToNum(tokens.base.durationL), children: ({ visible: visible2, nodeRef }) => /* @__PURE__ */ jsxs("nav", { className: styles$4.mobileNav, "data-visible": visible2, ref: nodeRef, children: [
       navLinks.map((item, index) => /* @__PURE__ */ jsx(
         Link,
@@ -18154,7 +18143,7 @@ const route2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BZV6kcvg.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/components-CoXfU-4-.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-CF2H9Nh_.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/components-CoXfU-4-.js", "/assets/config-WxmHGeie.js"], "css": ["/assets/root-C-g2NOK_.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BSnZu2DL.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/config-WxmHGeie.js"], "css": ["/assets/route-ugzD0io8.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BSnZu2DL.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/config-WxmHGeie.js"], "css": ["/assets/route-ugzD0io8.css"] } }, "url": "/assets/manifest-8b3cbcec.js", "version": "8b3cbcec" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BZV6kcvg.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/components-CoXfU-4-.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-C3W3cpl5.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/components-CoXfU-4-.js", "/assets/config-WxmHGeie.js"], "css": ["/assets/root-DD69VSZr.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BSnZu2DL.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/config-WxmHGeie.js"], "css": ["/assets/route-ugzD0io8.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BSnZu2DL.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/config-WxmHGeie.js"], "css": ["/assets/route-ugzD0io8.css"] } }, "url": "/assets/manifest-6afae275.js", "version": "6afae275" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
