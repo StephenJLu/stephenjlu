@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { TextFade, DecoderText } from "../../components/Components";
 import { useInView } from 'react-intersection-observer';
-import { tokens } from '../../components/Components';
-import { ThemeProvider } from '../../components/Components';
 import styles from "./header.module.css";
 import config from "../../config.json";
 

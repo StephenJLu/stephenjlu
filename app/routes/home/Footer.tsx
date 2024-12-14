@@ -9,7 +9,7 @@ export const Footer = () => {
     <>
     <InViewport>
       {(isInViewport) => (
-        <div className={styles.footer} data-bs-theme="dark">
+        <div className={styles.footer}>
           {isInViewport && (
             <div className={styles.footerContent}>
               <span className={styles.date}>
@@ -23,7 +23,7 @@ export const Footer = () => {
         </div>        
       )}
     </InViewport>
-    <div className={styles.footer} data-bs-theme="dark">
+    <div className={styles.footer}>
           <p>Hand-crafted design by <a href="humans.txt">humans</a>.</p>
           </div>
     </ >

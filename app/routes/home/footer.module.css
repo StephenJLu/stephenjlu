@@ -1,5 +1,5 @@
 @import url('../../global.module.css');
-@layer components
+@layer layout
 {
 
 .footer {

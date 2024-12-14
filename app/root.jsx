@@ -63,13 +63,13 @@ export default function App() {
         <meta name="theme-color" content="#000" />
         <meta
           name="color-scheme"
-          content={theme === 'light' ? 'light dark' : 'dark light'}
+          content={theme === 'dark'}
         />
         <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
         <Meta />
         <Links />
       </head>
-      <body data-theme={theme}>
+      <body data-bs-theme={theme}>
         <ThemeProvider theme={theme}>
           <MenuBar /> 
             <main
