@@ -11,3 +11,4 @@ export { Transition } from './transition/transition';
 export { Button } from './button/button';
 export { Loader } from './loader/loader';
 export { Monogram } from './monogram/monogram';
+export { Section } from './section/section';

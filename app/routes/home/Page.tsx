@@ -2,6 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { baseMeta } from '../../utils/meta';
 import styles from './page.module.css';
 import config from "../../config.json";
+import { Home } from './home';
+import { About } from './about';
+import { Project } from './project';
+import { Contact } from './contact';
 
 
 export const meta = () => {
@@ -12,16 +16,15 @@ export const meta = () => {
 };
 
 export const Page = () => {
- /* const [visibleSections, setVisibleSections] = useState([]);
+  const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
-  const intro = useRef();
-  const projectOne = useRef();
-  const projectTwo = useRef();
-  const projectThree = useRef();
-  const details = useRef();
+  const home = useRef<HTMLElement>(null);
+  const about = useRef<HTMLElement>(null);
+  const project = useRef<HTMLElement>(null);
+  const contact = useRef<HTMLElement>(null);  
   
   useEffect(() => {
-    const sections = [home, about, projects, contact];
+    const sections = [home, about, project, contact];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -53,41 +56,33 @@ export const Page = () => {
       sectionObserver.disconnect();
       indicatorObserver.disconnect();
     };
-
-
   }, [visibleSections]);
-*/
+
+  
+
   return (                                
-      <div className={styles.page} bs-data-theme='dark'>          
-          <div className={`${styles.page} ${styles.container}`}>
-      <section  id="home">        
-        <h1>Hi!</h1> <h2>This new website is still under construction.</h2>
-        <p>I'm currently converting my legacy website to a new, modern, and responsive design, based on <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up.<br /><br />
-        In the meantime, you can find me at my <a href="https://legacy.StephenJLu.com/" target='_blank' rel='noopener noreferrer'>legacy website</a> or on <a href="https://www.linkedin.com/in/stephenjlu/" target='_blank' rel='noopener noreferrer'>LinkedIn</a>.
-          </p>
-      </section>  
-      <section  id="about">
-        <h1>About Me</h1>
-        <h2>This new website is still under construction.</h2>
-        <p>I'm currently converting my legacy website to a new, modern, and responsive design, based on <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up.<br /><br />
-        In the meantime, you can find me at my <a href="https://legacy.StephenJLu.com/" target='_blank' rel='noopener noreferrer'>legacy website</a> or on <a href="https://www.linkedin.com/in/stephenjlu/" target='_blank' rel='noopener noreferrer'>LinkedIn</a>.
-          </p>
-      </section>
-      <section id="projects">
-        <h1>My Projects</h1>
-        <h2>This new website is still under construction.</h2>
-        <p>I'm currently converting my legacy website to a new, modern, and responsive design, based on <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up.<br /><br />
-        In the meantime, you can find me at my <a href="https://legacy.StephenJLu.com/" target='_blank' rel='noopener noreferrer'>legacy website</a> or on <a href="https://www.linkedin.com/in/stephenjlu/" target='_blank' rel='noopener noreferrer'>LinkedIn</a>.
-          </p>
-      </section>                 
-      <section id="contact">
-        <h1>Contact Me</h1>
-        <h2>This new website is still under construction.</h2>
-        <p>I'm currently converting my legacy website to a new, modern, and responsive design, based on <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up.<br /><br />
-        In the meantime, you can find me at my <a href="https://legacy.StephenJLu.com/" target='_blank' rel='noopener noreferrer'>legacy website</a> or on <a href="https://www.linkedin.com/in/stephenjlu/" target='_blank' rel='noopener noreferrer'>LinkedIn</a>.
-          </p>
-      </section>
-      </div>
+      <div className={`${styles.page} ${styles.container}`} bs-data-theme='dark'>                    
+      <Home
+      id="home"
+      sectionRef={home}
+      scrollIndicatorHidden={scrollIndicatorHidden}      
+      />
+      <About
+      id="about"
+      sectionRef={about}
+      scrollIndicatorHidden={scrollIndicatorHidden}      
+      />
+      <Project
+      id="project"
+      sectionRef={project}
+      scrollIndicatorHidden={scrollIndicatorHidden}      
+      />
+      <Contact
+      id="contact"
+      sectionRef={contact}
+      scrollIndicatorHidden={scrollIndicatorHidden}      
+      />
+          
       </div> 
   );
 };
