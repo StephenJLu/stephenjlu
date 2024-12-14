@@ -4,7 +4,7 @@ import styles from './page.module.css';
 import config from "../../config.json";
 import { Home } from './home';
 import { About } from './about';
-import { Project } from './project';
+import { Projects } from './projects';
 import { Contact } from './contact';
 
 
@@ -18,7 +18,7 @@ export const meta = () => {
 export const Page = () => {    
   const home = useRef<HTMLElement>(null);
   const about = useRef<HTMLElement>(null);
-  const project = useRef<HTMLElement>(null);
+  const projects = useRef<HTMLElement>(null);
   const contact = useRef<HTMLElement>(null);
   
   
@@ -29,15 +29,15 @@ export const Page = () => {
       sectionRef={home}
       />
       <About
-      id="home"
+      id="about"
       sectionRef={about}
       />   
-      <Project
-      id="home"
-      sectionRef={project}
+      <Projects
+      id="projects"
+      sectionRef={projects}
       />   
       <Contact
-      id="home"
+      id="contact"
       sectionRef={contact}
       />             
       </div> 
