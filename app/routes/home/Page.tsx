@@ -14,7 +14,7 @@ export const meta = () => {
 export const Page = () => {    
 
   return (                                
-      <div>
+      <div bs-data-theme='dark'>
           <Header />
           <div className={styles.page}>
       <section  id="home">        
