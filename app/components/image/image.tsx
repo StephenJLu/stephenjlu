@@ -1,14 +1,38 @@
-import { Button } from '~/components/button';
-import { Icon } from '~/components/icon';
-import { useTheme } from '~/components/theme-provider';
+import { Button, Icon, useTheme } from '../../components/Components';
 import { useReducedMotion } from 'framer-motion';
-import { useHasMounted, useInViewport } from '~/hooks';
+import { useHasMounted, useInViewport } from '../../hooks';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import { resolveSrcFromSrcSet } from '~/utils/image';
-import { classes, cssProps, numToMs } from '~/utils/style';
+import { resolveSrcFromSrcSet } from '../../utils/image';
+import { classes, cssProps, numToMs } from '../../utils/style';
 import styles from './image.module.css';
 
-export const Image = ({
+interface ImageProps {
+  className?: string;
+  style?: React.CSSProperties;
+  reveal?: boolean;
+  delay?: number;
+  raised?: boolean;
+  src?: string;
+  srcSet?: string;
+  placeholder?: string;
+  alt?: string;
+  sizes?: string;
+  width?: number;
+  height?: number;
+  [key: string]: any; // Allow additional props
+}
+
+interface ImageElementsProps extends ImageProps {
+  onLoad: () => void;
+  loaded: boolean;
+  inViewport: boolean;
+  play?: boolean;
+  restartOnPause?: boolean;
+  noPauseButton?: boolean;
+  cover?: boolean;
+}
+
+export const Image: React.FC<ImageProps> = ({
   className,
   style,
   reveal,
@@ -20,9 +44,9 @@ export const Image = ({
   ...rest
 }) => {
   const [loaded, setLoaded] = useState(false);
-  const { theme } = useTheme();
-  const containerRef = useRef();
-  const src = baseSrc || srcSet.split(' ')[0];
+  const theme = useTheme();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const src = baseSrc || (srcSet ? srcSet.split(' ')[0] : '');
   const inViewport = useInViewport(containerRef, !getIsVideo(src));
 
   const onLoad = useCallback(() => {
@@ -36,7 +60,7 @@ export const Image = ({
       data-reveal={reveal}
       data-raised={raised}
       data-theme={theme}
-      style={cssProps({ delay: numToMs(delay) }, style)}
+      style={cssProps({ delay: numToMs(delay) }, style as { [key: string]: string | number })}
       ref={containerRef}
     >
       <ImageElements
@@ -54,13 +78,13 @@ export const Image = ({
   );
 };
 
-const ImageElements = ({
+const ImageElements: React.FC<ImageElementsProps> = ({
   onLoad,
   loaded,
   inViewport,
   srcSet,
   placeholder,
-  delay,
+  delay = 0,
   src,
   alt,
   play = true,
@@ -76,10 +100,10 @@ const ImageElements = ({
   const reduceMotion = useReducedMotion();
   const [showPlaceholder, setShowPlaceholder] = useState(true);
   const [playing, setPlaying] = useState(!reduceMotion);
-  const [videoSrc, setVideoSrc] = useState();
+  const [videoSrc, setVideoSrc] = useState<string | undefined>(undefined);
   const [videoInteracted, setVideoInteracted] = useState(false);
-  const placeholderRef = useRef();
-  const videoRef = useRef();
+  const placeholderRef = useRef<HTMLImageElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const isVideo = getIsVideo(src);
   const showFullRes = inViewport;
   const hasMounted = useHasMounted();
@@ -102,12 +126,12 @@ const ImageElements = ({
 
     const playVideo = () => {
       setPlaying(true);
-      videoRef.current.play();
+      videoRef.current?.play();
     };
 
     const pauseVideo = () => {
       setPlaying(false);
-      videoRef.current.pause();
+      videoRef.current?.pause();
     };
 
     if (!play) {
@@ -127,17 +151,17 @@ const ImageElements = ({
     }
   }, [inViewport, play, reduceMotion, restartOnPause, videoInteracted, videoSrc]);
 
-  const togglePlaying = event => {
+  const togglePlaying = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     setVideoInteracted(true);
 
-    if (videoRef.current.paused) {
+    if (videoRef.current?.paused) {
       setPlaying(true);
       videoRef.current.play();
     } else {
       setPlaying(false);
-      videoRef.current.pause();
+      videoRef.current?.pause();
     }
   };
 
@@ -210,6 +234,6 @@ const ImageElements = ({
   );
 };
 
-function getIsVideo(src) {
+function getIsVideo(src?: string): boolean {
   return typeof src === 'string' && src.includes('.mp4');
 }
