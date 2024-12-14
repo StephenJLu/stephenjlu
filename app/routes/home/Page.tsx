@@ -1,21 +1,64 @@
-import { Header } from './Header';
-import { Footer } from './Footer';
+import { useEffect, useRef, useState } from 'react';
+import { baseMeta } from '../../utils/meta';
 import styles from './page.module.css';
 import config from "../../config.json";
-import { baseMeta } from '../../utils/meta';
+
 
 export const meta = () => {
   return baseMeta({
     title: `${config.title}`,
-    description: `Projects Portfolio of ${config.name} — Web Design and Development for the Public Good.`,
+    description: `Projects Portfolio of ${config.name} — Web Design and Development for the Public Good`,
   });
 };
 
-export const Page = () => {    
+export const Page = () => {
+ /* const [visibleSections, setVisibleSections] = useState([]);
+  const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
+  const intro = useRef();
+  const projectOne = useRef();
+  const projectTwo = useRef();
+  const projectThree = useRef();
+  const details = useRef();
+  
+  useEffect(() => {
+    const sections = [home, about, projects, contact];
+    const sectionObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const section = entry.target;
+            observer.unobserve(section);
+            if (visibleSections.includes(section)) return;
+            setVisibleSections(prevSections => [...prevSections, section]);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+    );
 
+    const indicatorObserver = new IntersectionObserver(
+      ([entry]) => {
+        setScrollIndicatorHidden(!entry.isIntersecting);
+      },
+      { rootMargin: '-100% 0px 0px 0px' }
+    );
+
+    sections.forEach(section => {
+      sectionObserver.observe(section.current);
+    });
+
+    indicatorObserver.observe(home.current);
+
+    return () => {
+      sectionObserver.disconnect();
+      indicatorObserver.disconnect();
+    };
+
+
+  }, [visibleSections]);
+*/
   return (                                
-      <div bs-data-theme='dark'>
-          <Header />
+      <div className={styles.page} bs-data-theme='dark'>          
           <div className={`${styles.page} ${styles.container}`}>
       <section  id="home">        
         <h1>Hi!</h1> <h2>This new website is still under construction.</h2>
@@ -44,9 +87,7 @@ export const Page = () => {
         In the meantime, you can find me at my <a href="https://legacy.StephenJLu.com/" target='_blank' rel='noopener noreferrer'>legacy website</a> or on <a href="https://www.linkedin.com/in/stephenjlu/" target='_blank' rel='noopener noreferrer'>LinkedIn</a>.
           </p>
       </section>
-      </div>         
-        <Footer />
-      </div>      
-    
+      </div>
+      </div> 
   );
 };
