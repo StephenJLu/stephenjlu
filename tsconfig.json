@@ -7,7 +7,7 @@
     "**/.client/**/*.ts",
     "**/.client/**/*.tsx",
     "tailwind.config.js"
-, "public/_index.bak", "app/routes/home/route.js"  ],
+, "public/_index.bak", "app/routes/home/route.js", "app/layouts/menu-bar/nav-toggle.jsx", "app/components/button/button.jsx", "app/layouts/menu-bar/MenuBar.jsx"  ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "types": ["@remix-run/node", "vite/client"],

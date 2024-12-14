@@ -1,9 +1,16 @@
-import { classes } from '~/utils/style';
+import { classes } from '../../utils/style';
 import styles from './icon.module.css';
 import { forwardRef } from 'react';
 import sprites from './icons.svg';
 
-export const Icon = forwardRef(({ icon, className, size, ...rest }, ref) => {
+interface IconProps {
+  icon: string;
+  className?: string;
+  size?: number;
+  [key: string]: any;
+}
+
+export const Icon = forwardRef<SVGSVGElement, IconProps>(({ icon, className, size, ...rest }, ref) => {
   return (
     <svg
       aria-hidden

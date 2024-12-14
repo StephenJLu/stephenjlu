@@ -1,16 +1,11 @@
-@import url('../../global.module.css');
 @layer components {
 
-.menuButton {
-  list-style: none;
-  display: inline-block;
-  background: none;
+.menuButton {    
   border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 10px 20px;
+  color: 'var(--bg-body-color)';
+  cursor: pointer;  
+  font-weight: 300;
+  padding: 20px 20px 20px 20px;
   border-radius: 3em;
   transition: background-color 0.3s ease;
 }
