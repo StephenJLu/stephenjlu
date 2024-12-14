@@ -12,7 +12,8 @@ export const MenuBar = () => {
   const [activeItem, setActiveItem] = useState();  
   const [current, setCurrent] = useState();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [target, setTarget] = useState();  
+  const [target, setTarget] = useState();
+  const [isScrolled, setIsScrolled] = useState(false);  
   const location = useLocation();  
   const headerRef = useRef();  
   const scrollToHash = useScrollToHash();
@@ -57,6 +58,18 @@ useEffect(() => {
     handleNavItemClick(event, item);
     if (menuOpen) setMenuOpen(false);
   };
+
+  // Handle scroll event to fade out NavbarIcons
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   
     return (
     <header className={styles.navbar} ref={headerRef}>
@@ -102,7 +115,7 @@ useEffect(() => {
           </ul>
         </nav>
       </div>
-      <NavbarIcons desktop />
+      <NavbarIcons desktop isScrolled={isScrolled} />
       <Transition unmount in={menuOpen} timeout={msToNum(tokens.base.durationL)}>
         {({ visible, nodeRef }) => (
           <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
@@ -133,8 +146,8 @@ useEffect(() => {
   );
 };
 
-const NavbarIcons = ({ desktop }) => (
-  <div className={styles.navIcons}>
+const NavbarIcons = ({ desktop, isScrolled }) => (
+  <div className={`${styles.navIcons} ${isScrolled ? styles.fadeOut : ''}`}>
     {socialLinks.map(({ label, url, icon }) => (
       <a
         key={label}
