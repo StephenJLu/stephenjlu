@@ -1,5 +1,6 @@
 import React from 'react';
 import { Section } from '../../components/Components';
+import { baseMeta } from '../../utils/meta';
 import styles from './contact.module.css';
 
 interface ContactProps {
@@ -8,6 +9,14 @@ interface ContactProps {
   scrollIndicatorHidden?: boolean;  
 }
 
+export const meta = () => {
+  return baseMeta({
+    title: 'Contact',
+    description:
+      'Send me a message if you’re interested in discussing a project or if you just want to say hi',
+  });
+};
+
 export const Contact: React.FC<ContactProps> = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {  
   const theme = 'dark';
   const titleId = `${id}-title`;
@@ -15,7 +24,7 @@ export const Contact: React.FC<ContactProps> = ({ id, sectionRef, scrollIndicato
   
   return (
     <Section
-    className={styles.contact}
+    className={styles.page}
       as="section"
       ref={sectionRef}
       id={id}

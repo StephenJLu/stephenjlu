@@ -5,7 +5,7 @@ import config from "../../config.json";
 import { Home } from './home';
 import { About } from './about';
 import { Projects } from './projects';
-import { Contact } from './contact';
+import { Header } from '../../layouts/Layouts'
 
 
 export const meta = () => {
@@ -18,28 +18,26 @@ export const meta = () => {
 export const Page = () => {    
   const home = useRef<HTMLElement>(null);
   const about = useRef<HTMLElement>(null);
-  const projects = useRef<HTMLElement>(null);
-  const contact = useRef<HTMLElement>(null);
+  const projects = useRef<HTMLElement>(null);  
   
   
-  return (                                
-      <div className={`${styles.page} ${styles.container}`} bs-data-theme='dark'>                    
+  return (
+    <div bs-data-theme='dark'>
+      <Header />                               
+      <div className={`${styles.page} ${styles.container}`}>                    
       <Home
       id="home"
       sectionRef={home}
       />
-      <About
-      id="about"
-      sectionRef={about}
-      />   
       <Projects
       id="projects"
       sectionRef={projects}
-      />   
-      <Contact
-      id="contact"
-      sectionRef={contact}
-      />             
+      />  
+      <About
+      id="about"
+      sectionRef={about}
+      />              
+      </div>
       </div> 
   );
 };
