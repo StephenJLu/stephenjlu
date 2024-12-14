@@ -126,6 +126,7 @@
     justify-content: center;
     position: relative;
     z-index: var(--zIndex2);
+    transition: opacity 0.5s ease;
 
     @media (--mediaMobile), (--mediaMobileLS) {
       flex-direction: row;
@@ -141,6 +142,10 @@
       align-items: center;
       justify-content: center;
     }
+  }
+
+  .fadeOut {
+    opacity: 0;
   }
 
   .navIconLink {
