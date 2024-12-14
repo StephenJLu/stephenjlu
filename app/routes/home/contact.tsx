@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section, Transition } from '../../components/Components';
+import { Section } from '../../components/Components';
 import styles from './contact.module.css';
 
 interface ContactProps {
@@ -23,13 +23,13 @@ export const Contact: React.FC<ContactProps> = ({ id, sectionRef, scrollIndicato
       tabIndex={-1}
       {...rest}
       >
-        <Transition in key={theme} timeout={3000} unmount={false}>                           <> 
+                               
         <h1>Hi!</h1> <h2>This new website is still under construction.</h2>
         <p>I'm currently converting my legacy website to a new, modern, and responsive design, based on <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up.<br /><br />
         In the meantime, you can find me at my <a href="https://legacy.StephenJLu.com/" target='_blank' rel='noopener noreferrer'>legacy website</a> or on <a href="https://www.linkedin.com/in/stephenjlu/" target='_blank' rel='noopener noreferrer'>LinkedIn</a>.
           </p>
-          </>          
-</Transition>
+                    
+
     </Section>
        
   );
