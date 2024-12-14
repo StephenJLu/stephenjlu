@@ -9,7 +9,8 @@ import styles from './menuBar.module.css';
 import config from '../../config.json';
 
 export const MenuBar = () => {      
-  const [activeItem, setActiveItem] = useState();
+  const [activeItem, setActiveItem] = useState();  
+  const [current, setCurrent] = useState();
   const [menuOpen, setMenuOpen] = useState(false);
   const [target, setTarget] = useState();  
   const location = useLocation();  
@@ -19,21 +20,26 @@ export const MenuBar = () => {
 
 useEffect(() => {
     // Prevent ssr mismatch by storing this in state
-    setActiveItem(`${location.pathname}${location.hash}`);
+    setCurrent(`${location.pathname}${location.hash}`);
   }, [location]);
 
   // Handle smooth scroll nav items
   useEffect(() => {
     if (!target || location.pathname !== '/') return;
-    setActiveItem(`${location.pathname}${target}`);
+    setCurrent(`${location.pathname}${target}`);
     scrollToHash(target, () => setTarget(null));
   }, [location.pathname, scrollToHash, target]);
 
   // Check if a nav item should be active
   const getCurrent = (url = '') => {
-    const nonTrailing = activeItem?.endsWith('/') ? activeItem.slice(0, -1) : activeItem;
-    return url === nonTrailing ? 'page' : '';
-  }; 
+    const nonTrailing = current?.endsWith('/') ? current?.slice(0, -1) : current;
+
+    if (url === nonTrailing) {
+      return 'page';
+    }
+
+    return '';
+  };
 
   // Handle navigation item click
   const handleNavItemClick = (event, item) => {
@@ -44,11 +50,10 @@ useEffect(() => {
     if (hash && location.pathname === '/') {
       setTarget(`#${hash}`);
       event.preventDefault();
-    }
+    }    
   };
 
-  // Handle mobile navigation item click
-  const handleMobileNavClick = (event, item) => {
+  const handleMobileNavClick = (event,item) => {
     handleNavItemClick(event, item);
     if (menuOpen) setMenuOpen(false);
   };
@@ -80,18 +85,19 @@ useEffect(() => {
                   unstable_viewTransition
                   prefetch="intent"
                   to={item.pathname}
+                  key={item.label}
                   data-navbar-item
+                  className={styles.navLink}
                   aria-current={getCurrent(item.pathname)}
                   onClick={(event) => handleNavItemClick(event, item)}
-                  className={styles.navLink}
                 >
-            <MenuButton
+                  <MenuButton
                     item={item}
                     isActive={activeItem === item.label}
-                    onClick={() => setActiveItem(item.label)}                    
+                    onClick={() => setActiveItem(item.label)}
                   />
                 </RouterLink>
-         </li>
+              </li>
             ))}
           </ul>
         </nav>
