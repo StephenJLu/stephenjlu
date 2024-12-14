@@ -11,7 +11,7 @@ https://www.StephenJLu.com
 
 ## Last Major Update 📆
 
-November 30, 2024
+December 14, 2024
 
 ## Languages Used 💻
 
