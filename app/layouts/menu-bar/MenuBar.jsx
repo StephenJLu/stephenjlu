@@ -69,7 +69,7 @@ useEffect(() => {
         aria-label={`${config.name}, ${config.role}`}
         onClick={(event) => handleMobileNavClick(event, { label: 'Home', pathname: '/' })}
       >
-        <Monogram highlight />
+        <Monogram />
       </RouterLink>
       <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
         <nav className={styles.nav}>
@@ -133,8 +133,8 @@ useEffect(() => {
   );
 };
 
-const NavbarIcons = ({ desktop, isScrolled }) => (
-  <div className={`${styles.navIcons} ${isScrolled ? styles.fadeOut : ''}`}>
+const NavbarIcons = ({ desktop }) => (
+  <div className={styles.navIcons}>
     {socialLinks.map(({ label, url, icon }) => (
       <a
         key={label}

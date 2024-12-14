@@ -109,22 +109,15 @@
     @media (--mediaMobile), (--mediaMobileLS) {
       display: none;
     }
-  }
-
-  .navList {
-    transform: rotate(180deg);
-    display: flex;
-    flex-direction: row-reverse;
-    position: relative;
-    writing-mode: vertical-lr;
-  }
+  } 
 
   .navIcons {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: fixed;
+    bottom: var(--spaceOuter);
     z-index: var(--zIndex2);    
 
     @media (--mediaMobile), (--mediaMobileLS) {
