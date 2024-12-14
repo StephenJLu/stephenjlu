@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { MenuButton, Icon, themes, tokens, Transition, } from '../../components/Components';
+import { MenuButton, Icon, themes, tokens, Transition, Monogram } from '../../components/Components';
 import { useScrollToHash } from '../../hooks';
 import { Link as RouterLink, useLocation } from '@remix-run/react';
 import { cssProps, msToNum, numToMs } from '../../utils/style';
@@ -82,7 +82,7 @@ useEffect(() => {
         aria-label={`${config.name}, ${config.role}`}
         onClick={(event) => handleMobileNavClick(event, { label: 'Home', pathname: '/' })}
       >
-        {/* Add your logo or monogram here */}
+        <Monogram highlight />
       </RouterLink>
       <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
 <div

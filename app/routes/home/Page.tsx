@@ -16,7 +16,7 @@ export const Page = () => {
   return (                                
       <div bs-data-theme='dark'>
           <Header />
-          <div className={styles.page}>
+          <div className={`${styles.page} ${styles.container}`}>
       <section  id="home">        
         <h1>Hi!</h1> <h2>This new website is still under construction.</h2>
         <p>I'm currently converting my legacy website to a new, modern, and responsive design, based on <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up.<br /><br />

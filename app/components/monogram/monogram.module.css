@@ -1,11 +1,11 @@
 @layer components {
   .monogram {
-    fill: var(--textTitle);
+    fill: var(--bs-body-color);
     transition: fill var(--durationL) ease;
   }
 
   .highlight {
-    fill: var(--accent);
+    fill: #FFDE21;
     opacity: 0;
     transform: scale3d(1, 0, 1);
     transform-origin: top;
