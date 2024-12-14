@@ -10,22 +10,23 @@ export interface MenuItem {
 
 interface MenuButtonProps {
   item: MenuItem;
-  isActive?: boolean;   
+  isActive?: boolean;
+  onClick: (item: MenuItem) => void;
 }
 
-const MenuButton: React.FC<MenuButtonProps> = ({ item, isActive }) => {
-  
-  
-  
+const MenuButton: React.FC<MenuButtonProps> = ({ item, isActive, onClick }) => {
+  const handleClick = () => {
+    onClick(item);
+  };
+
   return (
-    <li>
-      <button
-        type="button"        
-        className={`${styles.menuButton} ${isActive ? styles.active : ''}`}
-      >
-        {item.label}
-      </button>
-    </li>
+    <button
+      type="button"
+      onClick={handleClick}
+      className={`${styles.menuButton} ${isActive ? styles.active : ''}`}
+    >
+      {item.label}
+    </button>
   );
 };
 

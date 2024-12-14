@@ -5,13 +5,10 @@ import { Link as RouterLink, useLocation } from '@remix-run/react';
 import { cssProps, msToNum, numToMs } from '../../utils/style';
 import { NavToggle } from './nav-toggle';
 import { navLinks, socialLinks } from './nav-data';
-
 import styles from './menuBar.module.css';
 import config from '../../config.json';
 
-
-export const MenuBar = () => {
-      
+export const MenuBar = () => {      
   const [activeItem, setActiveItem] = useState();
   const [menuOpen, setMenuOpen] = useState(false);
   const [target, setTarget] = useState();  
@@ -34,16 +31,11 @@ useEffect(() => {
 
   // Check if a nav item should be active
   const getCurrent = (url = '') => {
-    const nonTrailing = activeItem?.endsWith('/') ? activeItem?.slice(0, -1) : activeItem;
+    const nonTrailing = activeItem?.endsWith('/') ? activeItem.slice(0, -1) : activeItem;
+    return url === nonTrailing ? 'page' : '';
+  }; 
 
-    if (url === nonTrailing) {
-      return 'page';
-    }
-
-    return '';
-  };  
-
-  // Store the current hash to scroll to
+  // Handle navigation item click
   const handleNavItemClick = (event, item) => {
     const hash = event.currentTarget.href.split('#')[1];
     setTarget(null);
@@ -55,12 +47,11 @@ useEffect(() => {
     }
   };
 
+  // Handle mobile navigation item click
   const handleMobileNavClick = (event, item) => {
     handleNavItemClick(event, item);
     if (menuOpen) setMenuOpen(false);
   };
-  
-
   
     return (
     <header className={styles.navbar} ref={headerRef}>
@@ -96,7 +87,8 @@ useEffect(() => {
                 >
             <MenuButton
                     item={item}
-                    isActive={activeItem === item.label}                    
+                    isActive={activeItem === item.label}
+                    onClick={() => setActiveItem(item.label)}                    
                   />
                 </RouterLink>
          </li>
@@ -108,29 +100,29 @@ useEffect(() => {
       <Transition unmount in={menuOpen} timeout={msToNum(tokens.base.durationL)}>
         {({ visible, nodeRef }) => (
           <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
-            {navLinks.map(({ label, pathname }, index) => (
+            {navLinks.map((item, index) => (
               <RouterLink
                 unstable_viewTransition
                 prefetch="intent"
-                to={pathname}
-                key={label}
+                to={item.pathname}
+                key={item.label}
                 className={styles.mobileNavLink}
                 data-visible={visible}
-                aria-current={getCurrent(pathname)}
-                onClick={handleMobileNavClick}
+                aria-current={getCurrent(item.pathname)}
+                onClick={(event) => handleMobileNavClick(event, item)}
                 style={cssProps({
                   transitionDelay: numToMs(
                     Number(msToNum(tokens.base.durationS)) + index * 50
                   ),
                 })}
               >
-                {label}
+                {item.label}
               </RouterLink>
             ))}
-            <NavbarIcons />            
+            <NavbarIcons />
           </nav>
         )}
-      </Transition>      
+      </Transition>
     </header>
   );
 };
@@ -154,9 +146,3 @@ const NavbarIcons = ({ desktop }) => (
 );
 
 export default MenuBar;
-
-
-/* OLD CODE
-
-
-    */

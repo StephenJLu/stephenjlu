@@ -35,6 +35,38 @@
   margin: 0;
 }
 
+.menuButton.active {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 1);
+  font-weight: 700;  
+  /* Match existing transition */
+  transition: all 0.3s ease;
+}
+
+  /* Ensure hover state doesn't override active state */
+.menuButton.active:hover {
+  background-color: rgba(255, 255, 255, 1);  
+}
+
+
+.menuButton:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+  color: rgba(0, 0, 0, 1);
+  animation: bounce 0.5s; /* Apply the bounce animation on hover */
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
 
   .navbar {
     --headerNavFontSize: calc((16 / 16) * 1rem);
@@ -85,49 +117,6 @@
     flex-direction: row-reverse;
     position: relative;
     writing-mode: vertical-lr;
-  }
-
-  .navLink {
-    padding: var(--spaceM);
-    color: color-mix(in lab, var(--text) 80%, transparent);
-    font-weight: var(--fontWeightMedium);
-    font-size: var(--headerNavFontSize);
-    text-decoration: none;
-    position: relative;
-    transition: color var(--durationS) ease 0.1s;
-    line-height: 1;
-    display: inline-flex;
-    align-items: center;
-
-    &:hover,
-    &:active,
-    &[aria-current='page'] {
-      color: var(--textBody);
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      inset-inline-start: var(--spaceS);
-      inset-inline-end: var(--spaceS);
-      block-size: 4px;
-      background: var(--accent);
-      transform: scaleY(0) translateZ(0);
-      transform-origin: bottom;
-    }
-
-    @media (--mediaUseMotion) {
-      &::after {
-        transition: transform var(--durationM) var(--bezierFastoutSlowin);
-      }
-    }
-
-    &:hover::after,
-    &:active::after,
-    &[aria-current='page']::after {
-      transform: scaleY(1) translateZ(0);
-      transform-origin: top;
-    }
   }
 
   .navIcons {
