@@ -9226,18 +9226,18 @@ function useScrollToHash() {
   );
   return scrollToHash;
 }
-const toggle = "_toggle_h91zx_3";
-const inner = "_inner_h91zx_33";
-const icon = "_icon_h91zx_49";
-const link$7 = "_link_h91zx_1";
-const date$7 = "_date_h91zx_1";
+const toggle = "_toggle_b9xzc_3";
+const inner = "_inner_b9xzc_33";
+const icon = "_icon_b9xzc_49";
+const link$7 = "_link_b9xzc_1";
+const date$7 = "_date_b9xzc_1";
 const styles$5 = {
   toggle,
   inner,
   icon,
   link: link$7,
   date: date$7,
-  "social-media-icons": "_social-media-icons_h91zx_1"
+  "social-media-icons": "_social-media-icons_b9xzc_1"
 };
 const NavToggle = ({ menuOpen, ...rest }) => {
   return /* @__PURE__ */ jsx(
@@ -18107,7 +18107,7 @@ const route2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BZV6kcvg.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/components-CoXfU-4-.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-Cl86ZSYZ.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/components-CoXfU-4-.js", "/assets/config-Cei4TIWC.js"], "css": ["/assets/root-RXGl8dPz.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Di6-OWdM.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/config-Cei4TIWC.js"], "css": ["/assets/route-CBrffHD6.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Di6-OWdM.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/config-Cei4TIWC.js"], "css": ["/assets/route-CBrffHD6.css"] } }, "url": "/assets/manifest-8f12aef3.js", "version": "8f12aef3" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BZV6kcvg.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/components-CoXfU-4-.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-Bwg6I7Qp.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/components-CoXfU-4-.js", "/assets/config-Cei4TIWC.js"], "css": ["/assets/root-6NvE6ix8.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Di6-OWdM.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/config-Cei4TIWC.js"], "css": ["/assets/route-CBrffHD6.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Di6-OWdM.js?client-route=1", "imports": ["/assets/jsx-runtime-3WVvLOaR.js", "/assets/config-Cei4TIWC.js"], "css": ["/assets/route-CBrffHD6.css"] } }, "url": "/assets/manifest-1528f540.js", "version": "1528f540" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
