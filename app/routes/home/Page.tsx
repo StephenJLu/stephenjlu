@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-import { MenuBar } from '../../layouts/Layouts';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import styles from './page.module.css';
