@@ -24,7 +24,7 @@ export const Contact: React.FC<ContactProps> = ({ id, sectionRef, scrollIndicato
   
   return (
     <Section
-    className={styles.page}
+    className={styles.contact}
       as="section"
       ref={sectionRef}
       id={id}
