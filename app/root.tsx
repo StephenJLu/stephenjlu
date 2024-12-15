@@ -3,21 +3,20 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,  
+  ScrollRestoration,
 } from '@remix-run/react';
-import { ThemeProvider, themeStyles } from '~/components/Components';
+import { ThemeProvider, themeStyles } from './components/Components';
 import { MenuBar, Footer } from './layouts/Layouts';
 import { useEffect } from 'react';
 
 import AtlasGroteskLC from '~/fonts/AGRegular.woff2';
 import OperatorMonoLig from '~/fonts/OperatorMono.woff2';
-import config from '~/config.json';
+import config from '../config.json';
 import styles from './root.module.css';
 import './reset.module.css';
 import './global.module.css';
 
-
-export const links = () => [  
+export const links = () => [
   {
     rel: 'preload',
     href: OperatorMonoLig,
@@ -32,7 +31,6 @@ export const links = () => [
     type: 'font/woff2',
     crossOrigin: '',
   },
-  
   { rel: 'manifest', href: '/manifest.json' },
   { rel: 'icon', href: '/favicon.ico' },
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
@@ -40,8 +38,6 @@ export const links = () => [
   { rel: 'apple-touch-icon', href: '/icon-256.png', sizes: '256x256' },
   { rel: 'author', href: '/humans.txt', type: 'text/plain' },
 ];
-
-
 
 export default function App() {
   const theme = 'dark';
@@ -52,7 +48,6 @@ export default function App() {
       `Taking a peek huh? Check out the source code: ${config.repo}\n\n`
     );
   }, []);
-  
 
   return (
     <html lang="en">
@@ -61,30 +56,22 @@ export default function App() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000" />
-        <meta
-          name="color-scheme"
-          content={theme === 'dark'}
-        />
+        <meta name="color-scheme" content={theme === 'dark' ? 'dark' : 'light'} />
         <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
         <Meta />
         <Links />
       </head>
       <body data-bs-theme={theme}>
-        <ThemeProvider theme={theme}>
-          <MenuBar />          
-            <main
-            id="main-content"
-            className={styles.container}
-            tabIndex={-1}            
-          >
+        <ThemeProvider theme={theme} className="">
+          <MenuBar />
+          <main id="main-content" className={styles.container} tabIndex={-1}>
             <Outlet />
             <Footer />
           </main>
-          </ThemeProvider>
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
   );
 }
-

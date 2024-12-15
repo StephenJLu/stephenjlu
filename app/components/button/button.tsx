@@ -1,31 +1,51 @@
+import React, { forwardRef, ReactNode } from 'react';
 import { Icon, Loader, Transition } from '../Components';
 import { Link } from '@remix-run/react';
-import { forwardRef } from 'react';
 import { classes } from '../../utils/style';
 import styles from './button.module.css';
 
-function isExternalLink(href) {
-  return href?.includes('://');
+function isExternalLink(href?: string): boolean {
+  return href?.includes('://') ?? false;
 }
 
-export const Button = forwardRef(({ href, ...rest }, ref) => {
-  if (isExternalLink(href) || !href) {
-    return <ButtonContent href={href} ref={ref} {...rest} />;
+interface ButtonProps {
+  href?: string;
+  className?: string;
+  as?: React.ElementType;
+  secondary?: boolean;
+  loading?: boolean;
+  loadingText?: string;
+  icon?: string;
+  iconEnd?: string;
+  iconHoverShift?: boolean;
+  iconOnly?: boolean;
+  children?: ReactNode;
+  rel?: string;
+  target?: string;
+  disabled?: boolean;
+  [key: string]: any; // Allow additional props
+}
+
+export const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
+  ({ href, ...rest }, ref) => {
+    if (isExternalLink(href) || !href) {
+      return <ButtonContent href={href} ref={ref} {...rest} />;
+    }
+
+    return (
+      <ButtonContent
+        unstable_viewTransition
+        as={Link}
+        prefetch="intent"
+        to={href}
+        ref={ref}
+        {...rest}
+      />
+    );
   }
+);
 
-  return (
-    <ButtonContent
-      unstable_viewTransition
-      as={Link}
-      prefetch="intent"
-      to={href}
-      ref={ref}
-      {...rest}
-    />
-  );
-});
-
-const ButtonContent = forwardRef(
+const ButtonContent = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
   (
     {
       className,
@@ -58,8 +78,8 @@ const ButtonContent = forwardRef(
         data-secondary={secondary}
         data-icon={icon}
         href={href}
-        rel={rel || isExternal ? 'noopener noreferrer' : undefined}
-        target={target || isExternal ? '_blank' : undefined}
+        rel={rel || (isExternal ? 'noopener noreferrer' : undefined)}
+        target={target || (isExternal ? '_blank' : undefined)}
         disabled={disabled}
         ref={ref}
         {...rest}
@@ -82,7 +102,7 @@ const ButtonContent = forwardRef(
           />
         )}
         <Transition unmount in={loading}>
-          {({ visible, nodeRef }) => (
+          {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
             <Loader
               ref={nodeRef}
               className={styles.loader}
@@ -96,3 +116,5 @@ const ButtonContent = forwardRef(
     );
   }
 );
+
+export default Button;
