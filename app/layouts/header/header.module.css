@@ -27,7 +27,7 @@
   background-repeat: no-repeat;
   background-position: top center;
   background-color: transparent;
-  z-index: -1;
+  z-index: -999;
   transition: opacity 0.5s ease;
 }
 
