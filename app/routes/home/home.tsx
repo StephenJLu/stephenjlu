@@ -30,15 +30,17 @@ export const Home: React.FC<HomeProps> = ({ id, sectionRef, scrollIndicatorHidde
           imageUrl={imageUrl}
           rotation={-12}
         />
-        </div>
+        
         <div className={styles.header}>
         <div className={styles.titles}>
           <h1>Hi!</h1>
           <h2>This new website is still under construction.</h2>        
       </div>
+      </div>
       <div className={styles.content}>
         <p>
-          I'm currently converting my legacy website to a new, modern, and responsive design, based on <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up.<br /><br />
+          I'm currently converting my legacy website to a new, modern, and responsive design, based on <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now.
+          I'm working on it. You can check out the <a href="https://storybook.stephenjlu.com/" target='_blank' rel='noopener noreferrer'>Storybook</a> to see the component designs.<br /><br />
           In the meantime, you can find me at my <a href="https://legacy.StephenJLu.com/" target='_blank' rel='noopener noreferrer'>legacy website</a> or on <a href="https://www.linkedin.com/in/stephenjlu/" target='_blank' rel='noopener noreferrer'>LinkedIn</a>.
         </p>
       </div>

@@ -26,4 +26,29 @@
   margin-left: 250px;
 }
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Stack the avatar and titles vertically */
+    align-items: center; /* Center align the items */
+  }
+
+  .avatar {
+    display: block;
+    padding-left: 0; /* Remove left padding */
+    margin-bottom: 20px; /* Add bottom margin */
+  }
+
+  .titles {
+    margin-left: 0; /* Remove left margin */
+    -top: 20px; /* Add top margin */
+    text-align: left; /* Center align the text */
+  }
+
+  .content {
+    margin-left: 0; /* Remove left margin */
+    width: 100%; /* Ensure full width */
+  }
+}
+
 }
