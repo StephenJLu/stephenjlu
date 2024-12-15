@@ -6,7 +6,7 @@ import { resolveSrcFromSrcSet } from '../../utils/image';
 import { classes, cssProps, numToMs } from '../../utils/style';
 import styles from './image.module.css';
 
-interface ImageProps {
+export interface ImageProps {
   className?: string;
   style?: React.CSSProperties;
   reveal?: boolean;

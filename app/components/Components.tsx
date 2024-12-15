@@ -13,4 +13,4 @@ export { Loader } from './loader/loader';
 export { Monogram } from './monogram/monogram';
 export { Section } from './section/section';
 export { Image } from './image/image';
-
+export { default as PolaroidImage } from './image/PolaroidImage';
