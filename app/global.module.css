@@ -223,7 +223,8 @@
   background-size: contain;
   background-repeat: repeat;
   background-position: center center;
-  background-attachment: fixed;         
+  background-attachment: fixed;
+  z-index: -999;         
 }
 
 body::before,
@@ -240,7 +241,7 @@ body::after {
   background-position: center center;
   background-attachment: fixed;   
   transform: rotate(45deg); /* Rotate the background image */
-  z-index: -1;
+  z-index: -999;
 }
 
 body::after {
