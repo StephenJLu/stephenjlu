@@ -4250,7 +4250,7 @@ const TextFade = ({ fadeText, delay: delay2 = 0 }) => {
   return /* @__PURE__ */ jsx("span", { className: `${styles$k.textFade} ${visible2 ? styles$k.visible : ""}`, children: fadeText });
 };
 const TextFade$1 = TextFade;
-async function delay$3(ms) {
+async function delay$2(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 const media = {
@@ -8532,7 +8532,7 @@ const DecoderText = memo(
         renderOutput();
       });
       const startSpring = async () => {
-        await delay$3(startDelay);
+        await delay$2(startDelay);
         decoderSpring.set(content.length);
       };
       if (start && !animation && !reduceMotion) {
@@ -9335,32 +9335,32 @@ const NavToggle = ({ menuOpen, ...rest }) => {
     }
   );
 };
-const name$2 = "Stephen J. Lu";
+const name$1 = "Stephen J. Lu";
 const title = "Web Design and Development for the Public Good";
-const roles$1 = [
+const roles = [
   "Author of CSI to CEO",
   "Web Design and Development for the Public Good",
   "EMBA | SHRM-CP | Phi Beta Kappa"
 ];
-const url$2 = "https://www.stephenjlu.com";
-const bluesky$1 = "stephenjlu.com";
+const url$1 = "https://www.stephenjlu.com";
+const bluesky = "stephenjlu.com";
 const linkedin = "StephenJLu";
-const github$1 = "StephenJLu";
-const repo$1 = "https://github.com/StephenJLu/Stephenjlu/";
-const ascii$1 = "__  __  __\n\\ \\ \\ \\ \\∕\n \\ \\∕\\ \\\n  \\∕  \\∕\n";
-const delay$2 = 500;
-const avatar$1 = "app/static/images/steve.jpg";
-const config$1 = {
-  name: name$2,
+const github = "StephenJLu";
+const repo = "https://github.com/StephenJLu/Stephenjlu/";
+const ascii = "__  __  __\n\\ \\ \\ \\ \\∕\n \\ \\∕\\ \\\n  \\∕  \\∕\n";
+const delay$1 = 500;
+const avatar$1 = "https://legacy.stephenjlu.com/images/steve.jpg";
+const config = {
+  name: name$1,
   title,
-  roles: roles$1,
-  url: url$2,
-  bluesky: bluesky$1,
+  roles,
+  url: url$1,
+  bluesky,
   linkedin,
-  github: github$1,
-  repo: repo$1,
-  ascii: ascii$1,
-  delay: delay$2,
+  github,
+  repo,
+  ascii,
+  delay: delay$1,
   avatar: avatar$1
 };
 const navLinks = [
@@ -9388,17 +9388,17 @@ const navLinks = [
 const socialLinks = [
   {
     label: "Bluesky",
-    url: `https://bsky.app/profile/${config$1.bluesky}`,
+    url: `https://bsky.app/profile/${config.bluesky}`,
     icon: "bluesky"
   },
   {
     label: "LinkedIn",
-    url: `https://www.linkedin.com/in/${config$1.linkedin}`,
+    url: `https://www.linkedin.com/in/${config.linkedin}`,
     icon: "linkedin"
   },
   {
     label: "Github",
-    url: `https://github.com/${config$1.github}`,
+    url: `https://github.com/${config.github}`,
     icon: "github"
   }
 ];
@@ -9483,7 +9483,7 @@ const MenuBar = () => {
         to: location.pathname === "/" ? "/#home" : "/",
         "data-navbar-item": true,
         className: styles$8.logo,
-        "aria-label": `${config$1.name}, ${config$1.role}`,
+        "aria-label": `${config.name}, ${config.role}`,
         onClick: (event) => handleMobileNavClick(event, { label: "Home", pathname: "/" }),
         children: /* @__PURE__ */ jsx(Monogram, {})
       }
@@ -11658,9 +11658,9 @@ const styles$7 = {
   text
 };
 const Header = () => {
-  const fadeText = config$1.name;
-  const roles2 = config$1.roles;
-  const baseDelay = config$1.delay;
+  const fadeText = config.name;
+  const roles2 = config.roles;
+  const baseDelay = config.delay;
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const { ref, inView } = useInView({
     threshold: 0.5
@@ -13781,14 +13781,14 @@ const styles$6 = {
   footer,
   footerContent
 };
-const delay$1 = config$1.delay;
+const delay = config.delay;
 const Footer = () => {
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => /* @__PURE__ */ jsx("div", { className: styles$6.footer, children: isInViewport && /* @__PURE__ */ jsx("div", { className: styles$6.footerContent, children: /* @__PURE__ */ jsx("span", { className: styles$6.date, children: /* @__PURE__ */ jsx(
       TextAnim$1,
       {
-        typeText: `© ${(/* @__PURE__ */ new Date()).getFullYear()} ${config$1.name}. All rights reserved.`,
-        delay: delay$1
+        typeText: `© ${(/* @__PURE__ */ new Date()).getFullYear()} ${config.name}. All rights reserved.`,
+        delay
       }
     ) }) }) }) }),
     /* @__PURE__ */ jsx("div", { className: styles$6.footer, children: /* @__PURE__ */ jsxs("p", { children: [
@@ -13797,63 +13797,6 @@ const Footer = () => {
       "."
     ] }) })
   ] });
-};
-const name$1 = "Stephen J. Lu";
-const roles = [
-  "Author of CSI to CEO",
-  "Retired CSI and Forensic Firearms Examiner",
-  "EMBA | SHRM-CP | Phi Beta Kappa"
-];
-const url$1 = "https://www.stephenjlu.com";
-const bluesky = "stephenjlu.com";
-const figma = "@StephenJLu";
-const github = "StephenJLu";
-const repo = "https://github.com/StephenJLu/Stephenjlu/";
-const ascii = "__  __  __\n\\ \\ \\ \\ \\∕\n \\ \\∕\\ \\\n  \\∕  \\∕\n";
-const delay = 600;
-const menuItems = [
-  {
-    label: "Home",
-    action: "scroll",
-    targetID: "home",
-    url: ""
-  },
-  {
-    label: "About",
-    action: "scroll",
-    targetID: "about",
-    url: ""
-  },
-  {
-    label: "Ledger",
-    action: "open",
-    targetID: "",
-    url: "https://ledger.StephenJLu.com"
-  },
-  {
-    label: "Projects",
-    action: "scroll",
-    targetID: "projects",
-    url: ""
-  },
-  {
-    label: "Contact",
-    action: "open",
-    targetID: "",
-    url: "https://www.StephenJLu.com/contact#main"
-  }
-];
-const config = {
-  name: name$1,
-  roles,
-  url: url$1,
-  bluesky,
-  figma,
-  github,
-  repo,
-  ascii,
-  delay,
-  menuItems
 };
 const container$1 = "_container_1g4r3_3";
 const skip = "_skip_1g4r3_23";
@@ -16025,7 +15968,7 @@ const route0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: App,
   links
 }, Symbol.toStringTag, { value: "Module" }));
-const { name, url } = config$1;
+const { name, url } = config;
 const defaultOgImage = `${url}/social-image.png`;
 function baseMeta({
   title: title2,
@@ -16125,7 +16068,7 @@ const styles$2 = {
 };
 const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   const titleId = `${id}-title`;
-  const { avatar: imageUrl } = config$1;
+  const { avatar: imageUrl } = config;
   return /* @__PURE__ */ jsx(
     Section,
     {
@@ -16283,7 +16226,7 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-B7Js37Bu.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/components-Bo-X3AJU.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-CQy9aieM.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/components-Bo-X3AJU.js", "/assets/config-ImpHnzcG.js", "/assets/use-reduced-motion-Dq7uKRRr.js"], "css": ["/assets/root-Zpladp0x.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-ho8D1fxa.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/config-ImpHnzcG.js", "/assets/section-b7vBXMXQ.js"], "css": ["/assets/section-BS4tjEuO.css", "/assets/route-BvRTP2zj.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-C1AWOScv.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/config-ImpHnzcG.js", "/assets/section-b7vBXMXQ.js", "/assets/use-reduced-motion-Dq7uKRRr.js"], "css": ["/assets/section-BS4tjEuO.css", "/assets/route-CMzJNCWU.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-C1AWOScv.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/config-ImpHnzcG.js", "/assets/section-b7vBXMXQ.js", "/assets/use-reduced-motion-Dq7uKRRr.js"], "css": ["/assets/section-BS4tjEuO.css", "/assets/route-CMzJNCWU.css"] } }, "url": "/assets/manifest-9f88601a.js", "version": "9f88601a" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-B7Js37Bu.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/components-Bo-X3AJU.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-CsOYWz5A.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/components-Bo-X3AJU.js", "/assets/config-DcTjRpxf.js", "/assets/use-reduced-motion-Dq7uKRRr.js"], "css": ["/assets/root-Zpladp0x.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DfVo5o6A.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/config-DcTjRpxf.js", "/assets/section-eTRI5CW-.js"], "css": ["/assets/section-BS4tjEuO.css", "/assets/route-BvRTP2zj.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CTDQ7HLd.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/config-DcTjRpxf.js", "/assets/section-eTRI5CW-.js", "/assets/use-reduced-motion-Dq7uKRRr.js"], "css": ["/assets/section-BS4tjEuO.css", "/assets/route-CMzJNCWU.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CTDQ7HLd.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/config-DcTjRpxf.js", "/assets/section-eTRI5CW-.js", "/assets/use-reduced-motion-Dq7uKRRr.js"], "css": ["/assets/section-BS4tjEuO.css", "/assets/route-CMzJNCWU.css"] } }, "url": "/assets/manifest-c47cae6d.js", "version": "c47cae6d" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";

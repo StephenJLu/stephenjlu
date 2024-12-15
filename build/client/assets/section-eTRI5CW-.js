@@ -1,0 +1,1 @@
+import{r as i,j as a}from"./jsx-runtime-BfF-YriY.js";import{c as n}from"./config-DcTjRpxf.js";const _="_section_1278e_3",r="_link_1278e_1",l="_date_1278e_1",m={section:_,link:r,date:l,"social-media-icons":"_social-media-icons_1278e_1"},x=i.forwardRef(({as:s="div",children:o,className:e,...t},c)=>a.jsx(s,{className:n(m.section,e),ref:c,...t,children:o}));export{x as S};
