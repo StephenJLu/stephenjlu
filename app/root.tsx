@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 
 import AtlasGroteskLC from '~/fonts/AGRegular.woff2';
 import OperatorMonoLig from '~/fonts/OperatorMono.woff2';
-import config from '../config.json';
+import config from './config.json';
 import styles from './root.module.css';
 import './reset.module.css';
 import './global.module.css';
