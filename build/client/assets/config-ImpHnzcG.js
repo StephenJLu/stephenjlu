@@ -1,0 +1,5 @@
+const k={desktop:2080,laptop:1680,tablet:1040,mobile:696,mobileS:400},c=e=>`${e}px`,S=e=>`${e/16}rem`,j=e=>Number(e.replace("ms","")),i=e=>`${e}ms`;function v(e,s={}){let n={};const a=Object.keys(e);for(const o of a){let t=e[o];typeof t=="number"&&o==="delay"&&(t=i(t)),typeof t=="number"&&o!=="opacity"&&(t=c(t)),typeof t=="number"&&o==="opacity"&&(t=`${t*100}%`),n[`--${o}`]=t}return{...n,...s}}function P(...e){return e.filter(Boolean).join(" ")}const l="Stephen J. Lu",p="Web Design and Development for the Public Good",u=["Author of CSI to CEO","Web Design and Development for the Public Good","EMBA | SHRM-CP | Phi Beta Kappa"],r="https://www.stephenjlu.com",m="stephenjlu.com",b="StephenJLu",h="StephenJLu",f="https://github.com/StephenJLu/Stephenjlu/",y=`__  __  __
+\\ \\ \\ \\ \\∕
+ \\ \\∕\\ \\
+  \\∕  \\∕
+`,d=500,g="app/static/images/steve.jpg",_={name:l,title:p,roles:u,url:r,bluesky:m,linkedin:b,github:h,repo:f,ascii:y,delay:d,avatar:g};export{v as a,_ as b,P as c,j as d,k as m,i as n,S as p};
