@@ -31,13 +31,13 @@ export const Home: React.FC<HomeProps> = ({ id, sectionRef, scrollIndicatorHidde
           rotation={-12}
         />
         
-        <div className={styles.header}>
-        <div className={styles.titles}>
+        <div>
+        <div>
           <h1>Hi!</h1>
           <h2>This new website is still under construction.</h2>        
       </div>
       </div>
-      <div className={styles.content}>
+      <div>
         <p>
           I'm currently converting my legacy website to a new, modern, and responsive design, based on <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now.
           I'm working on it. You can check out the <a href="https://storybook.stephenjlu.com/" target='_blank' rel='noopener noreferrer'>Storybook</a> to see the component designs.<br /><br />
