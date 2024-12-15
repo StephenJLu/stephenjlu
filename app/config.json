@@ -12,5 +12,5 @@
   "repo": "https://github.com/StephenJLu/Stephenjlu/",
   "ascii": "__  __  __\n\u005C \u005C \u005C \u005C \u005C\u2215\n \u005C \u005C\u2215\u005C \u005C\n  \u005C\u2215  \u005C\u2215\n",
   "delay": 500,
-  "avatar": "./static/images/steve.jpg"  
+  "avatar": "app/static/images/steve.jpg"  
 }

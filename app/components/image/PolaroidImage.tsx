@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageProps } from './image';
+import { ImageProps } from './image';
 import styles from './polaroidImage.module.css';
 import polaroidFrame from '../../static/images/polaroid.png';
 
