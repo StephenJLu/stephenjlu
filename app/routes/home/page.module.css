@@ -31,13 +31,13 @@
 }
 
 .page p {  
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 50px 50px 50px 50px;
 }
 
 .page a {
-  color: var(--bs-link-color);
-  text-decoration: none;
+  color: var(--accent);
+  text-decoration: dotted;
 }
 
 /* Media query for mobile devices */
@@ -53,7 +53,7 @@
   }
 
   .page p {
-    font-size: 0.875rem; /* Adjust font size for mobile */
+    font-size: 1rem; /* Adjust font size for mobile */
     margin: 25px 25px 25px 25px; /* Adjust margin for mobile */
   }
 }

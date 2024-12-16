@@ -36,8 +36,8 @@
 }
 
 .contact a {
-  color: var(--bs-link-color);
-  text-decoration: none;
+  color: var(--accent);
+  text-decoration: dotted;
 }
 
 /* Media query for mobile devices */

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styles from './textAnim.module.css'
 
 interface TextAnimProps {
   typeText: string;
@@ -21,7 +20,7 @@ const TextAnim: React.FC<TextAnimProps> = ({ typeText, delay = 0 }) => {
     return () => clearTimeout(timer);
   }, [typeText, delay]);
 
-  return <span className={styles.typingText}>{typeText.slice(0, count)}</span>;
+  return <span>{typeText.slice(0, count)}</span>;
 };
 
 export default TextAnim;

@@ -1,8 +1,0 @@
-@import url('../../global.module.css');
-@layer components {
-  .typingText {  
-  display: inline-block;
-  vertical-align: top;
-  line-height: 1; /* Ensure the line height is consistent */
-}
-}
