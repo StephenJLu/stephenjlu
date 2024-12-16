@@ -1,1 +1,0 @@
-import{r,j as a}from"./jsx-runtime-BfF-YriY.js";import{c as i}from"./config-C65m0oQ_.js";const n="_section_1278e_3",m={section:n},f=r.forwardRef(({as:s="div",children:o,className:t,...e},c)=>a.jsx(s,{className:i(m.section,t),ref:c,...e,children:o}));export{f as S};

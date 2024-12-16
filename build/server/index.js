@@ -1,8 +1,8 @@
 import { jsx, jsxs } from "react/jsx-runtime";
-import { RemixServer, Link, useLocation, useNavigate, Meta, Links, Outlet, ScrollRestoration, Scripts } from "@remix-run/react";
+import { RemixServer, Link as Link$1, useLocation, useNavigate, Meta, Links, Outlet, ScrollRestoration, Scripts } from "@remix-run/react";
 import * as isbotModule from "isbot";
 import { renderToReadableStream } from "react-dom/server";
-import React, { useState, useEffect, forwardRef, memo, useRef, createContext, useContext, useCallback } from "react";
+import React, { useState, useEffect, forwardRef, memo, useRef, createContext, useContext, useCallback, Fragment } from "react";
 import { useReducedMotion, useSpring, AnimatePresence, usePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 async function handleRequest(request, responseStatusCode, responseHeaders, remixContext, loadContext) {
@@ -102,7 +102,7 @@ function classes(...classes2) {
   return classes2.filter(Boolean).join(" ");
 }
 const hidden$1 = "_hidden_hww18_7";
-const styles$j = {
+const styles$l = {
   hidden: hidden$1
 };
 const VisuallyHidden = forwardRef(
@@ -110,7 +110,7 @@ const VisuallyHidden = forwardRef(
     return /* @__PURE__ */ jsx(
       Component,
       {
-        className: classes(styles$j.hidden, className),
+        className: classes(styles$l.hidden, className),
         "data-hidden": !visible && !showOnFocus,
         "data-show-on-focus": showOnFocus,
         ref,
@@ -124,7 +124,7 @@ VisuallyHidden.displayName = "VisuallyHidden";
 const text$4 = "_text_162fz_5";
 const glyph = "_glyph_162fz_19";
 const value = "_value_162fz_33";
-const styles$i = {
+const styles$k = {
   text: text$4,
   glyph,
   value
@@ -161,7 +161,7 @@ const DecoderText = memo(
       let animation;
       const renderOutput = () => {
         const characterMap = output.current.map((item) => {
-          return `<span class="${styles$i[item.type]}">${item.value}</span>`;
+          return `<span class="${styles$k[item.type]}">${item.value}</span>`;
         });
         if (containerInstance) {
           containerInstance.innerHTML = characterMap.join("");
@@ -189,9 +189,9 @@ const DecoderText = memo(
         unsubscribeSpring == null ? void 0 : unsubscribeSpring();
       };
     }, [decoderSpring, reduceMotion, start, startDelay, text2]);
-    return /* @__PURE__ */ jsxs("span", { className: classes(styles$i.text, className), ...rest, children: [
-      /* @__PURE__ */ jsx(VisuallyHidden, { className: styles$i.label, children: text2 }),
-      /* @__PURE__ */ jsx("span", { "aria-hidden": true, className: styles$i.content, ref: container2 })
+    return /* @__PURE__ */ jsxs("span", { className: classes(styles$k.text, className), ...rest, children: [
+      /* @__PURE__ */ jsx(VisuallyHidden, { className: styles$k.label, children: text2 }),
+      /* @__PURE__ */ jsx("span", { "aria-hidden": true, className: styles$k.content, ref: container2 })
     ] });
   }
 );
@@ -228,7 +228,7 @@ const InViewport$1 = InViewport;
 const menuButton$1 = "_menuButton_8u4lm_5";
 const active$1 = "_active_8u4lm_25";
 const bounce$1 = "_bounce_8u4lm_1";
-const styles$h = {
+const styles$j = {
   menuButton: menuButton$1,
   active: active$1,
   bounce: bounce$1
@@ -242,7 +242,7 @@ const MenuButton = ({ item, isActive, onClick }) => {
     {
       type: "button",
       onClick: handleClick,
-      className: `${styles$h.menuButton} ${isActive ? styles$h.active : ""}`,
+      className: `${styles$j.menuButton} ${isActive ? styles$j.active : ""}`,
       children: item.label
     }
   );
@@ -569,7 +569,7 @@ const themeStyles = squish(`
   }
 `);
 const icon$2 = "_icon_nm21j_3";
-const styles$g = {
+const styles$i = {
   icon: icon$2
 };
 const sprites = "/assets/icons-D_LJnBDF.svg";
@@ -579,7 +579,7 @@ const Icon = forwardRef(({ icon: icon2, className, size, ...rest }, ref) => {
     {
       "aria-hidden": true,
       ref,
-      className: classes(styles$g.icon, className),
+      className: classes(styles$i.icon, className),
       width: size || 24,
       height: size || 24,
       ...rest,
@@ -667,7 +667,7 @@ const button = "_button_4jwwg_3";
 const text$3 = "_text_4jwwg_263";
 const loader$1 = "_loader_4jwwg_289";
 const icon$1 = "_icon_4jwwg_315";
-const styles$f = {
+const styles$h = {
   button,
   text: text$3,
   loader: loader$1,
@@ -685,7 +685,7 @@ const Button = forwardRef(
       ButtonContent,
       {
         unstable_viewTransition: true,
-        as: Link,
+        as: Link$1,
         prefetch: "intent",
         to: href,
         ref,
@@ -718,7 +718,7 @@ const ButtonContent = forwardRef(
     return /* @__PURE__ */ jsxs(
       Component,
       {
-        className: classes(styles$f.button, className),
+        className: classes(styles$h.button, className),
         "data-loading": loading,
         "data-icon-only": iconOnly,
         "data-secondary": secondary,
@@ -733,17 +733,17 @@ const ButtonContent = forwardRef(
           !!icon2 && /* @__PURE__ */ jsx(
             Icon,
             {
-              className: styles$f.icon,
+              className: styles$h.icon,
               "data-start": !iconOnly,
               "data-shift": iconHoverShift,
               icon: icon2
             }
           ),
-          !!children && /* @__PURE__ */ jsx("span", { className: styles$f.text, children }),
+          !!children && /* @__PURE__ */ jsx("span", { className: styles$h.text, children }),
           !!iconEnd && /* @__PURE__ */ jsx(
             Icon,
             {
-              className: styles$f.icon,
+              className: styles$h.icon,
               "data-end": !iconOnly,
               "data-shift": iconHoverShift,
               icon: iconEnd
@@ -753,7 +753,7 @@ const ButtonContent = forwardRef(
             Loader,
             {
               ref: nodeRef,
-              className: styles$f.loader,
+              className: styles$h.loader,
               size: 32,
               text: loadingText,
               "data-visible": visible
@@ -764,40 +764,13 @@ const ButtonContent = forwardRef(
     );
   }
 );
-const text$2 = "_text_w1gy9_3";
-const styles$e = {
-  text: text$2
-};
-const Text = ({
-  children,
-  size = "m",
-  as: Component = "span",
-  align = "auto",
-  weight = "auto",
-  secondary,
-  className,
-  ...rest
-}) => {
-  return /* @__PURE__ */ jsx(
-    Component,
-    {
-      className: classes(styles$e.text, className),
-      "data-align": align,
-      "data-size": size,
-      "data-weight": weight,
-      "data-secondary": secondary,
-      ...rest,
-      children
-    }
-  );
-};
 const loader = "_loader_11zpc_3";
-const text$1 = "_text_11zpc_33";
+const text$2 = "_text_11zpc_33";
 const span = "_span_11zpc_85";
 const loaderSpan = "_loaderSpan_11zpc_1";
-const styles$d = {
+const styles$g = {
   loader,
-  text: text$1,
+  text: text$2,
   span,
   loaderSpan
 };
@@ -805,24 +778,24 @@ const Loader = forwardRef(
   ({ className, style, width = 32, height = 4, text: text2 = "Loading...", center, ...rest }, ref) => {
     const reduceMotion = useReducedMotion();
     if (reduceMotion) {
-      return /* @__PURE__ */ jsx(Text, { className: classes(styles$d.text, className), weight: "medium", ...rest, children: text2 });
+      return /* @__PURE__ */ jsx(Text, { className: classes(styles$g.text, className), weight: "medium", ...rest, children: text2 });
     }
     return /* @__PURE__ */ jsx(
       "div",
       {
         ref,
-        className: classes(styles$d.loader, className),
+        className: classes(styles$g.loader, className),
         "data-center": center,
         style: cssProps({ width, height }, style),
         ...rest,
-        children: /* @__PURE__ */ jsx("div", { className: styles$d.span })
+        children: /* @__PURE__ */ jsx("div", { className: styles$g.span })
       }
     );
   }
 );
 const b = "_b_1lp8r_3";
 const c = "_c_1lp8r_11";
-const styles$c = {
+const styles$f = {
   b,
   c
 };
@@ -837,18 +810,18 @@ const Monogram = () => {
       height: "50",
       viewBox: "0 0 50 50",
       children: [
-        /* @__PURE__ */ jsx("path", { className: styles$c.c, d: "M0,0v50h50V0H0ZM48.38,47.96H1.62V2.04h46.75v45.92Z" }),
-        /* @__PURE__ */ jsx("path", { className: styles$c.b, d: "M31.5,34.71c.11-.03.13-.07.21-.12v-.04h.08v-.04h.08v-.04h.17v-.04c.13-.04.46.06.54.08.19.05.38-.07.54-.08l.21-.25h.04v-.08l.08-.04v-.12h.04v-.12h.04v-.21h.04v-.33h.04v-3.04c.07-.27.04-.71.04-1.04v-4.21h-.04v-.17c-.01-.49.07-1.13-.04-1.54v-.67c0-.5,0-1.07-.04-1.5l.04-3.08c.07-.26.09-1.42,0-1.67-.05.05-.02,0-.04.08h-.04l-.04.25c-.2.53-.08,1.2-.08,1.83l-.04,3.83v.17h.04v1.62c-.11.38-.04,1-.04,1.46l-.04,2c.09.33.09,1.67,0,2l-.04.62-.29,1.04h-.04v.08h-.04v.12h-.04l-.08.25h-.04v.08h-.04v.08h-.04v.08h-.04l-.08.25-.08.04-.04.17-.12.08v.08l-.08.04v.08l-.12.08v.08l-.12.08v.08l-.33.29v.08l-.29.25-.04.08h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.08.12h-.08l-.04.08-.12.04v.04h-.08l-.04.08-.17.04-.04.08-.17.04-.04.08-.25.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04h-.12v.04h-.08v.04l-.25.04v.04h-.12v.04h-.12v.04h-.12v.04l-.33.04v.04h-.17v.04h-.17v.04h-.17v.04h-.25v.04h-.25v.04h-.37v.04h-.75v.04l-.83-.04v-.04h-.42v-.04l-.83-.08v-.04h-.21v-.04l-.37-.04v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04h-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.08-.12h-.08l-.04-.08h-.08l-.08-.12h-.08l-.12-.17-.33-.29-.04-.12-.29-.25v-.04h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.04.08-.12.04v.04h-.08l-.04.08h-.08l-.04.08-.17.04-.04.08h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04l-.25.04v.04h-.08v.04h-.17v.04h-.12v.04h-.12v.04h-.12v.04h-.17v.04h-.17v.04h-.17v.04h-.17v.04h-.21v.04l-.42.04v.04h-.25v.04h-.29v.04h-.33v.04h-.37v.04h-.5v.04h-1.12v.04l-.87-.04v-.04h-.42v-.04h-.29c-.21-.06-.51-.1-.71-.17h-.21c-.22-.07-.5-.14-.71-.21h-.17v-.04h-.12v-.04h-.12v-.04l-.54-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.37-.12-.04-.08-.17-.04c-.43-.27-.61-.77-1.29-.79-.03.05-.07.06-.08.08v.08h-.04l-.04.37h-.04l-.04.62h-.04l-.08.25-.25.21s-.03.06-.04.08c-.07.05-.09,0-.17.08l-.42.04c-.07-.08-.1-.04-.17-.08l-.12-.17h-.04c-.23-.34-.3-1.48-.17-1.96v-.42h.04v-.33h.04v-.37h.04v-.37h.04v-.37h.04v-.5h.04v-.29h-.04v-.54l-.04-1.08h-.04l-.08-1.54h-.04v-.5h-.04v-.54c-.09-.31-.07-1.04.04-1.29l.25-.33h.08l.04-.08c.08-.05.09,0,.17-.08.29,0,.42.04.62.08l.21.25h.04v.08h.04l.04.17h.04l.04.46h.04v.54c0,.46-.02.99.08,1.33v.21h.04v.12h.04v.17h.04v.08h.04l.04.25h.04v.08h.04v.12h.04l.08.25h.04v.08h.04v.12h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.17h.04v.12h.04l.04.17h.04v.12h.04v.08h.04l.04.17h.04l.12.37.08.04.08.25.08.04v.08l.12.08v.08l.12.08v.08l.12.08v.08l.21.17v.08l.29.25v.08l.37.33.12.17h.08l.12.17h.08l.12.17h.08l.04.08h.08l.04.08.17.04.04.08h.08v.04h.08v.04c.43.19.9.28,1.37.42h.33c.31.09,1.52.09,1.83,0h.37c.25-.07.59-.09.83-.17h.21v-.04h.17v-.04h.17v-.04h.17v-.04h.17v-.04h.12v-.04h.12v-.04h.12v-.04h.08v-.04l.25-.04v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08v-.04h.12v-.04h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04.04-.08h.08l.04-.08h.08l.08-.12h.08l.12-.17h.08l.42-.46c.14-.14.35-.3.37-.54h-.04l-.04-.25h-.04v-.12h-.04v-.12c-.17-.43-.25-.94-.25-1.54l-.04-.5h.04l.04-.33h.04l.08-.25h.04v-.08h.04v-.08l.46-.5h.08l.04-.08h.08v-.04c.12-.07.07.04.12-.12h-.04l-.04-.25h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08l-.08-.04-.04-.17-.17-.12v-.08l-.21-.17-.37-.42h-.08l-.12-.17h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08-.21-.04v-.04h-.08v-.04l-.25-.08v-.04h-.12v-.04h-.08v-.04l-.21-.04v-.04h-.12v-.04h-.08v-.04l-.25-.04v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.21v-.04l-.42-.04v-.04l-.46-.04v-.04h-.33v-.04h-.29v-.04h-.29v-.04h-.29c-.27-.08-.62-.13-.87-.21h-.21v-.04l-.29-.04v-.04l-.29-.04v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04l-.25-.04v-.04l-.25-.08v-.04l-.25-.08-.04-.08h-.08l-.04-.08h-.08l-.08-.12h-.08l-.08-.12h-.08l-.12-.17h-.08l-.29-.33-.12-.08v-.08l-.25-.21v-.08l-.12-.08v-.08l-.08-.04v-.08l-.08-.04v-.08l-.08-.04-.08-.25h-.04v-.08h-.04v-.08h-.04l-.08-.25h-.04l-.29-1.04v-.33c-.15-.55.01-1.32.17-1.71v-.12h.04v-.08h.04v-.12h.04l.04-.17h.04l.04-.17.08-.04.04-.17.08-.04v-.08l.12-.08v-.08l.17-.12v-.08l.29-.25.17-.21h.08l.12-.17h.08l.08-.12.12-.04.04-.08h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04v-.04l.17-.04v-.04h.12v-.04h.08v-.04l.21-.04v-.04l.25-.04v-.04h.08v-.04l1.17-.25h.46c.13-.04.64-.1.83-.04v.04h.33v.04h.25v.04h.25v.04l.33.04v.04h.12v.04h.12v.04h.12v.04h.12v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04h.08v.04l.67.29v.04h.08v.04l.25.08v.04l.25.04v.04h.58v-.04c.25-.11.4-.28.58-.46l.08-.12c.22-.16.49-.21.87-.21v.04h.12l.04.08h.08l.21.29v.12h.04v.12h.04v.21h.04v.37h.04v.5h.04l.04.46h.04l.04.29h.04v.08h.04v.12h.04v.12h.04v.12h.04l.04.25h.04v.08h.04l.04.25h.04v.08h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04l.12.58h.04v.21c.03.08.09.35.04.5h-.04l-.04.21c-.09.05-.09.09-.21.12-.19.18-.59.05-.75-.04h-.08l-.46-.5-.04-.17-.08-.04-.04-.17h-.04l-.04-.12-.08-.04-.04-.17h-.04l-.04-.12-.08-.04v-.08l-.12-.08v-.08l-.42-.37-.04-.12h-.08l-.33-.37-.17-.12v-.08l-.33-.29-.04-.12-.12-.08-.25-.29h-.08l-.12-.17h-.08l-.08-.12h-.08l-.08-.12h-.08v-.04h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04l-.17-.04v-.04h-.12v-.04l-.17-.04v-.04l-.21-.04v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.21v-.04h-.25v-.04l-1.17-.04c-1.17,0-1.96.21-2.54.79l-.17.12v.08l-.08.04-.04.12h-.04v.08h-.04v.08h-.04v.12h-.04v.12c-.15.4-.16.82,0,1.21v.12h.04v.08l.08.04v.08l.08.04.21.25h.08l.08.12.17.04v.04l.25.08v.04h.12v.04h.12v.04h.12v.04h.17v.04h.17v.04h.29v.04h.37v.04h.87v.04h.37v.04h.29c.32.1.73.14,1.04.25l.33.04v.04h.12v.04h.12v.04l.42.08v.04h.08v.04l.25.04v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04l.25.08.04.08.25.08.04.08.25.08v.04l.12.04.04.08.17.04.04.08h.08v.04l.12.04.04.08h.08v.04l.12.04.04.08h.08l.08.12h.08l.04.08h.08l.08.12h.08l.04.08h.04l.04.08h.08l.12.17h.08l.21.25h.08l.37.42.46.42v.08l.21.17v.08l.12.08v.08l.12.08v.08l.12.08v.08l.08.04v.08l.08.04.08.25.08.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.25c.41.95.52,2.25.46,3.54l-.08.62h-.04l-.04.37h-.04l-.04.29h-.04l-.04.25h-.04v.08h-.04v.12h-.04l-.04.21h-.04v.08h-.04v.08h-.04v.08h-.04v.08h-.04v.08l-.08.04-.04.17h-.04v.04h.04l.21.25h.08l.25.29h.08l.12.17h.08l.08.12h.08l.08.12h.08l.04.08h.08l.04.08.17.04.04.08.25.08v.04h.08v.04h.08v.04l.25.08v.04l.25.04v.04h.12v.04h.12v.04h.12v.04h.12v.04h.21v.04h.21v.04h.25v.04h.42v.04h.42c.36,0,.84.04,1.12-.04h.29v-.04h.21v-.04h.17v-.04h.12v-.04h.17c1.81-.71,3.05-2.01,3.71-3.87l.08-.54v-.33c.07-.24.04-.65.04-.96v-1.75l.04-4.83h.04v-.62c.09-.32.04-.85.04-1.25v-2.58l-.04-1.25h-.04v-.12l-.08-.04v-.08l-.17-.12-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08c-.1-.06-.22-.04-.33-.08v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12c-.14-.06-.24-.15-.33-.25l-.08-.04v-.25l.12-.08v-.04h.08l.04-.08.25-.04v-.04c.24-.08,1.04.04,1.21.08h.42c.21.06.59-.03.83.04.07.02.29.09.42.04v-.04h.08v-.04l.29-.04v-.04c.06-.01.37.07.42.08l2,.04c.1-.03.44-.12.58-.08.19.05.59.16.87.08v-.04h1c.25-.07.66.03.92-.04v-.04h.33v.04h.33v.04l.25.04.12.17h.04c.06.09.04.24.04.37-.08.07-.03.1-.08.17l-.29.25-.04.08-.25.08v.04h-.12c-.46.18-1.33.13-1.46.62-.2.18-.12.79-.12,1.17l-.04,2.96v2.21c.07.27.04.71.04,1.04l.04,1.29v2.46h.04v1h.04v.62c0,.5.03,1.11-.04,1.54v1.12c0,1.11,0,2.29.75,2.62.54.24,1.49-.03,2.17.08.45.07,1.07.04,1.58.04.29,0,.66.02.88-.04l.54-.04v-.04h.17v-.04h.12v-.04h.12v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08l.04-.08.17-.04.04-.08h.08l.08-.12h.08l.08-.12h.08l.17-.21h.08l.17-.21h.08l.29-.33.12-.08v-.08l.5-.46c.36-.36.58-.74,1.29-.75.14.15.28.07.29.37.12.13-.04.59-.08.71l-.04.29h-.04v.12h-.04v.12h-.04v.12h-.04v.12h-.04l-.04.25h-.04v.08h-.04l-.04.25h-.04v.08h-.04l-.08.42-.42.92-.08.04v.08l-.29.25-.04.08-.25.08v.04h-.12v.04l-.96-.04v.04c-.47.13-1.01.04-1.58.04-1.19-.04-2.39-.08-3.58-.12v-.04h-1.46v.04c-.23.06-.59-.01-.79.04h-.75v.04h-1c-.06.02.02.03-.04.04h-1v.04c-.23.06-.84-.04-1-.08h-.33v-.04h-.33c-.32-.09-.72-.16-.87-.42-.09-.08-.09-.24-.08-.42.07-.05.14-.15.17-.25Z" })
+        /* @__PURE__ */ jsx("path", { className: styles$f.c, d: "M0,0v50h50V0H0ZM48.38,47.96H1.62V2.04h46.75v45.92Z" }),
+        /* @__PURE__ */ jsx("path", { className: styles$f.b, d: "M31.5,34.71c.11-.03.13-.07.21-.12v-.04h.08v-.04h.08v-.04h.17v-.04c.13-.04.46.06.54.08.19.05.38-.07.54-.08l.21-.25h.04v-.08l.08-.04v-.12h.04v-.12h.04v-.21h.04v-.33h.04v-3.04c.07-.27.04-.71.04-1.04v-4.21h-.04v-.17c-.01-.49.07-1.13-.04-1.54v-.67c0-.5,0-1.07-.04-1.5l.04-3.08c.07-.26.09-1.42,0-1.67-.05.05-.02,0-.04.08h-.04l-.04.25c-.2.53-.08,1.2-.08,1.83l-.04,3.83v.17h.04v1.62c-.11.38-.04,1-.04,1.46l-.04,2c.09.33.09,1.67,0,2l-.04.62-.29,1.04h-.04v.08h-.04v.12h-.04l-.08.25h-.04v.08h-.04v.08h-.04v.08h-.04l-.08.25-.08.04-.04.17-.12.08v.08l-.08.04v.08l-.12.08v.08l-.12.08v.08l-.33.29v.08l-.29.25-.04.08h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.08.12h-.08l-.04.08-.12.04v.04h-.08l-.04.08-.17.04-.04.08-.17.04-.04.08-.25.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04h-.12v.04h-.08v.04l-.25.04v.04h-.12v.04h-.12v.04h-.12v.04l-.33.04v.04h-.17v.04h-.17v.04h-.17v.04h-.25v.04h-.25v.04h-.37v.04h-.75v.04l-.83-.04v-.04h-.42v-.04l-.83-.08v-.04h-.21v-.04l-.37-.04v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04h-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.08-.12h-.08l-.04-.08h-.08l-.08-.12h-.08l-.12-.17-.33-.29-.04-.12-.29-.25v-.04h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.04.08-.12.04v.04h-.08l-.04.08h-.08l-.04.08-.17.04-.04.08h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04l-.25.04v.04h-.08v.04h-.17v.04h-.12v.04h-.12v.04h-.12v.04h-.17v.04h-.17v.04h-.17v.04h-.17v.04h-.21v.04l-.42.04v.04h-.25v.04h-.29v.04h-.33v.04h-.37v.04h-.5v.04h-1.12v.04l-.87-.04v-.04h-.42v-.04h-.29c-.21-.06-.51-.1-.71-.17h-.21c-.22-.07-.5-.14-.71-.21h-.17v-.04h-.12v-.04h-.12v-.04l-.54-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.37-.12-.04-.08-.17-.04c-.43-.27-.61-.77-1.29-.79-.03.05-.07.06-.08.08v.08h-.04l-.04.37h-.04l-.04.62h-.04l-.08.25-.25.21s-.03.06-.04.08c-.07.05-.09,0-.17.08l-.42.04c-.07-.08-.1-.04-.17-.08l-.12-.17h-.04c-.23-.34-.3-1.48-.17-1.96v-.42h.04v-.33h.04v-.37h.04v-.37h.04v-.37h.04v-.5h.04v-.29h-.04v-.54l-.04-1.08h-.04l-.08-1.54h-.04v-.5h-.04v-.54c-.09-.31-.07-1.04.04-1.29l.25-.33h.08l.04-.08c.08-.05.09,0,.17-.08.29,0,.42.04.62.08l.21.25h.04v.08h.04l.04.17h.04l.04.46h.04v.54c0,.46-.02.99.08,1.33v.21h.04v.12h.04v.17h.04v.08h.04l.04.25h.04v.08h.04v.12h.04l.08.25h.04v.08h.04v.12h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.17h.04v.12h.04l.04.17h.04v.12h.04v.08h.04l.04.17h.04l.12.37.08.04.08.25.08.04v.08l.12.08v.08l.12.08v.08l.12.08v.08l.21.17v.08l.29.25v.08l.37.33.12.17h.08l.12.17h.08l.12.17h.08l.04.08h.08l.04.08.17.04.04.08h.08v.04h.08v.04c.43.19.9.28,1.37.42h.33c.31.09,1.52.09,1.83,0h.37c.25-.07.59-.09.83-.17h.21v-.04h.17v-.04h.17v-.04h.17v-.04h.17v-.04h.12v-.04h.12v-.04h.12v-.04h.08v-.04l.25-.04v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08v-.04h.12v-.04h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04.04-.08h.08l.04-.08h.08l.08-.12h.08l.12-.17h.08l.42-.46c.14-.14.35-.3.37-.54h-.04l-.04-.25h-.04v-.12h-.04v-.12c-.17-.43-.25-.94-.25-1.54l-.04-.5h.04l.04-.33h.04l.08-.25h.04v-.08h.04v-.08l.46-.5h.08l.04-.08h.08v-.04c.12-.07.07.04.12-.12h-.04l-.04-.25h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08l-.08-.04-.04-.17-.17-.12v-.08l-.21-.17-.37-.42h-.08l-.12-.17h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08-.21-.04v-.04h-.08v-.04l-.25-.08v-.04h-.12v-.04h-.08v-.04l-.21-.04v-.04h-.12v-.04h-.08v-.04l-.25-.04v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.21v-.04l-.42-.04v-.04l-.46-.04v-.04h-.33v-.04h-.29v-.04h-.29v-.04h-.29c-.27-.08-.62-.13-.87-.21h-.21v-.04l-.29-.04v-.04l-.29-.04v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04l-.25-.04v-.04l-.25-.08v-.04l-.25-.08-.04-.08h-.08l-.04-.08h-.08l-.08-.12h-.08l-.08-.12h-.08l-.12-.17h-.08l-.29-.33-.12-.08v-.08l-.25-.21v-.08l-.12-.08v-.08l-.08-.04v-.08l-.08-.04v-.08l-.08-.04-.08-.25h-.04v-.08h-.04v-.08h-.04l-.08-.25h-.04l-.29-1.04v-.33c-.15-.55.01-1.32.17-1.71v-.12h.04v-.08h.04v-.12h.04l.04-.17h.04l.04-.17.08-.04.04-.17.08-.04v-.08l.12-.08v-.08l.17-.12v-.08l.29-.25.17-.21h.08l.12-.17h.08l.08-.12.12-.04.04-.08h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04v-.04l.17-.04v-.04h.12v-.04h.08v-.04l.21-.04v-.04l.25-.04v-.04h.08v-.04l1.17-.25h.46c.13-.04.64-.1.83-.04v.04h.33v.04h.25v.04h.25v.04l.33.04v.04h.12v.04h.12v.04h.12v.04h.12v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04h.08v.04l.67.29v.04h.08v.04l.25.08v.04l.25.04v.04h.58v-.04c.25-.11.4-.28.58-.46l.08-.12c.22-.16.49-.21.87-.21v.04h.12l.04.08h.08l.21.29v.12h.04v.12h.04v.21h.04v.37h.04v.5h.04l.04.46h.04l.04.29h.04v.08h.04v.12h.04v.12h.04v.12h.04l.04.25h.04v.08h.04l.04.25h.04v.08h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04l.12.58h.04v.21c.03.08.09.35.04.5h-.04l-.04.21c-.09.05-.09.09-.21.12-.19.18-.59.05-.75-.04h-.08l-.46-.5-.04-.17-.08-.04-.04-.17h-.04l-.04-.12-.08-.04-.04-.17h-.04l-.04-.12-.08-.04v-.08l-.12-.08v-.08l-.42-.37-.04-.12h-.08l-.33-.37-.17-.12v-.08l-.33-.29-.04-.12-.12-.08-.25-.29h-.08l-.12-.17h-.08l-.08-.12h-.08l-.08-.12h-.08v-.04h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04l-.17-.04v-.04h-.12v-.04l-.17-.04v-.04l-.21-.04v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.21v-.04h-.25v-.04l-1.17-.04c-1.17,0-1.96.21-2.54.79l-.17.12v.08l-.08.04-.04.12h-.04v.08h-.04v.08h-.04v.12h-.04v.12c-.15.4-.16.82,0,1.21v.12h.04v.08l.08.04v.08l.08.04.21.25h.08l.08.12.17.04v.04l.25.08v.04h.12v.04h.12v.04h.12v.04h.17v.04h.17v.04h.29v.04h.37v.04h.87v.04h.37v.04h.29c.32.1.73.14,1.04.25l.33.04v.04h.12v.04h.12v.04l.42.08v.04h.08v.04l.25.04v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04l.25.08.04.08.25.08.04.08.25.08v.04l.12.04.04.08.17.04.04.08h.08v.04l.12.04.04.08h.08v.04l.12.04.04.08h.08l.08.12h.08l.04.08h.08l.08.12h.08l.04.08h.04l.04.08h.08l.12.17h.08l.21.25h.08l.37.42.46.42v.08l.21.17v.08l.12.08v.08l.12.08v.08l.12.08v.08l.08.04v.08l.08.04.08.25.08.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.25c.41.95.52,2.25.46,3.54l-.08.62h-.04l-.04.37h-.04l-.04.29h-.04l-.04.25h-.04v.08h-.04v.12h-.04l-.04.21h-.04v.08h-.04v.08h-.04v.08h-.04v.08h-.04v.08l-.08.04-.04.17h-.04v.04h.04l.21.25h.08l.25.29h.08l.12.17h.08l.08.12h.08l.08.12h.08l.04.08h.08l.04.08.17.04.04.08.25.08v.04h.08v.04h.08v.04l.25.08v.04l.25.04v.04h.12v.04h.12v.04h.12v.04h.12v.04h.21v.04h.21v.04h.25v.04h.42v.04h.42c.36,0,.84.04,1.12-.04h.29v-.04h.21v-.04h.17v-.04h.12v-.04h.17c1.81-.71,3.05-2.01,3.71-3.87l.08-.54v-.33c.07-.24.04-.65.04-.96v-1.75l.04-4.83h.04v-.62c.09-.32.04-.85.04-1.25v-2.58l-.04-1.25h-.04v-.12l-.08-.04v-.08l-.17-.12-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08c-.1-.06-.22-.04-.33-.08v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12c-.14-.06-.24-.15-.33-.25l-.08-.04v-.25l.12-.08v-.04h.08l.04-.08.25-.04v-.04c.24-.08,1.04.04,1.21.08h.42c.21.06.59-.03.83.04.07.02.29.09.42.04v-.04h.08v-.04l.29-.04v-.04c.06-.01.37.07.42.08l2,.04c.1-.03.44-.12.58-.08.19.05.59.16.87.08v-.04h1c.25-.07.66.03.92-.04v-.04h.33v.04h.33v.04l.25.04.12.17h.04c.06.09.04.24.04.37-.08.07-.03.1-.08.17l-.29.25-.04.08-.25.08v.04h-.12c-.46.18-1.33.13-1.46.62-.2.18-.12.79-.12,1.17l-.04,2.96v2.21c.07.27.04.71.04,1.04l.04,1.29v2.46h.04v1h.04v.62c0,.5.03,1.11-.04,1.54v1.12c0,1.11,0,2.29.75,2.62.54.24,1.49-.03,2.17.08.45.07,1.07.04,1.58.04.29,0,.66.02.88-.04l.54-.04v-.04h.17v-.04h.12v-.04h.12v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08l.04-.08.17-.04.04-.08h.08l.08-.12h.08l.08-.12h.08l.17-.21h.08l.17-.21h.08l.29-.33.12-.08v-.08l.5-.46c.36-.36.58-.74,1.29-.75.14.15.28.07.29.37.12.13-.04.59-.08.71l-.04.29h-.04v.12h-.04v.12h-.04v.12h-.04v.12h-.04l-.04.25h-.04v.08h-.04l-.04.25h-.04v.08h-.04l-.08.42-.42.92-.08.04v.08l-.29.25-.04.08-.25.08v.04h-.12v.04l-.96-.04v.04c-.47.13-1.01.04-1.58.04-1.19-.04-2.39-.08-3.58-.12v-.04h-1.46v.04c-.23.06-.59-.01-.79.04h-.75v.04h-1c-.06.02.02.03-.04.04h-1v.04c-.23.06-.84-.04-1-.08h-.33v-.04h-.33c-.32-.09-.72-.16-.87-.42-.09-.08-.09-.24-.08-.42.07-.05.14-.15.17-.25Z" })
       ]
     }
   );
 };
 const section = "_section_1278e_3";
-const styles$b = {
+const styles$e = {
   section
 };
 const Section = forwardRef(
-  ({ as: Component = "div", children, className, ...rest }, ref) => /* @__PURE__ */ jsx(Component, { className: classes(styles$b.section, className), ref, ...rest, children })
+  ({ as: Component = "div", children, className, ...rest }, ref) => /* @__PURE__ */ jsx(Component, { className: classes(styles$e.section, className), ref, ...rest, children })
 );
 function useScrollToHash() {
   const scrollTimeout = useRef();
@@ -883,7 +856,7 @@ function useScrollToHash() {
 const polaroid = "_polaroid_13dug_1";
 const image = "_image_13dug_21";
 const frame = "_frame_13dug_43";
-const styles$a = {
+const styles$d = {
   polaroid,
   image,
   frame
@@ -893,18 +866,101 @@ const PolaroidImage = ({
   imageUrl,
   rotation = -12
 }) => {
-  return /* @__PURE__ */ jsxs("div", { className: styles$a.polaroid, style: { transform: `rotate(${rotation}deg)` }, children: [
-    /* @__PURE__ */ jsx("div", { className: styles$a.image, style: { backgroundImage: `url(${imageUrl})` } }),
+  return /* @__PURE__ */ jsxs("div", { className: styles$d.polaroid, style: { transform: `rotate(${rotation}deg)` }, children: [
+    /* @__PURE__ */ jsx("div", { className: styles$d.image, style: { backgroundImage: `url(${imageUrl})` } }),
     /* @__PURE__ */ jsx(
       "div",
       {
-        className: styles$a.frame,
+        className: styles$d.frame,
         style: { backgroundImage: `url(${polaroidFrame})` }
       }
     )
   ] });
 };
 const PolaroidImage$1 = PolaroidImage;
+const heading = "_heading_8oupr_3";
+const styles$c = {
+  heading
+};
+const Heading = ({
+  children,
+  level = 1,
+  as,
+  align = "auto",
+  weight = "medium",
+  className,
+  ...rest
+}) => {
+  const clampedLevel = Math.min(Math.max(level, 0), 5);
+  const Component = as || `h${Math.max(clampedLevel, 1)}`;
+  return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(
+    Component,
+    {
+      className: classes(styles$c.heading, className),
+      "data-align": align,
+      "data-weight": weight,
+      "data-level": clampedLevel,
+      ...rest,
+      children
+    }
+  ) });
+};
+const link = "_link_tnqw4_3";
+const styles$b = {
+  link
+};
+const VALID_EXT = ["txt", "png", "jpg"];
+function isAnchor(href) {
+  const isValidExtension = VALID_EXT.includes(href == null ? void 0 : href.split(".").pop());
+  return (href == null ? void 0 : href.includes("://")) || (href == null ? void 0 : href[0]) === "#" || isValidExtension;
+}
+const Link = forwardRef(
+  ({ rel, target, children, secondary, className, href, ...rest }, ref) => {
+    const isExternal = href == null ? void 0 : href.includes("://");
+    const relValue = rel || (isExternal ? "noreferrer noopener" : void 0);
+    const targetValue = target || (isExternal ? "_blank" : void 0);
+    const linkProps = {
+      className: classes(styles$b.link, className),
+      ["data-secondary"]: secondary,
+      rel: relValue,
+      href,
+      target: targetValue,
+      ref,
+      ...rest
+    };
+    if (isAnchor(href)) {
+      return /* @__PURE__ */ jsx("a", { ...linkProps, href, children });
+    }
+    return /* @__PURE__ */ jsx(Link$1, { unstable_viewTransition: true, prefetch: "intent", ...linkProps, to: href, children });
+  }
+);
+const text$1 = "_text_w1gy9_3";
+const styles$a = {
+  text: text$1
+};
+const Text = ({
+  children,
+  size = "m",
+  as: Component = "span",
+  align = "auto",
+  weight = "auto",
+  secondary,
+  className,
+  ...rest
+}) => {
+  return /* @__PURE__ */ jsx(
+    Component,
+    {
+      className: classes(styles$a.text, className),
+      "data-align": align,
+      "data-size": size,
+      "data-weight": weight,
+      "data-secondary": secondary,
+      ...rest,
+      children
+    }
+  );
+};
 const toggle = "_toggle_1asy4_3";
 const inner = "_inner_1asy4_33";
 const icon = "_icon_1asy4_49";
@@ -941,7 +997,8 @@ const name$1 = "Stephen J. Lu";
 const title = "Stephen J. Lu | Web Design and Development for the Public Good";
 const roles = [
   "Author of CSI to CEO",
-  "Web Design and Development for the Public Good",
+  "Web Design and Development",
+  "for the Public Good",
   "EMBA | SHRM-CP | Phi Beta Kappa"
 ];
 const url$1 = "https://www.stephenjlu.com";
@@ -1073,7 +1130,7 @@ const MenuBar = () => {
   };
   return /* @__PURE__ */ jsxs("header", { className: styles$8.navbar, ref: headerRef, "data-theme": "dark", children: [
     /* @__PURE__ */ jsx(
-      Link,
+      Link$1,
       {
         unstable_viewTransition: true,
         prefetch: "intent",
@@ -1093,7 +1150,7 @@ const MenuBar = () => {
           className: styles$8.menuBarContainer,
           style: { backgroundColor },
           children: /* @__PURE__ */ jsx("ul", { className: styles$8.menuBarList, children: navLinks.map((item, index) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-            Link,
+            Link$1,
             {
               unstable_viewTransition: true,
               prefetch: "intent",
@@ -1119,7 +1176,7 @@ const MenuBar = () => {
     ] }),
     /* @__PURE__ */ jsx(Transition, { unmount: true, in: menuOpen, timeout: msToNum(tokens.base.durationL), children: ({ visible, nodeRef }) => /* @__PURE__ */ jsxs("nav", { className: styles$8.mobileNav, "data-visible": visible, ref: nodeRef, children: [
       navLinks.map((item, index) => /* @__PURE__ */ jsx(
-        Link,
+        Link$1,
         {
           unstable_viewTransition: true,
           prefetch: "intent",
@@ -1319,7 +1376,7 @@ function baseMeta({
     { property: "twitter:image", content: ogImage }
   ];
 }
-const contact = "_contact_dw9l3_5";
+const contact = "_contact_wm18l_5";
 const styles$4 = {
   contact
 };
@@ -1331,7 +1388,7 @@ const meta = () => {
 };
 const Contact = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   const titleId = `${id}-title`;
-  return /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsxs(
     Section,
     {
       className: styles$4.contact,
@@ -1341,25 +1398,24 @@ const Contact = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
       "aria-labelledby": titleId,
       tabIndex: -1,
       ...rest,
-      children: /* @__PURE__ */ jsxs("div", { "data-theme": "dark", children: [
-        /* @__PURE__ */ jsx("h1", { children: "Contact Me" }),
-        " ",
-        /* @__PURE__ */ jsx("h2", { children: "This new website is still under construction." }),
-        /* @__PURE__ */ jsxs("p", { children: [
+      children: [
+        /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Contact Me" }),
+        /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
+        /* @__PURE__ */ jsxs(Text, { as: "p", children: [
           "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-          /* @__PURE__ */ jsx("a", { href: "https://react.dev/", target: "_blank", rel: "noopener noreferrer", children: "React" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
           ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
-          /* @__PURE__ */ jsx("a", { href: "https://storybook.stephenjlu.com/", target: "_blank", rel: "noopener noreferrer", children: "Storybook" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
           " to see the component designs.",
           /* @__PURE__ */ jsx("br", {}),
           /* @__PURE__ */ jsx("br", {}),
           "In the meantime, you can find me at my ",
-          /* @__PURE__ */ jsx("a", { href: "https://legacy.StephenJLu.com/", target: "_blank", rel: "noopener noreferrer", children: "legacy website" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
           " or on ",
-          /* @__PURE__ */ jsx("a", { href: "https://www.linkedin.com/in/stephenjlu/", target: "_blank", rel: "noopener noreferrer", children: "LinkedIn" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
           "."
         ] })
-      ] })
+      ]
     }
   );
 };
@@ -1379,7 +1435,7 @@ const styles$2 = {
 const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   const titleId = `${id}-title`;
   const { avatar: imageUrl } = config;
-  return /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsxs(
     Section,
     {
       className: styles$2.home,
@@ -1389,7 +1445,7 @@ const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
       "aria-labelledby": titleId,
       tabIndex: -1,
       ...rest,
-      children: /* @__PURE__ */ jsxs("div", { className: styles$2.avatar, children: [
+      children: [
         /* @__PURE__ */ jsx(
           PolaroidImage$1,
           {
@@ -1397,25 +1453,23 @@ const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
             rotation: -12
           }
         ),
-        /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx("h1", { children: "Hi!" }),
-          /* @__PURE__ */ jsx("h2", { children: "This new website is still under construction." })
-        ] }) }),
-        /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsxs("p", { children: [
+        /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Hi!" }),
+        /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
+        /* @__PURE__ */ jsxs(Text, { as: "p", children: [
           "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-          /* @__PURE__ */ jsx("a", { href: "https://react.dev/", target: "_blank", rel: "noopener noreferrer", children: "React" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
           ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
-          /* @__PURE__ */ jsx("a", { href: "https://storybook.stephenjlu.com/", target: "_blank", rel: "noopener noreferrer", children: "Storybook" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
           " to see the component designs.",
           /* @__PURE__ */ jsx("br", {}),
           /* @__PURE__ */ jsx("br", {}),
           "In the meantime, you can find me at my ",
-          /* @__PURE__ */ jsx("a", { href: "https://legacy.StephenJLu.com/", target: "_blank", rel: "noopener noreferrer", children: "legacy website" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
           " or on ",
-          /* @__PURE__ */ jsx("a", { href: "https://www.linkedin.com/in/stephenjlu/", target: "_blank", rel: "noopener noreferrer", children: "LinkedIn" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
           "."
-        ] }) })
-      ] })
+        ] })
+      ]
     }
   );
 };
@@ -1436,19 +1490,20 @@ const About = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
       tabIndex: -1,
       ...rest,
       children: [
-        /* @__PURE__ */ jsx("h1", { children: "About Me" }),
-        " ",
-        /* @__PURE__ */ jsx("h2", { children: "This new website is still under construction." }),
-        /* @__PURE__ */ jsxs("p", { children: [
+        /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "About Me" }),
+        /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
+        /* @__PURE__ */ jsxs(Text, { as: "p", children: [
           "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-          /* @__PURE__ */ jsx("a", { href: "https://react.dev/", target: "_blank", rel: "noopener noreferrer", children: "React" }),
-          ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up.",
+          /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
+          ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
+          /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
+          " to see the component designs.",
           /* @__PURE__ */ jsx("br", {}),
           /* @__PURE__ */ jsx("br", {}),
           "In the meantime, you can find me at my ",
-          /* @__PURE__ */ jsx("a", { href: "https://legacy.StephenJLu.com/", target: "_blank", rel: "noopener noreferrer", children: "legacy website" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
           " or on ",
-          /* @__PURE__ */ jsx("a", { href: "https://www.linkedin.com/in/stephenjlu/", target: "_blank", rel: "noopener noreferrer", children: "LinkedIn" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
           "."
         ] })
       ]
@@ -1472,19 +1527,20 @@ const Projects = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
       tabIndex: -1,
       ...rest,
       children: [
-        /* @__PURE__ */ jsx("h1", { children: "Projects" }),
-        " ",
-        /* @__PURE__ */ jsx("h2", { children: "This new website is still under construction." }),
-        /* @__PURE__ */ jsxs("p", { children: [
+        /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Projects" }),
+        /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
+        /* @__PURE__ */ jsxs(Text, { as: "p", children: [
           "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-          /* @__PURE__ */ jsx("a", { href: "https://react.dev/", target: "_blank", rel: "noopener noreferrer", children: "React" }),
-          ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up.",
+          /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
+          ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
+          /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
+          " to see the component designs.",
           /* @__PURE__ */ jsx("br", {}),
           /* @__PURE__ */ jsx("br", {}),
           "In the meantime, you can find me at my ",
-          /* @__PURE__ */ jsx("a", { href: "https://legacy.StephenJLu.com/", target: "_blank", rel: "noopener noreferrer", children: "legacy website" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
           " or on ",
-          /* @__PURE__ */ jsx("a", { href: "https://www.linkedin.com/in/stephenjlu/", target: "_blank", rel: "noopener noreferrer", children: "LinkedIn" }),
+          /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
           "."
         ] })
       ]
@@ -1526,7 +1582,7 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-B7Js37Bu.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/components-Bo-X3AJU.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-DVEZoz34.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/components-Bo-X3AJU.js", "/assets/config-C65m0oQ_.js", "/assets/use-reduced-motion-Dq7uKRRr.js"], "css": ["/assets/root-t6-ZEUN7.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-2zrO2Jg3.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/config-C65m0oQ_.js", "/assets/section-CABaBPFM.js"], "css": ["/assets/section-BS4tjEuO.css", "/assets/route-C2sy_hNT.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-C6quKOXH.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/config-C65m0oQ_.js", "/assets/section-CABaBPFM.js", "/assets/use-reduced-motion-Dq7uKRRr.js"], "css": ["/assets/section-BS4tjEuO.css", "/assets/route-DqF8sSX0.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-C6quKOXH.js?client-route=1", "imports": ["/assets/jsx-runtime-BfF-YriY.js", "/assets/config-C65m0oQ_.js", "/assets/section-CABaBPFM.js", "/assets/use-reduced-motion-Dq7uKRRr.js"], "css": ["/assets/section-BS4tjEuO.css", "/assets/route-DqF8sSX0.css"] } }, "url": "/assets/manifest-8cf933b8.js", "version": "8cf933b8" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BzlN5Oqu.js?client-route=1", "imports": ["/assets/components-DHLhvGvi.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BCjcEdxf.js?client-route=1", "imports": ["/assets/components-DHLhvGvi.js", "/assets/config-CqaACBDh.js", "/assets/use-reduced-motion-BjFDJR4s.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/root-Dj00H2s6.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Dek8KSlV.js?client-route=1", "imports": ["/assets/components-DHLhvGvi.js", "/assets/config-CqaACBDh.js", "/assets/link-BgLqXJ9M.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-CZI6xh7Q.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BYQXdQlx.js?client-route=1", "imports": ["/assets/components-DHLhvGvi.js", "/assets/config-CqaACBDh.js", "/assets/link-BgLqXJ9M.js", "/assets/use-reduced-motion-BjFDJR4s.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-DqF8sSX0.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BYQXdQlx.js?client-route=1", "imports": ["/assets/components-DHLhvGvi.js", "/assets/config-CqaACBDh.js", "/assets/link-BgLqXJ9M.js", "/assets/use-reduced-motion-BjFDJR4s.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-DqF8sSX0.css"] } }, "url": "/assets/manifest-a46a8bcb.js", "version": "a46a8bcb" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
