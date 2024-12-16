@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { ThemeProvider, themeStyles } from '../stories/components/Components';
-import '../styles/reset.module.css';
-import '../styles/global.module.css';
+import { ThemeProvider, themeStyles } from '../app/components/Components';
+import '../app/reset.module.css';
+import '../app/global.module.css';
 import './preview.css';
 
 export const decorators = [

@@ -1,4 +1,4 @@
-import { Loader } from '~/components/loader';
+import { Loader } from '../Components';
 import { StoryContainer } from '../../../.storybook/story-container';
 
 export default {

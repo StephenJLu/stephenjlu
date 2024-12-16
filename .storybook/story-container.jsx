@@ -1,16 +1,6 @@
-import React, { CSSProperties, ReactNode } from 'react';
 import './story-container.css';
 
-interface StoryContainerProps {
-  padding?: number;
-  stretch?: boolean;
-  gutter?: number;
-  vertical?: boolean;
-  children: ReactNode;
-  style?: CSSProperties;
-}
-
-export const StoryContainer: React.FC<StoryContainerProps> = ({  
+export const StoryContainer = ({
   padding = 32,
   stretch,
   gutter = 32,
