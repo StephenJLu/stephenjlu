@@ -6,7 +6,7 @@ const delay = config.delay;
 
 export const Footer = () => {
   return (
-    <>
+    <div data-theme='dark'>
     <InViewport>
       {(isInViewport) => (
         <div className={styles.footer}>
@@ -26,6 +26,6 @@ export const Footer = () => {
     <div className={styles.footer}>
           <p>Hand-crafted design by <a href="humans.txt">humans</a>.</p>
           </div>
-    </ >
+    </div>
   );
 };
