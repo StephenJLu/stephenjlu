@@ -23,6 +23,7 @@ export const Contact: React.FC<ContactProps> = ({ id, sectionRef, scrollIndicato
 
   
   return (
+    <div className={`${styles.page} ${styles.container}`} data-theme='dark'>      
     <Section
     className={styles.contact}
       as="section"
@@ -40,6 +41,6 @@ export const Contact: React.FC<ContactProps> = ({ id, sectionRef, scrollIndicato
                  In the meantime, you can find me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.        
                   </Text> 
     </Section>
-       
+       </div>
   );
 };
