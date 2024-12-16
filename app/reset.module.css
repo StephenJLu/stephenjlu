@@ -36,7 +36,7 @@
   }
 
   :global(:any-link) {
-    text-decoration: none;
+    text-decoration: dotted;
   }
 
   :global(ul) {

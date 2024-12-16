@@ -1,4 +1,3 @@
-@import url('../../global.module.css');
 @layer layout
 {
 
@@ -22,7 +21,7 @@
 
 .footer a {
   color: var(--accent);
-  text-decoration: none;
+  text-decoration: dotted;
 
 }
 

@@ -41,7 +41,7 @@
 
   :global(a) {
     color: var(--accent);
-    text-decoration: none;
+    text-decoration: dotted;
     transition: color 0.3s ease;
   }
 
