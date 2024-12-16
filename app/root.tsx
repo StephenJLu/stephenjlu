@@ -9,7 +9,7 @@ import { ThemeProvider, themeStyles } from './components/Components';
 import { MenuBar, Footer } from './layouts/Layouts';
 import { useEffect } from 'react';
 
-import AtlasGroteskLC from '~/fonts/AGRegular.woff2';
+import AtlasGroteskLC from '~/fonts/AGRegular.ttf';
 import OperatorMonoLig from '~/fonts/OperatorMono.woff2';
 import config from './config.json';
 import styles from './root.module.css';

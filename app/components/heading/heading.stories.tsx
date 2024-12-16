@@ -1,8 +1,26 @@
-import { Heading } from '~/components/heading';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Heading } from './heading';
 import { StoryContainer } from '../../../.storybook/story-container';
 
-export default {
+const meta = {
   title: 'Heading',
+  component: Heading,
+  parameters: {
+    layout: 'centered',
+  },  
+} satisfies Meta<typeof Heading>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    level: 1,
+    align: 'center',
+    weight: 'medium',
+    children: 'Heading Text',
+  },
 };
 
 export const Level = () => (
@@ -32,7 +50,7 @@ export const Weight = () => (
 
 export const Align = () => (
   <StoryContainer vertical stretch>
-    <Heading level={3} align="start">
+    <Heading level={3} align="auto">
       Start
     </Heading>
     <Heading level={3} align="center">

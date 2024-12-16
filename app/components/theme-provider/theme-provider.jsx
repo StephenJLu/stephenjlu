@@ -1,16 +1,16 @@
-import OperatorMonoLig from '../../fonts/OperatorMono.woff2';
-import AtlasGroteskLCThin from '../../fonts/AGThin.woff2';
-import AtlasGroteskLCBlack from '../../fonts/AGBlack.woff2';
-import AtlasGroteskLCBlackItalic from '../../fonts/AGBlackItalic.woff2';
-import AtlasGroteskLCBold from '../../fonts/AGBold.woff2';
-import AtlasGroteskLCBoldItalic from '../../fonts/AGBoldItalic.woff2';
-import AtlasGroteskLCLight from '../../fonts/AGLight.woff2';
-import AtlasGroteskLCLightItalic from '../../fonts/AGLightItalic.woff2';
-import AtlasGroteskLCMedium from '../../fonts/AGMedium.woff2';
-import AtlasGroteskLCMediumItalic from '../../fonts/AGMediumItalic.woff2';
-import AtlasGroteskLCRegular from '../../fonts/AGRegular.woff2';
-import AtlasGroteskLCRegularItalic from '../../fonts/AGRegularItalic.woff2';
-import AtlasGroteskLCThinItalic from '../../fonts/AGThinItalic.woff2';
+import OperatorMonoLig from '~/fonts/OperatorMono.woff2';
+import AtlasGroteskLCThin from '~/fonts/AGThin.ttf';
+import AtlasGroteskLCBlack from '~/fonts/AGBlack.ttf';
+import AtlasGroteskLCBlackItalic from '~/fonts/AGBlackItalic.ttf';
+import AtlasGroteskLCBold from '~/fonts/AGBold.ttf';
+import AtlasGroteskLCBoldItalic from '~/fonts/AGBoldItalic.ttf';
+import AtlasGroteskLCLight from '~/fonts/AGLight.ttf';
+import AtlasGroteskLCLightItalic from '~/fonts/AGLightItalic.ttf';
+import AtlasGroteskLCMedium from '~/fonts/AGMedium.ttf';
+import AtlasGroteskLCMediumItalic from '~/fonts/AGMediumItalic.ttf';
+import AtlasGroteskLCRegular from '~/fonts/AGRegular.ttf';
+import AtlasGroteskLCRegularItalic from '~/fonts/AGRegularItalic.ttf';
+import AtlasGroteskLCThinItalic from '~/fonts/AGThinItalic.ttf';
 import { createContext, useContext } from 'react';
 import { classes, media } from '~/utils/style';
 import { themes, tokens } from './theme';
@@ -123,93 +123,106 @@ const tokenStyles = squish(`
 const fontStyles = squish(`  
 
   @font-face {
-    font-family: "OperatorMonoLig";
+    font-family: OperatorMonoLig;
     src: url(${OperatorMonoLig}) format('woff2');
-    font-weight: 100;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCThin}) format('woff2');
-    font-weight: 100;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCLight}) format('woff2');
-    font-weight: 300;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCRegular}) format('woff2');
     font-weight: 400;
+    font-display: swap;
     font-style: normal;
   }
 
   @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCMedium}) format('woff2');
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCBold}) format('woff2');
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCBlack}) format('woff2');
-    font-weight: 900;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCThinItalic}) format('woff2');
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCThin}) format('truetype');
     font-weight: 100;
-    font-style: italic;
+    font-display: block;
+    font-style: normal;
   }
 
   @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCLightItalic}) format('woff2');
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCLight}) format('truetype');
     font-weight: 300;
-    font-style: italic;
+    font-display: block;
+    font-style: normal;
   }
 
   @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCRegularItalic}) format('woff2');
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCRegular}) format('truetype');
     font-weight: 400;
-    font-style: italic;
+    font-display: block;
+    font-style: normal;
   }
 
   @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCMediumItalic}) format('woff2');
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCMedium}) format('truetype');
     font-weight: 500;
-    font-style: italic;
+    font-display: block;
+    font-style: normal;
   }
 
   @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCBoldItalic}) format('woff2');
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCBold}) format('truetype');
     font-weight: 700;
+    font-display: block;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCBlack}) format('truetype');
+    font-weight: 900;
+    font-display: block;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCThinItalic}) format('truetype');
+    font-weight: 100;
+    font-display: block;
     font-style: italic;
   }
 
   @font-face {
-    font-family: "AtlasGroteskLC";
-    src: url(${AtlasGroteskLCBlackItalic}) format('woff2');
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCLightItalic}) format('truetype');
+    font-weight: 300;
+    font-display: block;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCRegularItalic}) format('truetype');
+    font-weight: 400;
+    font-display: block;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCMediumItalic}) format('truetype');
+    font-weight: 500;
+    font-display: block;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCBoldItalic}) format('truetype');
+    font-weight: 700;
+    font-display: block;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: AtlasGroteskLC;
+    src: url(${AtlasGroteskLCBlackItalic}) format('truetype');
     font-weight: 900;
+    font-display: block;
     font-style: italic;
   }
 `);

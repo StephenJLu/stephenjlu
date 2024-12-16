@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styles from './textFade.module.css';
 
 interface TextFadeProps {
   fadeText: string;
@@ -17,7 +16,7 @@ const TextFade: React.FC<TextFadeProps> = ({ fadeText, delay = 0 }) => {
     return () => clearTimeout(timer);
   }, [delay]);
 
-  return <span className={`${styles.textFade} ${visible ? styles.visible : ''}`}>{fadeText}</span>;
+  return <span style={{ opacity: visible ? 1 : 0, transition: 'opacity 1s' }}>{fadeText}</span>;
 };
 
 export default TextFade;

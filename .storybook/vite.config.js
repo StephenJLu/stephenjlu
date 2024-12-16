@@ -1,5 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
-import jsconfigPaths from 'vite-jsconfig-paths';
+import tsconfigPaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
@@ -7,6 +7,6 @@ export default defineConfig(({ mode }) => {
   process.env = { ...process.env, ...env };
 
   return {
-    plugins: [jsconfigPaths(), react()],
+    plugins: [tsconfigPaths(), react()],
   };
 });
