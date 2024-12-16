@@ -21,7 +21,7 @@
 }
 
 .footer a {
-  color: var(--bs-link-color);
+  color: var(--accent);
   text-decoration: none;
 
 }

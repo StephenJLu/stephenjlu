@@ -36,8 +36,7 @@ export const ThemeProvider = ({
       {isRootProvider && children}
       {/* Nested providers need a div to override theme tokens */}
       {!isRootProvider && (
-       <Component className={classes(className)} 
-       bs-data-theme={theme} {...rest}>
+       <Component className={classes(className)} data-theme={theme} {...rest}>
           {children}
         </Component>
       )}

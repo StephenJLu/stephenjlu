@@ -28,7 +28,7 @@ export const links = () => [
     rel: 'preload',
     href: AtlasGroteskLC,
     as: 'font',
-    type: 'font/woff2',
+    type: 'font/ttf',
     crossOrigin: '',
   },
   { rel: 'manifest', href: '/manifest.json' },
@@ -61,7 +61,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body data-bs-theme={theme}>
+      <body>
         <ThemeProvider theme={theme} className="">
           <MenuBar />
           <main id="main-content" className={styles.container} tabIndex={-1}>

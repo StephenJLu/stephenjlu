@@ -1,11 +1,11 @@
 
 .text-fade {
-  color: var(--bs-body-color);
+  color: var(--text);
   opacity: 0; /* Initially hidden */
   transition: opacity 1s ease-in; /* Fade-in transition */
 }
 
 .text-fade.visible {
-  color: var(--bs-body-color);
+  color: var(--text);
   opacity: 1; /* Fully visible */
 }

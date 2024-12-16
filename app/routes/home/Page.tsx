@@ -22,7 +22,7 @@ export const Page = () => {
   
   
   return (
-    <div bs-data-theme='dark'>
+    <div data-theme='dark'>
       <Header />                               
       <div className={`${styles.page} ${styles.container}`}>                    
       <Home
