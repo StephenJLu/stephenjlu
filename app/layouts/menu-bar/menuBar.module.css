@@ -28,6 +28,7 @@
 
 .menuBarList {
   list-style: none;
+  color: 'var(--textBody)';
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -218,10 +219,10 @@
     &::after {
       content: '';
       position: absolute;
-      top: 50%;
-      right: var(--space3XL);
-      left: var(--space3XL);
-      height: 4px;
+      top: 80%;
+      right: var(--space5XL);
+      left: var(--space5XL);
+      height: 2px;
       background: var(--accent);
       transform: scaleX(0) translateY(-1px);
       transform-origin: right;

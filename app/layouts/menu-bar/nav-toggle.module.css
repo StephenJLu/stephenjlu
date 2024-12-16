@@ -24,14 +24,13 @@
 
   .icon {
     --iconSize: var(--spaceXL);
-
     position: absolute;
     transition-property: opacity, fill;
     transition-duration: var(--durationM);
     transition-timing-function: var(--bezierFastoutSlowin);
     opacity: 1;
     transform: rotate(0deg);
-    fill: var(--accent);
+    fill: var(--text);
     width: var(--iconSize);
     height: var(--iconSize);
 

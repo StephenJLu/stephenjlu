@@ -2,7 +2,7 @@
 
 .menuButton {    
   border: none;
-  color: 'var(--bg-body-color)';
+  color: var(--textBody);
   cursor: pointer;  
   font-weight: 300;
   padding: 20px 20px 20px 20px;

@@ -59,7 +59,7 @@ useEffect(() => {
   };  
   
     return (
-    <header className={styles.navbar} ref={headerRef}>
+    <header className={styles.navbar} ref={headerRef} data-theme='dark'>
       <RouterLink
         unstable_viewTransition
         prefetch="intent"
