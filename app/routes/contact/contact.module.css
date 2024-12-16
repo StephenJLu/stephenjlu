@@ -5,7 +5,7 @@
   padding-bottom: 100px;
   overflow-x: hidden;  
   line-height: 1.5;
-  width: 90%;
+  width: 100%;
   z-index: 1; 
 }
 
@@ -31,7 +31,7 @@
 }
 
 .contact p {  
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 50px 50px 50px 50px;
 }
 
@@ -44,7 +44,7 @@
 @media (max-width: 696px) {
   .contact h1 {
     font-size: 2.5rem; /* Adjust font size for mobile */
-    padding: 50px 0 25px 15px; /* Adjust padding for mobile */
+    padding: 100px 0 25px 15px; /* Adjust padding for mobile */
   }
 
   .contact h2 {
@@ -53,7 +53,7 @@
   }
 
   .contact p {
-    font-size: 0.875rem; /* Adjust font size for mobile */
+    font-size: 1rem; /* Adjust font size for mobile */
     margin: 25px 25px 25px 25px; /* Adjust margin for mobile */
   }
 }

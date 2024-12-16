@@ -16,9 +16,9 @@ export const meta = () => {
 };
 
 export const Page = () => {    
-  const home = useRef<HTMLElement>(null);
-  const about = useRef<HTMLElement>(null);
-  const projects = useRef<HTMLElement>(null);  
+  const home = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const about = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const projects = useRef<HTMLElement>(null as unknown as HTMLElement);  
   
   
   return (

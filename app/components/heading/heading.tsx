@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, JSX } from 'react';
 import { classes } from '../../utils/style';
 import styles from './heading.module.css';
 

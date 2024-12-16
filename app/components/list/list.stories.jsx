@@ -1,4 +1,4 @@
-import { List } from '~/components/list';
+import { List } from '../Components';
 import { StoryContainer } from '../../../.storybook/story-container';
 import { ListItem } from './list';
 

@@ -5,8 +5,8 @@
     --lineOpacity: 30%;
     --filledLineGradient: linear-gradient(var(--linkColor), var(--linkColor));
     --unfilledLineGradient: linear-gradient(
-      color-mix(in lab, var(--linkColor) var(--lineOpacity), transparent),
-      color-mix(in lab, var(--linkColor) var(--lineOpacity), transparent)
+      color-mix(in lab, var(--accent) var(--lineOpacity), transparent),
+      color-mix(in lab, var(--accent) var(--lineOpacity), transparent)
     );
 
     cursor: pointer;
@@ -29,7 +29,7 @@
     }
 
     &[data-secondary='true'] {
-      --linkColor: var(--accent);
+      --linkColor: var(--text);
     }
   }
 }

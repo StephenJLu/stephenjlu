@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section } from '../../components/Components';
+import { Section, Heading, Text, Link } from '../../components/Components';
 import styles from './about.module.css';
 
 interface AboutProps {
@@ -23,13 +23,13 @@ export const About: React.FC<AboutProps> = ({ id, sectionRef, scrollIndicatorHid
       tabIndex={-1}
       {...rest}
       >
-                               
-        <h1>About Me</h1> <h2>This new website is still under construction.</h2>
-        <p>I'm currently converting my legacy website to a new, modern, and responsive design, based on <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up.<br /><br />
-        In the meantime, you can find me at my <a href="https://legacy.StephenJLu.com/" target='_blank' rel='noopener noreferrer'>legacy website</a> or on <a href="https://www.linkedin.com/in/stephenjlu/" target='_blank' rel='noopener noreferrer'>LinkedIn</a>.
-          </p>
-                    
-
+       <Heading level={1} as={'h1'}>About Me</Heading>
+                 <Heading level={2} as={'h2'}>This new website is still under construction.</Heading>                   
+             <Text as={'p'}>              
+                 I'm currently converting my legacy website to a new, modern, and responsive design, based on <Link href="https://react.dev/">React</Link>. I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now.
+                 I'm working on it. You can check out the <Link href="https://storybook.stephenjlu.com/">Storybook</Link> to see the component designs.<br /><br />
+                 In the meantime, you can find me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.        
+                  </Text> 
     </Section>
        
   );

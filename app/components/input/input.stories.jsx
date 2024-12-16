@@ -1,4 +1,4 @@
-import { Input } from '~/components/input';
+import { Input } from '../Components';
 import { useFormInput } from '~/hooks';
 
 export default {
