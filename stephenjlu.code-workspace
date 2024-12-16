@@ -7,5 +7,9 @@
 			"path": "../hamishmw-portfolio"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"githubPullRequests.ignoredPullRequestBranches": [
+			"master"
+		]
+	}
 }
