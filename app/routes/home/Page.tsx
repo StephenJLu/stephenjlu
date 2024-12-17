@@ -60,9 +60,8 @@ export const Page = () => {
   
   
   return (
-    <div data-theme='dark'>
-      <Header />                               
-      <div className={`${styles.page} ${styles.container}`}>                    
+    <div data-theme='dark' className={`${styles.page} ${styles.container}`}>
+      <Header />          
       <Home
       id="home"
       sectionRef={home}
@@ -71,12 +70,13 @@ export const Page = () => {
       <Projects
       id="projects"
       sectionRef={projects}
+      visible={visibleSections.includes(projects.current)}
       />  
       <About
       id="about"
       sectionRef={about}
+      visible={visibleSections.includes(about.current)}
       />              
-      </div>
-      </div> 
+      </div>       
   );
 };

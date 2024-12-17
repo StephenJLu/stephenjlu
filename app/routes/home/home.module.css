@@ -1,9 +1,6 @@
 .home {
   width: 100vw;
-  min-height: 100vh;
-  margin-top: 60px;
-  margin-bottom: 40px;
-  padding-top: 60px;
+  min-height: 100vh;  
   padding-bottom: 40px;
   display: flex;
   justify-content: center;

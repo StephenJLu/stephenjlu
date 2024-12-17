@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Section, PolaroidImage, Heading, Text, Link,
   DecoderText, Transition, Button, Divider } from '../../components/Components';
 import styles from './home.module.css';
@@ -50,36 +50,27 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
         <Transition in={visible || focused} timeout={0} unmount={false}>
           {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
             <div ref={nodeRef}>
+              <div className={styles.tag} aria-hidden>
+                <Divider
+                  notchWidth="64px"
+                  notchHeight="8px"
+                  collapsed={!visible}
+                  collapseDelay={1000}
+                />
+                <div className={styles.tagText} data-visible={visible}>
+                  Welcome!
+                </div>
+              </div>
               <HomeText visible={visible} titleId={titleId} />
                 <Button
                 secondary
                 className={styles.button}
                 data-visible={visible}
-                href="/contact"
+                href="https://legacy.stephenjlu.com/contact"
                 icon="send"
                 >
                   Contact Me
                 </Button>
-                <div className={styles.tag} aria-hidden>
-                <Divider
-                  lineWidth="100%"
-                  lineHeight="1px"
-                  notchWidth="64px"
-                  notchHeight="8px"
-                  collapsed={!visible}
-                  collapseDelay={1000}
-                  className=""
-                  style={{}}
-                />
-                <div className={styles.tagText} data-visible={visible}>
-                  About me
-                </div>
-              </div>
-
-
-
-
-
             </div>
           )}
         </Transition>
