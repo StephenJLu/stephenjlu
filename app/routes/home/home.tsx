@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Section, PolaroidImage, Heading, Text, Link, DecoderText, Transition, Button } from '../../components/Components';
+import { Section, PolaroidImage, Heading, Text, Link,
+  DecoderText, Transition, Button, Divider } from '../../components/Components';
 import styles from './home.module.css';
 import config from '../../config.json';
 
@@ -11,10 +12,10 @@ interface HomeProps {
 const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
   <>     
 
-    <Heading className={styles.title} data-visible={visible} level={1} id={titleId}>
+    <Heading className={styles.title} data-visible={visible} level={2} id={titleId}>
       Hi!
     </Heading>
-    <Heading level={2}>This new website is still under construction.</Heading>
+    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>This new website is still under construction.</Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
       I&apos;m currently converting my legacy website to a new, modern, and responsive design, based on <Link href="https://react.dev/">React</Link>. I know it&apos;s probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now.
     </Text>
@@ -47,26 +48,41 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
       tabIndex={-1}      
       >
         <Transition in={visible || focused} timeout={0} unmount={false}>
-{({ visible, nodeRef }) => (
-  <div className={styles.content} ref={nodeRef}>
-<HomeText visible={visible} titleId={titleId} />
-<Button
+          {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
+            <div ref={nodeRef}>
+              <HomeText visible={visible} titleId={titleId} />
+                <Button
                 secondary
                 className={styles.button}
                 data-visible={visible}
                 href="/contact"
                 icon="send"
-              >
-                Contact Me
-              </Button>
+                >
+                  Contact Me
+                </Button>
+                <div className={styles.tag} aria-hidden>
+                <Divider
+                  lineWidth="100%"
+                  lineHeight="1px"
+                  notchWidth="64px"
+                  notchHeight="8px"
+                  collapsed={!visible}
+                  collapseDelay={1000}
+                  className=""
+                  style={{}}
+                />
+                <div className={styles.tagText} data-visible={visible}>
+                  About me
+                </div>
+              </div>
 
 
-  </div>
 
-  
-              
-)}
-              </Transition>
+
+
+            </div>
+          )}
+        </Transition>
     </Section>
   );
 };
