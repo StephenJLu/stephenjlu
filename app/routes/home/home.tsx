@@ -13,6 +13,8 @@ export const Home: React.FC<HomeProps> = ({ id, sectionRef, scrollIndicatorHidde
   const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
   const titleId = `${id}-title`;
   const { avatar: imageUrl } = config;
+  const rotation = Math.floor(Math.random() * 41) - 20;
+
 
   return (
     <Section
@@ -32,7 +34,7 @@ export const Home: React.FC<HomeProps> = ({ id, sectionRef, scrollIndicatorHidde
           return (
             <div className={hasEnteredViewport ? styles.inView : styles.notInView}>
               <div className={styles.polaroid}>
-                <PolaroidImage imageUrl={imageUrl} />
+                <PolaroidImage rotation={rotation} imageUrl={imageUrl} />
               </div>
               <Heading level={1} as={'h1'}>Hi!</Heading>
               <Heading level={2} as={'h2'}>This new website is still under construction.</Heading>
