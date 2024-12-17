@@ -17,7 +17,7 @@
   :global(html, body) {
     font-family: var(--fontStack);
     font-weight: var(--fontWeightRegular);
-    background-color: var(--background);
+    background-color: var(--black);
     transition: var(--durationM) ease;
     transition-property: background, opacity;
     color: var(--textBody);
@@ -57,7 +57,8 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('./static/images/starry-bg2.gif');                                          
+  background-image: url('./static/images/starry-bg2.gif');
+  background-color: var(--black);                                          
   background-size: contain;
   background-repeat: repeat;
   background-position: center center;
@@ -73,7 +74,8 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('./static/images/starry-bg3.gif');                                          
+  background-image: url('./static/images/starry-bg3.gif');
+  background-color: var(--black);                                          
   background-size: contain;
   background-repeat: repeat;
   background-position: center center;
