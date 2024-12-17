@@ -15,7 +15,7 @@ export const Projects: React.FC<ProjectsProps> = ({ id, sectionRef, scrollIndica
   
   return (
     <Section
-    className={styles.projects}    
+    className={`${styles.projects} ${styles.container}`}    
       as="section"
       ref={sectionRef}
       id={id}

@@ -5,7 +5,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
-import { ThemeProvider, themeStyles } from './components/Components';
+import { ThemeProvider, themeStyles, Rotation } from './components/Components';
 import { MenuBar, Footer } from './layouts/Layouts';
 import { useEffect } from 'react';
 
@@ -61,6 +61,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
+      <Rotation />
       <body>
         <ThemeProvider theme={theme} className="">
           <MenuBar />

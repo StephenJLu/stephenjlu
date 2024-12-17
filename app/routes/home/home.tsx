@@ -16,7 +16,7 @@ export const Home: React.FC<HomeProps> = ({ id, sectionRef, scrollIndicatorHidde
 
   return (
     <Section
-      className={styles.home}
+      className={`${styles.home} ${styles.container}`}
       as="section"
       ref={sectionRef}
       id={id}

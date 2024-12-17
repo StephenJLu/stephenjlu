@@ -15,7 +15,7 @@ export const About: React.FC<AboutProps> = ({ id, sectionRef, scrollIndicatorHid
   
   return (
     <Section
-    className={styles.about}    
+    className={`${styles.about} ${styles.container}`}    
       as="section"
       ref={sectionRef}
       id={id}
