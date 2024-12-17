@@ -1,4 +1,4 @@
-import { jsx, jsxs } from "react/jsx-runtime";
+import { jsx, jsxs, Fragment as Fragment$1 } from "react/jsx-runtime";
 import { RemixServer, Link as Link$1, useLocation, useNavigate, Meta, Links, Outlet, ScrollRestoration, Scripts } from "@remix-run/react";
 import * as isbotModule from "isbot";
 import { renderToReadableStream } from "react-dom/server";
@@ -87,9 +87,9 @@ const TextFade = ({ fadeText, delay: delay2 = 0 }) => {
   return /* @__PURE__ */ jsx("span", { style: { opacity: visible ? 1 : 0, transition: "opacity 1s" }, children: fadeText });
 };
 const TextFade$1 = TextFade;
-async function delay$2(ms) {
+const delay$2 = async function(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
+};
 const media = {
   desktop: 2080,
   laptop: 1680,
@@ -122,7 +122,7 @@ function cssProps(props, style = {}) {
 function classes(...classes2) {
   return classes2.filter(Boolean).join(" ");
 }
-const hidden$1 = "_hidden_hww18_7";
+const hidden$1 = "_hidden_1jyky_4";
 const styles$l = {
   hidden: hidden$1
 };
@@ -142,9 +142,9 @@ const VisuallyHidden = forwardRef(
   }
 );
 VisuallyHidden.displayName = "VisuallyHidden";
-const text$4 = "_text_162fz_5";
-const glyph = "_glyph_162fz_19";
-const value = "_value_162fz_33";
+const text$4 = "_text_10c22_3";
+const glyph = "_glyph_10c22_10";
+const value = "_value_10c22_17";
 const styles$k = {
   text: text$4,
   glyph,
@@ -246,9 +246,9 @@ const InViewport = ({ children }) => {
   return React.cloneElement(childElement, { ref: elementRef });
 };
 const InViewport$1 = InViewport;
-const menuButton$1 = "_menuButton_8u4lm_5";
-const active$1 = "_active_8u4lm_25";
-const bounce$1 = "_bounce_8u4lm_1";
+const menuButton$1 = "_menuButton_maxbw_3";
+const active$1 = "_active_maxbw_13";
+const bounce$1 = "_bounce_maxbw_1";
 const styles$j = {
   menuButton: menuButton$1,
   active: active$1,
@@ -294,9 +294,12 @@ const baseTokens = {
   systemFontStack: "system-ui, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Ubuntu, Helvetica Neue, sans-serif",
   fontStack: `AtlasGroteskLC, var(--systemFontStack)`,
   monoFontStack: "ui-monospace, OperatorMonoLig, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
+  fontWeightThin: 100,
+  fontWeightLight: 300,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightBold: 700,
+  fontWeightBlack: 900,
   fontSizeH0: pxToRem(140),
   fontSizeH1: pxToRem(100),
   fontSizeH2: pxToRem(58),
@@ -589,11 +592,11 @@ const themeStyles = squish(`
     ${fontStyles}
   }
 `);
-const icon$2 = "_icon_nm21j_3";
+const icon$2 = "_icon_1tdl1_2";
 const styles$i = {
   icon: icon$2
 };
-const sprites = "/assets/icons-D_LJnBDF.svg";
+const sprites = "/assets/icons-Ghr-oXj8.svg";
 const Icon = forwardRef(({ icon: icon2, className, size, ...rest }, ref) => {
   return /* @__PURE__ */ jsx(
     "svg",
@@ -684,12 +687,12 @@ const TransitionContent = ({
   }, [isPresent, onExit, safeToRemove, timeout, onExited, show]);
   return children({ visible, status, nodeRef });
 };
-const button = "_button_4jwwg_3";
-const text$3 = "_text_4jwwg_263";
-const loader$1 = "_loader_4jwwg_289";
-const icon$1 = "_icon_4jwwg_315";
+const button$3 = "_button_1l2e3_2";
+const text$3 = "_text_1l2e3_132";
+const loader$1 = "_loader_1l2e3_145";
+const icon$1 = "_icon_1l2e3_158";
 const styles$h = {
-  button,
+  button: button$3,
   text: text$3,
   loader: loader$1,
   icon: icon$1
@@ -785,10 +788,10 @@ const ButtonContent = forwardRef(
     );
   }
 );
-const loader = "_loader_11zpc_3";
-const text$2 = "_text_11zpc_33";
-const span = "_span_11zpc_85";
-const loaderSpan = "_loaderSpan_11zpc_1";
+const loader = "_loader_1o1zt_2";
+const text$2 = "_text_1o1zt_17";
+const span = "_span_1o1zt_43";
+const loaderSpan = "_loaderSpan_1o1zt_1";
 const styles$g = {
   loader,
   text: text$2,
@@ -814,8 +817,8 @@ const Loader = forwardRef(
     );
   }
 );
-const b = "_b_1lp8r_3";
-const c = "_c_1lp8r_11";
+const b = "_b_6k8yy_2";
+const c = "_c_6k8yy_6";
 const styles$f = {
   b,
   c
@@ -837,7 +840,7 @@ const Monogram = () => {
     }
   );
 };
-const section = "_section_1278e_3";
+const section = "_section_cvvm4_2";
 const styles$e = {
   section
 };
@@ -874,34 +877,8 @@ function useScrollToHash() {
   );
   return scrollToHash;
 }
-const polaroid$1 = "_polaroid_7t45g_1";
-const image = "_image_7t45g_21";
-const frame = "_frame_7t45g_43";
+const heading = "_heading_hhgbc_2";
 const styles$d = {
-  polaroid: polaroid$1,
-  image,
-  frame
-};
-const polaroidFrame = "/assets/polaroid-QWl6TdX0.png";
-const getRandomRotation = () => Math.floor(Math.random() * 41) - 20;
-const PolaroidImage = ({
-  imageUrl,
-  rotation = getRandomRotation()
-}) => {
-  return /* @__PURE__ */ jsxs("div", { className: styles$d.polaroid, style: { transform: `rotate(${rotation}deg)` }, children: [
-    /* @__PURE__ */ jsx("div", { className: styles$d.image, style: { backgroundImage: `url(${imageUrl})` } }),
-    /* @__PURE__ */ jsx(
-      "div",
-      {
-        className: styles$d.frame,
-        style: { backgroundImage: `url(${polaroidFrame})` }
-      }
-    )
-  ] });
-};
-const PolaroidImage$1 = PolaroidImage;
-const heading = "_heading_8oupr_3";
-const styles$c = {
   heading
 };
 const Heading = ({
@@ -918,7 +895,7 @@ const Heading = ({
   return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(
     Component,
     {
-      className: classes(styles$c.heading, className),
+      className: classes(styles$d.heading, className),
       "data-align": align,
       "data-weight": weight,
       "data-level": clampedLevel,
@@ -927,7 +904,53 @@ const Heading = ({
     }
   ) });
 };
-const link = "_link_tnqw4_3";
+const divider = "_divider_t8fsy_2";
+const line = "_line_t8fsy_8";
+const notch = "_notch_t8fsy_30";
+const styles$c = {
+  divider,
+  line,
+  notch
+};
+const Divider = ({
+  lineWidth = "100%",
+  lineHeight = "2px",
+  notchWidth = "90px",
+  notchHeight = "10px",
+  collapseDelay = 0,
+  collapsed = false,
+  className,
+  style,
+  ...rest
+}) => /* @__PURE__ */ jsxs(
+  "div",
+  {
+    className: classes(styles$c.divider, className),
+    style: cssProps(
+      {
+        lineWidth,
+        lineHeight,
+        notchWidth,
+        notchHeight,
+        collapseDelay: numToMs(collapseDelay)
+      },
+      style
+    ),
+    ...rest,
+    children: [
+      /* @__PURE__ */ jsx("div", { className: styles$c.line, "data-collapsed": collapsed }),
+      /* @__PURE__ */ jsx(
+        "div",
+        {
+          className: styles$c.notch,
+          "data-collapsed": collapsed,
+          style: cssProps({ collapseDelay: numToMs(collapseDelay + 160) })
+        }
+      )
+    ]
+  }
+);
+const link = "_link_10hh2_2";
 const styles$b = {
   link
 };
@@ -956,7 +979,7 @@ const Link = forwardRef(
     return /* @__PURE__ */ jsx(Link$1, { unstable_viewTransition: true, prefetch: "intent", ...linkProps, to: href, children });
   }
 );
-const text$1 = "_text_w1gy9_3";
+const text$1 = "_text_13dm1_2";
 const styles$a = {
   text: text$1
 };
@@ -983,9 +1006,9 @@ const Text = ({
     }
   );
 };
-const toggle = "_toggle_1asy4_3";
-const inner = "_inner_1asy4_33";
-const icon = "_icon_1asy4_49";
+const toggle = "_toggle_c9w0l_2";
+const inner = "_inner_c9w0l_17";
+const icon = "_icon_c9w0l_25";
 const styles$9 = {
   toggle,
   inner,
@@ -1016,7 +1039,7 @@ const NavToggle = ({ menuOpen, ...rest }) => {
   );
 };
 const name$1 = "Stephen J. Lu";
-const title = "Stephen J. Lu | Web Design and Development for the Public Good";
+const title$3 = "Stephen J. Lu | Web Design and Development for the Public Good";
 const roles = [
   "Author of CSI to CEO",
   "Web Design and Development",
@@ -1033,7 +1056,7 @@ const delay$1 = 500;
 const avatar = "https://legacy.stephenjlu.com/images/steve.jpg";
 const config = {
   name: name$1,
-  title,
+  title: title$3,
   roles,
   url: url$1,
   bluesky: bluesky$1,
@@ -1083,19 +1106,19 @@ const socialLinks = [
     icon: "github"
   }
 ];
-const menuBarContainer = "_menuBarContainer_11j9i_5";
-const menuBarList = "_menuBarList_11j9i_57";
-const menuButton = "_menuButton_11j9i_77";
-const active = "_active_11j9i_77";
-const bounce = "_bounce_11j9i_1";
-const navbar = "_navbar_11j9i_143";
-const logo = "_logo_11j9i_193";
-const nav = "_nav_11j9i_143";
-const navIcons = "_navIcons_11j9i_229";
-const navIconLink = "_navIconLink_11j9i_279";
-const navIcon = "_navIcon_11j9i_229";
-const mobileNav = "_mobileNav_11j9i_321";
-const mobileNavLink = "_mobileNavLink_11j9i_381";
+const menuBarContainer = "_menuBarContainer_1wkue_3";
+const menuBarList = "_menuBarList_1wkue_29";
+const menuButton = "_menuButton_1wkue_39";
+const active = "_active_1wkue_39";
+const bounce = "_bounce_1wkue_1";
+const navbar = "_navbar_1wkue_72";
+const logo = "_logo_1wkue_97";
+const nav = "_nav_1wkue_72";
+const navIcons = "_navIcons_1wkue_115";
+const navIconLink = "_navIconLink_1wkue_140";
+const navIcon = "_navIcon_1wkue_115";
+const mobileNav = "_mobileNav_1wkue_161";
+const mobileNavLink = "_mobileNavLink_1wkue_191";
 const styles$8 = {
   menuBarContainer,
   menuBarList,
@@ -1233,11 +1256,11 @@ const NavbarIcons = ({ desktop }) => /* @__PURE__ */ jsx("div", { className: sty
   },
   label
 )) });
-const header = "_header_cvjmg_7";
-const headerBackground = "_headerBackground_cvjmg_33";
-const hidden = "_hidden_cvjmg_65";
-const subtitle = "_subtitle_cvjmg_73";
-const text = "_text_cvjmg_143";
+const header = "_header_1elei_4";
+const headerBackground = "_headerBackground_1elei_17";
+const hidden = "_hidden_1elei_33";
+const subtitle = "_subtitle_1elei_37";
+const text = "_text_1elei_72";
 const styles$7 = {
   header,
   headerBackground,
@@ -1275,8 +1298,8 @@ const Header = () => {
     }) })
   ] }) });
 };
-const footer = "_footer_hpuof_7";
-const footerContent = "_footerContent_hpuof_55";
+const footer = "_footer_lr3zr_4";
+const footerContent = "_footerContent_lr3zr_28";
 const styles$6 = {
   footer,
   footerContent
@@ -1298,8 +1321,8 @@ const Footer = () => {
     ] }) })
   ] });
 };
-const container = "_container_1baxb_3";
-const skip = "_skip_1baxb_25";
+const container = "_container_2gyay_2";
+const skip = "_skip_2gyay_12";
 const styles$5 = {
   container,
   skip
@@ -1373,14 +1396,14 @@ const { name, url, bluesky } = config;
 const defaultOgImage = `${url}/social-image.png`;
 function baseMeta({
   title: title2,
-  description,
+  description: description2,
   prefix = name,
   ogImage = defaultOgImage
 }) {
   const titleText = [prefix, title2].filter(Boolean).join(" | ");
   return [
     { title: titleText },
-    { name: "description", content: description },
+    { name: "description", content: description2 },
     { name: "author", content: name },
     { property: "og:image", content: ogImage },
     { property: "og:image:alt", content: "Banner for the site" },
@@ -1390,24 +1413,24 @@ function baseMeta({
     { property: "og:site_name", content: name },
     { property: "og:type", content: "website" },
     { property: "og:url", content: url },
-    { property: "og:description", content: description },
+    { property: "og:description", content: description2 },
     { property: "twitter:card", content: "summary_large_image" },
-    { property: "twitter:description", content: description },
+    { property: "twitter:description", content: description2 },
     { property: "twitter:title", content: titleText },
     { property: "twitter:site", content: url },
     { property: "twitter:creator", content: bluesky },
     { property: "twitter:image", content: ogImage }
   ];
 }
-const page$1 = "_page_dk0uy_1";
-const contact = "_contact_dk0uy_5";
-const notInView$3 = "_notInView_dk0uy_15";
-const inView$3 = "_inView_dk0uy_27";
+const page$1 = "_page_10yvh_1";
+const contact = "_contact_10yvh_3";
+const notInView = "_notInView_10yvh_8";
+const inView = "_inView_10yvh_14";
 const styles$4 = {
   page: page$1,
   contact,
-  notInView: notInView$3,
-  inView: inView$3
+  notInView,
+  inView
 };
 const meta = () => {
   return baseMeta({
@@ -1433,7 +1456,7 @@ const Contact = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
           setHasEnteredViewport(true);
         }
         return /* @__PURE__ */ jsxs("div", { className: hasEnteredViewport ? styles$4.inView : styles$4.notInView, children: [
-          /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Contact Me" }),
+          /* @__PURE__ */ jsx(Heading, { level: 1, as: "span", weight: "light", align: "start", className: styles$4.heading, children: "Contact Me" }),
           /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
           /* @__PURE__ */ jsxs(Text, { as: "p", children: [
             "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
@@ -1459,191 +1482,332 @@ const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: Contact,
   meta
 }, Symbol.toStringTag, { value: "Module" }));
-const page = "_page_14j6x_3";
+const page = "_page_1bi10_2";
 const styles$3 = {
   page
 };
-const home = "_home_19wfi_1";
-const polaroid = "_polaroid_19wfi_15";
-const notInView$2 = "_notInView_19wfi_23";
-const inView$2 = "_inView_19wfi_35";
+const home = "_home_w4mv5_1";
+const title$2 = "_title_w4mv5_34";
+const description$2 = "_description_w4mv5_45";
+const tag$2 = "_tag_w4mv5_55";
+const tagText$2 = "_tagText_w4mv5_68";
+const image$2 = "_image_w4mv5_89";
+const svg$2 = "_svg_w4mv5_94";
+const button$2 = "_button_w4mv5_110";
+const polaroid$2 = "_polaroid_w4mv5_120";
 const styles$2 = {
   home,
-  polaroid,
-  notInView: notInView$2,
-  inView: inView$2
+  title: title$2,
+  description: description$2,
+  tag: tag$2,
+  tagText: tagText$2,
+  image: image$2,
+  svg: svg$2,
+  button: button$2,
+  polaroid: polaroid$2
 };
-const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
-  const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
+const HomeText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
+  /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 2, id: titleId, children: "Hi!" }),
+  /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "This new website is still under construction." }),
+  /* @__PURE__ */ jsxs(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: [
+    "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
+    /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
+    ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now."
+  ] }),
+  /* @__PURE__ */ jsxs(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: [
+    "I'm working on it. You can check out the ",
+    /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
+    " to see the component designs."
+  ] }),
+  /* @__PURE__ */ jsxs(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: [
+    "In the meantime, you can find me at my ",
+    /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
+    " or on ",
+    /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
+    "."
+  ] })
+] });
+const Home = ({ id, visible, sectionRef }) => {
+  const [focused, setFocused] = useState(false);
   const titleId = `${id}-title`;
-  const { avatar: imageUrl } = config;
   return /* @__PURE__ */ jsx(
     Section,
     {
-      className: `${styles$2.home}`,
+      className: styles$2.home,
+      onFocus: () => setFocused(true),
+      onBlur: () => setFocused(false),
       as: "section",
       ref: sectionRef,
       id,
       "aria-labelledby": titleId,
       tabIndex: -1,
-      ...rest,
-      children: /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => {
-        if (isInViewport && !hasEnteredViewport) {
-          setHasEnteredViewport(true);
-        }
-        return /* @__PURE__ */ jsxs("div", { className: hasEnteredViewport ? styles$2.inView : styles$2.notInView, children: [
-          /* @__PURE__ */ jsx("div", { className: styles$2.polaroid, children: /* @__PURE__ */ jsx(PolaroidImage$1, { imageUrl }) }),
-          /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Hi!" }),
-          /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
-          /* @__PURE__ */ jsxs(Text, { as: "p", children: [
-            "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-            /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
-            ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
-            /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
-            " to see the component designs.",
-            /* @__PURE__ */ jsx("br", {}),
-            /* @__PURE__ */ jsx("br", {}),
-            "In the meantime, you can find me at my ",
-            /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
-            " or on ",
-            /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
-            "."
-          ] })
-        ] });
-      } })
+      children: /* @__PURE__ */ jsx(Transition, { in: visible || focused, timeout: 0, unmount: false, children: ({ visible: visible2, nodeRef }) => /* @__PURE__ */ jsxs("div", { ref: nodeRef, children: [
+        /* @__PURE__ */ jsxs("div", { className: styles$2.tag, "aria-hidden": true, children: [
+          /* @__PURE__ */ jsx(
+            Divider,
+            {
+              notchWidth: "64px",
+              notchHeight: "8px",
+              collapsed: !visible2,
+              collapseDelay: 1e3
+            }
+          ),
+          /* @__PURE__ */ jsx("div", { className: styles$2.tagText, "data-visible": visible2, children: "Welcome!" })
+        ] }),
+        /* @__PURE__ */ jsx(HomeText, { visible: visible2, titleId }),
+        /* @__PURE__ */ jsx(
+          Button,
+          {
+            secondary: true,
+            className: styles$2.button,
+            "data-visible": visible2,
+            href: "https://legacy.stephenjlu.com/contact",
+            icon: "send",
+            children: "Contact Me"
+          }
+        )
+      ] }) })
     }
   );
 };
-const about = "_about_1cqxh_1";
-const notInView$1 = "_notInView_1cqxh_9";
-const inView$1 = "_inView_1cqxh_21";
+const about = "_about_43zhk_1";
+const title$1 = "_title_43zhk_34";
+const description$1 = "_description_43zhk_45";
+const tag$1 = "_tag_43zhk_55";
+const tagText$1 = "_tagText_43zhk_68";
+const image$1 = "_image_43zhk_89";
+const svg$1 = "_svg_43zhk_94";
+const button$1 = "_button_43zhk_110";
+const polaroid$1 = "_polaroid_43zhk_120";
 const styles$1 = {
   about,
-  notInView: notInView$1,
-  inView: inView$1
+  title: title$1,
+  description: description$1,
+  tag: tag$1,
+  tagText: tagText$1,
+  image: image$1,
+  svg: svg$1,
+  button: button$1,
+  polaroid: polaroid$1
 };
-const About = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
-  const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
+const AboutText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
+  /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 2, id: titleId, children: "Hi!" }),
+  /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "This new website is still under construction." }),
+  /* @__PURE__ */ jsxs(Text, { className: styles$1.description, "data-visible": visible, size: "l", as: "p", children: [
+    "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
+    /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
+    ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now."
+  ] }),
+  /* @__PURE__ */ jsxs(Text, { className: styles$1.description, "data-visible": visible, size: "l", as: "p", children: [
+    "I'm working on it. You can check out the ",
+    /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
+    " to see the component designs."
+  ] }),
+  /* @__PURE__ */ jsxs(Text, { className: styles$1.description, "data-visible": visible, size: "l", as: "p", children: [
+    "In the meantime, you can find me at my ",
+    /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
+    " or on ",
+    /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
+    "."
+  ] })
+] });
+const About = ({ id, visible, sectionRef }) => {
+  const [focused, setFocused] = useState(false);
   const titleId = `${id}-title`;
   return /* @__PURE__ */ jsx(
     Section,
     {
-      className: `${styles$1.about} ${styles$1.container}`,
+      className: styles$1.about,
+      onFocus: () => setFocused(true),
+      onBlur: () => setFocused(false),
       as: "section",
       ref: sectionRef,
       id,
       "aria-labelledby": titleId,
       tabIndex: -1,
-      ...rest,
-      children: /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => {
-        if (isInViewport && !hasEnteredViewport) {
-          setHasEnteredViewport(true);
-        }
-        return /* @__PURE__ */ jsxs("div", { className: hasEnteredViewport ? styles$1.inView : styles$1.notInView, children: [
-          /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "About Me" }),
-          /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
-          /* @__PURE__ */ jsxs(Text, { as: "p", children: [
-            "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-            /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
-            ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
-            /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
-            " to see the component designs.",
-            /* @__PURE__ */ jsx("br", {}),
-            /* @__PURE__ */ jsx("br", {}),
-            "In the meantime, you can find me at my ",
-            /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
-            " or on ",
-            /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
-            "."
-          ] })
-        ] });
-      } })
+      children: /* @__PURE__ */ jsx(Transition, { in: visible || focused, timeout: 0, unmount: false, children: ({ visible: visible2, nodeRef }) => /* @__PURE__ */ jsxs("div", { ref: nodeRef, children: [
+        /* @__PURE__ */ jsxs("div", { className: styles$1.tag, "aria-hidden": true, children: [
+          /* @__PURE__ */ jsx(
+            Divider,
+            {
+              notchWidth: "64px",
+              notchHeight: "8px",
+              collapsed: !visible2,
+              collapseDelay: 1e3
+            }
+          ),
+          /* @__PURE__ */ jsx("div", { className: styles$1.tagText, "data-visible": visible2, children: "Welcome!" })
+        ] }),
+        /* @__PURE__ */ jsx(AboutText, { visible: visible2, titleId }),
+        /* @__PURE__ */ jsx(
+          Button,
+          {
+            secondary: true,
+            className: styles$1.button,
+            "data-visible": visible2,
+            href: "https://legacy.stephenjlu.com/contact",
+            icon: "send",
+            children: "Contact Me"
+          }
+        )
+      ] }) })
     }
   );
 };
-const projects = "_projects_1m8lj_1";
-const notInView = "_notInView_1m8lj_9";
-const inView = "_inView_1m8lj_21";
+const projects = "_projects_p9sgt_1";
+const title = "_title_p9sgt_34";
+const description = "_description_p9sgt_45";
+const tag = "_tag_p9sgt_55";
+const tagText = "_tagText_p9sgt_68";
+const image = "_image_p9sgt_89";
+const svg = "_svg_p9sgt_94";
+const button = "_button_p9sgt_110";
+const polaroid = "_polaroid_p9sgt_120";
 const styles = {
   projects,
-  notInView,
-  inView
+  title,
+  description,
+  tag,
+  tagText,
+  image,
+  svg,
+  button,
+  polaroid
 };
-const Projects = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
-  const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
+const ProjectsText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
+  /* @__PURE__ */ jsx(Heading, { className: styles.title, "data-visible": visible, level: 2, id: titleId, children: "Hi!" }),
+  /* @__PURE__ */ jsx(Heading, { className: styles.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "This new website is still under construction." }),
+  /* @__PURE__ */ jsxs(Text, { className: styles.description, "data-visible": visible, size: "l", as: "p", children: [
+    "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
+    /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
+    ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now."
+  ] }),
+  /* @__PURE__ */ jsxs(Text, { className: styles.description, "data-visible": visible, size: "l", as: "p", children: [
+    "I'm working on it. You can check out the ",
+    /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
+    " to see the component designs."
+  ] }),
+  /* @__PURE__ */ jsxs(Text, { className: styles.description, "data-visible": visible, size: "l", as: "p", children: [
+    "In the meantime, you can find me at my ",
+    /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
+    " or on ",
+    /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
+    "."
+  ] })
+] });
+const Projects = ({ id, visible, sectionRef }) => {
+  const [focused, setFocused] = useState(false);
   const titleId = `${id}-title`;
   return /* @__PURE__ */ jsx(
     Section,
     {
-      className: `${styles.projects} ${styles.container}`,
+      className: styles.projects,
+      onFocus: () => setFocused(true),
+      onBlur: () => setFocused(false),
       as: "section",
       ref: sectionRef,
       id,
       "aria-labelledby": titleId,
       tabIndex: -1,
-      ...rest,
-      children: /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => {
-        if (isInViewport && !hasEnteredViewport) {
-          setHasEnteredViewport(true);
-        }
-        return /* @__PURE__ */ jsxs("div", { className: hasEnteredViewport ? styles.inView : styles.notInView, children: [
-          /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Projects" }),
-          /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
-          /* @__PURE__ */ jsxs(Text, { as: "p", children: [
-            "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-            /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
-            ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
-            /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
-            " to see the component designs.",
-            /* @__PURE__ */ jsx("br", {}),
-            /* @__PURE__ */ jsx("br", {}),
-            "In the meantime, you can find me at my ",
-            /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
-            " or on ",
-            /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
-            "."
-          ] })
-        ] });
-      } })
+      children: /* @__PURE__ */ jsx(Transition, { in: visible || focused, timeout: 0, unmount: false, children: ({ visible: visible2, nodeRef }) => /* @__PURE__ */ jsxs("div", { ref: nodeRef, children: [
+        /* @__PURE__ */ jsxs("div", { className: styles.tag, "aria-hidden": true, children: [
+          /* @__PURE__ */ jsx(
+            Divider,
+            {
+              notchWidth: "64px",
+              notchHeight: "8px",
+              collapsed: !visible2,
+              collapseDelay: 1e3
+            }
+          ),
+          /* @__PURE__ */ jsx("div", { className: styles.tagText, "data-visible": visible2, children: "Welcome!" })
+        ] }),
+        /* @__PURE__ */ jsx(ProjectsText, { visible: visible2, titleId }),
+        /* @__PURE__ */ jsx(
+          Button,
+          {
+            secondary: true,
+            className: styles.button,
+            "data-visible": visible2,
+            href: "https://legacy.stephenjlu.com/contact",
+            icon: "send",
+            children: "Contact Me"
+          }
+        )
+      ] }) })
     }
   );
 };
 const Page = () => {
+  const [visibleSections, setVisibleSections] = useState([]);
+  const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const home2 = useRef(null);
   const about2 = useRef(null);
   const projects2 = useRef(null);
-  return /* @__PURE__ */ jsxs("div", { "data-theme": "dark", children: [
+  useEffect(() => {
+    const sections = [home2, about2, projects2];
+    const sectionObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry2) => {
+          if (entry2.isIntersecting) {
+            const section2 = entry2.target;
+            observer.unobserve(section2);
+            if (visibleSections.includes(section2))
+              return;
+            setVisibleSections((prevSections) => [...prevSections, section2]);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.1 }
+    );
+    const indicatorObserver = new IntersectionObserver(
+      ([entry2]) => {
+        setScrollIndicatorHidden(!entry2.isIntersecting);
+      },
+      { rootMargin: "-100% 0px 0px 0px" }
+    );
+    sections.forEach((section2) => {
+      sectionObserver.observe(section2.current);
+    });
+    indicatorObserver.observe(home2.current);
+    return () => {
+      sectionObserver.disconnect();
+      indicatorObserver.disconnect();
+    };
+  }, [visibleSections]);
+  return /* @__PURE__ */ jsxs("div", { "data-theme": "dark", className: `${styles$3.page} ${styles$3.container}`, children: [
     /* @__PURE__ */ jsx(Header, {}),
-    /* @__PURE__ */ jsxs("div", { className: `${styles$3.page} ${styles$3.container}`, children: [
-      /* @__PURE__ */ jsx(
-        Home,
-        {
-          id: "home",
-          sectionRef: home2
-        }
-      ),
-      /* @__PURE__ */ jsx(
-        Projects,
-        {
-          id: "projects",
-          sectionRef: projects2
-        }
-      ),
-      /* @__PURE__ */ jsx(
-        About,
-        {
-          id: "about",
-          sectionRef: about2
-        }
-      )
-    ] })
+    /* @__PURE__ */ jsx(
+      Home,
+      {
+        id: "home",
+        sectionRef: home2,
+        visible: visibleSections.includes(home2.current)
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      Projects,
+      {
+        id: "projects",
+        sectionRef: projects2,
+        visible: visibleSections.includes(projects2.current)
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      About,
+      {
+        id: "about",
+        sectionRef: about2,
+        visible: visibleSections.includes(about2.current)
+      }
+    )
   ] });
 };
 const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-B1wTvBoo.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-CcS46rrx.js", "/assets/use-reduced-motion-CIzRnlKj.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/root-BBJ9Ns5F.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-O-1FblJT.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-CcS46rrx.js", "/assets/link-CRQiqRk1.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-CvfDdKCx.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BHpA6qfu.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-CcS46rrx.js", "/assets/link-CRQiqRk1.js", "/assets/use-reduced-motion-CIzRnlKj.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-BZoHA-ac.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BHpA6qfu.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-CcS46rrx.js", "/assets/link-CRQiqRk1.js", "/assets/use-reduced-motion-CIzRnlKj.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-BZoHA-ac.css"] } }, "url": "/assets/manifest-66483255.js", "version": "66483255" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-bCW51Lb0.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-5ramxuPs.js", "/assets/loader-BJ7TiS1K.js", "/assets/InViewport-D_3fgGNU.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-D5sJ-QpM.css", "/assets/root-B87oRh0L.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B8_n5WsE.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-5ramxuPs.js", "/assets/link-2R0buWIJ.js", "/assets/InViewport-D_3fgGNU.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Ck8xqL4r.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-5ramxuPs.js", "/assets/link-2R0buWIJ.js", "/assets/loader-BJ7TiS1K.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-D5sJ-QpM.css", "/assets/route-Cpf3dk-a.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Ck8xqL4r.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-5ramxuPs.js", "/assets/link-2R0buWIJ.js", "/assets/loader-BJ7TiS1K.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-D5sJ-QpM.css", "/assets/route-Cpf3dk-a.css"] } }, "url": "/assets/manifest-d420360b.js", "version": "d420360b" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
