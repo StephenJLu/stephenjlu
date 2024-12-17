@@ -1,4 +1,4 @@
-import { jsx, jsxs, Fragment as Fragment$1 } from "react/jsx-runtime";
+import { jsx, jsxs } from "react/jsx-runtime";
 import { RemixServer, Link as Link$1, useLocation, useNavigate, Meta, Links, Outlet, ScrollRestoration, Scripts } from "@remix-run/react";
 import * as isbotModule from "isbot";
 import { renderToReadableStream } from "react-dom/server";
@@ -874,18 +874,19 @@ function useScrollToHash() {
   );
   return scrollToHash;
 }
-const polaroid = "_polaroid_13dug_1";
-const image = "_image_13dug_21";
-const frame = "_frame_13dug_43";
+const polaroid$1 = "_polaroid_7t45g_1";
+const image = "_image_7t45g_21";
+const frame = "_frame_7t45g_43";
 const styles$d = {
-  polaroid,
+  polaroid: polaroid$1,
   image,
   frame
 };
 const polaroidFrame = "/assets/polaroid-QWl6TdX0.png";
+const getRandomRotation = () => Math.floor(Math.random() * 41) - 20;
 const PolaroidImage = ({
   imageUrl,
-  rotation = -12
+  rotation = getRandomRotation()
 }) => {
   return /* @__PURE__ */ jsxs("div", { className: styles$d.polaroid, style: { transform: `rotate(${rotation}deg)` }, children: [
     /* @__PURE__ */ jsx("div", { className: styles$d.image, style: { backgroundImage: `url(${imageUrl})` } }),
@@ -1249,7 +1250,7 @@ const Header = () => {
   const roles2 = config.roles;
   const baseDelay = config.delay;
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const { ref, inView } = useInView({
+  const { ref, inView: inView2 } = useInView({
     threshold: 0.5
   });
   useEffect(() => {
@@ -1263,7 +1264,7 @@ const Header = () => {
     }
   }, [currentRoleIndex, roles2]);
   return /* @__PURE__ */ jsx("header", { ref, children: /* @__PURE__ */ jsxs("div", { className: styles$7.header, children: [
-    /* @__PURE__ */ jsx("div", { className: `${styles$7.headerBackground} ${!inView ? styles$7.hidden : ""}` }),
+    /* @__PURE__ */ jsx("div", { className: `${styles$7.headerBackground} ${!inView2 ? styles$7.hidden : ""}` }),
     /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx(TextFade$1, { fadeText, delay: baseDelay }) }),
     /* @__PURE__ */ jsx("span", { className: styles$7.subtitle, children: roles2.slice(0, currentRoleIndex + 1).map((role, index) => {
       const calculatedDelay = role.length * 75;
@@ -1297,8 +1298,8 @@ const Footer = () => {
     ] }) })
   ] });
 };
-const container = "_container_1g4r3_3";
-const skip = "_skip_1g4r3_23";
+const container = "_container_1baxb_3";
+const skip = "_skip_1baxb_25";
 const styles$5 = {
   container,
   skip
@@ -1398,11 +1399,15 @@ function baseMeta({
     { property: "twitter:image", content: ogImage }
   ];
 }
-const page$1 = "_page_6nwar_3";
-const contact = "_contact_6nwar_127";
+const page$1 = "_page_dk0uy_1";
+const contact = "_contact_dk0uy_5";
+const notInView$3 = "_notInView_dk0uy_15";
+const inView$3 = "_inView_dk0uy_27";
 const styles$4 = {
   page: page$1,
-  contact
+  contact,
+  notInView: notInView$3,
+  inView: inView$3
 };
 const meta = () => {
   return baseMeta({
@@ -1411,8 +1416,9 @@ const meta = () => {
   });
 };
 const Contact = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
+  const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
   const titleId = `${id}-title`;
-  return /* @__PURE__ */ jsx("div", { className: styles$4.page, "data-theme": "dark", children: /* @__PURE__ */ jsxs(
+  return /* @__PURE__ */ jsx("div", { className: styles$4.page, "data-theme": "dark", children: /* @__PURE__ */ jsx(
     Section,
     {
       className: styles$4.contact,
@@ -1422,24 +1428,29 @@ const Contact = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
       "aria-labelledby": titleId,
       tabIndex: -1,
       ...rest,
-      children: [
-        /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Contact Me" }),
-        /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
-        /* @__PURE__ */ jsxs(Text, { as: "p", children: [
-          "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-          /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
-          ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
-          /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
-          " to see the component designs.",
-          /* @__PURE__ */ jsx("br", {}),
-          /* @__PURE__ */ jsx("br", {}),
-          "In the meantime, you can find me at my ",
-          /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
-          " or on ",
-          /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
-          "."
-        ] })
-      ]
+      children: /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => {
+        if (isInViewport && !hasEnteredViewport) {
+          setHasEnteredViewport(true);
+        }
+        return /* @__PURE__ */ jsxs("div", { className: hasEnteredViewport ? styles$4.inView : styles$4.notInView, children: [
+          /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Contact Me" }),
+          /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
+          /* @__PURE__ */ jsxs(Text, { as: "p", children: [
+            "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
+            /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
+            ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
+            /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
+            " to see the component designs.",
+            /* @__PURE__ */ jsx("br", {}),
+            /* @__PURE__ */ jsx("br", {}),
+            "In the meantime, you can find me at my ",
+            /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
+            " or on ",
+            /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
+            "."
+          ] })
+        ] });
+      } })
     }
   ) });
 };
@@ -1452,13 +1463,15 @@ const page = "_page_14j6x_3";
 const styles$3 = {
   page
 };
-const home = "_home_t7upo_1";
-const fadeIn$2 = "_fadeIn_t7upo_11";
-const fadeOut$2 = "_fadeOut_t7upo_21";
+const home = "_home_19wfi_1";
+const polaroid = "_polaroid_19wfi_15";
+const notInView$2 = "_notInView_19wfi_23";
+const inView$2 = "_inView_19wfi_35";
 const styles$2 = {
   home,
-  fadeIn: fadeIn$2,
-  fadeOut: fadeOut$2
+  polaroid,
+  notInView: notInView$2,
+  inView: inView$2
 };
 const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
@@ -1467,7 +1480,7 @@ const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   return /* @__PURE__ */ jsx(
     Section,
     {
-      className: `${styles$2.home} ${styles$2.container}`,
+      className: `${styles$2.home}`,
       as: "section",
       ref: sectionRef,
       id,
@@ -1478,14 +1491,8 @@ const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
         if (isInViewport && !hasEnteredViewport) {
           setHasEnteredViewport(true);
         }
-        return /* @__PURE__ */ jsx("div", { className: isInViewport ? styles$2.fadeIn : styles$2.fadeOut, children: hasEnteredViewport && /* @__PURE__ */ jsxs(Fragment$1, { children: [
-          /* @__PURE__ */ jsx(
-            PolaroidImage$1,
-            {
-              imageUrl,
-              rotation: -12
-            }
-          ),
+        return /* @__PURE__ */ jsxs("div", { className: hasEnteredViewport ? styles$2.inView : styles$2.notInView, children: [
+          /* @__PURE__ */ jsx("div", { className: styles$2.polaroid, children: /* @__PURE__ */ jsx(PolaroidImage$1, { imageUrl }) }),
           /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Hi!" }),
           /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
           /* @__PURE__ */ jsxs(Text, { as: "p", children: [
@@ -1502,18 +1509,18 @@ const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
             /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
             "."
           ] })
-        ] }) });
+        ] });
       } })
     }
   );
 };
-const about = "_about_78gxn_1";
-const fadeIn$1 = "_fadeIn_78gxn_9";
-const fadeOut$1 = "_fadeOut_78gxn_19";
+const about = "_about_1cqxh_1";
+const notInView$1 = "_notInView_1cqxh_9";
+const inView$1 = "_inView_1cqxh_21";
 const styles$1 = {
   about,
-  fadeIn: fadeIn$1,
-  fadeOut: fadeOut$1
+  notInView: notInView$1,
+  inView: inView$1
 };
 const About = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
@@ -1532,7 +1539,7 @@ const About = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
         if (isInViewport && !hasEnteredViewport) {
           setHasEnteredViewport(true);
         }
-        return /* @__PURE__ */ jsx("div", { className: isInViewport ? styles$1.fadeIn : styles$1.fadeOut, children: hasEnteredViewport && /* @__PURE__ */ jsxs(Fragment$1, { children: [
+        return /* @__PURE__ */ jsxs("div", { className: hasEnteredViewport ? styles$1.inView : styles$1.notInView, children: [
           /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "About Me" }),
           /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
           /* @__PURE__ */ jsxs(Text, { as: "p", children: [
@@ -1549,18 +1556,18 @@ const About = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
             /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
             "."
           ] })
-        ] }) });
+        ] });
       } })
     }
   );
 };
-const projects = "_projects_d9uk7_1";
-const fadeIn = "_fadeIn_d9uk7_9";
-const fadeOut = "_fadeOut_d9uk7_19";
+const projects = "_projects_1m8lj_1";
+const notInView = "_notInView_1m8lj_9";
+const inView = "_inView_1m8lj_21";
 const styles = {
   projects,
-  fadeIn,
-  fadeOut
+  notInView,
+  inView
 };
 const Projects = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
@@ -1579,7 +1586,7 @@ const Projects = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
         if (isInViewport && !hasEnteredViewport) {
           setHasEnteredViewport(true);
         }
-        return /* @__PURE__ */ jsx("div", { className: isInViewport ? styles.fadeIn : styles.fadeOut, children: hasEnteredViewport && /* @__PURE__ */ jsxs(Fragment$1, { children: [
+        return /* @__PURE__ */ jsxs("div", { className: hasEnteredViewport ? styles.inView : styles.notInView, children: [
           /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Projects" }),
           /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
           /* @__PURE__ */ jsxs(Text, { as: "p", children: [
@@ -1596,7 +1603,7 @@ const Projects = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
             /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
             "."
           ] })
-        ] }) });
+        ] });
       } })
     }
   );
@@ -1636,7 +1643,7 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-NtwEiO_w.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/root-B-NrfWql.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B2-2OsHi.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-0KGNyDb8.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DPs2AOeC.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-Dsychr4N.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DPs2AOeC.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-Dsychr4N.css"] } }, "url": "/assets/manifest-ce0fe9bb.js", "version": "ce0fe9bb" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-B1wTvBoo.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-CcS46rrx.js", "/assets/use-reduced-motion-CIzRnlKj.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/root-BBJ9Ns5F.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-O-1FblJT.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-CcS46rrx.js", "/assets/link-CRQiqRk1.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-CvfDdKCx.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BHpA6qfu.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-CcS46rrx.js", "/assets/link-CRQiqRk1.js", "/assets/use-reduced-motion-CIzRnlKj.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-BZoHA-ac.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BHpA6qfu.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-CcS46rrx.js", "/assets/link-CRQiqRk1.js", "/assets/use-reduced-motion-CIzRnlKj.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-BZoHA-ac.css"] } }, "url": "/assets/manifest-66483255.js", "version": "66483255" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
