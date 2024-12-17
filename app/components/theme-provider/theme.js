@@ -15,9 +15,12 @@ const baseTokens = {
   fontStack: `AtlasGroteskLC, var(--systemFontStack)`,
   monoFontStack:
     'ui-monospace, OperatorMonoLig, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
+  fontWeightThin: 100,
+  fontWeightLight: 300,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightBold: 700,
+  fontWeightBlack: 900,
   fontSizeH0: pxToRem(140),
   fontSizeH1: pxToRem(100),
   fontSizeH2: pxToRem(58),

@@ -6,8 +6,8 @@ interface HeadingProps {
   children: ReactNode;
   level?: number;
   as?: keyof JSX.IntrinsicElements;
-  align?: 'auto' | 'left' | 'right' | 'center' | 'justify';
-  weight?: 'light' | 'regular' | 'medium' | 'bold';
+  align?: 'auto' | 'start' | 'center';
+  weight?: 'thin' | 'light' | 'regular' | 'medium' | 'bold' | 'black';
   className?: string;
   [key: string]: any; // To allow additional props
 }

@@ -44,6 +44,13 @@
       text-align: center;
     }
 
+    &[data-weight='thin'] {
+      font-weight: var(--fontWeightThin);
+    }
+    &[data-weight='light'] {
+      font-weight: var(--fontWeightLight);
+    }
+
     &[data-weight='regular'] {
       font-weight: var(--fontWeightRegular);
     }
@@ -54,6 +61,10 @@
 
     &[data-weight='bold'] {
       font-weight: var(--fontWeightBold);
+    }
+
+    &[data-weight='black'] {
+      font-weight: var(--fontWeightBlack);
     }
   }
 }
