@@ -40,7 +40,7 @@ export const Contact: React.FC<ContactProps> = ({ id, sectionRef, scrollIndicato
           }
           return (
             <div className={hasEnteredViewport ? styles.inView : styles.notInView}>              
-              <Heading level={1} as={'h1'}>Contact Me</Heading>
+              <Heading level={1} as={'span'} weight={'light'} align={'start'} className={styles.heading}>Contact Me</Heading>
               <Heading level={2} as={'h2'}>This new website is still under construction.</Heading>
               <Text as={'p'}>
                 I&apos;m currently converting my legacy website to a new, modern, and responsive design, based on <Link href="https://react.dev/">React</Link>. I know it&apos;s probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now.

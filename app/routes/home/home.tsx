@@ -1,52 +1,79 @@
 import React, { useState } from 'react';
-import { Section, PolaroidImage, Heading, Text, Link, InViewport } from '../../components/Components';
+import { Section, PolaroidImage, Heading, Text, Link,
+  DecoderText, Transition, Button, Divider } from '../../components/Components';
 import styles from './home.module.css';
 import config from '../../config.json';
 
 interface HomeProps {
   id?: string;
-  sectionRef?: React.RefObject<HTMLElement>;
-  scrollIndicatorHidden?: boolean;
+  sectionRef?: React.RefObject<HTMLElement>;  
 }
 
-export const Home: React.FC<HomeProps> = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
-  const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
+const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
+  <>     
+
+    <Heading className={styles.title} data-visible={visible} level={2} id={titleId}>
+      Hi!
+    </Heading>
+    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>This new website is still under construction.</Heading>
+    <Text className={styles.description} data-visible={visible} size="l" as="p">
+      I&apos;m currently converting my legacy website to a new, modern, and responsive design, based on <Link href="https://react.dev/">React</Link>. I know it&apos;s probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now.
+    </Text>
+    <Text className={styles.description} data-visible={visible} size="l" as="p">
+     I&apos;m working on it. You can check out the <Link href="https://storybook.stephenjlu.com/">Storybook</Link> to see the component designs.      
+    </Text>
+    <Text className={styles.description} data-visible={visible} size="l" as="p">
+     In the meantime, you can find me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.
+     </Text>
+  </>
+
+);
+interface HomeComponentProps extends HomeProps {
+  visible: boolean;}
+
+export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {  
+  const [focused, setFocused] = useState(false);
   const titleId = `${id}-title`;
   const { avatar: imageUrl } = config;
   const rotation = Math.floor(Math.random() * 41) - 20;
-
-
   return (
     <Section
-      className={`${styles.home}`}  
+      className={styles.home}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}  
       as="section"
       ref={sectionRef}
       id={id}
       aria-labelledby={titleId}
-      tabIndex={-1}
-      {...rest}
-    >      
-      <InViewport>
-        {(isInViewport) => {
-          if (isInViewport && !hasEnteredViewport) {
-            setHasEnteredViewport(true);
-          }
-          return (
-            <div className={hasEnteredViewport ? styles.inView : styles.notInView}>
-              <div className={styles.polaroid}>
-                <PolaroidImage rotation={rotation} imageUrl={imageUrl} />
+      tabIndex={-1}      
+      >
+        <Transition in={visible || focused} timeout={0} unmount={false}>
+          {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
+            <div ref={nodeRef}>
+              <div className={styles.tag} aria-hidden>
+                <Divider
+                  notchWidth="64px"
+                  notchHeight="8px"
+                  collapsed={!visible}
+                  collapseDelay={1000}
+                />
+                <div className={styles.tagText} data-visible={visible}>
+                  Welcome!
+                </div>
               </div>
-              <Heading level={1} as={'h1'}>Hi!</Heading>
-              <Heading level={2} as={'h2'}>This new website is still under construction.</Heading>
-              <Text as={'p'}>
-                I&apos;m currently converting my legacy website to a new, modern, and responsive design, based on <Link href="https://react.dev/">React</Link>. I know it&apos;s probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now.
-                I&apos;m working on it. You can check out the <Link href="https://storybook.stephenjlu.com/">Storybook</Link> to see the component designs.<br /><br />
-                In the meantime, you can find me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.
-              </Text>
+              <HomeText visible={visible} titleId={titleId} />
+                <Button
+                secondary
+                className={styles.button}
+                data-visible={visible}
+                href="https://legacy.stephenjlu.com/contact"
+                icon="send"
+                >
+                  Contact Me
+                </Button>
             </div>
-          );
-        }}
-      </InViewport>
+          )}
+        </Transition>
     </Section>
   );
 };
