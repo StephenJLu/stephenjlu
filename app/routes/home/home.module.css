@@ -1,15 +1,23 @@
 .home {
   overflow-x: hidden;
-  padding-top: 100px;
+  padding-top: 50px;
+  height: 100%;
+  width: 100%;
 }
 
-.fadeIn {
-  opacity: 1;
-  transition: opacity 1.5s ease-in;
+.polaroid {
+  padding: 20px;
 }
 
-.fadeOut {
+.notInView {
   opacity: 0;
-  transition: opacity 1s ease-out;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in, visibility 0.8s ease-in;
+}
+
+.inView {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease-in, visibility 0.8s ease-in;
 }
 

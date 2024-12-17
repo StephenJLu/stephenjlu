@@ -2,12 +2,14 @@
     overflow-x: hidden;
 }
 
-.fadeIn {
-  opacity: 1;
-  transition: opacity 1.5s ease-in;
+.notInView {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in, visibility 0.8s ease-in;
 }
 
-.fadeOut {
-  opacity: 0;
-  transition: opacity 1s ease-out;
+.inView {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease-in, visibility 0.8s ease-in;
 }

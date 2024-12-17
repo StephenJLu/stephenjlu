@@ -21,6 +21,7 @@
     transition: var(--durationM) ease;
     transition-property: background, opacity;
     color: var(--textBody);
+    height: 100vh;
     width: 100vw;
     overflow-x: hidden;
     opacity: 1;
@@ -54,8 +55,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-image: url('./static/images/starry-bg2.gif');                                          
   background-size: contain;
   background-repeat: repeat;
@@ -70,8 +71,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-image: url('./static/images/starry-bg3.gif');                                          
   background-size: contain;
   background-repeat: repeat;
@@ -80,10 +81,6 @@
   z-index: -999;
   transform: rotate(-45deg); /* Rotate the background image in the opposite direction */
 }
-
-
-
-
 
   :global(:where(code, pre)) {
     font-family: var(--monoFontStack);
