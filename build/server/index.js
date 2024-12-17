@@ -2,7 +2,7 @@ import { jsx, jsxs, Fragment as Fragment$1 } from "react/jsx-runtime";
 import { RemixServer, Link as Link$1, useLocation, useNavigate, Meta, Links, Outlet, ScrollRestoration, Scripts } from "@remix-run/react";
 import * as isbotModule from "isbot";
 import { renderToReadableStream } from "react-dom/server";
-import React, { useState, useEffect, forwardRef, memo, useRef, createContext, useContext, useCallback, Fragment } from "react";
+import React, { useEffect, useState, forwardRef, memo, useRef, createContext, useContext, useCallback, Fragment } from "react";
 import { useReducedMotion, useSpring, AnimatePresence, usePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 async function handleRequest(request, responseStatusCode, responseHeaders, remixContext, loadContext) {
@@ -41,6 +41,27 @@ const entryServer = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineP
   __proto__: null,
   default: handleRequest
 }, Symbol.toStringTag, { value: "Module" }));
+const Rotation = () => {
+  useEffect(() => {
+    const applyRotation = () => {
+      const randomRotationBefore = Math.floor(Math.random() * 360);
+      const randomRotationAfter = Math.floor(Math.random() * 360);
+      const styleElement = document.createElement("style");
+      styleElement.innerHTML = `
+        body::before {
+          transform: rotate(${randomRotationBefore}deg);
+        }
+        body::after {
+          transform: rotate(${randomRotationAfter}deg);
+        }
+      `;
+      document.head.appendChild(styleElement);
+    };
+    applyRotation();
+  }, []);
+  return null;
+};
+const Rotation$1 = Rotation;
 const TextAnim = ({ typeText, delay: delay2 = 0 }) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -1329,6 +1350,7 @@ function App() {
       /* @__PURE__ */ jsx(Links, {})
     ] }),
     /* @__PURE__ */ jsxs("body", { children: [
+      /* @__PURE__ */ jsx(Rotation$1, {}),
       /* @__PURE__ */ jsxs(ThemeProvider, { theme, className: "", children: [
         /* @__PURE__ */ jsx(MenuBar, {}),
         /* @__PURE__ */ jsxs("main", { id: "main-content", className: styles$5.container, tabIndex: -1, children: [
@@ -1445,7 +1467,7 @@ const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   return /* @__PURE__ */ jsx(
     Section,
     {
-      className: styles$2.home,
+      className: `${styles$2.home} ${styles$2.container}`,
       as: "section",
       ref: sectionRef,
       id,
@@ -1499,7 +1521,7 @@ const About = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   return /* @__PURE__ */ jsx(
     Section,
     {
-      className: styles$1.about,
+      className: `${styles$1.about} ${styles$1.container}`,
       as: "section",
       ref: sectionRef,
       id,
@@ -1546,7 +1568,7 @@ const Projects = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   return /* @__PURE__ */ jsx(
     Section,
     {
-      className: styles.projects,
+      className: `${styles.projects} ${styles.container}`,
       as: "section",
       ref: sectionRef,
       id,
@@ -1614,7 +1636,7 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-CFej6mmb.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/root-Dj00H2s6.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B2-2OsHi.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-0KGNyDb8.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B2x35nN7.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-CSwLtg38.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B2x35nN7.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-CSwLtg38.css"] } }, "url": "/assets/manifest-0f222930.js", "version": "0f222930" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-NtwEiO_w.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/root-B-NrfWql.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B2-2OsHi.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-0KGNyDb8.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DPs2AOeC.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-Dsychr4N.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DPs2AOeC.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-Dsychr4N.css"] } }, "url": "/assets/manifest-ce0fe9bb.js", "version": "ce0fe9bb" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
