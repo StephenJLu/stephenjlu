@@ -1,4 +1,4 @@
-import { jsx, jsxs } from "react/jsx-runtime";
+import { jsx, jsxs, Fragment as Fragment$1 } from "react/jsx-runtime";
 import { RemixServer, Link as Link$1, useLocation, useNavigate, Meta, Links, Outlet, ScrollRestoration, Scripts } from "@remix-run/react";
 import * as isbotModule from "isbot";
 import { renderToReadableStream } from "react-dom/server";
@@ -1006,7 +1006,7 @@ const bluesky$1 = "stephenjlu.com";
 const linkedin = "StephenJLu";
 const github = "StephenJLu";
 const repo = "https://github.com/StephenJLu/Stephenjlu/";
-const ascii = "__  __  __\n\\ \\ \\ \\ \\∕\n \\ \\∕\\ \\\n  \\∕  \\∕\n";
+const ascii = " _________________       \n(  ____ \\__    _( \\      \n| (    \\/  )  ( | (      \n| (_____   |  | | |      \n(_____  )  |  | | |      \n      ) |  |  | | |      \n/\\____) |\\_)  ) | (____/\\\n\\_______(____/  (_______/\n";
 const delay$1 = 500;
 const avatar = "https://legacy.stephenjlu.com/images/steve.jpg";
 const config = {
@@ -1376,8 +1376,8 @@ function baseMeta({
     { property: "twitter:image", content: ogImage }
   ];
 }
-const page$1 = "_page_zd5tn_1";
-const contact = "_contact_zd5tn_9";
+const page$1 = "_page_6nwar_3";
+const contact = "_contact_6nwar_127";
 const styles$4 = {
   page: page$1,
   contact
@@ -1390,7 +1390,7 @@ const meta = () => {
 };
 const Contact = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   const titleId = `${id}-title`;
-  return /* @__PURE__ */ jsx("div", { className: `${styles$4.page} ${styles$4.container}`, "data-theme": "dark", children: /* @__PURE__ */ jsxs(
+  return /* @__PURE__ */ jsx("div", { className: styles$4.page, "data-theme": "dark", children: /* @__PURE__ */ jsxs(
     Section,
     {
       className: styles$4.contact,
@@ -1426,18 +1426,23 @@ const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: Contact,
   meta
 }, Symbol.toStringTag, { value: "Module" }));
-const page = "_page_1r2ty_5";
+const page = "_page_14j6x_3";
 const styles$3 = {
   page
 };
-const home = "_home_2dgf6_1";
+const home = "_home_t7upo_1";
+const fadeIn$2 = "_fadeIn_t7upo_11";
+const fadeOut$2 = "_fadeOut_t7upo_21";
 const styles$2 = {
-  home
+  home,
+  fadeIn: fadeIn$2,
+  fadeOut: fadeOut$2
 };
 const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
+  const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
   const titleId = `${id}-title`;
   const { avatar: imageUrl } = config;
-  return /* @__PURE__ */ jsxs(
+  return /* @__PURE__ */ jsx(
     Section,
     {
       className: styles$2.home,
@@ -1447,41 +1452,51 @@ const Home = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
       "aria-labelledby": titleId,
       tabIndex: -1,
       ...rest,
-      children: [
-        /* @__PURE__ */ jsx(
-          PolaroidImage$1,
-          {
-            imageUrl,
-            rotation: -12
-          }
-        ),
-        /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Hi!" }),
-        /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
-        /* @__PURE__ */ jsxs(Text, { as: "p", children: [
-          "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-          /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
-          ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
-          /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
-          " to see the component designs.",
-          /* @__PURE__ */ jsx("br", {}),
-          /* @__PURE__ */ jsx("br", {}),
-          "In the meantime, you can find me at my ",
-          /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
-          " or on ",
-          /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
-          "."
-        ] })
-      ]
+      children: /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => {
+        if (isInViewport && !hasEnteredViewport) {
+          setHasEnteredViewport(true);
+        }
+        return /* @__PURE__ */ jsx("div", { className: isInViewport ? styles$2.fadeIn : styles$2.fadeOut, children: hasEnteredViewport && /* @__PURE__ */ jsxs(Fragment$1, { children: [
+          /* @__PURE__ */ jsx(
+            PolaroidImage$1,
+            {
+              imageUrl,
+              rotation: -12
+            }
+          ),
+          /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Hi!" }),
+          /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
+          /* @__PURE__ */ jsxs(Text, { as: "p", children: [
+            "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
+            /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
+            ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
+            /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
+            " to see the component designs.",
+            /* @__PURE__ */ jsx("br", {}),
+            /* @__PURE__ */ jsx("br", {}),
+            "In the meantime, you can find me at my ",
+            /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
+            " or on ",
+            /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
+            "."
+          ] })
+        ] }) });
+      } })
     }
   );
 };
-const about = "_about_u8ju0_1";
+const about = "_about_78gxn_1";
+const fadeIn$1 = "_fadeIn_78gxn_9";
+const fadeOut$1 = "_fadeOut_78gxn_19";
 const styles$1 = {
-  about
+  about,
+  fadeIn: fadeIn$1,
+  fadeOut: fadeOut$1
 };
 const About = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
+  const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
   const titleId = `${id}-title`;
-  return /* @__PURE__ */ jsxs(
+  return /* @__PURE__ */ jsx(
     Section,
     {
       className: styles$1.about,
@@ -1491,34 +1506,44 @@ const About = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
       "aria-labelledby": titleId,
       tabIndex: -1,
       ...rest,
-      children: [
-        /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "About Me" }),
-        /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
-        /* @__PURE__ */ jsxs(Text, { as: "p", children: [
-          "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-          /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
-          ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
-          /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
-          " to see the component designs.",
-          /* @__PURE__ */ jsx("br", {}),
-          /* @__PURE__ */ jsx("br", {}),
-          "In the meantime, you can find me at my ",
-          /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
-          " or on ",
-          /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
-          "."
-        ] })
-      ]
+      children: /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => {
+        if (isInViewport && !hasEnteredViewport) {
+          setHasEnteredViewport(true);
+        }
+        return /* @__PURE__ */ jsx("div", { className: isInViewport ? styles$1.fadeIn : styles$1.fadeOut, children: hasEnteredViewport && /* @__PURE__ */ jsxs(Fragment$1, { children: [
+          /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "About Me" }),
+          /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
+          /* @__PURE__ */ jsxs(Text, { as: "p", children: [
+            "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
+            /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
+            ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
+            /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
+            " to see the component designs.",
+            /* @__PURE__ */ jsx("br", {}),
+            /* @__PURE__ */ jsx("br", {}),
+            "In the meantime, you can find me at my ",
+            /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
+            " or on ",
+            /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
+            "."
+          ] })
+        ] }) });
+      } })
     }
   );
 };
-const projects = "_projects_wvrsm_1";
+const projects = "_projects_d9uk7_1";
+const fadeIn = "_fadeIn_d9uk7_9";
+const fadeOut = "_fadeOut_d9uk7_19";
 const styles = {
-  projects
+  projects,
+  fadeIn,
+  fadeOut
 };
 const Projects = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
+  const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
   const titleId = `${id}-title`;
-  return /* @__PURE__ */ jsxs(
+  return /* @__PURE__ */ jsx(
     Section,
     {
       className: styles.projects,
@@ -1528,24 +1553,29 @@ const Projects = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
       "aria-labelledby": titleId,
       tabIndex: -1,
       ...rest,
-      children: [
-        /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Projects" }),
-        /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
-        /* @__PURE__ */ jsxs(Text, { as: "p", children: [
-          "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-          /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
-          ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
-          /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
-          " to see the component designs.",
-          /* @__PURE__ */ jsx("br", {}),
-          /* @__PURE__ */ jsx("br", {}),
-          "In the meantime, you can find me at my ",
-          /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
-          " or on ",
-          /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
-          "."
-        ] })
-      ]
+      children: /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => {
+        if (isInViewport && !hasEnteredViewport) {
+          setHasEnteredViewport(true);
+        }
+        return /* @__PURE__ */ jsx("div", { className: isInViewport ? styles.fadeIn : styles.fadeOut, children: hasEnteredViewport && /* @__PURE__ */ jsxs(Fragment$1, { children: [
+          /* @__PURE__ */ jsx(Heading, { level: 1, as: "h1", children: "Projects" }),
+          /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
+          /* @__PURE__ */ jsxs(Text, { as: "p", children: [
+            "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
+            /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
+            ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now. I'm working on it. You can check out the ",
+            /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
+            " to see the component designs.",
+            /* @__PURE__ */ jsx("br", {}),
+            /* @__PURE__ */ jsx("br", {}),
+            "In the meantime, you can find me at my ",
+            /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
+            " or on ",
+            /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
+            "."
+          ] })
+        ] }) });
+      } })
     }
   );
 };
@@ -1584,7 +1614,7 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BzlN5Oqu.js?client-route=1", "imports": ["/assets/components-DHLhvGvi.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BCjcEdxf.js?client-route=1", "imports": ["/assets/components-DHLhvGvi.js", "/assets/config-CqaACBDh.js", "/assets/use-reduced-motion-BjFDJR4s.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/root-Dj00H2s6.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DYYmx3Eu.js?client-route=1", "imports": ["/assets/components-DHLhvGvi.js", "/assets/config-CqaACBDh.js", "/assets/link-BgLqXJ9M.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-DNk8Kwva.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BYQXdQlx.js?client-route=1", "imports": ["/assets/components-DHLhvGvi.js", "/assets/config-CqaACBDh.js", "/assets/link-BgLqXJ9M.js", "/assets/use-reduced-motion-BjFDJR4s.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-DqF8sSX0.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BYQXdQlx.js?client-route=1", "imports": ["/assets/components-DHLhvGvi.js", "/assets/config-CqaACBDh.js", "/assets/link-BgLqXJ9M.js", "/assets/use-reduced-motion-BjFDJR4s.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-DqF8sSX0.css"] } }, "url": "/assets/manifest-c1518eca.js", "version": "c1518eca" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-CFej6mmb.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/root-Dj00H2s6.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B2-2OsHi.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-0KGNyDb8.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B2x35nN7.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-CSwLtg38.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B2x35nN7.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-D-Rz8yHq.js", "/assets/link-DvPADkPT.js", "/assets/InViewport-BSd_4HZn.js"], "css": ["/assets/config-D0sghgQh.css", "/assets/link-n9EylcIC.css", "/assets/route-CSwLtg38.css"] } }, "url": "/assets/manifest-0f222930.js", "version": "0f222930" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
