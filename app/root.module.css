@@ -2,7 +2,8 @@
   .container {
     width: 100%;
     position: relative;
-    transition: opacity 0.4s var(--bezierFastoutSlowin);
+    transition: opacity 0.8s var(--bezierFastoutSlowin);
+    background-color: var(--background);
 
     &[data-loading='true'] {
       opacity: 0;
