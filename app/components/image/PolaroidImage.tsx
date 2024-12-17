@@ -6,10 +6,10 @@ interface PolaroidImageProps {
   imageUrl: string;
   rotation?: number;
 }
-
+const getRandomRotation = () => Math.floor(Math.random() * 41) - 20;
 const PolaroidImage: React.FC<PolaroidImageProps> = ({
   imageUrl,
-  rotation = -12,
+  rotation = getRandomRotation(),
 }) => {
   return (
     <div className={styles.polaroid} style={{ transform: `rotate(${rotation}deg)` }}>

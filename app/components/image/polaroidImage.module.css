@@ -1,5 +1,5 @@
 .polaroid {
-  display: flex;
+  display: in-line-block;
   position: relative;  
   width: 300px;
   height: 360px;
@@ -14,7 +14,7 @@
   left: 5px;  
   width: 95%;
   height: 95%;
-  background-size: contain;
+  background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;  
 }

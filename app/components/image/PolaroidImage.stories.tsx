@@ -4,25 +4,43 @@ import { StoryContainer } from '../../../.storybook/story-container';
 
 export default {
   title: 'Polaroid Frame',
+  component: PolaroidImage,
+  argTypes: {
+    rotation: {
+      control: { type: 'number', min: -20, max: 20 },
+    },
+    imageUrl: {
+      control: 'text',
+    },
+  },
   args: {
-    rotation: -10,
+    rotation: 0,
     imageUrl: steveImage,
   },
 };
 
 interface PolaroidProps {
-  rotation: number;
+  rotation?: number;
   imageUrl: string;
 }
 
-export const Default = ({ rotation, imageUrl }: PolaroidProps) => (
-  <StoryContainer>    
-      <PolaroidImage rotation={rotation} imageUrl={imageUrl} />    
+export const Default = () => (
+  <StoryContainer>
+    <PolaroidImage imageUrl={steveImage} />
   </StoryContainer>
 );
 
-export const DifferentImage = () => (
-  <StoryContainer>    
-      <PolaroidImage rotation={16} imageUrl="https://legacy.stephenjlu.com/images/fltc.webp" />    
+Default.args = {  
+  imageUrl: steveImage,
+};
+
+export const DifferentImage = ({ rotation, imageUrl = '' }: PolaroidProps) => (
+  <StoryContainer>
+    <PolaroidImage rotation={rotation} imageUrl={imageUrl} />
   </StoryContainer>
 );
+
+DifferentImage.args = {
+  rotation: 16,
+  imageUrl: "https://legacy.stephenjlu.com/images/fltc.webp",
+};
