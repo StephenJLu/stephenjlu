@@ -1,10 +1,69 @@
-@import url('../home/page.module.css');
 
-@layer layout {
+.page {  
+  padding-top: 100px;
+  padding-bottom: 100px;
+  overflow-x: hidden;  
+  line-height: 1.5;
+  width: 100%;
+  z-index: 1; 
+}
+
+
+
+
+.page h1 {
+  text-align: left;  
+  padding: 100px 0 50px 30px;
+  display: inline-block;  
+  margin: 0 0 4px;
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 1;
+  
+}
+
+.page h2 {
+  display: inline-block;  
+  margin: 0 50px 0 30px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.5;
+}
+
+.page p {  
+  font-size: 1.5rem;
+  margin: 50px 50px 50px 50px;
+}
+
+.page a {
+  color: var(--accent);
+  text-decoration: dotted;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 696px) {
+  .page h1 {
+    font-size: 2.5rem; /* Adjust font size for mobile */
+    padding: 100px 0 25px 15px; /* Adjust padding for mobile */
+  }
+
+  .page h2 {
+    font-size: 24px; /* Adjust font size for mobile */
+    margin: 0 25px 0 15px; /* Adjust margin for mobile */
+  }
+
+  .page p {
+    font-size: 1rem; /* Adjust font size for mobile */
+    margin: 25px 25px 25px 25px; /* Adjust margin for mobile */
+  }
+}
+
+
+
 
 .contact {
   overflow-x: hidden;
   padding-top: 100px;
 }
 
-}
+

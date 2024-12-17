@@ -3,3 +3,13 @@
   padding-top: 100px;
 }
 
+.fadeIn {
+  opacity: 1;
+  transition: opacity 1.5s ease-in;
+}
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
