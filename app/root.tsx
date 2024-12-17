@@ -60,9 +60,9 @@ export default function App() {
         <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
         <Meta />
         <Links />
-      </head>
-      <Rotation />
+      </head>      
       <body>
+        <Rotation />
         <ThemeProvider theme={theme} className="">
           <MenuBar />
           <main id="main-content" className={styles.container} tabIndex={-1}>
