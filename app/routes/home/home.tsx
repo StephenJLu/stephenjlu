@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Section, PolaroidImage, Heading, Text, Link,
-  DecoderText, Transition, Button, Divider } from '../../components/Components';
+import { Section, Heading, Text, Link,
+  DecoderText, Transition, Divider } from '../../components/Components';
 import styles from './home.module.css';
 import config from '../../config.json';
 
@@ -10,21 +10,23 @@ interface HomeProps {
 }
 
 const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
-  <>     
-
-    <Heading className={styles.title} data-visible={visible} level={2} id={titleId}>
-      Hi!
-    </Heading>
-    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>This new website is still under construction.</Heading>
+  <>
+    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Hello there</Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I&apos;m currently converting my legacy website to a new, modern, and responsive design, based on <Link href="https://react.dev/">React</Link>. I know it&apos;s probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now.
-    </Text>
+      I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout
+      my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns,
+      bullet trajectories, and digging up clandestine graves. I've also worked as a freelance web designer,
+      providing services to non-profit organizations and small businesses.
+      </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-     I&apos;m working on it. You can check out the <Link href="https://storybook.stephenjlu.com/">Storybook</Link> to see the component designs.      
-    </Text>
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-     In the meantime, you can find me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.
+      I'm currently working on this portfolio website, so please check back soon for updates and changes.
      </Text>
+    <Text className={styles.description} data-visible={visible} size="l" as="p">
+     In the meantime, you can find more detailed information about me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.
+     </Text>
+    <Text className={styles.description} data-visible={visible} size="l" as="p" style={{ fontStyle: 'italic' }}>
+     Thanks for visiting!
+    </Text>
   </>
 
 );
@@ -58,19 +60,10 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
                   collapseDelay={1000}
                 />
                 <div className={styles.tagText} data-visible={visible}>
-                  Welcome!
+                  Stephen J. Lu
                 </div>
               </div>
-              <HomeText visible={visible} titleId={titleId} />
-                <Button
-                secondary
-                className={styles.button}
-                data-visible={visible}
-                href="https://legacy.stephenjlu.com/contact"
-                icon="send"
-                >
-                  Contact Me
-                </Button>
+              <HomeText visible={visible} titleId={titleId} />                
             </div>
           )}
         </Transition>
