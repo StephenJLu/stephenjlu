@@ -78,6 +78,8 @@
 .banner {
   position: relative;
   display: flex;
+  padding-bottom: var(--spaceL);
+  padding-top: var(--spaceL);
   align-items: center;
   justify-self: center;
   justify-content: center;
