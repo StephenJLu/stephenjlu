@@ -7,6 +7,7 @@
     --buttonTextColor: var(--background);
     --buttonTextOpacity: 1;
     --buttonLoaderDelay: 0s;
+    --primary: var(--accent);
 
     height: var(--buttonSize);
     padding: var(--buttonPadding);
