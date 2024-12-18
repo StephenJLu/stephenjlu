@@ -84,6 +84,8 @@
   grid-template-columns: var(--space4XL) 1fr;
   gap: 12px;
   align-items: center;
+  white-space: nowrap;
+   max-width: 100%;
 
   @media (--mediaTablet) {
     margin-top: 30px;
@@ -99,6 +101,7 @@
   transition-timing-function: var(--bezierFastoutSlowin);
   transition-duration: var(--durationM);
   transition-delay: 1.3s;
+  white-space: nowrap;
 
   @media (--mediaUseMotion) {
     transition-property: opacity, transform;
