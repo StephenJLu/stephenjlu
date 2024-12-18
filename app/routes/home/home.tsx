@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Link,
-  DecoderText, Transition, Divider } from '../../components/Components';
+  DecoderText, Transition, Divider, InViewport } from '../../components/Components';
 import styles from './home.module.css';
 import config from '../../config.json';
 
 interface HomeProps {
   id?: string;
-  sectionRef?: React.RefObject<HTMLElement>;  
+  sectionRef?: React.RefObject<HTMLElement>;
+}
+
+interface HomeComponentProps extends HomeProps {
+  visible: boolean;  
 }
 
 const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
@@ -35,9 +39,24 @@ interface HomeComponentProps extends HomeProps {
 
 export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {  
   const [focused, setFocused] = useState(false);
+  const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;
-  const { avatar: imageUrl } = config;
-  const rotation = Math.floor(Math.random() * 41) - 20;
+
+  useEffect(() => {
+    if (isInViewport) {
+      return;
+    }
+    const handleViewportChange = (inViewport: boolean) => {
+      if (inViewport) {
+        setIsInViewport(true);
+      }
+    };
+
+    return () => {
+      // Cleanup if needed
+    };
+  }, [isInViewport]);
+  
   return (
     <Section
       className={styles.home}
@@ -59,14 +78,30 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
                   collapsed={!visible}
                   collapseDelay={1000}
                 />
-                <div className={styles.tagText} data-visible={visible}>
-                  Stephen J. Lu
-                </div>
-              </div>
-              <HomeText visible={visible} titleId={titleId} />                
+                <InViewport>
+                {(inViewport) => {
+                  useEffect(() => {
+                    if (inViewport) {
+                      setIsInViewport(true);
+                    }
+                  }, [inViewport]);
+                  return (
+                    <div className={styles.tagText} data-visible={visible}>
+                      {isInViewport && (
+                        <DecoderText
+                          text={`${config.name}`}
+                          delay={1500}
+                        />
+                      )}
+                    </div>
+                  );
+                }}
+              </InViewport>
             </div>
-          )}
-        </Transition>
+            <HomeText visible={visible} titleId={titleId} />
+          </div>
+        )}
+      </Transition>
     </Section>
   );
 };
