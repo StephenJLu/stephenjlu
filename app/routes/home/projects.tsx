@@ -1,37 +1,35 @@
 import React, { useState } from 'react';
-import { Section, PolaroidImage, Heading, Text, Link,
-  DecoderText, Transition, Button, Divider } from '../../components/Components';
+import { Button, Divider, Heading, Section, Text, Transition, useTheme } from '../../components/Components';
+import { useWindowSize } from 'app/hooks';
+import { useHydrated } from 'app/hooks/useHydrated';
 import styles from './projects.module.css';
-import config from '../../config.json';
 
 interface ProjectsProps {
   id?: string;
-  sectionRef?: React.RefObject<HTMLElement>;  
+  sectionRef?: React.RefObject<HTMLElement>;
+  visible?: boolean;
+  index?: number;
+  title?: string;
+  description?: string;
+  bannerImage?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  alternate?: boolean;
 }
 
-const ProjectsText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
-  <>     
-
-    <Heading className={styles.title} data-visible={visible} level={2} id={titleId}>
-      Hi!
-    </Heading>
-    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>This new website is still under construction.</Heading>
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I&apos;m currently converting my legacy website to a new, modern, and responsive design, based on <Link href="https://react.dev/">React</Link>. I know it&apos;s probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now.
-    </Text>
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-     I&apos;m working on it. You can check out the <Link href="https://storybook.stephenjlu.com/">Storybook</Link> to see the component designs.      
-    </Text>
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-     In the meantime, you can find me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.
-     </Text>
-  </>
-
-);
-interface ProjectsComponentProps extends ProjectsProps {
-  visible: boolean;}
-
-export const Projects = ({ id, visible, sectionRef }: ProjectsComponentProps) => {  
+export function Projects({
+  id,
+  sectionRef,
+  visible: sectionVisible,
+  index,
+  title,
+  description,
+  bannerImage,
+  buttonText,
+  buttonLink,
+  alternate,
+  ...rest
+}: ProjectsProps) {
   const [focused, setFocused] = useState(false);
   const titleId = `${id}-title`;
   const { avatar: imageUrl } = config;
