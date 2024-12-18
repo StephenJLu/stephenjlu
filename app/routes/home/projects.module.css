@@ -228,3 +228,12 @@
     opacity: 1;
   }
 }
+
+.divider {
+  display: block;
+  width: 100%;
+  grid-row: auto;
+  grid-column: 1 / -1; /* Span all columns */
+  margin: var(--spaceL) 0;
+  padding-top: var(--spaceM);
+}
