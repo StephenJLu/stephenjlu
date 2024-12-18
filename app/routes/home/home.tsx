@@ -41,24 +41,7 @@ interface HomeComponentProps extends HomeProps {
 export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {  
   const [focused, setFocused] = useState(false);
   const [isInViewport, setIsInViewport] = useState(false);
-  const titleId = `${id}-title`;
-
-  const rotation = Math.floor(Math.random() * 41) - 20;
-
-  useEffect(() => {
-    if (isInViewport) {
-      return;
-    }
-    const handleViewportChange = (inViewport: boolean) => {
-      if (inViewport) {
-        setIsInViewport(true);
-      }
-    };
-
-    return () => {
-      // Cleanup if needed
-    };
-  }, [isInViewport]);
+  const titleId = `${id}-title`;  
   
   return (
     <Section       
@@ -103,7 +86,7 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
             </div>
             <HomeText visible={visible} titleId={titleId} />          
           <div className={styles.polaroidContainer}>
-                <PolaroidImage rotation={rotation} imageUrl={steveImage} />
+                <PolaroidImage rotation={10} imageUrl={steveImage} />
               </div>
           </div>
         )}
