@@ -85,7 +85,7 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
               </InViewport>
             </div>
             <HomeText visible={visible} titleId={titleId} />          
-          <div className={styles.polaroidContainer}>
+          <div className={styles.polaroidContainer} data-visible={visible}>
                 <PolaroidImage rotation={10} imageUrl={steveImage} />
               </div>
           </div>

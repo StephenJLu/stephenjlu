@@ -118,8 +118,17 @@
 }
 
 .polaroidContainer {
+  padding: 75px 0 75px 0;
+  box-sizing: border-box;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity var(--durationXL) ease var(--durationM);
+
+  &[data-visible='true'] {
+    transform: none;
+    opacity: 1;
+  }
 }
