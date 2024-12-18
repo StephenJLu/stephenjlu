@@ -123,7 +123,7 @@ function classes(...classes2) {
   return classes2.filter(Boolean).join(" ");
 }
 const hidden$1 = "_hidden_1jyky_4";
-const styles$m = {
+const styles$n = {
   hidden: hidden$1
 };
 const VisuallyHidden = forwardRef(
@@ -131,7 +131,7 @@ const VisuallyHidden = forwardRef(
     return /* @__PURE__ */ jsx(
       Component,
       {
-        className: classes(styles$m.hidden, className),
+        className: classes(styles$n.hidden, className),
         "data-hidden": !visible && !showOnFocus,
         "data-show-on-focus": showOnFocus,
         ref,
@@ -145,7 +145,7 @@ VisuallyHidden.displayName = "VisuallyHidden";
 const text$4 = "_text_10c22_3";
 const glyph = "_glyph_10c22_10";
 const value = "_value_10c22_17";
-const styles$l = {
+const styles$m = {
   text: text$4,
   glyph,
   value
@@ -182,7 +182,7 @@ const DecoderText = memo(
       let animation;
       const renderOutput = () => {
         const characterMap = output.current.map((item) => {
-          return `<span class="${styles$l[item.type]}">${item.value}</span>`;
+          return `<span class="${styles$m[item.type]}">${item.value}</span>`;
         });
         if (containerInstance) {
           containerInstance.innerHTML = characterMap.join("");
@@ -210,9 +210,9 @@ const DecoderText = memo(
         unsubscribeSpring == null ? void 0 : unsubscribeSpring();
       };
     }, [decoderSpring, reduceMotion, start, startDelay, text2]);
-    return /* @__PURE__ */ jsxs("span", { className: classes(styles$l.text, className), ...rest, children: [
-      /* @__PURE__ */ jsx(VisuallyHidden, { className: styles$l.label, children: text2 }),
-      /* @__PURE__ */ jsx("span", { "aria-hidden": true, className: styles$l.content, ref: container2 })
+    return /* @__PURE__ */ jsxs("span", { className: classes(styles$m.text, className), ...rest, children: [
+      /* @__PURE__ */ jsx(VisuallyHidden, { className: styles$m.label, children: text2 }),
+      /* @__PURE__ */ jsx("span", { "aria-hidden": true, className: styles$m.content, ref: container2 })
     ] });
   }
 );
@@ -249,7 +249,7 @@ const InViewport$1 = InViewport;
 const menuButton$1 = "_menuButton_maxbw_3";
 const active$1 = "_active_maxbw_13";
 const bounce$1 = "_bounce_maxbw_1";
-const styles$k = {
+const styles$l = {
   menuButton: menuButton$1,
   active: active$1,
   bounce: bounce$1
@@ -263,7 +263,7 @@ const MenuButton = ({ item, isActive, onClick }) => {
     {
       type: "button",
       onClick: handleClick,
-      className: `${styles$k.menuButton} ${isActive ? styles$k.active : ""}`,
+      className: `${styles$l.menuButton} ${isActive ? styles$l.active : ""}`,
       children: item.label
     }
   );
@@ -593,7 +593,7 @@ const themeStyles = squish(`
   }
 `);
 const icon$2 = "_icon_1tdl1_2";
-const styles$j = {
+const styles$k = {
   icon: icon$2
 };
 const sprites = "/assets/icons-Ghr-oXj8.svg";
@@ -603,7 +603,7 @@ const Icon = forwardRef(({ icon: icon2, className, size, ...rest }, ref) => {
     {
       "aria-hidden": true,
       ref,
-      className: classes(styles$j.icon, className),
+      className: classes(styles$k.icon, className),
       width: size || 24,
       height: size || 24,
       ...rest,
@@ -691,7 +691,7 @@ const button$4 = "_button_4rqg0_3";
 const text$3 = "_text_4rqg0_265";
 const loader$1 = "_loader_4rqg0_291";
 const icon$1 = "_icon_4rqg0_317";
-const styles$i = {
+const styles$j = {
   button: button$4,
   text: text$3,
   loader: loader$1,
@@ -742,7 +742,7 @@ const ButtonContent = forwardRef(
     return /* @__PURE__ */ jsxs(
       Component,
       {
-        className: classes(styles$i.button, className),
+        className: classes(styles$j.button, className),
         "data-loading": loading,
         "data-icon-only": iconOnly,
         "data-secondary": secondary,
@@ -757,17 +757,17 @@ const ButtonContent = forwardRef(
           !!icon2 && /* @__PURE__ */ jsx(
             Icon,
             {
-              className: styles$i.icon,
+              className: styles$j.icon,
               "data-start": !iconOnly,
               "data-shift": iconHoverShift,
               icon: icon2
             }
           ),
-          !!children && /* @__PURE__ */ jsx("span", { className: styles$i.text, children }),
+          !!children && /* @__PURE__ */ jsx("span", { className: styles$j.text, children }),
           !!iconEnd && /* @__PURE__ */ jsx(
             Icon,
             {
-              className: styles$i.icon,
+              className: styles$j.icon,
               "data-end": !iconOnly,
               "data-shift": iconHoverShift,
               icon: iconEnd
@@ -777,7 +777,7 @@ const ButtonContent = forwardRef(
             Loader,
             {
               ref: nodeRef,
-              className: styles$i.loader,
+              className: styles$j.loader,
               size: 32,
               text: loadingText,
               "data-visible": visible
@@ -792,7 +792,7 @@ const loader = "_loader_1o1zt_2";
 const text$2 = "_text_1o1zt_17";
 const span = "_span_1o1zt_43";
 const loaderSpan = "_loaderSpan_1o1zt_1";
-const styles$h = {
+const styles$i = {
   loader,
   text: text$2,
   span,
@@ -802,24 +802,24 @@ const Loader = forwardRef(
   ({ className, style, width = 32, height = 4, text: text2 = "Loading...", center, ...rest }, ref) => {
     const reduceMotion = useReducedMotion();
     if (reduceMotion) {
-      return /* @__PURE__ */ jsx(Text, { className: classes(styles$h.text, className), weight: "medium", ...rest, children: text2 });
+      return /* @__PURE__ */ jsx(Text, { className: classes(styles$i.text, className), weight: "medium", ...rest, children: text2 });
     }
     return /* @__PURE__ */ jsx(
       "div",
       {
         ref,
-        className: classes(styles$h.loader, className),
+        className: classes(styles$i.loader, className),
         "data-center": center,
         style: cssProps({ width, height }, style),
         ...rest,
-        children: /* @__PURE__ */ jsx("div", { className: styles$h.span })
+        children: /* @__PURE__ */ jsx("div", { className: styles$i.span })
       }
     );
   }
 );
 const b = "_b_6k8yy_2";
 const c = "_c_6k8yy_6";
-const styles$g = {
+const styles$h = {
   b,
   c
 };
@@ -834,18 +834,18 @@ const Monogram = () => {
       height: "50",
       viewBox: "0 0 50 50",
       children: [
-        /* @__PURE__ */ jsx("path", { className: styles$g.c, d: "M0,0v50h50V0H0ZM48.38,47.96H1.62V2.04h46.75v45.92Z" }),
-        /* @__PURE__ */ jsx("path", { className: styles$g.b, d: "M31.5,34.71c.11-.03.13-.07.21-.12v-.04h.08v-.04h.08v-.04h.17v-.04c.13-.04.46.06.54.08.19.05.38-.07.54-.08l.21-.25h.04v-.08l.08-.04v-.12h.04v-.12h.04v-.21h.04v-.33h.04v-3.04c.07-.27.04-.71.04-1.04v-4.21h-.04v-.17c-.01-.49.07-1.13-.04-1.54v-.67c0-.5,0-1.07-.04-1.5l.04-3.08c.07-.26.09-1.42,0-1.67-.05.05-.02,0-.04.08h-.04l-.04.25c-.2.53-.08,1.2-.08,1.83l-.04,3.83v.17h.04v1.62c-.11.38-.04,1-.04,1.46l-.04,2c.09.33.09,1.67,0,2l-.04.62-.29,1.04h-.04v.08h-.04v.12h-.04l-.08.25h-.04v.08h-.04v.08h-.04v.08h-.04l-.08.25-.08.04-.04.17-.12.08v.08l-.08.04v.08l-.12.08v.08l-.12.08v.08l-.33.29v.08l-.29.25-.04.08h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.08.12h-.08l-.04.08-.12.04v.04h-.08l-.04.08-.17.04-.04.08-.17.04-.04.08-.25.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04h-.12v.04h-.08v.04l-.25.04v.04h-.12v.04h-.12v.04h-.12v.04l-.33.04v.04h-.17v.04h-.17v.04h-.17v.04h-.25v.04h-.25v.04h-.37v.04h-.75v.04l-.83-.04v-.04h-.42v-.04l-.83-.08v-.04h-.21v-.04l-.37-.04v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04h-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.08-.12h-.08l-.04-.08h-.08l-.08-.12h-.08l-.12-.17-.33-.29-.04-.12-.29-.25v-.04h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.04.08-.12.04v.04h-.08l-.04.08h-.08l-.04.08-.17.04-.04.08h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04l-.25.04v.04h-.08v.04h-.17v.04h-.12v.04h-.12v.04h-.12v.04h-.17v.04h-.17v.04h-.17v.04h-.17v.04h-.21v.04l-.42.04v.04h-.25v.04h-.29v.04h-.33v.04h-.37v.04h-.5v.04h-1.12v.04l-.87-.04v-.04h-.42v-.04h-.29c-.21-.06-.51-.1-.71-.17h-.21c-.22-.07-.5-.14-.71-.21h-.17v-.04h-.12v-.04h-.12v-.04l-.54-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.37-.12-.04-.08-.17-.04c-.43-.27-.61-.77-1.29-.79-.03.05-.07.06-.08.08v.08h-.04l-.04.37h-.04l-.04.62h-.04l-.08.25-.25.21s-.03.06-.04.08c-.07.05-.09,0-.17.08l-.42.04c-.07-.08-.1-.04-.17-.08l-.12-.17h-.04c-.23-.34-.3-1.48-.17-1.96v-.42h.04v-.33h.04v-.37h.04v-.37h.04v-.37h.04v-.5h.04v-.29h-.04v-.54l-.04-1.08h-.04l-.08-1.54h-.04v-.5h-.04v-.54c-.09-.31-.07-1.04.04-1.29l.25-.33h.08l.04-.08c.08-.05.09,0,.17-.08.29,0,.42.04.62.08l.21.25h.04v.08h.04l.04.17h.04l.04.46h.04v.54c0,.46-.02.99.08,1.33v.21h.04v.12h.04v.17h.04v.08h.04l.04.25h.04v.08h.04v.12h.04l.08.25h.04v.08h.04v.12h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.17h.04v.12h.04l.04.17h.04v.12h.04v.08h.04l.04.17h.04l.12.37.08.04.08.25.08.04v.08l.12.08v.08l.12.08v.08l.12.08v.08l.21.17v.08l.29.25v.08l.37.33.12.17h.08l.12.17h.08l.12.17h.08l.04.08h.08l.04.08.17.04.04.08h.08v.04h.08v.04c.43.19.9.28,1.37.42h.33c.31.09,1.52.09,1.83,0h.37c.25-.07.59-.09.83-.17h.21v-.04h.17v-.04h.17v-.04h.17v-.04h.17v-.04h.12v-.04h.12v-.04h.12v-.04h.08v-.04l.25-.04v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08v-.04h.12v-.04h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04.04-.08h.08l.04-.08h.08l.08-.12h.08l.12-.17h.08l.42-.46c.14-.14.35-.3.37-.54h-.04l-.04-.25h-.04v-.12h-.04v-.12c-.17-.43-.25-.94-.25-1.54l-.04-.5h.04l.04-.33h.04l.08-.25h.04v-.08h.04v-.08l.46-.5h.08l.04-.08h.08v-.04c.12-.07.07.04.12-.12h-.04l-.04-.25h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08l-.08-.04-.04-.17-.17-.12v-.08l-.21-.17-.37-.42h-.08l-.12-.17h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08-.21-.04v-.04h-.08v-.04l-.25-.08v-.04h-.12v-.04h-.08v-.04l-.21-.04v-.04h-.12v-.04h-.08v-.04l-.25-.04v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.21v-.04l-.42-.04v-.04l-.46-.04v-.04h-.33v-.04h-.29v-.04h-.29v-.04h-.29c-.27-.08-.62-.13-.87-.21h-.21v-.04l-.29-.04v-.04l-.29-.04v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04l-.25-.04v-.04l-.25-.08v-.04l-.25-.08-.04-.08h-.08l-.04-.08h-.08l-.08-.12h-.08l-.08-.12h-.08l-.12-.17h-.08l-.29-.33-.12-.08v-.08l-.25-.21v-.08l-.12-.08v-.08l-.08-.04v-.08l-.08-.04v-.08l-.08-.04-.08-.25h-.04v-.08h-.04v-.08h-.04l-.08-.25h-.04l-.29-1.04v-.33c-.15-.55.01-1.32.17-1.71v-.12h.04v-.08h.04v-.12h.04l.04-.17h.04l.04-.17.08-.04.04-.17.08-.04v-.08l.12-.08v-.08l.17-.12v-.08l.29-.25.17-.21h.08l.12-.17h.08l.08-.12.12-.04.04-.08h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04v-.04l.17-.04v-.04h.12v-.04h.08v-.04l.21-.04v-.04l.25-.04v-.04h.08v-.04l1.17-.25h.46c.13-.04.64-.1.83-.04v.04h.33v.04h.25v.04h.25v.04l.33.04v.04h.12v.04h.12v.04h.12v.04h.12v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04h.08v.04l.67.29v.04h.08v.04l.25.08v.04l.25.04v.04h.58v-.04c.25-.11.4-.28.58-.46l.08-.12c.22-.16.49-.21.87-.21v.04h.12l.04.08h.08l.21.29v.12h.04v.12h.04v.21h.04v.37h.04v.5h.04l.04.46h.04l.04.29h.04v.08h.04v.12h.04v.12h.04v.12h.04l.04.25h.04v.08h.04l.04.25h.04v.08h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04l.12.58h.04v.21c.03.08.09.35.04.5h-.04l-.04.21c-.09.05-.09.09-.21.12-.19.18-.59.05-.75-.04h-.08l-.46-.5-.04-.17-.08-.04-.04-.17h-.04l-.04-.12-.08-.04-.04-.17h-.04l-.04-.12-.08-.04v-.08l-.12-.08v-.08l-.42-.37-.04-.12h-.08l-.33-.37-.17-.12v-.08l-.33-.29-.04-.12-.12-.08-.25-.29h-.08l-.12-.17h-.08l-.08-.12h-.08l-.08-.12h-.08v-.04h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04l-.17-.04v-.04h-.12v-.04l-.17-.04v-.04l-.21-.04v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.21v-.04h-.25v-.04l-1.17-.04c-1.17,0-1.96.21-2.54.79l-.17.12v.08l-.08.04-.04.12h-.04v.08h-.04v.08h-.04v.12h-.04v.12c-.15.4-.16.82,0,1.21v.12h.04v.08l.08.04v.08l.08.04.21.25h.08l.08.12.17.04v.04l.25.08v.04h.12v.04h.12v.04h.12v.04h.17v.04h.17v.04h.29v.04h.37v.04h.87v.04h.37v.04h.29c.32.1.73.14,1.04.25l.33.04v.04h.12v.04h.12v.04l.42.08v.04h.08v.04l.25.04v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04l.25.08.04.08.25.08.04.08.25.08v.04l.12.04.04.08.17.04.04.08h.08v.04l.12.04.04.08h.08v.04l.12.04.04.08h.08l.08.12h.08l.04.08h.08l.08.12h.08l.04.08h.04l.04.08h.08l.12.17h.08l.21.25h.08l.37.42.46.42v.08l.21.17v.08l.12.08v.08l.12.08v.08l.12.08v.08l.08.04v.08l.08.04.08.25.08.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.25c.41.95.52,2.25.46,3.54l-.08.62h-.04l-.04.37h-.04l-.04.29h-.04l-.04.25h-.04v.08h-.04v.12h-.04l-.04.21h-.04v.08h-.04v.08h-.04v.08h-.04v.08h-.04v.08l-.08.04-.04.17h-.04v.04h.04l.21.25h.08l.25.29h.08l.12.17h.08l.08.12h.08l.08.12h.08l.04.08h.08l.04.08.17.04.04.08.25.08v.04h.08v.04h.08v.04l.25.08v.04l.25.04v.04h.12v.04h.12v.04h.12v.04h.12v.04h.21v.04h.21v.04h.25v.04h.42v.04h.42c.36,0,.84.04,1.12-.04h.29v-.04h.21v-.04h.17v-.04h.12v-.04h.17c1.81-.71,3.05-2.01,3.71-3.87l.08-.54v-.33c.07-.24.04-.65.04-.96v-1.75l.04-4.83h.04v-.62c.09-.32.04-.85.04-1.25v-2.58l-.04-1.25h-.04v-.12l-.08-.04v-.08l-.17-.12-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08c-.1-.06-.22-.04-.33-.08v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12c-.14-.06-.24-.15-.33-.25l-.08-.04v-.25l.12-.08v-.04h.08l.04-.08.25-.04v-.04c.24-.08,1.04.04,1.21.08h.42c.21.06.59-.03.83.04.07.02.29.09.42.04v-.04h.08v-.04l.29-.04v-.04c.06-.01.37.07.42.08l2,.04c.1-.03.44-.12.58-.08.19.05.59.16.87.08v-.04h1c.25-.07.66.03.92-.04v-.04h.33v.04h.33v.04l.25.04.12.17h.04c.06.09.04.24.04.37-.08.07-.03.1-.08.17l-.29.25-.04.08-.25.08v.04h-.12c-.46.18-1.33.13-1.46.62-.2.18-.12.79-.12,1.17l-.04,2.96v2.21c.07.27.04.71.04,1.04l.04,1.29v2.46h.04v1h.04v.62c0,.5.03,1.11-.04,1.54v1.12c0,1.11,0,2.29.75,2.62.54.24,1.49-.03,2.17.08.45.07,1.07.04,1.58.04.29,0,.66.02.88-.04l.54-.04v-.04h.17v-.04h.12v-.04h.12v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08l.04-.08.17-.04.04-.08h.08l.08-.12h.08l.08-.12h.08l.17-.21h.08l.17-.21h.08l.29-.33.12-.08v-.08l.5-.46c.36-.36.58-.74,1.29-.75.14.15.28.07.29.37.12.13-.04.59-.08.71l-.04.29h-.04v.12h-.04v.12h-.04v.12h-.04v.12h-.04l-.04.25h-.04v.08h-.04l-.04.25h-.04v.08h-.04l-.08.42-.42.92-.08.04v.08l-.29.25-.04.08-.25.08v.04h-.12v.04l-.96-.04v.04c-.47.13-1.01.04-1.58.04-1.19-.04-2.39-.08-3.58-.12v-.04h-1.46v.04c-.23.06-.59-.01-.79.04h-.75v.04h-1c-.06.02.02.03-.04.04h-1v.04c-.23.06-.84-.04-1-.08h-.33v-.04h-.33c-.32-.09-.72-.16-.87-.42-.09-.08-.09-.24-.08-.42.07-.05.14-.15.17-.25Z" })
+        /* @__PURE__ */ jsx("path", { className: styles$h.c, d: "M0,0v50h50V0H0ZM48.38,47.96H1.62V2.04h46.75v45.92Z" }),
+        /* @__PURE__ */ jsx("path", { className: styles$h.b, d: "M31.5,34.71c.11-.03.13-.07.21-.12v-.04h.08v-.04h.08v-.04h.17v-.04c.13-.04.46.06.54.08.19.05.38-.07.54-.08l.21-.25h.04v-.08l.08-.04v-.12h.04v-.12h.04v-.21h.04v-.33h.04v-3.04c.07-.27.04-.71.04-1.04v-4.21h-.04v-.17c-.01-.49.07-1.13-.04-1.54v-.67c0-.5,0-1.07-.04-1.5l.04-3.08c.07-.26.09-1.42,0-1.67-.05.05-.02,0-.04.08h-.04l-.04.25c-.2.53-.08,1.2-.08,1.83l-.04,3.83v.17h.04v1.62c-.11.38-.04,1-.04,1.46l-.04,2c.09.33.09,1.67,0,2l-.04.62-.29,1.04h-.04v.08h-.04v.12h-.04l-.08.25h-.04v.08h-.04v.08h-.04v.08h-.04l-.08.25-.08.04-.04.17-.12.08v.08l-.08.04v.08l-.12.08v.08l-.12.08v.08l-.33.29v.08l-.29.25-.04.08h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.08.12h-.08l-.04.08-.12.04v.04h-.08l-.04.08-.17.04-.04.08-.17.04-.04.08-.25.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04h-.12v.04h-.08v.04l-.25.04v.04h-.12v.04h-.12v.04h-.12v.04l-.33.04v.04h-.17v.04h-.17v.04h-.17v.04h-.25v.04h-.25v.04h-.37v.04h-.75v.04l-.83-.04v-.04h-.42v-.04l-.83-.08v-.04h-.21v-.04l-.37-.04v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04h-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.08-.12h-.08l-.04-.08h-.08l-.08-.12h-.08l-.12-.17-.33-.29-.04-.12-.29-.25v-.04h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.04.08-.12.04v.04h-.08l-.04.08h-.08l-.04.08-.17.04-.04.08h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04l-.25.04v.04h-.08v.04h-.17v.04h-.12v.04h-.12v.04h-.12v.04h-.17v.04h-.17v.04h-.17v.04h-.17v.04h-.21v.04l-.42.04v.04h-.25v.04h-.29v.04h-.33v.04h-.37v.04h-.5v.04h-1.12v.04l-.87-.04v-.04h-.42v-.04h-.29c-.21-.06-.51-.1-.71-.17h-.21c-.22-.07-.5-.14-.71-.21h-.17v-.04h-.12v-.04h-.12v-.04l-.54-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.37-.12-.04-.08-.17-.04c-.43-.27-.61-.77-1.29-.79-.03.05-.07.06-.08.08v.08h-.04l-.04.37h-.04l-.04.62h-.04l-.08.25-.25.21s-.03.06-.04.08c-.07.05-.09,0-.17.08l-.42.04c-.07-.08-.1-.04-.17-.08l-.12-.17h-.04c-.23-.34-.3-1.48-.17-1.96v-.42h.04v-.33h.04v-.37h.04v-.37h.04v-.37h.04v-.5h.04v-.29h-.04v-.54l-.04-1.08h-.04l-.08-1.54h-.04v-.5h-.04v-.54c-.09-.31-.07-1.04.04-1.29l.25-.33h.08l.04-.08c.08-.05.09,0,.17-.08.29,0,.42.04.62.08l.21.25h.04v.08h.04l.04.17h.04l.04.46h.04v.54c0,.46-.02.99.08,1.33v.21h.04v.12h.04v.17h.04v.08h.04l.04.25h.04v.08h.04v.12h.04l.08.25h.04v.08h.04v.12h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.17h.04v.12h.04l.04.17h.04v.12h.04v.08h.04l.04.17h.04l.12.37.08.04.08.25.08.04v.08l.12.08v.08l.12.08v.08l.12.08v.08l.21.17v.08l.29.25v.08l.37.33.12.17h.08l.12.17h.08l.12.17h.08l.04.08h.08l.04.08.17.04.04.08h.08v.04h.08v.04c.43.19.9.28,1.37.42h.33c.31.09,1.52.09,1.83,0h.37c.25-.07.59-.09.83-.17h.21v-.04h.17v-.04h.17v-.04h.17v-.04h.17v-.04h.12v-.04h.12v-.04h.12v-.04h.08v-.04l.25-.04v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08v-.04h.12v-.04h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04.04-.08h.08l.04-.08h.08l.08-.12h.08l.12-.17h.08l.42-.46c.14-.14.35-.3.37-.54h-.04l-.04-.25h-.04v-.12h-.04v-.12c-.17-.43-.25-.94-.25-1.54l-.04-.5h.04l.04-.33h.04l.08-.25h.04v-.08h.04v-.08l.46-.5h.08l.04-.08h.08v-.04c.12-.07.07.04.12-.12h-.04l-.04-.25h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08l-.08-.04-.04-.17-.17-.12v-.08l-.21-.17-.37-.42h-.08l-.12-.17h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08-.21-.04v-.04h-.08v-.04l-.25-.08v-.04h-.12v-.04h-.08v-.04l-.21-.04v-.04h-.12v-.04h-.08v-.04l-.25-.04v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.21v-.04l-.42-.04v-.04l-.46-.04v-.04h-.33v-.04h-.29v-.04h-.29v-.04h-.29c-.27-.08-.62-.13-.87-.21h-.21v-.04l-.29-.04v-.04l-.29-.04v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04l-.25-.04v-.04l-.25-.08v-.04l-.25-.08-.04-.08h-.08l-.04-.08h-.08l-.08-.12h-.08l-.08-.12h-.08l-.12-.17h-.08l-.29-.33-.12-.08v-.08l-.25-.21v-.08l-.12-.08v-.08l-.08-.04v-.08l-.08-.04v-.08l-.08-.04-.08-.25h-.04v-.08h-.04v-.08h-.04l-.08-.25h-.04l-.29-1.04v-.33c-.15-.55.01-1.32.17-1.71v-.12h.04v-.08h.04v-.12h.04l.04-.17h.04l.04-.17.08-.04.04-.17.08-.04v-.08l.12-.08v-.08l.17-.12v-.08l.29-.25.17-.21h.08l.12-.17h.08l.08-.12.12-.04.04-.08h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04v-.04l.17-.04v-.04h.12v-.04h.08v-.04l.21-.04v-.04l.25-.04v-.04h.08v-.04l1.17-.25h.46c.13-.04.64-.1.83-.04v.04h.33v.04h.25v.04h.25v.04l.33.04v.04h.12v.04h.12v.04h.12v.04h.12v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04h.08v.04l.67.29v.04h.08v.04l.25.08v.04l.25.04v.04h.58v-.04c.25-.11.4-.28.58-.46l.08-.12c.22-.16.49-.21.87-.21v.04h.12l.04.08h.08l.21.29v.12h.04v.12h.04v.21h.04v.37h.04v.5h.04l.04.46h.04l.04.29h.04v.08h.04v.12h.04v.12h.04v.12h.04l.04.25h.04v.08h.04l.04.25h.04v.08h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04l.12.58h.04v.21c.03.08.09.35.04.5h-.04l-.04.21c-.09.05-.09.09-.21.12-.19.18-.59.05-.75-.04h-.08l-.46-.5-.04-.17-.08-.04-.04-.17h-.04l-.04-.12-.08-.04-.04-.17h-.04l-.04-.12-.08-.04v-.08l-.12-.08v-.08l-.42-.37-.04-.12h-.08l-.33-.37-.17-.12v-.08l-.33-.29-.04-.12-.12-.08-.25-.29h-.08l-.12-.17h-.08l-.08-.12h-.08l-.08-.12h-.08v-.04h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04l-.17-.04v-.04h-.12v-.04l-.17-.04v-.04l-.21-.04v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.21v-.04h-.25v-.04l-1.17-.04c-1.17,0-1.96.21-2.54.79l-.17.12v.08l-.08.04-.04.12h-.04v.08h-.04v.08h-.04v.12h-.04v.12c-.15.4-.16.82,0,1.21v.12h.04v.08l.08.04v.08l.08.04.21.25h.08l.08.12.17.04v.04l.25.08v.04h.12v.04h.12v.04h.12v.04h.17v.04h.17v.04h.29v.04h.37v.04h.87v.04h.37v.04h.29c.32.1.73.14,1.04.25l.33.04v.04h.12v.04h.12v.04l.42.08v.04h.08v.04l.25.04v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04l.25.08.04.08.25.08.04.08.25.08v.04l.12.04.04.08.17.04.04.08h.08v.04l.12.04.04.08h.08v.04l.12.04.04.08h.08l.08.12h.08l.04.08h.08l.08.12h.08l.04.08h.04l.04.08h.08l.12.17h.08l.21.25h.08l.37.42.46.42v.08l.21.17v.08l.12.08v.08l.12.08v.08l.12.08v.08l.08.04v.08l.08.04.08.25.08.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.25c.41.95.52,2.25.46,3.54l-.08.62h-.04l-.04.37h-.04l-.04.29h-.04l-.04.25h-.04v.08h-.04v.12h-.04l-.04.21h-.04v.08h-.04v.08h-.04v.08h-.04v.08h-.04v.08l-.08.04-.04.17h-.04v.04h.04l.21.25h.08l.25.29h.08l.12.17h.08l.08.12h.08l.08.12h.08l.04.08h.08l.04.08.17.04.04.08.25.08v.04h.08v.04h.08v.04l.25.08v.04l.25.04v.04h.12v.04h.12v.04h.12v.04h.12v.04h.21v.04h.21v.04h.25v.04h.42v.04h.42c.36,0,.84.04,1.12-.04h.29v-.04h.21v-.04h.17v-.04h.12v-.04h.17c1.81-.71,3.05-2.01,3.71-3.87l.08-.54v-.33c.07-.24.04-.65.04-.96v-1.75l.04-4.83h.04v-.62c.09-.32.04-.85.04-1.25v-2.58l-.04-1.25h-.04v-.12l-.08-.04v-.08l-.17-.12-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08c-.1-.06-.22-.04-.33-.08v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12c-.14-.06-.24-.15-.33-.25l-.08-.04v-.25l.12-.08v-.04h.08l.04-.08.25-.04v-.04c.24-.08,1.04.04,1.21.08h.42c.21.06.59-.03.83.04.07.02.29.09.42.04v-.04h.08v-.04l.29-.04v-.04c.06-.01.37.07.42.08l2,.04c.1-.03.44-.12.58-.08.19.05.59.16.87.08v-.04h1c.25-.07.66.03.92-.04v-.04h.33v.04h.33v.04l.25.04.12.17h.04c.06.09.04.24.04.37-.08.07-.03.1-.08.17l-.29.25-.04.08-.25.08v.04h-.12c-.46.18-1.33.13-1.46.62-.2.18-.12.79-.12,1.17l-.04,2.96v2.21c.07.27.04.71.04,1.04l.04,1.29v2.46h.04v1h.04v.62c0,.5.03,1.11-.04,1.54v1.12c0,1.11,0,2.29.75,2.62.54.24,1.49-.03,2.17.08.45.07,1.07.04,1.58.04.29,0,.66.02.88-.04l.54-.04v-.04h.17v-.04h.12v-.04h.12v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08l.04-.08.17-.04.04-.08h.08l.08-.12h.08l.08-.12h.08l.17-.21h.08l.17-.21h.08l.29-.33.12-.08v-.08l.5-.46c.36-.36.58-.74,1.29-.75.14.15.28.07.29.37.12.13-.04.59-.08.71l-.04.29h-.04v.12h-.04v.12h-.04v.12h-.04v.12h-.04l-.04.25h-.04v.08h-.04l-.04.25h-.04v.08h-.04l-.08.42-.42.92-.08.04v.08l-.29.25-.04.08-.25.08v.04h-.12v.04l-.96-.04v.04c-.47.13-1.01.04-1.58.04-1.19-.04-2.39-.08-3.58-.12v-.04h-1.46v.04c-.23.06-.59-.01-.79.04h-.75v.04h-1c-.06.02.02.03-.04.04h-1v.04c-.23.06-.84-.04-1-.08h-.33v-.04h-.33c-.32-.09-.72-.16-.87-.42-.09-.08-.09-.24-.08-.42.07-.05.14-.15.17-.25Z" })
       ]
     }
   );
 };
 const section = "_section_cvvm4_2";
-const styles$f = {
+const styles$g = {
   section
 };
 const Section = forwardRef(
-  ({ as: Component = "div", children, className, ...rest }, ref) => /* @__PURE__ */ jsx(Component, { className: classes(styles$f.section, className), ref, ...rest, children })
+  ({ as: Component = "div", children, className, ...rest }, ref) => /* @__PURE__ */ jsx(Component, { className: classes(styles$g.section, className), ref, ...rest, children })
 );
 function useHasMounted() {
   const [mounted, setMounted] = useState(false);
@@ -1005,14 +1005,14 @@ async function resolveSrcFromSrcSet({ srcSet, sizes }) {
   const output = sources.find((src) => src.image === fakeSrc);
   return output.src;
 }
-const image$2 = "_image_4szht_2";
+const image$3 = "_image_4szht_2";
 const container$1 = "_container_4szht_42";
 const elementWrapper = "_elementWrapper_4szht_49";
 const placeholder = "_placeholder_4szht_71";
 const element = "_element_4szht_49";
 const button$3 = "_button_4szht_104";
-const styles$e = {
-  image: image$2,
+const styles$f = {
+  image: image$3,
   container: container$1,
   elementWrapper,
   placeholder,
@@ -1041,7 +1041,7 @@ const Image$1 = ({
   return /* @__PURE__ */ jsx(
     "div",
     {
-      className: classes(styles$e.image, className),
+      className: classes(styles$f.image, className),
       "data-visible": inViewport || loaded,
       "data-reveal": reveal,
       "data-raised": raised,
@@ -1147,7 +1147,7 @@ const ImageElements = ({
   return /* @__PURE__ */ jsxs(
     "div",
     {
-      className: styles$e.elementWrapper,
+      className: styles$f.elementWrapper,
       "data-reveal": reveal,
       "data-visible": inViewport || loaded,
       style: cssProps({ delay: numToMs(delay2 + 1e3) }),
@@ -1159,7 +1159,7 @@ const ImageElements = ({
               muted: true,
               loop: true,
               playsInline: true,
-              className: styles$e.element,
+              className: styles$f.element,
               "data-loaded": loaded,
               "data-cover": cover,
               autoPlay: !reduceMotion,
@@ -1170,7 +1170,7 @@ const ImageElements = ({
               ...rest
             }
           ),
-          !noPauseButton && /* @__PURE__ */ jsxs(Button, { className: styles$e.button, onClick: togglePlaying, children: [
+          !noPauseButton && /* @__PURE__ */ jsxs(Button, { className: styles$f.button, onClick: togglePlaying, children: [
             /* @__PURE__ */ jsx(Icon, { icon: playing ? "pause" : "play" }),
             playing ? "Pause" : "Play"
           ] })
@@ -1178,7 +1178,7 @@ const ImageElements = ({
         !isVideo && /* @__PURE__ */ jsx(
           "img",
           {
-            className: styles$e.element,
+            className: styles$f.element,
             "data-loaded": loaded,
             "data-cover": cover,
             onLoad,
@@ -1196,7 +1196,7 @@ const ImageElements = ({
           "img",
           {
             "aria-hidden": true,
-            className: styles$e.placeholder,
+            className: styles$f.placeholder,
             "data-loaded": loaded,
             "data-cover": cover,
             style: cssProps({ delay: numToMs(delay2) }),
@@ -1218,6 +1218,31 @@ const ImageElements = ({
 function getIsVideo(src) {
   return typeof src === "string" && src.includes(".mp4");
 }
+const polaroid$1 = "_polaroid_1g7nq_1";
+const image$2 = "_image_1g7nq_11";
+const frame = "_frame_1g7nq_22";
+const styles$e = {
+  polaroid: polaroid$1,
+  image: image$2,
+  frame
+};
+const polaroidFrame = "/assets/polaroid-QWl6TdX0.png";
+const PolaroidImage = ({
+  imageUrl,
+  rotation = 0
+}) => {
+  return /* @__PURE__ */ jsxs("div", { className: styles$e.polaroid, style: { transform: `rotate(${rotation}deg)` }, children: [
+    /* @__PURE__ */ jsx("div", { className: styles$e.image, style: { backgroundImage: `url(${imageUrl})` } }),
+    /* @__PURE__ */ jsx(
+      "div",
+      {
+        className: styles$e.frame,
+        style: { backgroundImage: `url(${polaroidFrame})` }
+      }
+    )
+  ] });
+};
+const PolaroidImage$1 = PolaroidImage;
 const heading = "_heading_hhgbc_2";
 const styles$d = {
   heading
@@ -1823,19 +1848,19 @@ const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: Contact,
   meta
 }, Symbol.toStringTag, { value: "Module" }));
-const page = "_page_1bi10_2";
+const page = "_page_dcraf_2";
 const styles$3 = {
   page
 };
-const home = "_home_w4mv5_1";
-const title$2 = "_title_w4mv5_34";
-const description$2 = "_description_w4mv5_45";
-const tag$1 = "_tag_w4mv5_55";
-const tagText$1 = "_tagText_w4mv5_68";
-const image$1 = "_image_w4mv5_89";
-const svg$2 = "_svg_w4mv5_94";
-const button$2 = "_button_w4mv5_110";
-const polaroid$1 = "_polaroid_w4mv5_120";
+const home = "_home_1wtwl_1";
+const title$2 = "_title_1wtwl_34";
+const description$2 = "_description_1wtwl_45";
+const tag$1 = "_tag_1wtwl_55";
+const tagText$1 = "_tagText_1wtwl_68";
+const image$1 = "_image_1wtwl_89";
+const svg$2 = "_svg_1wtwl_94";
+const button$2 = "_button_1wtwl_110";
+const polaroidContainer = "_polaroidContainer_1wtwl_120";
 const styles$2 = {
   home,
   title: title$2,
@@ -1845,8 +1870,9 @@ const styles$2 = {
   image: image$1,
   svg: svg$2,
   button: button$2,
-  polaroid: polaroid$1
+  polaroidContainer
 };
+const steveImage = "/assets/steve-Cy0wBmUI.jpg";
 const HomeText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
   /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "Hello there" }),
   /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: "I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns, bullet trajectories, and digging up clandestine graves. I've also worked as a freelance web designer, providing services to non-profit organizations and small businesses." }),
@@ -1864,6 +1890,7 @@ const Home = ({ id, visible, sectionRef }) => {
   const [focused, setFocused] = useState(false);
   const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;
+  const rotation = Math.floor(Math.random() * 41) - 20;
   useEffect(() => {
     if (isInViewport) {
       return;
@@ -1908,7 +1935,8 @@ const Home = ({ id, visible, sectionRef }) => {
             ) });
           } })
         ] }),
-        /* @__PURE__ */ jsx(HomeText, { visible: visible2, titleId })
+        /* @__PURE__ */ jsx(HomeText, { visible: visible2, titleId }),
+        /* @__PURE__ */ jsx("div", { className: styles$2.polaroidContainer, children: /* @__PURE__ */ jsx(PolaroidImage$1, { rotation, imageUrl: steveImage }) })
       ] }) })
     }
   );
@@ -2213,7 +2241,7 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-D1qNLOuK.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/loader-CaqaPE8x.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BfFBgb1r.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B7N_uIhh.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-CaqaPE8x.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-BLLr3y9c.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B7N_uIhh.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-CaqaPE8x.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-BLLr3y9c.css"] } }, "url": "/assets/manifest-77740878.js", "version": "77740878" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-D1qNLOuK.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/loader-CaqaPE8x.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BfFBgb1r.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-C2KKMbZs.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-CaqaPE8x.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-DxwS2D6P.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-C2KKMbZs.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-CaqaPE8x.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-DxwS2D6P.css"] } }, "url": "/assets/manifest-920d184c.js", "version": "920d184c" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
