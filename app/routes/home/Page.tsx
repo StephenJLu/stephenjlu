@@ -20,10 +20,12 @@ export const Page = () => {
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);    
   const home = useRef<HTMLElement>(null as unknown as HTMLElement);
   const about = useRef<HTMLElement>(null as unknown as HTMLElement);
-  const projects = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const webDev = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const csiCEO = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const music = useRef<HTMLElement>(null as unknown as HTMLElement);
   
   useEffect(() => {
-    const sections = [home, about, projects];
+    const sections = [home, about, webDev, csiCEO, music];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -68,9 +70,34 @@ export const Page = () => {
       visible={visibleSections.includes(home.current)}
       />
       <Projects
-      id="projects"
-      sectionRef={projects}
-      visible={visibleSections.includes(projects.current)}
+      id="web-dev"
+      sectionRef={webDev}
+      visible={visibleSections.includes(webDev.current)}
+      index={1}
+      title="Web Design and Development for the Public Good"
+      buttonText="View Projects"
+      buttonLink="/projects/web-dev"
+      bannerImage="/app/static/images/web-dev-cropped.png"
+      />
+      <Projects
+      id="csi-ceo"
+      sectionRef={csiCEO}
+      visible={visibleSections.includes(csiCEO.current)}
+      index={2}
+      title="CSI to CEO: What the Dead Can Teach Us About Life and Leadership"
+      buttonText="Book Website"
+      buttonLink="https://www.CSItoCEO.com"
+      bannerImage="/app/static/images/csi-ceo.png"
+      />
+      <Projects
+      id="music"
+      sectionRef={music}
+      visible={visibleSections.includes(music.current)}
+      index={3}
+      title="Music & Electronic Production"
+      buttonText="Listen In"
+      buttonLink="/projects/music"
+      bannerImage="/app/static/images/music.png"
       />  
       <About
       id="about"
