@@ -9,12 +9,12 @@
 }
 
 .image {
-  position: fixed;  
+  position: absolute;  
   top: 5px;
   left: 5px;  
   width: 95%;
   height: 95%;
-  background-size: cover;
+  background-size: contain;
   background-position: top center;
   background-repeat: no-repeat;  
 }

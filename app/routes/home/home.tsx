@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Link,
-  DecoderText, Transition, Divider, InViewport } from '../../components/Components';
+  DecoderText, Transition, Divider, InViewport, PolaroidImage } from '../../components/Components';
 import styles from './home.module.css';
 import config from '../../config.json';
+import steveImage from 'app/static/images/steve.jpg';
 
 interface HomeProps {
   id?: string;
@@ -41,6 +42,8 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
   const [focused, setFocused] = useState(false);
   const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;
+
+  const rotation = Math.floor(Math.random() * 41) - 20;
 
   useEffect(() => {
     if (isInViewport) {
@@ -98,7 +101,10 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
                 }}
               </InViewport>
             </div>
-            <HomeText visible={visible} titleId={titleId} />
+            <HomeText visible={visible} titleId={titleId} />          
+          <div className={styles.polaroidContainer}>
+                <PolaroidImage rotation={rotation} imageUrl={steveImage} />
+              </div>
           </div>
         )}
       </Transition>
