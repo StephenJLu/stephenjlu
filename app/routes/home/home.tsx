@@ -62,6 +62,9 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
       className={styles.home}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}  
+      className={styles.home}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}  
       as="section"
       ref={sectionRef}
       id={id}
