@@ -123,7 +123,7 @@ function classes(...classes2) {
   return classes2.filter(Boolean).join(" ");
 }
 const hidden$1 = "_hidden_1jyky_4";
-const styles$l = {
+const styles$m = {
   hidden: hidden$1
 };
 const VisuallyHidden = forwardRef(
@@ -131,7 +131,7 @@ const VisuallyHidden = forwardRef(
     return /* @__PURE__ */ jsx(
       Component,
       {
-        className: classes(styles$l.hidden, className),
+        className: classes(styles$m.hidden, className),
         "data-hidden": !visible && !showOnFocus,
         "data-show-on-focus": showOnFocus,
         ref,
@@ -145,7 +145,7 @@ VisuallyHidden.displayName = "VisuallyHidden";
 const text$4 = "_text_10c22_3";
 const glyph = "_glyph_10c22_10";
 const value = "_value_10c22_17";
-const styles$k = {
+const styles$l = {
   text: text$4,
   glyph,
   value
@@ -158,16 +158,16 @@ const CharType = {
   Glyph: "glyph",
   Value: "value"
 };
-function shuffle(content, output, position) {
-  return content.map((value2, index) => {
-    if (index < position) {
+function shuffle(content2, output, position) {
+  return content2.map((value2, index2) => {
+    if (index2 < position) {
       return { type: CharType.Value, value: value2 };
     }
     if (position % 1 < 0.5) {
       const rand = Math.floor(Math.random() * glyphs.length);
       return { type: CharType.Glyph, value: glyphs[rand] };
     }
-    return { type: CharType.Glyph, value: output[index].value };
+    return { type: CharType.Glyph, value: output[index2].value };
   });
 }
 const DecoderText = memo(
@@ -178,31 +178,31 @@ const DecoderText = memo(
     const decoderSpring = useSpring(0, { stiffness: 8, damping: 5 });
     useEffect(() => {
       const containerInstance = container2.current;
-      const content = text2.split("");
+      const content2 = text2.split("");
       let animation;
       const renderOutput = () => {
         const characterMap = output.current.map((item) => {
-          return `<span class="${styles$k[item.type]}">${item.value}</span>`;
+          return `<span class="${styles$l[item.type]}">${item.value}</span>`;
         });
         if (containerInstance) {
           containerInstance.innerHTML = characterMap.join("");
         }
       };
       const unsubscribeSpring = decoderSpring.on("change", (value2) => {
-        output.current = shuffle(content, output.current, value2);
+        output.current = shuffle(content2, output.current, value2);
         renderOutput();
       });
       const startSpring = async () => {
         await delay$2(startDelay);
-        decoderSpring.set(content.length);
+        decoderSpring.set(content2.length);
       };
       if (start && !animation && !reduceMotion) {
         startSpring();
       }
       if (reduceMotion) {
-        output.current = content.map((value2, index) => ({
+        output.current = content2.map((value2, index2) => ({
           type: CharType.Value,
-          value: content[index]
+          value: content2[index2]
         }));
         renderOutput();
       }
@@ -210,9 +210,9 @@ const DecoderText = memo(
         unsubscribeSpring == null ? void 0 : unsubscribeSpring();
       };
     }, [decoderSpring, reduceMotion, start, startDelay, text2]);
-    return /* @__PURE__ */ jsxs("span", { className: classes(styles$k.text, className), ...rest, children: [
-      /* @__PURE__ */ jsx(VisuallyHidden, { className: styles$k.label, children: text2 }),
-      /* @__PURE__ */ jsx("span", { "aria-hidden": true, className: styles$k.content, ref: container2 })
+    return /* @__PURE__ */ jsxs("span", { className: classes(styles$l.text, className), ...rest, children: [
+      /* @__PURE__ */ jsx(VisuallyHidden, { className: styles$l.label, children: text2 }),
+      /* @__PURE__ */ jsx("span", { "aria-hidden": true, className: styles$l.content, ref: container2 })
     ] });
   }
 );
@@ -249,7 +249,7 @@ const InViewport$1 = InViewport;
 const menuButton$1 = "_menuButton_maxbw_3";
 const active$1 = "_active_maxbw_13";
 const bounce$1 = "_bounce_maxbw_1";
-const styles$j = {
+const styles$k = {
   menuButton: menuButton$1,
   active: active$1,
   bounce: bounce$1
@@ -263,7 +263,7 @@ const MenuButton = ({ item, isActive, onClick }) => {
     {
       type: "button",
       onClick: handleClick,
-      className: `${styles$j.menuButton} ${isActive ? styles$j.active : ""}`,
+      className: `${styles$k.menuButton} ${isActive ? styles$k.active : ""}`,
       children: item.label
     }
   );
@@ -593,7 +593,7 @@ const themeStyles = squish(`
   }
 `);
 const icon$2 = "_icon_1tdl1_2";
-const styles$i = {
+const styles$j = {
   icon: icon$2
 };
 const sprites = "/assets/icons-Ghr-oXj8.svg";
@@ -603,7 +603,7 @@ const Icon = forwardRef(({ icon: icon2, className, size, ...rest }, ref) => {
     {
       "aria-hidden": true,
       ref,
-      className: classes(styles$i.icon, className),
+      className: classes(styles$j.icon, className),
       width: size || 24,
       height: size || 24,
       ...rest,
@@ -687,12 +687,12 @@ const TransitionContent = ({
   }, [isPresent, onExit, safeToRemove, timeout, onExited, show]);
   return children({ visible, status, nodeRef });
 };
-const button$3 = "_button_1l2e3_2";
+const button$4 = "_button_1l2e3_2";
 const text$3 = "_text_1l2e3_132";
 const loader$1 = "_loader_1l2e3_145";
 const icon$1 = "_icon_1l2e3_158";
-const styles$h = {
-  button: button$3,
+const styles$i = {
+  button: button$4,
   text: text$3,
   loader: loader$1,
   icon: icon$1
@@ -742,7 +742,7 @@ const ButtonContent = forwardRef(
     return /* @__PURE__ */ jsxs(
       Component,
       {
-        className: classes(styles$h.button, className),
+        className: classes(styles$i.button, className),
         "data-loading": loading,
         "data-icon-only": iconOnly,
         "data-secondary": secondary,
@@ -757,17 +757,17 @@ const ButtonContent = forwardRef(
           !!icon2 && /* @__PURE__ */ jsx(
             Icon,
             {
-              className: styles$h.icon,
+              className: styles$i.icon,
               "data-start": !iconOnly,
               "data-shift": iconHoverShift,
               icon: icon2
             }
           ),
-          !!children && /* @__PURE__ */ jsx("span", { className: styles$h.text, children }),
+          !!children && /* @__PURE__ */ jsx("span", { className: styles$i.text, children }),
           !!iconEnd && /* @__PURE__ */ jsx(
             Icon,
             {
-              className: styles$h.icon,
+              className: styles$i.icon,
               "data-end": !iconOnly,
               "data-shift": iconHoverShift,
               icon: iconEnd
@@ -777,7 +777,7 @@ const ButtonContent = forwardRef(
             Loader,
             {
               ref: nodeRef,
-              className: styles$h.loader,
+              className: styles$i.loader,
               size: 32,
               text: loadingText,
               "data-visible": visible
@@ -792,7 +792,7 @@ const loader = "_loader_1o1zt_2";
 const text$2 = "_text_1o1zt_17";
 const span = "_span_1o1zt_43";
 const loaderSpan = "_loaderSpan_1o1zt_1";
-const styles$g = {
+const styles$h = {
   loader,
   text: text$2,
   span,
@@ -802,24 +802,24 @@ const Loader = forwardRef(
   ({ className, style, width = 32, height = 4, text: text2 = "Loading...", center, ...rest }, ref) => {
     const reduceMotion = useReducedMotion();
     if (reduceMotion) {
-      return /* @__PURE__ */ jsx(Text, { className: classes(styles$g.text, className), weight: "medium", ...rest, children: text2 });
+      return /* @__PURE__ */ jsx(Text, { className: classes(styles$h.text, className), weight: "medium", ...rest, children: text2 });
     }
     return /* @__PURE__ */ jsx(
       "div",
       {
         ref,
-        className: classes(styles$g.loader, className),
+        className: classes(styles$h.loader, className),
         "data-center": center,
         style: cssProps({ width, height }, style),
         ...rest,
-        children: /* @__PURE__ */ jsx("div", { className: styles$g.span })
+        children: /* @__PURE__ */ jsx("div", { className: styles$h.span })
       }
     );
   }
 );
 const b = "_b_6k8yy_2";
 const c = "_c_6k8yy_6";
-const styles$f = {
+const styles$g = {
   b,
   c
 };
@@ -834,19 +834,47 @@ const Monogram = () => {
       height: "50",
       viewBox: "0 0 50 50",
       children: [
-        /* @__PURE__ */ jsx("path", { className: styles$f.c, d: "M0,0v50h50V0H0ZM48.38,47.96H1.62V2.04h46.75v45.92Z" }),
-        /* @__PURE__ */ jsx("path", { className: styles$f.b, d: "M31.5,34.71c.11-.03.13-.07.21-.12v-.04h.08v-.04h.08v-.04h.17v-.04c.13-.04.46.06.54.08.19.05.38-.07.54-.08l.21-.25h.04v-.08l.08-.04v-.12h.04v-.12h.04v-.21h.04v-.33h.04v-3.04c.07-.27.04-.71.04-1.04v-4.21h-.04v-.17c-.01-.49.07-1.13-.04-1.54v-.67c0-.5,0-1.07-.04-1.5l.04-3.08c.07-.26.09-1.42,0-1.67-.05.05-.02,0-.04.08h-.04l-.04.25c-.2.53-.08,1.2-.08,1.83l-.04,3.83v.17h.04v1.62c-.11.38-.04,1-.04,1.46l-.04,2c.09.33.09,1.67,0,2l-.04.62-.29,1.04h-.04v.08h-.04v.12h-.04l-.08.25h-.04v.08h-.04v.08h-.04v.08h-.04l-.08.25-.08.04-.04.17-.12.08v.08l-.08.04v.08l-.12.08v.08l-.12.08v.08l-.33.29v.08l-.29.25-.04.08h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.08.12h-.08l-.04.08-.12.04v.04h-.08l-.04.08-.17.04-.04.08-.17.04-.04.08-.25.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04h-.12v.04h-.08v.04l-.25.04v.04h-.12v.04h-.12v.04h-.12v.04l-.33.04v.04h-.17v.04h-.17v.04h-.17v.04h-.25v.04h-.25v.04h-.37v.04h-.75v.04l-.83-.04v-.04h-.42v-.04l-.83-.08v-.04h-.21v-.04l-.37-.04v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04h-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.08-.12h-.08l-.04-.08h-.08l-.08-.12h-.08l-.12-.17-.33-.29-.04-.12-.29-.25v-.04h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.04.08-.12.04v.04h-.08l-.04.08h-.08l-.04.08-.17.04-.04.08h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04l-.25.04v.04h-.08v.04h-.17v.04h-.12v.04h-.12v.04h-.12v.04h-.17v.04h-.17v.04h-.17v.04h-.17v.04h-.21v.04l-.42.04v.04h-.25v.04h-.29v.04h-.33v.04h-.37v.04h-.5v.04h-1.12v.04l-.87-.04v-.04h-.42v-.04h-.29c-.21-.06-.51-.1-.71-.17h-.21c-.22-.07-.5-.14-.71-.21h-.17v-.04h-.12v-.04h-.12v-.04l-.54-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.37-.12-.04-.08-.17-.04c-.43-.27-.61-.77-1.29-.79-.03.05-.07.06-.08.08v.08h-.04l-.04.37h-.04l-.04.62h-.04l-.08.25-.25.21s-.03.06-.04.08c-.07.05-.09,0-.17.08l-.42.04c-.07-.08-.1-.04-.17-.08l-.12-.17h-.04c-.23-.34-.3-1.48-.17-1.96v-.42h.04v-.33h.04v-.37h.04v-.37h.04v-.37h.04v-.5h.04v-.29h-.04v-.54l-.04-1.08h-.04l-.08-1.54h-.04v-.5h-.04v-.54c-.09-.31-.07-1.04.04-1.29l.25-.33h.08l.04-.08c.08-.05.09,0,.17-.08.29,0,.42.04.62.08l.21.25h.04v.08h.04l.04.17h.04l.04.46h.04v.54c0,.46-.02.99.08,1.33v.21h.04v.12h.04v.17h.04v.08h.04l.04.25h.04v.08h.04v.12h.04l.08.25h.04v.08h.04v.12h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.17h.04v.12h.04l.04.17h.04v.12h.04v.08h.04l.04.17h.04l.12.37.08.04.08.25.08.04v.08l.12.08v.08l.12.08v.08l.12.08v.08l.21.17v.08l.29.25v.08l.37.33.12.17h.08l.12.17h.08l.12.17h.08l.04.08h.08l.04.08.17.04.04.08h.08v.04h.08v.04c.43.19.9.28,1.37.42h.33c.31.09,1.52.09,1.83,0h.37c.25-.07.59-.09.83-.17h.21v-.04h.17v-.04h.17v-.04h.17v-.04h.17v-.04h.12v-.04h.12v-.04h.12v-.04h.08v-.04l.25-.04v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08v-.04h.12v-.04h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04.04-.08h.08l.04-.08h.08l.08-.12h.08l.12-.17h.08l.42-.46c.14-.14.35-.3.37-.54h-.04l-.04-.25h-.04v-.12h-.04v-.12c-.17-.43-.25-.94-.25-1.54l-.04-.5h.04l.04-.33h.04l.08-.25h.04v-.08h.04v-.08l.46-.5h.08l.04-.08h.08v-.04c.12-.07.07.04.12-.12h-.04l-.04-.25h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08l-.08-.04-.04-.17-.17-.12v-.08l-.21-.17-.37-.42h-.08l-.12-.17h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08-.21-.04v-.04h-.08v-.04l-.25-.08v-.04h-.12v-.04h-.08v-.04l-.21-.04v-.04h-.12v-.04h-.08v-.04l-.25-.04v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.21v-.04l-.42-.04v-.04l-.46-.04v-.04h-.33v-.04h-.29v-.04h-.29v-.04h-.29c-.27-.08-.62-.13-.87-.21h-.21v-.04l-.29-.04v-.04l-.29-.04v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04l-.25-.04v-.04l-.25-.08v-.04l-.25-.08-.04-.08h-.08l-.04-.08h-.08l-.08-.12h-.08l-.08-.12h-.08l-.12-.17h-.08l-.29-.33-.12-.08v-.08l-.25-.21v-.08l-.12-.08v-.08l-.08-.04v-.08l-.08-.04v-.08l-.08-.04-.08-.25h-.04v-.08h-.04v-.08h-.04l-.08-.25h-.04l-.29-1.04v-.33c-.15-.55.01-1.32.17-1.71v-.12h.04v-.08h.04v-.12h.04l.04-.17h.04l.04-.17.08-.04.04-.17.08-.04v-.08l.12-.08v-.08l.17-.12v-.08l.29-.25.17-.21h.08l.12-.17h.08l.08-.12.12-.04.04-.08h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04v-.04l.17-.04v-.04h.12v-.04h.08v-.04l.21-.04v-.04l.25-.04v-.04h.08v-.04l1.17-.25h.46c.13-.04.64-.1.83-.04v.04h.33v.04h.25v.04h.25v.04l.33.04v.04h.12v.04h.12v.04h.12v.04h.12v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04h.08v.04l.67.29v.04h.08v.04l.25.08v.04l.25.04v.04h.58v-.04c.25-.11.4-.28.58-.46l.08-.12c.22-.16.49-.21.87-.21v.04h.12l.04.08h.08l.21.29v.12h.04v.12h.04v.21h.04v.37h.04v.5h.04l.04.46h.04l.04.29h.04v.08h.04v.12h.04v.12h.04v.12h.04l.04.25h.04v.08h.04l.04.25h.04v.08h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04l.12.58h.04v.21c.03.08.09.35.04.5h-.04l-.04.21c-.09.05-.09.09-.21.12-.19.18-.59.05-.75-.04h-.08l-.46-.5-.04-.17-.08-.04-.04-.17h-.04l-.04-.12-.08-.04-.04-.17h-.04l-.04-.12-.08-.04v-.08l-.12-.08v-.08l-.42-.37-.04-.12h-.08l-.33-.37-.17-.12v-.08l-.33-.29-.04-.12-.12-.08-.25-.29h-.08l-.12-.17h-.08l-.08-.12h-.08l-.08-.12h-.08v-.04h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04l-.17-.04v-.04h-.12v-.04l-.17-.04v-.04l-.21-.04v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.21v-.04h-.25v-.04l-1.17-.04c-1.17,0-1.96.21-2.54.79l-.17.12v.08l-.08.04-.04.12h-.04v.08h-.04v.08h-.04v.12h-.04v.12c-.15.4-.16.82,0,1.21v.12h.04v.08l.08.04v.08l.08.04.21.25h.08l.08.12.17.04v.04l.25.08v.04h.12v.04h.12v.04h.12v.04h.17v.04h.17v.04h.29v.04h.37v.04h.87v.04h.37v.04h.29c.32.1.73.14,1.04.25l.33.04v.04h.12v.04h.12v.04l.42.08v.04h.08v.04l.25.04v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04l.25.08.04.08.25.08.04.08.25.08v.04l.12.04.04.08.17.04.04.08h.08v.04l.12.04.04.08h.08v.04l.12.04.04.08h.08l.08.12h.08l.04.08h.08l.08.12h.08l.04.08h.04l.04.08h.08l.12.17h.08l.21.25h.08l.37.42.46.42v.08l.21.17v.08l.12.08v.08l.12.08v.08l.12.08v.08l.08.04v.08l.08.04.08.25.08.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.25c.41.95.52,2.25.46,3.54l-.08.62h-.04l-.04.37h-.04l-.04.29h-.04l-.04.25h-.04v.08h-.04v.12h-.04l-.04.21h-.04v.08h-.04v.08h-.04v.08h-.04v.08h-.04v.08l-.08.04-.04.17h-.04v.04h.04l.21.25h.08l.25.29h.08l.12.17h.08l.08.12h.08l.08.12h.08l.04.08h.08l.04.08.17.04.04.08.25.08v.04h.08v.04h.08v.04l.25.08v.04l.25.04v.04h.12v.04h.12v.04h.12v.04h.12v.04h.21v.04h.21v.04h.25v.04h.42v.04h.42c.36,0,.84.04,1.12-.04h.29v-.04h.21v-.04h.17v-.04h.12v-.04h.17c1.81-.71,3.05-2.01,3.71-3.87l.08-.54v-.33c.07-.24.04-.65.04-.96v-1.75l.04-4.83h.04v-.62c.09-.32.04-.85.04-1.25v-2.58l-.04-1.25h-.04v-.12l-.08-.04v-.08l-.17-.12-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08c-.1-.06-.22-.04-.33-.08v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12c-.14-.06-.24-.15-.33-.25l-.08-.04v-.25l.12-.08v-.04h.08l.04-.08.25-.04v-.04c.24-.08,1.04.04,1.21.08h.42c.21.06.59-.03.83.04.07.02.29.09.42.04v-.04h.08v-.04l.29-.04v-.04c.06-.01.37.07.42.08l2,.04c.1-.03.44-.12.58-.08.19.05.59.16.87.08v-.04h1c.25-.07.66.03.92-.04v-.04h.33v.04h.33v.04l.25.04.12.17h.04c.06.09.04.24.04.37-.08.07-.03.1-.08.17l-.29.25-.04.08-.25.08v.04h-.12c-.46.18-1.33.13-1.46.62-.2.18-.12.79-.12,1.17l-.04,2.96v2.21c.07.27.04.71.04,1.04l.04,1.29v2.46h.04v1h.04v.62c0,.5.03,1.11-.04,1.54v1.12c0,1.11,0,2.29.75,2.62.54.24,1.49-.03,2.17.08.45.07,1.07.04,1.58.04.29,0,.66.02.88-.04l.54-.04v-.04h.17v-.04h.12v-.04h.12v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08l.04-.08.17-.04.04-.08h.08l.08-.12h.08l.08-.12h.08l.17-.21h.08l.17-.21h.08l.29-.33.12-.08v-.08l.5-.46c.36-.36.58-.74,1.29-.75.14.15.28.07.29.37.12.13-.04.59-.08.71l-.04.29h-.04v.12h-.04v.12h-.04v.12h-.04v.12h-.04l-.04.25h-.04v.08h-.04l-.04.25h-.04v.08h-.04l-.08.42-.42.92-.08.04v.08l-.29.25-.04.08-.25.08v.04h-.12v.04l-.96-.04v.04c-.47.13-1.01.04-1.58.04-1.19-.04-2.39-.08-3.58-.12v-.04h-1.46v.04c-.23.06-.59-.01-.79.04h-.75v.04h-1c-.06.02.02.03-.04.04h-1v.04c-.23.06-.84-.04-1-.08h-.33v-.04h-.33c-.32-.09-.72-.16-.87-.42-.09-.08-.09-.24-.08-.42.07-.05.14-.15.17-.25Z" })
+        /* @__PURE__ */ jsx("path", { className: styles$g.c, d: "M0,0v50h50V0H0ZM48.38,47.96H1.62V2.04h46.75v45.92Z" }),
+        /* @__PURE__ */ jsx("path", { className: styles$g.b, d: "M31.5,34.71c.11-.03.13-.07.21-.12v-.04h.08v-.04h.08v-.04h.17v-.04c.13-.04.46.06.54.08.19.05.38-.07.54-.08l.21-.25h.04v-.08l.08-.04v-.12h.04v-.12h.04v-.21h.04v-.33h.04v-3.04c.07-.27.04-.71.04-1.04v-4.21h-.04v-.17c-.01-.49.07-1.13-.04-1.54v-.67c0-.5,0-1.07-.04-1.5l.04-3.08c.07-.26.09-1.42,0-1.67-.05.05-.02,0-.04.08h-.04l-.04.25c-.2.53-.08,1.2-.08,1.83l-.04,3.83v.17h.04v1.62c-.11.38-.04,1-.04,1.46l-.04,2c.09.33.09,1.67,0,2l-.04.62-.29,1.04h-.04v.08h-.04v.12h-.04l-.08.25h-.04v.08h-.04v.08h-.04v.08h-.04l-.08.25-.08.04-.04.17-.12.08v.08l-.08.04v.08l-.12.08v.08l-.12.08v.08l-.33.29v.08l-.29.25-.04.08h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.08.12h-.08l-.04.08-.12.04v.04h-.08l-.04.08-.17.04-.04.08-.17.04-.04.08-.25.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04h-.12v.04h-.08v.04l-.25.04v.04h-.12v.04h-.12v.04h-.12v.04l-.33.04v.04h-.17v.04h-.17v.04h-.17v.04h-.25v.04h-.25v.04h-.37v.04h-.75v.04l-.83-.04v-.04h-.42v-.04l-.83-.08v-.04h-.21v-.04l-.37-.04v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04h-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.08-.12h-.08l-.04-.08h-.08l-.08-.12h-.08l-.12-.17-.33-.29-.04-.12-.29-.25v-.04h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.04.08-.12.04v.04h-.08l-.04.08h-.08l-.04.08-.17.04-.04.08h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04l-.25.04v.04h-.08v.04h-.17v.04h-.12v.04h-.12v.04h-.12v.04h-.17v.04h-.17v.04h-.17v.04h-.17v.04h-.21v.04l-.42.04v.04h-.25v.04h-.29v.04h-.33v.04h-.37v.04h-.5v.04h-1.12v.04l-.87-.04v-.04h-.42v-.04h-.29c-.21-.06-.51-.1-.71-.17h-.21c-.22-.07-.5-.14-.71-.21h-.17v-.04h-.12v-.04h-.12v-.04l-.54-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.37-.12-.04-.08-.17-.04c-.43-.27-.61-.77-1.29-.79-.03.05-.07.06-.08.08v.08h-.04l-.04.37h-.04l-.04.62h-.04l-.08.25-.25.21s-.03.06-.04.08c-.07.05-.09,0-.17.08l-.42.04c-.07-.08-.1-.04-.17-.08l-.12-.17h-.04c-.23-.34-.3-1.48-.17-1.96v-.42h.04v-.33h.04v-.37h.04v-.37h.04v-.37h.04v-.5h.04v-.29h-.04v-.54l-.04-1.08h-.04l-.08-1.54h-.04v-.5h-.04v-.54c-.09-.31-.07-1.04.04-1.29l.25-.33h.08l.04-.08c.08-.05.09,0,.17-.08.29,0,.42.04.62.08l.21.25h.04v.08h.04l.04.17h.04l.04.46h.04v.54c0,.46-.02.99.08,1.33v.21h.04v.12h.04v.17h.04v.08h.04l.04.25h.04v.08h.04v.12h.04l.08.25h.04v.08h.04v.12h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.17h.04v.12h.04l.04.17h.04v.12h.04v.08h.04l.04.17h.04l.12.37.08.04.08.25.08.04v.08l.12.08v.08l.12.08v.08l.12.08v.08l.21.17v.08l.29.25v.08l.37.33.12.17h.08l.12.17h.08l.12.17h.08l.04.08h.08l.04.08.17.04.04.08h.08v.04h.08v.04c.43.19.9.28,1.37.42h.33c.31.09,1.52.09,1.83,0h.37c.25-.07.59-.09.83-.17h.21v-.04h.17v-.04h.17v-.04h.17v-.04h.17v-.04h.12v-.04h.12v-.04h.12v-.04h.08v-.04l.25-.04v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08v-.04h.12v-.04h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04.04-.08h.08l.04-.08h.08l.08-.12h.08l.12-.17h.08l.42-.46c.14-.14.35-.3.37-.54h-.04l-.04-.25h-.04v-.12h-.04v-.12c-.17-.43-.25-.94-.25-1.54l-.04-.5h.04l.04-.33h.04l.08-.25h.04v-.08h.04v-.08l.46-.5h.08l.04-.08h.08v-.04c.12-.07.07.04.12-.12h-.04l-.04-.25h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08l-.08-.04-.04-.17-.17-.12v-.08l-.21-.17-.37-.42h-.08l-.12-.17h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08-.21-.04v-.04h-.08v-.04l-.25-.08v-.04h-.12v-.04h-.08v-.04l-.21-.04v-.04h-.12v-.04h-.08v-.04l-.25-.04v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.21v-.04l-.42-.04v-.04l-.46-.04v-.04h-.33v-.04h-.29v-.04h-.29v-.04h-.29c-.27-.08-.62-.13-.87-.21h-.21v-.04l-.29-.04v-.04l-.29-.04v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04l-.25-.04v-.04l-.25-.08v-.04l-.25-.08-.04-.08h-.08l-.04-.08h-.08l-.08-.12h-.08l-.08-.12h-.08l-.12-.17h-.08l-.29-.33-.12-.08v-.08l-.25-.21v-.08l-.12-.08v-.08l-.08-.04v-.08l-.08-.04v-.08l-.08-.04-.08-.25h-.04v-.08h-.04v-.08h-.04l-.08-.25h-.04l-.29-1.04v-.33c-.15-.55.01-1.32.17-1.71v-.12h.04v-.08h.04v-.12h.04l.04-.17h.04l.04-.17.08-.04.04-.17.08-.04v-.08l.12-.08v-.08l.17-.12v-.08l.29-.25.17-.21h.08l.12-.17h.08l.08-.12.12-.04.04-.08h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04v-.04l.17-.04v-.04h.12v-.04h.08v-.04l.21-.04v-.04l.25-.04v-.04h.08v-.04l1.17-.25h.46c.13-.04.64-.1.83-.04v.04h.33v.04h.25v.04h.25v.04l.33.04v.04h.12v.04h.12v.04h.12v.04h.12v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04h.08v.04l.67.29v.04h.08v.04l.25.08v.04l.25.04v.04h.58v-.04c.25-.11.4-.28.58-.46l.08-.12c.22-.16.49-.21.87-.21v.04h.12l.04.08h.08l.21.29v.12h.04v.12h.04v.21h.04v.37h.04v.5h.04l.04.46h.04l.04.29h.04v.08h.04v.12h.04v.12h.04v.12h.04l.04.25h.04v.08h.04l.04.25h.04v.08h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04l.12.58h.04v.21c.03.08.09.35.04.5h-.04l-.04.21c-.09.05-.09.09-.21.12-.19.18-.59.05-.75-.04h-.08l-.46-.5-.04-.17-.08-.04-.04-.17h-.04l-.04-.12-.08-.04-.04-.17h-.04l-.04-.12-.08-.04v-.08l-.12-.08v-.08l-.42-.37-.04-.12h-.08l-.33-.37-.17-.12v-.08l-.33-.29-.04-.12-.12-.08-.25-.29h-.08l-.12-.17h-.08l-.08-.12h-.08l-.08-.12h-.08v-.04h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04l-.17-.04v-.04h-.12v-.04l-.17-.04v-.04l-.21-.04v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.21v-.04h-.25v-.04l-1.17-.04c-1.17,0-1.96.21-2.54.79l-.17.12v.08l-.08.04-.04.12h-.04v.08h-.04v.08h-.04v.12h-.04v.12c-.15.4-.16.82,0,1.21v.12h.04v.08l.08.04v.08l.08.04.21.25h.08l.08.12.17.04v.04l.25.08v.04h.12v.04h.12v.04h.12v.04h.17v.04h.17v.04h.29v.04h.37v.04h.87v.04h.37v.04h.29c.32.1.73.14,1.04.25l.33.04v.04h.12v.04h.12v.04l.42.08v.04h.08v.04l.25.04v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04l.25.08.04.08.25.08.04.08.25.08v.04l.12.04.04.08.17.04.04.08h.08v.04l.12.04.04.08h.08v.04l.12.04.04.08h.08l.08.12h.08l.04.08h.08l.08.12h.08l.04.08h.04l.04.08h.08l.12.17h.08l.21.25h.08l.37.42.46.42v.08l.21.17v.08l.12.08v.08l.12.08v.08l.12.08v.08l.08.04v.08l.08.04.08.25.08.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.25c.41.95.52,2.25.46,3.54l-.08.62h-.04l-.04.37h-.04l-.04.29h-.04l-.04.25h-.04v.08h-.04v.12h-.04l-.04.21h-.04v.08h-.04v.08h-.04v.08h-.04v.08h-.04v.08l-.08.04-.04.17h-.04v.04h.04l.21.25h.08l.25.29h.08l.12.17h.08l.08.12h.08l.08.12h.08l.04.08h.08l.04.08.17.04.04.08.25.08v.04h.08v.04h.08v.04l.25.08v.04l.25.04v.04h.12v.04h.12v.04h.12v.04h.12v.04h.21v.04h.21v.04h.25v.04h.42v.04h.42c.36,0,.84.04,1.12-.04h.29v-.04h.21v-.04h.17v-.04h.12v-.04h.17c1.81-.71,3.05-2.01,3.71-3.87l.08-.54v-.33c.07-.24.04-.65.04-.96v-1.75l.04-4.83h.04v-.62c.09-.32.04-.85.04-1.25v-2.58l-.04-1.25h-.04v-.12l-.08-.04v-.08l-.17-.12-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08c-.1-.06-.22-.04-.33-.08v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12c-.14-.06-.24-.15-.33-.25l-.08-.04v-.25l.12-.08v-.04h.08l.04-.08.25-.04v-.04c.24-.08,1.04.04,1.21.08h.42c.21.06.59-.03.83.04.07.02.29.09.42.04v-.04h.08v-.04l.29-.04v-.04c.06-.01.37.07.42.08l2,.04c.1-.03.44-.12.58-.08.19.05.59.16.87.08v-.04h1c.25-.07.66.03.92-.04v-.04h.33v.04h.33v.04l.25.04.12.17h.04c.06.09.04.24.04.37-.08.07-.03.1-.08.17l-.29.25-.04.08-.25.08v.04h-.12c-.46.18-1.33.13-1.46.62-.2.18-.12.79-.12,1.17l-.04,2.96v2.21c.07.27.04.71.04,1.04l.04,1.29v2.46h.04v1h.04v.62c0,.5.03,1.11-.04,1.54v1.12c0,1.11,0,2.29.75,2.62.54.24,1.49-.03,2.17.08.45.07,1.07.04,1.58.04.29,0,.66.02.88-.04l.54-.04v-.04h.17v-.04h.12v-.04h.12v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08l.04-.08.17-.04.04-.08h.08l.08-.12h.08l.08-.12h.08l.17-.21h.08l.17-.21h.08l.29-.33.12-.08v-.08l.5-.46c.36-.36.58-.74,1.29-.75.14.15.28.07.29.37.12.13-.04.59-.08.71l-.04.29h-.04v.12h-.04v.12h-.04v.12h-.04v.12h-.04l-.04.25h-.04v.08h-.04l-.04.25h-.04v.08h-.04l-.08.42-.42.92-.08.04v.08l-.29.25-.04.08-.25.08v.04h-.12v.04l-.96-.04v.04c-.47.13-1.01.04-1.58.04-1.19-.04-2.39-.08-3.58-.12v-.04h-1.46v.04c-.23.06-.59-.01-.79.04h-.75v.04h-1c-.06.02.02.03-.04.04h-1v.04c-.23.06-.84-.04-1-.08h-.33v-.04h-.33c-.32-.09-.72-.16-.87-.42-.09-.08-.09-.24-.08-.42.07-.05.14-.15.17-.25Z" })
       ]
     }
   );
 };
 const section = "_section_cvvm4_2";
-const styles$e = {
+const styles$f = {
   section
 };
 const Section = forwardRef(
-  ({ as: Component = "div", children, className, ...rest }, ref) => /* @__PURE__ */ jsx(Component, { className: classes(styles$e.section, className), ref, ...rest, children })
+  ({ as: Component = "div", children, className, ...rest }, ref) => /* @__PURE__ */ jsx(Component, { className: classes(styles$f.section, className), ref, ...rest, children })
 );
+function useHasMounted() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  return mounted;
+}
+function useInViewport(elementRef, unobserveOnIntersect, options = {}, shouldObserve = true) {
+  const [intersect, setIntersect] = useState(false);
+  const [isUnobserved, setIsUnobserved] = useState(false);
+  useEffect(() => {
+    if (!(elementRef == null ? void 0 : elementRef.current))
+      return;
+    const observer = new IntersectionObserver(([entry2]) => {
+      const { isIntersecting, target } = entry2;
+      setIntersect(isIntersecting);
+      if (isIntersecting && unobserveOnIntersect) {
+        observer.unobserve(target);
+        setIsUnobserved(true);
+      }
+    }, options);
+    if (!isUnobserved && shouldObserve) {
+      observer.observe(elementRef.current);
+    }
+    return () => observer.disconnect();
+  }, [elementRef, unobserveOnIntersect, options, isUnobserved, shouldObserve]);
+  return intersect;
+}
 function useScrollToHash() {
   const scrollTimeout = useRef();
   const location = useLocation();
@@ -876,6 +904,319 @@ function useScrollToHash() {
     [navigate, reduceMotion, location.pathname]
   );
   return scrollToHash;
+}
+function useWindowSize() {
+  const dimensions = useRef(() => ({ w: 1280, h: 800 }));
+  const createRuler = useCallback(() => {
+    let ruler = document.createElement("div");
+    ruler.style.position = "fixed";
+    ruler.style.height = "100vh";
+    ruler.style.width = 0;
+    ruler.style.top = 0;
+    document.documentElement.appendChild(ruler);
+    dimensions.current.w = window.innerWidth;
+    dimensions.current.h = ruler.offsetHeight;
+    document.documentElement.removeChild(ruler);
+    ruler = null;
+  }, []);
+  const getHeight = useCallback(() => {
+    const isIOS = navigator == null ? void 0 : navigator.userAgent.match(/iphone|ipod|ipad/i);
+    if (isIOS) {
+      createRuler();
+      return dimensions.current.h;
+    }
+    return window.innerHeight;
+  }, [createRuler]);
+  const getSize = useCallback(() => {
+    return {
+      width: window.innerWidth,
+      height: getHeight()
+    };
+  }, [getHeight]);
+  const [windowSize, setWindowSize] = useState(dimensions.current);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(getSize());
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [getSize]);
+  return windowSize;
+}
+async function loadImageFromSrcSet({ src, srcSet, sizes }) {
+  return new Promise((resolve, reject) => {
+    try {
+      if (!src && !srcSet) {
+        throw new Error("No image src or srcSet provided");
+      }
+      let tempImage = new Image();
+      if (src) {
+        tempImage.src = src;
+      }
+      if (srcSet) {
+        tempImage.srcset = srcSet;
+      }
+      if (sizes) {
+        tempImage.sizes = sizes;
+      }
+      const onLoad = () => {
+        tempImage.removeEventListener("load", onLoad);
+        const source = tempImage.currentSrc;
+        tempImage = null;
+        resolve(source);
+      };
+      tempImage.addEventListener("load", onLoad);
+    } catch (error) {
+      reject(`Error loading ${srcSet}: ${error}`);
+    }
+  });
+}
+async function generateImage(width = 1, height = 1) {
+  return new Promise((resolve) => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = width;
+    canvas.height = height;
+    ctx.fillStyle = "rgba(0, 0, 0, 0)";
+    ctx.fillRect(0, 0, width, height);
+    canvas.toBlob(async (blob) => {
+      if (!blob)
+        throw new Error("Video thumbnail failed to load");
+      const image2 = URL.createObjectURL(blob);
+      canvas.remove();
+      resolve(image2);
+    });
+  });
+}
+async function resolveSrcFromSrcSet({ srcSet, sizes }) {
+  const sources = await Promise.all(
+    srcSet.split(", ").map(async (srcString) => {
+      const [src, width] = srcString.split(" ");
+      const size = Number(width.replace("w", ""));
+      const image2 = await generateImage(size);
+      return { src, image: image2, width };
+    })
+  );
+  const fakeSrcSet = sources.map(({ image: image2, width }) => `${image2} ${width}`).join(", ");
+  const fakeSrc = await loadImageFromSrcSet({ srcSet: fakeSrcSet, sizes });
+  const output = sources.find((src) => src.image === fakeSrc);
+  return output.src;
+}
+const image$2 = "_image_4szht_2";
+const container$1 = "_container_4szht_42";
+const elementWrapper = "_elementWrapper_4szht_49";
+const placeholder = "_placeholder_4szht_71";
+const element = "_element_4szht_49";
+const button$3 = "_button_4szht_104";
+const styles$e = {
+  image: image$2,
+  container: container$1,
+  elementWrapper,
+  placeholder,
+  element,
+  button: button$3
+};
+const Image$1 = ({
+  className,
+  style,
+  reveal,
+  delay: delay2 = 0,
+  raised,
+  src: baseSrc,
+  srcSet,
+  placeholder: placeholder2,
+  ...rest
+}) => {
+  const [loaded, setLoaded] = useState(false);
+  const theme = useTheme();
+  const containerRef = useRef(null);
+  const src = baseSrc || (srcSet ? srcSet.split(" ")[0] : "");
+  const inViewport = useInViewport(containerRef, !getIsVideo(src));
+  const onLoad = useCallback(() => {
+    setLoaded(true);
+  }, []);
+  return /* @__PURE__ */ jsx(
+    "div",
+    {
+      className: classes(styles$e.image, className),
+      "data-visible": inViewport || loaded,
+      "data-reveal": reveal,
+      "data-raised": raised,
+      "data-theme": theme,
+      style: cssProps({ delay: numToMs(delay2) }, style),
+      ref: containerRef,
+      children: /* @__PURE__ */ jsx(
+        ImageElements,
+        {
+          delay: delay2,
+          onLoad,
+          loaded,
+          inViewport,
+          reveal,
+          src,
+          srcSet,
+          placeholder: placeholder2,
+          ...rest
+        }
+      )
+    }
+  );
+};
+const ImageElements = ({
+  onLoad,
+  loaded,
+  inViewport,
+  srcSet,
+  placeholder: placeholder2,
+  delay: delay2 = 0,
+  src,
+  alt,
+  play = true,
+  restartOnPause,
+  reveal,
+  sizes,
+  width,
+  height,
+  noPauseButton,
+  cover,
+  ...rest
+}) => {
+  const reduceMotion = useReducedMotion();
+  const [showPlaceholder, setShowPlaceholder] = useState(true);
+  const [playing, setPlaying] = useState(!reduceMotion);
+  const [videoSrc, setVideoSrc] = useState(void 0);
+  const [videoInteracted, setVideoInteracted] = useState(false);
+  const placeholderRef = useRef(null);
+  const videoRef = useRef(null);
+  const isVideo = getIsVideo(src);
+  const showFullRes = inViewport;
+  const hasMounted = useHasMounted();
+  useEffect(() => {
+    const resolveVideoSrc = async () => {
+      const resolvedVideoSrc = await resolveSrcFromSrcSet({ srcSet, sizes });
+      setVideoSrc(resolvedVideoSrc);
+    };
+    if (isVideo && srcSet) {
+      resolveVideoSrc();
+    } else if (isVideo) {
+      setVideoSrc(src);
+    }
+  }, [isVideo, sizes, src, srcSet]);
+  useEffect(() => {
+    if (!videoRef.current || !videoSrc)
+      return;
+    const playVideo = () => {
+      var _a;
+      setPlaying(true);
+      (_a = videoRef.current) == null ? void 0 : _a.play();
+    };
+    const pauseVideo = () => {
+      var _a;
+      setPlaying(false);
+      (_a = videoRef.current) == null ? void 0 : _a.pause();
+    };
+    if (!play) {
+      pauseVideo();
+      if (restartOnPause) {
+        videoRef.current.currentTime = 0;
+      }
+    }
+    if (videoInteracted)
+      return;
+    if (!inViewport) {
+      pauseVideo();
+    } else if (inViewport && !reduceMotion && play) {
+      playVideo();
+    }
+  }, [inViewport, play, reduceMotion, restartOnPause, videoInteracted, videoSrc]);
+  const togglePlaying = (event) => {
+    var _a, _b;
+    event.preventDefault();
+    setVideoInteracted(true);
+    if ((_a = videoRef.current) == null ? void 0 : _a.paused) {
+      setPlaying(true);
+      videoRef.current.play();
+    } else {
+      setPlaying(false);
+      (_b = videoRef.current) == null ? void 0 : _b.pause();
+    }
+  };
+  return /* @__PURE__ */ jsxs(
+    "div",
+    {
+      className: styles$e.elementWrapper,
+      "data-reveal": reveal,
+      "data-visible": inViewport || loaded,
+      style: cssProps({ delay: numToMs(delay2 + 1e3) }),
+      children: [
+        isVideo && hasMounted && /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsx(
+            "video",
+            {
+              muted: true,
+              loop: true,
+              playsInline: true,
+              className: styles$e.element,
+              "data-loaded": loaded,
+              "data-cover": cover,
+              autoPlay: !reduceMotion,
+              onLoadStart: onLoad,
+              src: videoSrc,
+              "aria-label": alt,
+              ref: videoRef,
+              ...rest
+            }
+          ),
+          !noPauseButton && /* @__PURE__ */ jsxs(Button, { className: styles$e.button, onClick: togglePlaying, children: [
+            /* @__PURE__ */ jsx(Icon, { icon: playing ? "pause" : "play" }),
+            playing ? "Pause" : "Play"
+          ] })
+        ] }),
+        !isVideo && /* @__PURE__ */ jsx(
+          "img",
+          {
+            className: styles$e.element,
+            "data-loaded": loaded,
+            "data-cover": cover,
+            onLoad,
+            decoding: "async",
+            src: showFullRes ? src : void 0,
+            srcSet: showFullRes ? srcSet : void 0,
+            width,
+            height,
+            alt,
+            sizes,
+            ...rest
+          }
+        ),
+        showPlaceholder && /* @__PURE__ */ jsx(
+          "img",
+          {
+            "aria-hidden": true,
+            className: styles$e.placeholder,
+            "data-loaded": loaded,
+            "data-cover": cover,
+            style: cssProps({ delay: numToMs(delay2) }),
+            ref: placeholderRef,
+            src: placeholder2,
+            width,
+            height,
+            onTransitionEnd: () => setShowPlaceholder(false),
+            decoding: "async",
+            loading: "lazy",
+            alt: "",
+            role: "presentation"
+          }
+        )
+      ]
+    }
+  );
+};
+function getIsVideo(src) {
+  return typeof src === "string" && src.includes(".mp4");
 }
 const heading = "_heading_hhgbc_2";
 const styles$d = {
@@ -1074,7 +1415,7 @@ const navLinks = [
   },
   {
     label: "Projects",
-    pathname: "/#projects"
+    pathname: "/#web-dev"
   },
   {
     label: "Ledger",
@@ -1194,7 +1535,7 @@ const MenuBar = () => {
         {
           className: styles$8.menuBarContainer,
           style: { backgroundColor },
-          children: /* @__PURE__ */ jsx("ul", { className: styles$8.menuBarList, children: navLinks.map((item, index) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
+          children: /* @__PURE__ */ jsx("ul", { className: styles$8.menuBarList, children: navLinks.map((item, index2) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
             Link$1,
             {
               unstable_viewTransition: true,
@@ -1214,13 +1555,13 @@ const MenuBar = () => {
               )
             },
             item.label
-          ) }, index)) })
+          ) }, index2)) })
         }
       ),
       /* @__PURE__ */ jsx(NavbarIcons, { desktop: true })
     ] }),
     /* @__PURE__ */ jsx(Transition, { unmount: true, in: menuOpen, timeout: msToNum(tokens.base.durationL), children: ({ visible, nodeRef }) => /* @__PURE__ */ jsxs("nav", { className: styles$8.mobileNav, "data-visible": visible, ref: nodeRef, children: [
-      navLinks.map((item, index) => /* @__PURE__ */ jsx(
+      navLinks.map((item, index2) => /* @__PURE__ */ jsx(
         Link$1,
         {
           unstable_viewTransition: true,
@@ -1232,7 +1573,7 @@ const MenuBar = () => {
           onClick: (event) => handleMobileNavClick(event, item),
           style: cssProps({
             transitionDelay: numToMs(
-              Number(msToNum(tokens.base.durationS)) + index * 50
+              Number(msToNum(tokens.base.durationS)) + index2 * 50
             )
           }),
           children: item.label
@@ -1256,11 +1597,11 @@ const NavbarIcons = ({ desktop }) => /* @__PURE__ */ jsx("div", { className: sty
   },
   label
 )) });
-const header = "_header_1elei_4";
-const headerBackground = "_headerBackground_1elei_17";
-const hidden = "_hidden_1elei_33";
-const subtitle = "_subtitle_1elei_37";
-const text = "_text_1elei_72";
+const header = "_header_uc7y7_7";
+const headerBackground = "_headerBackground_uc7y7_33";
+const hidden = "_hidden_uc7y7_65";
+const subtitle = "_subtitle_uc7y7_73";
+const text = "_text_uc7y7_145";
 const styles$7 = {
   header,
   headerBackground,
@@ -1289,12 +1630,12 @@ const Header = () => {
   return /* @__PURE__ */ jsx("header", { ref, children: /* @__PURE__ */ jsxs("div", { className: styles$7.header, children: [
     /* @__PURE__ */ jsx("div", { className: `${styles$7.headerBackground} ${!inView2 ? styles$7.hidden : ""}` }),
     /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx(TextFade$1, { fadeText, delay: baseDelay }) }),
-    /* @__PURE__ */ jsx("span", { className: styles$7.subtitle, children: roles2.slice(0, currentRoleIndex + 1).map((role, index) => {
+    /* @__PURE__ */ jsx("span", { className: styles$7.subtitle, children: roles2.slice(0, currentRoleIndex + 1).map((role, index2) => {
       const calculatedDelay = role.length * 75;
       return /* @__PURE__ */ jsxs(React.Fragment, { children: [
         /* @__PURE__ */ jsx(DecoderText, { text: role, delay: calculatedDelay }),
         /* @__PURE__ */ jsx("br", {})
-      ] }, index);
+      ] }, index2);
     }) })
   ] }) });
 };
@@ -1489,47 +1830,47 @@ const styles$3 = {
 const home = "_home_w4mv5_1";
 const title$2 = "_title_w4mv5_34";
 const description$2 = "_description_w4mv5_45";
-const tag$2 = "_tag_w4mv5_55";
-const tagText$2 = "_tagText_w4mv5_68";
-const image$2 = "_image_w4mv5_89";
+const tag$1 = "_tag_w4mv5_55";
+const tagText$1 = "_tagText_w4mv5_68";
+const image$1 = "_image_w4mv5_89";
 const svg$2 = "_svg_w4mv5_94";
 const button$2 = "_button_w4mv5_110";
-const polaroid$2 = "_polaroid_w4mv5_120";
+const polaroid$1 = "_polaroid_w4mv5_120";
 const styles$2 = {
   home,
   title: title$2,
   description: description$2,
-  tag: tag$2,
-  tagText: tagText$2,
-  image: image$2,
+  tag: tag$1,
+  tagText: tagText$1,
+  image: image$1,
   svg: svg$2,
   button: button$2,
-  polaroid: polaroid$2
+  polaroid: polaroid$1
 };
 const HomeText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
-  /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 2, id: titleId, children: "Hi!" }),
-  /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "This new website is still under construction." }),
+  /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "Hello there" }),
+  /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: "I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns, bullet trajectories, and digging up clandestine graves. I've also worked as a freelance web designer, providing services to non-profit organizations and small businesses." }),
+  /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: "I'm currently working on this portfolio website, so please check back soon for updates and changes." }),
   /* @__PURE__ */ jsxs(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: [
-    "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-    /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
-    ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now."
-  ] }),
-  /* @__PURE__ */ jsxs(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: [
-    "I'm working on it. You can check out the ",
-    /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
-    " to see the component designs."
-  ] }),
-  /* @__PURE__ */ jsxs(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: [
-    "In the meantime, you can find me at my ",
+    "In the meantime, you can find more detailed information about me at my ",
     /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
     " or on ",
     /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
     "."
-  ] })
+  ] }),
+  /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", style: { fontStyle: "italic" }, children: "Thanks for visiting!" })
 ] });
 const Home = ({ id, visible, sectionRef }) => {
   const [focused, setFocused] = useState(false);
+  const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;
+  useEffect(() => {
+    if (isInViewport) {
+      return;
+    }
+    return () => {
+    };
+  }, [isInViewport]);
   return /* @__PURE__ */ jsx(
     Section,
     {
@@ -1552,20 +1893,22 @@ const Home = ({ id, visible, sectionRef }) => {
               collapseDelay: 1e3
             }
           ),
-          /* @__PURE__ */ jsx("div", { className: styles$2.tagText, "data-visible": visible2, children: "Welcome!" })
+          /* @__PURE__ */ jsx(InViewport$1, { children: (inViewport) => {
+            useEffect(() => {
+              if (inViewport) {
+                setIsInViewport(true);
+              }
+            }, [inViewport]);
+            return /* @__PURE__ */ jsx("div", { className: styles$2.tagText, "data-visible": visible2, children: isInViewport && /* @__PURE__ */ jsx(
+              DecoderText,
+              {
+                text: `${config.name}`,
+                delay: 1500
+              }
+            ) });
+          } })
         ] }),
-        /* @__PURE__ */ jsx(HomeText, { visible: visible2, titleId }),
-        /* @__PURE__ */ jsx(
-          Button,
-          {
-            secondary: true,
-            className: styles$2.button,
-            "data-visible": visible2,
-            href: "https://legacy.stephenjlu.com/contact",
-            icon: "send",
-            children: "Contact Me"
-          }
-        )
+        /* @__PURE__ */ jsx(HomeText, { visible: visible2, titleId })
       ] }) })
     }
   );
@@ -1573,22 +1916,22 @@ const Home = ({ id, visible, sectionRef }) => {
 const about = "_about_43zhk_1";
 const title$1 = "_title_43zhk_34";
 const description$1 = "_description_43zhk_45";
-const tag$1 = "_tag_43zhk_55";
-const tagText$1 = "_tagText_43zhk_68";
-const image$1 = "_image_43zhk_89";
+const tag = "_tag_43zhk_55";
+const tagText = "_tagText_43zhk_68";
+const image = "_image_43zhk_89";
 const svg$1 = "_svg_43zhk_94";
 const button$1 = "_button_43zhk_110";
-const polaroid$1 = "_polaroid_43zhk_120";
+const polaroid = "_polaroid_43zhk_120";
 const styles$1 = {
   about,
   title: title$1,
   description: description$1,
-  tag: tag$1,
-  tagText: tagText$1,
-  image: image$1,
+  tag,
+  tagText,
+  image,
   svg: svg$1,
   button: button$1,
-  polaroid: polaroid$1
+  polaroid
 };
 const AboutText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
   /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 2, id: titleId, children: "Hi!" }),
@@ -1654,98 +1997,127 @@ const About = ({ id, visible, sectionRef }) => {
     }
   );
 };
-const projects = "_projects_p9sgt_1";
-const title = "_title_p9sgt_34";
-const description = "_description_p9sgt_45";
-const tag = "_tag_p9sgt_55";
-const tagText = "_tagText_p9sgt_68";
-const image = "_image_p9sgt_89";
-const svg = "_svg_p9sgt_94";
-const button = "_button_p9sgt_110";
-const polaroid = "_polaroid_p9sgt_120";
+const projects = "_projects_joyf8_1";
+const content = "_content_joyf8_69";
+const summary = "_summary_joyf8_91";
+const details = "_details_joyf8_129";
+const banner = "_banner_joyf8_155";
+const svg = "_svg_joyf8_205";
+const index = "_index_joyf8_287";
+const indexNumber = "_indexNumber_joyf8_305";
+const title = "_title_joyf8_349";
+const description = "_description_joyf8_387";
+const button = "_button_joyf8_425";
 const styles = {
   projects,
+  content,
+  summary,
+  details,
+  banner,
+  svg,
+  index,
+  indexNumber,
   title,
   description,
-  tag,
-  tagText,
-  image,
-  svg,
-  button,
-  polaroid
+  button
 };
-const ProjectsText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
-  /* @__PURE__ */ jsx(Heading, { className: styles.title, "data-visible": visible, level: 2, id: titleId, children: "Hi!" }),
-  /* @__PURE__ */ jsx(Heading, { className: styles.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "This new website is still under construction." }),
-  /* @__PURE__ */ jsxs(Text, { className: styles.description, "data-visible": visible, size: "l", as: "p", children: [
-    "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
-    /* @__PURE__ */ jsx(Link, { href: "https://react.dev/", children: "React" }),
-    ". I know it's probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now."
-  ] }),
-  /* @__PURE__ */ jsxs(Text, { className: styles.description, "data-visible": visible, size: "l", as: "p", children: [
-    "I'm working on it. You can check out the ",
-    /* @__PURE__ */ jsx(Link, { href: "https://storybook.stephenjlu.com/", children: "Storybook" }),
-    " to see the component designs."
-  ] }),
-  /* @__PURE__ */ jsxs(Text, { className: styles.description, "data-visible": visible, size: "l", as: "p", children: [
-    "In the meantime, you can find me at my ",
-    /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
-    " or on ",
-    /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
-    "."
-  ] })
-] });
-const Projects = ({ id, visible, sectionRef }) => {
+function Projects({
+  id,
+  sectionRef,
+  visible: sectionVisible,
+  index: index2 = 0,
+  title: title2,
+  description: description2,
+  bannerImage,
+  buttonText,
+  buttonLink,
+  alternate,
+  ...rest
+}) {
   const [focused, setFocused] = useState(false);
+  useTheme();
+  const width = useWindowSize();
   const titleId = `${id}-title`;
+  const isMobile = width.w <= media.tablet;
+  const indexText = index2 < 10 ? `0${index2}` : index2;
+  function renderBanner({ visible }) {
+    return /* @__PURE__ */ jsx("div", { className: styles.banner, "data-visible": visible, children: /* @__PURE__ */ jsx(
+      Image$1,
+      {
+        src: bannerImage,
+        alt: "Project banner",
+        width: 600,
+        height: 300,
+        style: { objectFit: "cover" }
+      }
+    ) });
+  }
+  function renderDetails({ visible }) {
+    return /* @__PURE__ */ jsxs("div", { className: styles.details, children: [
+      /* @__PURE__ */ jsxs("div", { "aria-hidden": true, className: styles.index, children: [
+        /* @__PURE__ */ jsx(
+          Divider,
+          {
+            notchWidth: "64px",
+            notchHeight: "8px",
+            collapsed: !visible,
+            collapseDelay: 1e3
+          }
+        ),
+        /* @__PURE__ */ jsx("span", { className: styles.indexNumber, "data-visible": visible, children: indexText })
+      ] }),
+      /* @__PURE__ */ jsx(
+        Heading,
+        {
+          level: 3,
+          as: "h2",
+          className: styles.title,
+          "data-visible": visible,
+          id: titleId,
+          children: title2
+        }
+      ),
+      /* @__PURE__ */ jsx(Text, { className: styles.description, "data-visible": visible, as: "p", children: description2 }),
+      /* @__PURE__ */ jsx("div", { className: styles.button, "data-visible": visible, children: /* @__PURE__ */ jsx(Button, { iconHoverShift: true, href: buttonLink, iconEnd: "arrow-right", children: buttonText }) })
+    ] });
+  }
   return /* @__PURE__ */ jsx(
     Section,
     {
       className: styles.projects,
+      "data-alternate": alternate,
+      "data-first": index2 === 1,
       onFocus: () => setFocused(true),
       onBlur: () => setFocused(false),
       as: "section",
+      "aria-labelledby": titleId,
       ref: sectionRef,
       id,
-      "aria-labelledby": titleId,
       tabIndex: -1,
-      children: /* @__PURE__ */ jsx(Transition, { in: visible || focused, timeout: 0, unmount: false, children: ({ visible: visible2, nodeRef }) => /* @__PURE__ */ jsxs("div", { ref: nodeRef, children: [
-        /* @__PURE__ */ jsxs("div", { className: styles.tag, "aria-hidden": true, children: [
-          /* @__PURE__ */ jsx(
-            Divider,
-            {
-              notchWidth: "64px",
-              notchHeight: "8px",
-              collapsed: !visible2,
-              collapseDelay: 1e3
-            }
-          ),
-          /* @__PURE__ */ jsx("div", { className: styles.tagText, "data-visible": visible2, children: "Welcome!" })
+      ...rest,
+      children: /* @__PURE__ */ jsx("div", { className: styles.content, children: /* @__PURE__ */ jsx(Transition, { in: sectionVisible || focused, unmount: false, children: (props) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
+        !alternate && !isMobile && /* @__PURE__ */ jsxs(Fragment$1, { children: [
+          renderDetails({ visible: props.visible }),
+          renderBanner({ visible: props.visible, bannerImage: props.bannerImage })
         ] }),
-        /* @__PURE__ */ jsx(ProjectsText, { visible: visible2, titleId }),
-        /* @__PURE__ */ jsx(
-          Button,
-          {
-            secondary: true,
-            className: styles.button,
-            "data-visible": visible2,
-            href: "https://legacy.stephenjlu.com/contact",
-            icon: "send",
-            children: "Contact Me"
-          }
-        )
-      ] }) })
+        (alternate || isMobile) && /* @__PURE__ */ jsxs(Fragment$1, { children: [
+          renderBanner({ visible: props.visible, bannerImage: props.bannerImage }),
+          renderDetails({ visible: props.visible })
+        ] })
+      ] }) }) })
     }
   );
-};
+}
 const Page = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const home2 = useRef(null);
   const about2 = useRef(null);
-  const projects2 = useRef(null);
+  const webDev = useRef(null);
+  const csiCEO = useRef(null);
+  const music = useRef(null);
   useEffect(() => {
-    const sections = [home2, about2, projects2];
+    const sections = [home2, about2, webDev, csiCEO, music];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry2) => {
@@ -1788,9 +2160,40 @@ const Page = () => {
     /* @__PURE__ */ jsx(
       Projects,
       {
-        id: "projects",
-        sectionRef: projects2,
-        visible: visibleSections.includes(projects2.current)
+        id: "web-dev",
+        sectionRef: webDev,
+        visible: visibleSections.includes(webDev.current),
+        index: 1,
+        title: "Web Design and Development for the Public Good",
+        buttonText: "View Projects",
+        buttonLink: "/projects/web-dev",
+        bannerImage: "/app/static/images/web-dev-cropped.png"
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      Projects,
+      {
+        id: "csi-ceo",
+        sectionRef: csiCEO,
+        visible: visibleSections.includes(csiCEO.current),
+        index: 2,
+        title: "CSI to CEO: What the Dead Can Teach Us About Life and Leadership",
+        buttonText: "Book Website",
+        buttonLink: "https://www.CSItoCEO.com",
+        bannerImage: "/app/static/images/csi-ceo.png"
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      Projects,
+      {
+        id: "music",
+        sectionRef: music,
+        visible: visibleSections.includes(music.current),
+        index: 3,
+        title: "Music & Electronic Production",
+        buttonText: "Listen In",
+        buttonLink: "/projects/music",
+        bannerImage: "/app/static/images/music.png"
       }
     ),
     /* @__PURE__ */ jsx(
@@ -1807,7 +2210,7 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-bCW51Lb0.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-5ramxuPs.js", "/assets/loader-BJ7TiS1K.js", "/assets/InViewport-D_3fgGNU.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-D5sJ-QpM.css", "/assets/root-B87oRh0L.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B8_n5WsE.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-5ramxuPs.js", "/assets/link-2R0buWIJ.js", "/assets/InViewport-D_3fgGNU.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Ck8xqL4r.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-5ramxuPs.js", "/assets/link-2R0buWIJ.js", "/assets/loader-BJ7TiS1K.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-D5sJ-QpM.css", "/assets/route-Cpf3dk-a.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Ck8xqL4r.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-5ramxuPs.js", "/assets/link-2R0buWIJ.js", "/assets/loader-BJ7TiS1K.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-D5sJ-QpM.css", "/assets/route-Cpf3dk-a.css"] } }, "url": "/assets/manifest-d420360b.js", "version": "d420360b" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BB76GS14.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/loader-B6DS_1Sn.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-D5sJ-QpM.css", "/assets/root-B87oRh0L.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BfFBgb1r.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CB-_3F7q.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-B6DS_1Sn.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-D5sJ-QpM.css", "/assets/route-BLLr3y9c.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CB-_3F7q.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-B6DS_1Sn.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-D5sJ-QpM.css", "/assets/route-BLLr3y9c.css"] } }, "url": "/assets/manifest-200c480d.js", "version": "200c480d" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
