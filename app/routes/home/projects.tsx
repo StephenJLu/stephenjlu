@@ -131,7 +131,10 @@ function renderBanner({ visible }: RenderBannerProps) {
             </>
           )}
         </Transition>
-      </div>
+        <div className={styles.divider}>
+        <Divider />
+      </div>        
+      </div>      
     </Section>
   );
 }
