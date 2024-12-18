@@ -4,6 +4,7 @@ import { Button, Divider, Heading, Section,
 import { useWindowSize } from 'app/hooks';
 import { cssProps, media } from 'app/utils/style';
 import styles from './projects.module.css';
+import bannerPlaceholder from 'app/static/images/banner-placeholder.png';
 
 interface ProjectsProps {
   id?: string;
@@ -52,6 +53,9 @@ function renderBanner({ visible }: RenderBannerProps) {
     return (
     <div className={styles.banner} data-visible={visible}>
       <Image
+      reveal
+      delay={300}
+      placeholder={bannerPlaceholder}
         src={bannerImage}
         alt="Project banner"
         width={600} // Set the desired width
