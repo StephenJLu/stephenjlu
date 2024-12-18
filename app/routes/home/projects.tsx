@@ -50,7 +50,7 @@ export function Projects({
 
 function renderBanner({ visible }: RenderBannerProps) {  
     return (
-    <div className={visible ? 'banner-visible' : 'banner-hidden'}>
+    <div className={styles.banner} data-visible={visible}>
       <Image
         src={bannerImage}
         alt="Project banner"

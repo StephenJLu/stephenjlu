@@ -83,6 +83,21 @@
   justify-content: center;
   height: 100%;
   width: 100%;
+  transition-property: opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationXL);
+  transition-delay: var(--durationM);
+  opacity: 0;
+
+  @media (--mediaUseMotion) {
+    transition-property: transform, opacity;
+    transform: translate3d(0, var(--spaceL), 0);
+  }
+
+  &[data-visible='true'] {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .svg {
@@ -138,6 +153,7 @@
 .indexNumber {
   font-size: var(--fontSizeBodyS);
   font-weight: var(--fontWeightMedium);
+  font-family: var(--monoFontStack);
   color: var(--primary);
   opacity: 0;
   transition-property: opacity;
