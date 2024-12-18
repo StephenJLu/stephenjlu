@@ -6,6 +6,9 @@ import { Home } from './home';
 import { About } from './about';
 import { Projects } from './projects';
 import { Header } from '../../layouts/Layouts'
+import webDevImage from 'app/static/images/web-dev-cropped.png';
+import csiCEOImage from 'app/static/images/csi-ceo.png';
+import musicImage from 'app/static/images/music.png';
 
 
 export const meta = () => {
@@ -77,7 +80,7 @@ export const Page = () => {
       title="Web Design and Development for the Public Good"
       buttonText="View Projects"
       buttonLink="/projects/web-dev"
-      bannerImage="/app/static/images/web-dev-cropped.png"
+      bannerImage={webDevImage}
       />
       <Projects
       id="csi-ceo"
@@ -87,7 +90,7 @@ export const Page = () => {
       title="CSI to CEO: What the Dead Can Teach Us About Life and Leadership"
       buttonText="Book Website"
       buttonLink="https://www.CSItoCEO.com"
-      bannerImage="/app/static/images/csi-ceo.png"
+      bannerImage={csiCEOImage}
       />
       <Projects
       id="music"
@@ -97,7 +100,7 @@ export const Page = () => {
       title="Music & Electronic Production"
       buttonText="Listen In"
       buttonLink="/projects/music"
-      bannerImage="/app/static/images/music.png"
+      bannerImage={musicImage}
       />  
       <About
       id="about"
