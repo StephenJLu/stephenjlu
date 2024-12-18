@@ -12,7 +12,7 @@ const baseTokens = {
   durationXL: '800ms',
   systemFontStack:
     'system-ui, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Ubuntu, Helvetica Neue, sans-serif',
-  fontStack: `AtlasGroteskLC, var(--systemFontStack)`,
+  fontStack: `AtlasGroteskLC, CedarvilleCursive, var(--systemFontStack)`,
   monoFontStack:
     'ui-monospace, OperatorMonoLig, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
   fontWeightThin: 100,

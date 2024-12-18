@@ -1,4 +1,5 @@
 import OperatorMonoLig from '~/fonts/OperatorMono.woff2';
+import CedarvilleCursive from '~/fonts/CedarvilleCursive.ttf';
 import AtlasGroteskLCThin from '~/fonts/AGThin.ttf';
 import AtlasGroteskLCBlack from '~/fonts/AGBlack.ttf';
 import AtlasGroteskLCBlackItalic from '~/fonts/AGBlackItalic.ttf';
@@ -124,6 +125,14 @@ const fontStyles = squish(`
   @font-face {
     font-family: OperatorMonoLig;
     src: url(${OperatorMonoLig}) format('woff2');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: CedarvilleCursive;
+    src: url(${CedarvilleCursive}) format('truetype');
     font-weight: 400;
     font-display: swap;
     font-style: normal;
