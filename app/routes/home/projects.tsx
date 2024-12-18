@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Divider, Heading, Section, Text, Transition, useTheme } from '../../components/Components';
 import { useWindowSize } from 'app/hooks';
 import { useHydrated } from 'app/hooks/useHydrated';
+import { cssProps, media } from 'app/utils/style';
 import styles from './projects.module.css';
 
 interface ProjectsProps {
@@ -21,7 +22,7 @@ export function Projects({
   id,
   sectionRef,
   visible: sectionVisible,
-  index,
+  index = 0,
   title,
   description,
   bannerImage,
@@ -31,9 +32,15 @@ export function Projects({
   ...rest
 }: ProjectsProps) {
   const [focused, setFocused] = useState(false);
+  const [modelLoaded, setModelLoaded] = useState(false);
+  const theme = useTheme();
+  const width = useWindowSize();
+  const isHydrated = useHydrated();
   const titleId = `${id}-title`;
-  const { avatar: imageUrl } = config;
-  const rotation = Math.floor(Math.random() * 41) - 20;
+  const isMobile = width.w <= media.tablet;
+  const svgOpacity = theme === 'light' ? 0.7 : 1;
+  const indexText = index < 10 ? `0${index}` : index;
+
   return (
     <Section
       className={styles.projects}
