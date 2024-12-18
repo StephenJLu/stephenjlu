@@ -2108,6 +2108,9 @@ function Projects({
     }
   );
 }
+const webDevImage = "/assets/web-dev-cropped-CqgC9GYc.png";
+const csiCEOImage = "/assets/csi-ceo-OCBHHBWz.png";
+const musicImage = "/assets/music-PLXlTp04.png";
 const Page = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
@@ -2167,7 +2170,7 @@ const Page = () => {
         title: "Web Design and Development for the Public Good",
         buttonText: "View Projects",
         buttonLink: "/projects/web-dev",
-        bannerImage: "/app/static/images/web-dev-cropped.png"
+        bannerImage: webDevImage
       }
     ),
     /* @__PURE__ */ jsx(
@@ -2180,7 +2183,7 @@ const Page = () => {
         title: "CSI to CEO: What the Dead Can Teach Us About Life and Leadership",
         buttonText: "Book Website",
         buttonLink: "https://www.CSItoCEO.com",
-        bannerImage: "/app/static/images/csi-ceo.png"
+        bannerImage: csiCEOImage
       }
     ),
     /* @__PURE__ */ jsx(
@@ -2193,7 +2196,7 @@ const Page = () => {
         title: "Music & Electronic Production",
         buttonText: "Listen In",
         buttonLink: "/projects/music",
-        bannerImage: "/app/static/images/music.png"
+        bannerImage: musicImage
       }
     ),
     /* @__PURE__ */ jsx(
@@ -2210,7 +2213,7 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BB76GS14.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/loader-B6DS_1Sn.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-D5sJ-QpM.css", "/assets/root-B87oRh0L.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BfFBgb1r.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CB-_3F7q.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-B6DS_1Sn.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-D5sJ-QpM.css", "/assets/route-BLLr3y9c.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CB-_3F7q.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-B6DS_1Sn.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-D5sJ-QpM.css", "/assets/route-BLLr3y9c.css"] } }, "url": "/assets/manifest-200c480d.js", "version": "200c480d" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BB76GS14.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/loader-B6DS_1Sn.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-D5sJ-QpM.css", "/assets/root-B87oRh0L.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BfFBgb1r.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BboKtzE8.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-B6DS_1Sn.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-D5sJ-QpM.css", "/assets/route-BLLr3y9c.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BboKtzE8.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-B6DS_1Sn.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-D5sJ-QpM.css", "/assets/route-BLLr3y9c.css"] } }, "url": "/assets/manifest-e3b7c0c9.js", "version": "e3b7c0c9" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
