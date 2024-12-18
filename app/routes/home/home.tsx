@@ -58,10 +58,7 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
   }, [isInViewport]);
   
   return (
-    <Section
-      className={styles.home}
-      onFocus={() => setFocused(true)}
-      onBlur={() => setFocused(false)}  
+    <Section       
       className={styles.home}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}  
