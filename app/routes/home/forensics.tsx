@@ -118,7 +118,7 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
           placeholder={`${banner.split('.')[0]}-placeholder.jpg`}
           alt="Forensics banner"                    
         />
-        <div className={styles.gradient} />
+        <div className={styles.gradient} data-visible={visible}/>
       </div>
                                  
             
@@ -141,7 +141,7 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
                       {isInViewport && (
                         <DecoderText
                           text={'Two Decades of Forensic Experience'}
-                          delay={1400}
+                          delay={1600}
                         />
                       )}
                     </div>

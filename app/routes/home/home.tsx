@@ -77,7 +77,7 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
                       {isInViewport && (
                         <DecoderText
                           text={`${config.name}`}
-                          delay={1400}
+                          delay={1500}
                         />
                       )}
                     </div>
