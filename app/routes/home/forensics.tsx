@@ -112,8 +112,9 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
             <>
             <div className={styles.backgroundImage} data-visible={visible} ref={nodeRef}>
         <Image                    
-          src={bannerFull}
+          src={bannerFull}          
           srcSet={`${banner} 768w, ${bannerFull} 1440w`}
+          placeholder={bannerPlaceholder}
           width={1440}
           height={800}
           sizes={`(max-width: 768px) 100vw, 1440px`}          
