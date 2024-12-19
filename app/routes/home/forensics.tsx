@@ -27,10 +27,10 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
     </TableCell>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-        <ListItem><Link href={'https://www.sdsheriff.gov'}>San Diego County Sheriff's Department</Link></ListItem>
-        <ListItem><Link href={'https://gfjc.fiu.edu/'}>FIU Global Forensic Science and Justice Center</Link></ListItem>
-        <ListItem><Link href={'https://www.azdps.gov/'}>Arizona Department of Public Safety</Link></ListItem>
-        <ListItem><Link href={'https://www.oag.ca.gov/'}>California Department of Justice</Link></ListItem>
+        <ListItem><Link secondary href={'https://www.sdsheriff.gov'}>San Diego County Sheriff's Department</Link></ListItem>
+        <ListItem><Link secondary href={'https://gfjc.fiu.edu/'}>FIU Global Forensic Science and Justice Center</Link></ListItem>
+        <ListItem><Link secondary href={'https://www.azdps.gov/'}>Arizona Department of Public Safety</Link></ListItem>
+        <ListItem><Link secondary href={'https://www.oag.ca.gov/'}>California Department of Justice</Link></ListItem>
       </List>
     </TableCell>
   </TableRow>
@@ -123,8 +123,8 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
                                  
             
               <div className={styles.tag} aria-hidden>
-                <Divider
-                  notchWidth="64px"
+                <Divider                  
+                  notchWidth="200px"
                   notchHeight="8px"
                   collapsed={!visible}
                   collapseDelay={1000}
@@ -140,7 +140,7 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
                     <div className={styles.tagText} data-visible={visible}>
                       {isInViewport && (
                         <DecoderText
-                          text={'Forensics'}
+                          text={'Two Decades of Forensic Experience'}
                           delay={1400}
                         />
                       )}

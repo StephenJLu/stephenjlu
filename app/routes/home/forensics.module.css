@@ -61,7 +61,7 @@
     background-position: bottom center;
     background-size: cover;
     transform-origin: center;    
-    opacity: .8;
+    opacity: .5;
     filter: blur(3px);
   }
 }
@@ -127,7 +127,7 @@
   margin-top: 220px;
   margin-bottom: 40px;
   display: grid;
-  grid-template-columns: var(--space4XL) 1fr;
+  grid-template-columns: 30% 1fr;
   gap: 12px;
   align-items: center;
   white-space: nowrap;
