@@ -28,6 +28,7 @@
     padding-right: var(--spaceXL);
     padding-top: var(--spaceM);
     padding-bottom: var(--spaceM);
+    vertical-align: top;
 
     &:last-child {
       padding-right: 0;

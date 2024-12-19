@@ -3,7 +3,7 @@ import { baseMeta } from '../../utils/meta';
 import styles from './page.module.css';
 import config from "../../config.json";
 import { Home } from './home';
-import { About } from './about';
+import { Forensics } from './forensics';
 import { Projects } from './projects';
 import { Header } from '../../layouts/Layouts'
 import webDevImage from 'app/static/images/web-dev-cropped.png';
@@ -22,13 +22,13 @@ export const Page = () => {
   const [visibleSections, setVisibleSections] = useState<HTMLElement[]>([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);    
   const home = useRef<HTMLElement>(null as unknown as HTMLElement);
-  const about = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const forensics = useRef<HTMLElement>(null as unknown as HTMLElement);
   const webDev = useRef<HTMLElement>(null as unknown as HTMLElement);
   const csiCEO = useRef<HTMLElement>(null as unknown as HTMLElement);
   const music = useRef<HTMLElement>(null as unknown as HTMLElement);
   
   useEffect(() => {
-    const sections = [home, about, webDev, csiCEO, music];
+    const sections = [home, forensics, webDev, csiCEO, music];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -102,10 +102,10 @@ export const Page = () => {
       buttonLink="/projects/music"
       bannerImage={musicImage}
       />  
-      <About
-      id="about"
-      sectionRef={about}
-      visible={visibleSections.includes(about.current)}
+      <Forensics
+      id="forensics"
+      sectionRef={forensics}
+      visible={visibleSections.includes(forensics.current)}
       />              
       </div>       
   );

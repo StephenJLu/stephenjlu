@@ -1,8 +1,9 @@
-.about {
+.forensics {
+  position: relative;
   width: 100vw;
   min-height: 100vh;  
-  padding-bottom: 40px;
-  display: flex;
+  padding-top: var(--spaceXL);
+  padding-bottom: var(--space2XL);
   justify-content: center;
 
   @media (--mediaTablet) {
@@ -31,8 +32,80 @@
   }
 }
 
-.title {
-  white-space: nowrap;
+ .backgroundImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  transition-property: opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationXL);
+  transition-delay: var(--durationM);
+  opacity: 0;
+
+  @media (--mediaUseMotion) {
+    transition-property: transform, opacity;
+    transform: translate3d(0, var(--spaceL), 0);
+  }
+
+  &[data-visible='true'] {
+    transform: none;
+    opacity: 1;
+  }
+
+  & img{
+    position: absolute;
+    transition: transform var(--durationXL) var(--bezierFastoutSlowin);    
+    background-position: bottom center;
+    background-size: cover;
+    transform-origin: center;    
+    opacity: .8;
+  }
+}
+
+
+  .gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;  
+  background: linear-gradient(
+    to bottom,    
+    rgba(0, 0, 0, 1) 0vh,
+    rgba(0, 0, 0, 0.6) 30vh,    
+    rgba(0, 0, 0, 0.3) 40vh,
+    rgba(0, 0, 0, 0.6) 60vh,
+    rgba(0, 0, 0, 1) 90vh    
+  );
+
+  @media (--mediaTablet) {
+    background: linear-gradient(
+      to bottom,    
+       rgba(0, 0, 0, 1) 0vh,
+    rgba(0, 0, 0, 0.6) 15vh,    
+    rgba(0, 0, 0, 0.3) 25vh,
+    rgba(0, 0, 0, 0.6) 35vh,
+    rgba(0, 0, 0, 1) 45vh   
+    );
+  }
+
+  @media (--mediaMobile) {
+    background: linear-gradient(
+      to bottom,    
+       rgba(0, 0, 0, 1) 0vh,
+    rgba(0, 0, 0, 0.6) 5vh,    
+    rgba(0, 0, 0, 0.3) 10vh,
+    rgba(0, 0, 0, 0.6) 15vh,
+    rgba(0, 0, 0, 1) 25vh   
+    );
+  }
+  
+}
+
+.title {    
   margin-bottom: var(--spaceL);
   opacity: 0;
   transition: opacity var(--durationXL) ease var(--durationM);
@@ -59,6 +132,8 @@
   grid-template-columns: var(--space4XL) 1fr;
   gap: 12px;
   align-items: center;
+  white-space: nowrap;
+   max-width: 100%;
 
   @media (--mediaTablet) {
     margin-top: 30px;
@@ -74,6 +149,7 @@
   transition-timing-function: var(--bezierFastoutSlowin);
   transition-duration: var(--durationM);
   transition-delay: 1.3s;
+  white-space: nowrap;
 
   @media (--mediaUseMotion) {
     transition-property: opacity, transform;
@@ -117,6 +193,11 @@
   }
 }
 
-.polaroid {  
-  padding-bottom: 100px;
+.table {
+  padding-bottom: var(--spaceXL);
+  width: 100%;
+  border-collapse: collapse;
 }
+
+
+
