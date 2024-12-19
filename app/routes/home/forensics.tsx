@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Link,
   DecoderText, Transition, Divider, InViewport, Image } from '../../components/Components';
-import { useReducedMotion } from 'framer-motion';
-import styles from './about.module.css';
+import styles from './forensics.module.css';
 import banner from 'app/static/images/forensics.jpg';
 
-interface AboutProps {
+interface ForensicsProps {
   id?: string;
   sectionRef?: React.RefObject<HTMLElement>;
 }
 
-interface AboutComponentProps extends AboutProps {
+interface ForensicsComponentProps extends ForensicsProps {
   visible: boolean;  
 }
 
-const AboutText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
+const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
   <>  
     <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Hello there</Heading>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
@@ -35,19 +34,17 @@ const AboutText = ({ visible, titleId }: { visible: boolean; titleId: string }) 
   </>
 
 );
-interface AboutComponentProps extends AboutProps {
+interface ForensicsComponentProps extends ForensicsProps {
   visible: boolean;}
 
-export const About = ({ id, visible, sectionRef }: AboutComponentProps) => {  
+export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) => {  
   const [focused, setFocused] = useState(false);
   const [isInViewport, setIsInViewport] = useState(false);
-  const titleId = `${id}-title`;
-  const reduceMotion = useReducedMotion();
-  const [hovered, setHovered] = useState(false); 
+  const titleId = `${id}-title`;  
   
   return (
     <Section       
-      className={styles.about}
+      className={styles.forensics}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}  
       as="section"
@@ -95,7 +92,7 @@ export const About = ({ id, visible, sectionRef }: AboutComponentProps) => {
                 }}
                 </InViewport>            
               </div>
-                <AboutText visible={visible} titleId={titleId} />
+                <ForensicsText visible={visible} titleId={titleId} />
                                  
           </div>
           </>

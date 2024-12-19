@@ -15,7 +15,7 @@ export const navLinks = [
   },
   {
     label: 'About',
-    pathname: '/#about',
+    pathname: '/#forensics',
   },
   {
     label: 'Contact',
