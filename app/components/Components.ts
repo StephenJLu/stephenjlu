@@ -20,7 +20,7 @@ export { Input } from './input/input';
 export { Link } from './link/link';
 export { List, ListItem } from './list/list';
 export { Progress } from './progress/progress';
-export { Table } from './table/table';
+export { Table, TableCell, TableRow, TableBody, TableHead, TableHeadCell } from './table/table';
 export { Text } from './text/text';
 export { VisuallyHidden } from './visually-hidden/visually-hidden';
 

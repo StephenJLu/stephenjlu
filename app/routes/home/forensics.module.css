@@ -1,8 +1,10 @@
 .forensics {
   position: relative;
-  min-height: 100vh;
+  width: 100vw;
+  min-height: 100vh;  
   padding-top: var(--spaceXL);
   padding-bottom: var(--space2XL);
+  justify-content: center;
 
   @media (--mediaTablet) {
     padding-top: 50px;
@@ -33,8 +35,8 @@
  .backgroundImage {
   position: absolute;
   inset: 0;
-  width: 100vw;
-  height: 100vh;  
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   z-index: -1;
   transition-property: opacity;
@@ -68,15 +70,15 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  width: 100vw;
-  height: 100vh;  
+  width: 100%;
+  height: 100%;  
   background: linear-gradient(
     to bottom,    
     rgba(0, 0, 0, 1) 0vh,
-    rgba(0, 0, 0, 0.6) 10vh,    
-    rgba(0, 0, 0, 0.3) 30vh,
-    rgba(0, 0, 0, 0.6) 50vh,
-    rgba(0, 0, 0, 1) 85vh    
+    rgba(0, 0, 0, 0.6) 30vh,    
+    rgba(0, 0, 0, 0.3) 40vh,
+    rgba(0, 0, 0, 0.6) 60vh,
+    rgba(0, 0, 0, 1) 90vh    
   );
 
   @media (--mediaTablet) {
@@ -84,9 +86,9 @@
       to bottom,    
        rgba(0, 0, 0, 1) 0vh,
     rgba(0, 0, 0, 0.6) 15vh,    
-    rgba(0, 0, 0, 0.3) 20vh,
-    rgba(0, 0, 0, 0.6) 25vh,
-    rgba(0, 0, 0, 1) 50vh   
+    rgba(0, 0, 0, 0.3) 25vh,
+    rgba(0, 0, 0, 0.6) 35vh,
+    rgba(0, 0, 0, 1) 45vh   
     );
   }
 
@@ -103,8 +105,8 @@
   
 }
 
-
-.title {  
+.title {
+  padding-top: var(--spaceXL);  
   margin-bottom: var(--spaceL);
   opacity: 0;
   transition: opacity var(--durationXL) ease var(--durationM);
@@ -191,4 +193,12 @@
     opacity: 1;
   }
 }
+
+.table {
+  padding: var(--spaceXL) 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
 

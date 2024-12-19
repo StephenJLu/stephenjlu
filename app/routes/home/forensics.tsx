@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Section, Heading, Text, DecoderText, Transition,
+import { Section, Heading, Text, Table, TableRow, TableCell, DecoderText, Transition,
    Divider, InViewport, Image, List, ListItem, Link } from '../../components/Components';
 import styles from './forensics.module.css';
 import banner from 'app/static/images/forensics.jpg';
@@ -16,34 +16,65 @@ interface ForensicsComponentProps extends ForensicsProps {
 const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
   <>  
     <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Crime Scene Investigator and Firearms Examiner</Heading>
-    <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Previous Employers</Heading>
-    <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-      <ListItem><Link href={'https://www.sdsheriff.gov'}>San Diego County Sheriff's Department</Link></ListItem>
-      <ListItem><Link href={'https://gfjc.fiu.edu/'}>FIU Global Forensic Science and Justice Center</Link></ListItem>
-      <ListItem><Link href={'https://www.azdps.gov/'}>Arizona Department of Public Safety</Link></ListItem>
-      <ListItem><Link href={'https://www.oag.ca.gov/'}>California Department of Justice</Link></ListItem>
+    <Table className={styles.table}>
+  <TableRow>
+    <TableCell>
+      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
+        Previous Employers
+      </Heading>
+    </TableCell>
+    <TableCell>
+      <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
+        <ListItem><Link href={'https://www.sdsheriff.gov'}>San Diego County Sheriff's Department</Link></ListItem>
+        <ListItem><Link href={'https://gfjc.fiu.edu/'}>FIU Global Forensic Science and Justice Center</Link></ListItem>
+        <ListItem><Link href={'https://www.azdps.gov/'}>Arizona Department of Public Safety</Link></ListItem>
+        <ListItem><Link href={'https://www.oag.ca.gov/'}>California Department of Justice</Link></ListItem>
       </List>
-      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Forensic Experience</Heading>
-    <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-      <ListItem>Forensic Biology</ListItem>
-      <ListItem>Forensic Firearms Analysis</ListItem>
-      <ListItem>Crime Scene Investigation</ListItem>
-      <ListItem>Bloodstain Pattern Analysis</ListItem>
-      <ListItem>Trajectory Analysis</ListItem>
-      <ListItem>Crime Scene and Shooting Incident Reconstruction</ListItem>
+    </TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>
+      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
+        Forensic Experience
+      </Heading>
+    </TableCell>
+    <TableCell>
+      <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
+        <ListItem>Forensic Biology</ListItem>
+        <ListItem>Forensic Firearms Analysis</ListItem>
+        <ListItem>Crime Scene Investigation</ListItem>
+        <ListItem>Bloodstain Pattern Analysis</ListItem>
+        <ListItem>Trajectory Analysis</ListItem>
+        <ListItem>Crime Scene and Shooting Incident Reconstruction</ListItem>
       </List>
-      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Testimony Experience</Heading>
-      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>Qualified Subjects</Heading>
-    <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-      <ListItem>Forensic Biology</ListItem>
-      <ListItem>Forensic Firearms Analysis</ListItem>
-      <ListItem>Crime Scene Investigation and Reconstruction</ListItem>
+    </TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>
+      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
+        Testimony Experience
+      </Heading>
+    </TableCell>
+    <TableCell>
+      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>
+        Qualified Subjects
+      </Heading>
+      <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
+        <ListItem>Forensic Biology</ListItem>
+        <ListItem>Forensic Firearms Analysis</ListItem>
+        <ListItem>Crime Scene Investigation and Reconstruction</ListItem>
       </List>
-      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>Levels of Court</Heading>
-    <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-      <ListItem>State: Arizona and California</ListItem>
-      <ListItem>Federal: U.S. District Court for the Central District of California</ListItem>      
+      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>
+        Levels of Court
+      </Heading>
+      <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
+        <ListItem><b>State</b>: Arizona and California</ListItem>
+        <ListItem><b>Federal</b>: U.S. District Court for the Central District of California</ListItem>
       </List>
+    </TableCell>
+  </TableRow>
+</Table>
+      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Detailed History</Heading>
   </>
 
 );
@@ -77,7 +108,7 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
         />
         <div className={styles.gradient} />
       </div>
-          <div className={styles.content}>                       
+                                 
             
               <div className={styles.tag} aria-hidden>
                 <Divider
@@ -106,8 +137,7 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
                 }}
                 </InViewport>            
               </div>
-                <ForensicsText visible={visible} titleId={titleId} />
-          </div>
+                <ForensicsText visible={visible} titleId={titleId} />          
           </>
         )}        
       </Transition>
