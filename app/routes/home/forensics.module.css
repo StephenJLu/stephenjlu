@@ -105,8 +105,7 @@
   
 }
 
-.title {
-  padding-top: var(--spaceXL);  
+.title {    
   margin-bottom: var(--spaceL);
   opacity: 0;
   transition: opacity var(--durationXL) ease var(--durationM);
@@ -195,7 +194,7 @@
 }
 
 .table {
-  padding: var(--spaceXL) 0;
+  padding-bottom: var(--spaceXL);
   width: 100%;
   border-collapse: collapse;
 }
