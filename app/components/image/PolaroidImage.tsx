@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './polaroidImage.module.css';
-import polaroidFrame from './polaroid.png'; // Ensure the file exists in the correct path
+import polaroidFrame from './polaroid.svg'; // Ensure the file exists in the correct path
 
 interface PolaroidImageProps {
   imageUrl: string;

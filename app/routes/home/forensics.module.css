@@ -51,8 +51,8 @@
     position: absolute;    
     background-position: bottom center;
     background-size: cover;        
-    opacity: .2;
-    filter: blur(2px);
+    opacity: .8;
+    filter: blur(1px);
   }
 }
 
@@ -126,8 +126,7 @@
   display: grid;
   grid-template-columns: 30% 1fr;
   gap: 12px;
-  align-items: center;
-  white-space: nowrap;
+  align-items: center;  
    max-width: 100%;
 
   @media (--mediaTablet) {
@@ -189,14 +188,35 @@
 
 .table {  
   width: 100%;
+  border-collapse: collapse;
   margin-bottom: var(--spaceXL);
   opacity: 0;
-  transition: opacity var(--durationXL) ease var(--durationL);
+  transition: opacity var(--durationXL) ease var(--durationS);
 
   &[data-visible='true'] {
     opacity: 1;
   }
 }
+
+  .row {
+    --rowBorder: 1px solid color-mix(in lab, var(--text) 20%, transparent);
+    border-top: var(--rowBorder);
+    opacity: 0;
+    transition: opacity var(--durationXL) ease var(--durationS);
+
+    &:last-child {
+      border-bottom: var(--rowBorder);
+    }
+
+    .head & {
+      border-top: 0;
+    }
+
+    &[data-visible='true'] {
+    opacity: 1;
+  }
+
+  }
 
 
 

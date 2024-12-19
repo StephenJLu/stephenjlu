@@ -19,8 +19,8 @@ interface ForensicsComponentProps extends ForensicsProps {
 const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
   <>  
     <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Crime Scene Investigator and Firearms Examiner</Heading>
-    <Table data-visible={visible}>
-  <TableRow>
+    <Table className={styles.table} data-visible={visible}>
+  <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
         Previous Employers
@@ -35,7 +35,7 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
       </List>
     </TableCell>
   </TableRow>
-  <TableRow>
+  <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
         Forensic Experience
@@ -52,7 +52,7 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
       </List>
     </TableCell>
   </TableRow>
-  <TableRow>
+  <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
         Testimony Experience
