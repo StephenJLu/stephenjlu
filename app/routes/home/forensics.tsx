@@ -3,8 +3,9 @@ import { Section, Heading, Text, Table, TableRow, TableCell, DecoderText, Transi
    Divider, InViewport, Image, List, ListItem, Link } from '../../components/Components';
    import { media } from '../../utils/style'
 import styles from './forensics.module.css';
-import banner from 'app/static/images/forensics.jpg';
-import bannerFull from 'app/static/images/forensics.full.jpg';
+import banner from 'app/static/images/forensics.svg';
+import bannerFull from 'app/static/images/forensics.full.svg';
+import bannerPlaceholder from 'app/static/images/forensics-placeholder.svg';
 
 interface ForensicsProps {
   id?: string;
@@ -115,7 +116,7 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
           width={2080}
           height={1120}
           sizes={`(max-width: ${media.mobile}px) 100vw, 2080px`}
-          placeholder={`${banner.split('.')[0]}-placeholder.jpg`}
+          placeholder={bannerPlaceholder}
           alt="Forensics banner"                    
         />
         <div className={styles.gradient} data-visible={visible}/>
