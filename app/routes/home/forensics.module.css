@@ -51,8 +51,8 @@
     position: absolute;    
     background-position: bottom center;
     background-size: cover;        
-    opacity: .8;
-    filter: blur(1px);
+    opacity: .6;
+    filter: blur(3px);
   }
 }
 
@@ -77,7 +77,7 @@
       rgba(0, 0, 0, 1) 0vh,
       rgba(0, 0, 0, 0) 10vh,    
       rgba(0, 0, 0, 1) 60vh,
-      rgba(0, 0, 0, 0) 200vh
+      rgba(0, 0, 0, 0) 80vh
     );
   }
 
@@ -86,8 +86,8 @@
       to bottom,    
     rgba(0, 0, 0, 1) 0vh,
       rgba(0, 0, 0, 0) 5vh,    
-      rgba(0, 0, 0, 1) 30vh,
-      rgba(0, 0, 0, 0) 200vh    
+      rgba(0, 0, 0, 1) 25vh,
+      rgba(0, 0, 0, 0) 40vh    
     );
   }
 
