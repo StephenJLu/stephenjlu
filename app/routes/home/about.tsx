@@ -1,30 +1,37 @@
-import React, { useState } from 'react';
-import { Section, PolaroidImage, Heading, Text, Link,
-  DecoderText, Transition, Button, Divider } from '../../components/Components';
+import React, { useState, useEffect } from 'react';
+import { Section, Heading, Text, Link,
+  DecoderText, Transition, Divider, InViewport, Image } from '../../components/Components';
+import { useReducedMotion } from 'framer-motion';
 import styles from './about.module.css';
-import config from '../../config.json';
+import banner from 'app/static/images/forensics.jpg';
 
 interface AboutProps {
   id?: string;
-  sectionRef?: React.RefObject<HTMLElement>;  
+  sectionRef?: React.RefObject<HTMLElement>;
+}
+
+interface AboutComponentProps extends AboutProps {
+  visible: boolean;  
 }
 
 const AboutText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
-  <>     
-
-    <Heading className={styles.title} data-visible={visible} level={2} id={titleId}>
-      Hi!
-    </Heading>
-    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>This new website is still under construction.</Heading>
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I&apos;m currently converting my legacy website to a new, modern, and responsive design, based on <Link href="https://react.dev/">React</Link>. I know it&apos;s probably overkill for a personal website/portfolio, but I learn best by screwing up. Some things might look screwy on your browser or mobile right now.
-    </Text>
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-     I&apos;m working on it. You can check out the <Link href="https://storybook.stephenjlu.com/">Storybook</Link> to see the component designs.      
-    </Text>
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-     In the meantime, you can find me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.
+  <>  
+    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Hello there</Heading>
+    <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
+      I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout
+      my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns,
+      bullet trajectories, and digging up clandestine graves. I've also worked as a freelance web designer,
+      providing services to non-profit organizations and small businesses.
+      </Text>
+    <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
+      I'm currently working on this portfolio website, so please check back soon for updates and changes.
      </Text>
+    <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
+     In the meantime, you can find more detailed information about me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.
+     </Text>
+    <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>
+     Thanks for visiting!
+    </Text>
   </>
 
 );
@@ -33,11 +40,13 @@ interface AboutComponentProps extends AboutProps {
 
 export const About = ({ id, visible, sectionRef }: AboutComponentProps) => {  
   const [focused, setFocused] = useState(false);
+  const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;
-  const { avatar: imageUrl } = config;
-  const rotation = Math.floor(Math.random() * 41) - 20;
+  const reduceMotion = useReducedMotion();
+  const [hovered, setHovered] = useState(false); 
+  
   return (
-    <Section
+    <Section       
       className={styles.about}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}  
@@ -46,10 +55,19 @@ export const About = ({ id, visible, sectionRef }: AboutComponentProps) => {
       id={id}
       aria-labelledby={titleId}
       tabIndex={-1}      
-      >
+      >        
         <Transition in={visible || focused} timeout={0} unmount={false}>
           {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
-            <div ref={nodeRef}>
+            <>
+            <div className={styles.backgroundImage} ref={nodeRef}>
+        <Image                    
+          src={banner}
+          placeholder={`${banner.split('.')[0]}-placeholder.jpg`}          
+        />
+        <div className={styles.gradient} />
+      </div>
+          <div className={styles.content}>                       
+            
               <div className={styles.tag} aria-hidden>
                 <Divider
                   notchWidth="64px"
@@ -57,23 +75,32 @@ export const About = ({ id, visible, sectionRef }: AboutComponentProps) => {
                   collapsed={!visible}
                   collapseDelay={1000}
                 />
-                <div className={styles.tagText} data-visible={visible}>
-                  Welcome!
-                </div>
+                <InViewport>
+                {(inViewport) => {
+                  useEffect(() => {
+                    if (inViewport) {
+                      setIsInViewport(true);
+                    }
+                  }, [inViewport]);
+                  return (
+                    <div className={styles.tagText} data-visible={visible}>
+                      {isInViewport && (
+                        <DecoderText
+                          text={'Forensics'}
+                          delay={1400}
+                        />
+                      )}
+                    </div>
+                  );
+                }}
+                </InViewport>            
               </div>
-              <AboutText visible={visible} titleId={titleId} />
-                <Button
-                secondary
-                className={styles.button}
-                data-visible={visible}
-                href="https://legacy.stephenjlu.com/contact"
-                icon="send"
-                >
-                  Contact Me
-                </Button>
-            </div>
-          )}
-        </Transition>
+                <AboutText visible={visible} titleId={titleId} />
+                                 
+          </div>
+          </>
+        )}        
+      </Transition>
     </Section>
   );
 };
