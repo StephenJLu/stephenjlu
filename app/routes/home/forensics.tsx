@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Table, TableRow, TableCell, DecoderText, Transition,
    Divider, InViewport, Image, List, ListItem, Link } from '../../components/Components';
+   import { media } from '../../utils/style'
 import styles from './forensics.module.css';
 import banner from 'app/static/images/forensics.jpg';
+import bannerFull from 'app/static/images/forensics.full.jpg';
 
 interface ForensicsProps {
   id?: string;
@@ -109,7 +111,10 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
             <>
             <div className={styles.backgroundImage} data-visible={visible} ref={nodeRef}>
         <Image                    
-          src={banner}
+          srcSet={`${banner} 600w, ${bannerFull} 2080w`}
+          width={2080}
+          height={1120}
+          sizes={`(max-width: ${media.mobile}px) 100vw, 2080px`}
           placeholder={`${banner.split('.')[0]}-placeholder.jpg`}
           alt="Forensics banner"                    
         />
