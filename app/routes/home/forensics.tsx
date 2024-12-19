@@ -4,7 +4,7 @@ import { Section, Heading, Text, Table, TableRow, TableCell, DecoderText, Transi
    import { media } from '../../utils/style'
 import styles from './forensics.module.css';
 import banner from 'app/static/images/forensics.svg';
-import bannerFull from 'app/static/images/forensics.full.svg';
+import bannerFull from 'app/static/images/forensicsfull.svg';
 import bannerPlaceholder from 'app/static/images/forensics-placeholder.svg';
 
 interface ForensicsProps {
@@ -112,11 +112,12 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
             <>
             <div className={styles.backgroundImage} data-visible={visible} ref={nodeRef}>
         <Image                    
-          srcSet={`${banner} 600w, ${bannerFull} 2080w`}
-          width={2080}
-          height={1120}
-          sizes={`(max-width: ${media.mobile}px) 100vw, 2080px`}
-          placeholder={bannerPlaceholder}
+          src={bannerFull}
+          srcSet={`${banner} 768w, ${bannerFull} 1440w`}
+          width={1440}
+          height={800}
+          sizes={`(max-width: 768px) 100vw, 1440px`}          
+          loading="eager" 
           alt="Forensics banner"                    
         />
         <div className={styles.gradient} data-visible={visible}/>
