@@ -75,31 +75,28 @@
   background: linear-gradient(
     to bottom,    
     rgba(0, 0, 0, 1) 0vh,
-    rgba(0, 0, 0, 0.6) 30vh,    
-    rgba(0, 0, 0, 0.3) 40vh,
-    rgba(0, 0, 0, 0.6) 60vh,
-    rgba(0, 0, 0, 1) 90vh    
+    rgba(0, 0, 0, 0) 40vh,    
+    rgba(0, 0, 0, 1) 115vh,
+    rgba(0, 0, 0, 0) 300vh   
   );
 
   @media (--mediaTablet) {
     background: linear-gradient(
       to bottom,    
-       rgba(0, 0, 0, 1) 0vh,
-    rgba(0, 0, 0, 0.6) 15vh,    
-    rgba(0, 0, 0, 0.3) 25vh,
-    rgba(0, 0, 0, 0.6) 35vh,
-    rgba(0, 0, 0, 1) 45vh   
+      rgba(0, 0, 0, 1) 0vh,
+      rgba(0, 0, 0, 0) 20vh,    
+      rgba(0, 0, 0, 1) 60vh,
+      rgba(0, 0, 0, 0) 250vh
     );
   }
 
   @media (--mediaMobile) {
     background: linear-gradient(
       to bottom,    
-       rgba(0, 0, 0, 1) 0vh,
-    rgba(0, 0, 0, 0.6) 5vh,    
-    rgba(0, 0, 0, 0.3) 10vh,
-    rgba(0, 0, 0, 0.6) 15vh,
-    rgba(0, 0, 0, 1) 25vh   
+    rgba(0, 0, 0, 1) 0vh,
+      rgba(0, 0, 0, 0) 10vh,    
+      rgba(0, 0, 0, 1) 30vh,
+      rgba(0, 0, 0, 0) 200vh    
     );
   }
   
