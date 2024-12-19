@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Section, Heading, Text, Link,
-  DecoderText, Transition, Divider, InViewport, Image } from '../../components/Components';
+import { Section, Heading, Text, DecoderText, Transition,
+   Divider, InViewport, Image, List, ListItem, Link } from '../../components/Components';
 import styles from './forensics.module.css';
 import banner from 'app/static/images/forensics.jpg';
 
@@ -15,22 +15,35 @@ interface ForensicsComponentProps extends ForensicsProps {
 
 const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
   <>  
-    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Hello there</Heading>
-    <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-      I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout
-      my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns,
-      bullet trajectories, and digging up clandestine graves. I've also worked as a freelance web designer,
-      providing services to non-profit organizations and small businesses.
-      </Text>
-    <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-      I'm currently working on this portfolio website, so please check back soon for updates and changes.
-     </Text>
-    <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-     In the meantime, you can find more detailed information about me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.
-     </Text>
-    <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>
-     Thanks for visiting!
-    </Text>
+    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Crime Scene Investigator and Firearms Examiner</Heading>
+    <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Previous Employers</Heading>
+    <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
+      <ListItem><Link href={'https://www.sdsheriff.gov'}>San Diego County Sheriff's Department</Link></ListItem>
+      <ListItem><Link href={'https://gfjc.fiu.edu/'}>FIU Global Forensic Science and Justice Center</Link></ListItem>
+      <ListItem><Link href={'https://www.azdps.gov/'}>Arizona Department of Public Safety</Link></ListItem>
+      <ListItem><Link href={'https://www.oag.ca.gov/'}>California Department of Justice</Link></ListItem>
+      </List>
+      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Forensic Experience</Heading>
+    <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
+      <ListItem>Forensic Biology</ListItem>
+      <ListItem>Forensic Firearms Analysis</ListItem>
+      <ListItem>Crime Scene Investigation</ListItem>
+      <ListItem>Bloodstain Pattern Analysis</ListItem>
+      <ListItem>Trajectory Analysis</ListItem>
+      <ListItem>Crime Scene and Shooting Incident Reconstruction</ListItem>
+      </List>
+      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Testimony Experience</Heading>
+      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>Qualified Subjects</Heading>
+    <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
+      <ListItem>Forensic Biology</ListItem>
+      <ListItem>Forensic Firearms Analysis</ListItem>
+      <ListItem>Crime Scene Investigation and Reconstruction</ListItem>
+      </List>
+      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>Levels of Court</Heading>
+    <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
+      <ListItem>State: Arizona and California</ListItem>
+      <ListItem>Federal: U.S. District Court for the Central District of California</ListItem>      
+      </List>
   </>
 
 );
@@ -56,10 +69,11 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
         <Transition in={visible || focused} timeout={0} unmount={false}>
           {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
             <>
-            <div className={styles.backgroundImage} ref={nodeRef}>
+            <div className={styles.backgroundImage} data-visible={visible} ref={nodeRef}>
         <Image                    
           src={banner}
-          placeholder={`${banner.split('.')[0]}-placeholder.jpg`}          
+          placeholder={`${banner.split('.')[0]}-placeholder.jpg`}
+          alt="Forensics banner"                    
         />
         <div className={styles.gradient} />
       </div>
@@ -93,7 +107,6 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
                 </InViewport>            
               </div>
                 <ForensicsText visible={visible} titleId={titleId} />
-                                 
           </div>
           </>
         )}        

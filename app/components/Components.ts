@@ -18,7 +18,7 @@ export { Heading } from './heading/heading';
 export { Divider } from './divider/divider';
 export { Input } from './input/input';
 export { Link } from './link/link';
-export { List } from './list/list';
+export { List, ListItem } from './list/list';
 export { Progress } from './progress/progress';
 export { Table } from './table/table';
 export { Text } from './text/text';
