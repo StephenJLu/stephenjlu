@@ -4,7 +4,12 @@ import { Button, Divider, Heading, Section,
 import { useWindowSize } from 'app/hooks';
 import { cssProps, media } from 'app/utils/style';
 import styles from './projects.module.css';
-import bannerPlaceholder from 'app/static/images/banner-placeholder.png';
+import csiceoBanner from 'app/static/images/csiceo.svg';
+import csiceoPlaceholder from 'app/static/images/csiceo-placeholder.svg';
+import webdevBanner from 'app/static/images/webdev.svg';
+import webdevPlaceholder from 'app/static/images/webdev-placeholder.svg';
+import musicBanner from 'app/static/images/music.svg';
+import musicPlaceholder from 'app/static/images/music-placeholder.svg';
 
 interface ProjectsProps {
   id?: string;
@@ -40,27 +45,44 @@ export function Projects({
   const svgOpacity = theme === 'light' ? 0.7 : 1;
   const indexText = index < 10 ? `0${index}` : index;
 
+  const imageMap: Record<string, { src: string; placeholder: string }> = {
+  csiceo: {
+    src: csiceoBanner,
+    placeholder: csiceoPlaceholder,
+  },
+  webdev: {
+    src: webdevBanner,
+    placeholder: webdevPlaceholder,
+  },
+  music: {
+    src: musicBanner,
+    placeholder: musicPlaceholder,
+  },  
+};
+
   interface RenderBannerProps {
+    id: string;
     visible: boolean;
-    bannerImage: string;  
+      
   }
 
   interface RenderDetailsProps {
     visible: boolean;  
   }
 
-function renderBanner({ visible }: RenderBannerProps) {  
-    return (
+function renderBanner({ id, visible }: { id: string; visible: boolean }) {
+  const { src, placeholder } = imageMap[id] || {};
+
+  return (
     <div className={styles.banner} data-visible={visible}>
       <Image
-      reveal
-      delay={300}
-      placeholder={bannerPlaceholder}
-        src={bannerImage}
-        alt="Project banner"
-        width={600} // Set the desired width
-        height={300} // Set the desired height
-        style={{ objectFit: 'cover' }} // Ensure the image covers the specified dimensions
+        reveal
+        delay={300}
+        src={src}
+        placeholder={placeholder}
+        alt="Project banner"        
+        height={300}
+        style={{ objectFit: 'cover' }}
       />
     </div>
   );
@@ -118,23 +140,23 @@ function renderBanner({ visible }: RenderBannerProps) {
       >
         <div className={styles.content}>
         <Transition in={sectionVisible || focused} unmount={false}>
-          {(props: { visible: boolean, bannerImage: string }) => (
-            <>
-              {!alternate && !isMobile && (
-                <>
-                  {renderDetails({ visible: props.visible })}
-                  {renderBanner({ visible: props.visible, bannerImage: props.bannerImage })}
-                </>
-              )}
-              {(alternate || isMobile) && (
-                <>
-                  {renderBanner({ visible: props.visible, bannerImage: props.bannerImage })}
-                  {renderDetails({ visible: props.visible })}
-                </>
-              )}
-            </>
-          )}
-        </Transition>
+  {({ visible }: { visible: boolean }) => (
+    <>
+      {!alternate && !isMobile && (
+        <>
+          {renderDetails({ visible })}
+          {id && renderBanner({ id, visible })}
+        </>
+      )}
+      {(alternate || isMobile) && (
+        <>
+          {id && renderBanner({ id, visible })}
+          {renderDetails({ visible })}
+        </>
+      )}
+    </>
+  )}
+</Transition>
         <div className={styles.divider}>
         <Divider />
       </div>        

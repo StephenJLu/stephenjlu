@@ -1,5 +1,5 @@
 import PolaroidImage from './PolaroidImage';
-import steveImage from './steve.jpg'; // Import the image file
+import steveImage from './steve.svg'; // Import the image file
 import { StoryContainer } from '../../../.storybook/story-container';
 
 export default {
@@ -25,7 +25,7 @@ interface PolaroidProps {
 }
 
 export const Default = () => (
-  <StoryContainer>
+  <StoryContainer stretch={true} vertical={true} style={{}}>
     <PolaroidImage imageUrl={steveImage} />
   </StoryContainer>
 );
@@ -35,7 +35,7 @@ Default.args = {
 };
 
 export const DifferentImage = ({ rotation, imageUrl = '' }: PolaroidProps) => (
-  <StoryContainer>
+  <StoryContainer stretch={true} vertical={true} style={{}}>
     <PolaroidImage rotation={rotation} imageUrl={imageUrl} />
   </StoryContainer>
 );

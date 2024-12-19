@@ -3,7 +3,7 @@ import { Section, Heading, Text, Link,
   DecoderText, Transition, Divider, InViewport, PolaroidImage } from '../../components/Components';
 import styles from './home.module.css';
 import config from '../../config.json';
-import steveImage from 'app/static/images/steve.jpg';
+import steveImage from 'app/static/images/steve.svg';
 
 interface HomeProps {
   id?: string;
@@ -77,7 +77,7 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
                       {isInViewport && (
                         <DecoderText
                           text={`${config.name}`}
-                          delay={1400}
+                          delay={1500}
                         />
                       )}
                     </div>

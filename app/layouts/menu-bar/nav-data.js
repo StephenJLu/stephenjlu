@@ -7,7 +7,7 @@ export const navLinks = [
   },    
   {
     label: 'Projects',
-    pathname: '/#web-dev',
+    pathname: '/#webdev',
   },
   {
     label: 'Ledger',

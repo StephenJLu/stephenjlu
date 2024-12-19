@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Table, TableRow, TableCell, DecoderText, Transition,
    Divider, InViewport, Image, List, ListItem, Link } from '../../components/Components';
+   import { media } from '../../utils/style'
 import styles from './forensics.module.css';
-import banner from 'app/static/images/forensics.jpg';
+import banner from 'app/static/images/forensics.svg';
+import bannerFull from 'app/static/images/forensics.full.svg';
+import bannerPlaceholder from 'app/static/images/forensics-placeholder.svg';
 
 interface ForensicsProps {
   id?: string;
@@ -16,8 +19,8 @@ interface ForensicsComponentProps extends ForensicsProps {
 const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
   <>  
     <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Crime Scene Investigator and Firearms Examiner</Heading>
-    <Table data-visible={visible}>
-  <TableRow>
+    <Table className={styles.table} data-visible={visible}>
+  <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
         Previous Employers
@@ -25,14 +28,14 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
     </TableCell>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-        <ListItem><Link href={'https://www.sdsheriff.gov'}>San Diego County Sheriff's Department</Link></ListItem>
-        <ListItem><Link href={'https://gfjc.fiu.edu/'}>FIU Global Forensic Science and Justice Center</Link></ListItem>
-        <ListItem><Link href={'https://www.azdps.gov/'}>Arizona Department of Public Safety</Link></ListItem>
-        <ListItem><Link href={'https://www.oag.ca.gov/'}>California Department of Justice</Link></ListItem>
+        <ListItem><Link secondary href={'https://www.sdsheriff.gov'}>San Diego County Sheriff's Department</Link></ListItem>
+        <ListItem><Link secondary href={'https://gfjc.fiu.edu/'}>FIU Global Forensic Science and Justice Center</Link></ListItem>
+        <ListItem><Link secondary href={'https://www.azdps.gov/'}>Arizona Department of Public Safety</Link></ListItem>
+        <ListItem><Link secondary href={'https://www.oag.ca.gov/'}>California Department of Justice</Link></ListItem>
       </List>
     </TableCell>
   </TableRow>
-  <TableRow>
+  <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
         Forensic Experience
@@ -49,7 +52,7 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
       </List>
     </TableCell>
   </TableRow>
-  <TableRow>
+  <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
         Testimony Experience
@@ -109,17 +112,20 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
             <>
             <div className={styles.backgroundImage} data-visible={visible} ref={nodeRef}>
         <Image                    
-          src={banner}
-          placeholder={`${banner.split('.')[0]}-placeholder.jpg`}
+          srcSet={`${banner} 600w, ${bannerFull} 2080w`}
+          width={2080}
+          height={1120}
+          sizes={`(max-width: ${media.mobile}px) 100vw, 2080px`}
+          placeholder={bannerPlaceholder}
           alt="Forensics banner"                    
         />
-        <div className={styles.gradient} />
+        <div className={styles.gradient} data-visible={visible}/>
       </div>
                                  
             
               <div className={styles.tag} aria-hidden>
-                <Divider
-                  notchWidth="64px"
+                <Divider                  
+                  notchWidth="50%"
                   notchHeight="8px"
                   collapsed={!visible}
                   collapseDelay={1000}
@@ -135,8 +141,8 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
                     <div className={styles.tagText} data-visible={visible}>
                       {isInViewport && (
                         <DecoderText
-                          text={'Forensics'}
-                          delay={1400}
+                          text={'Two Decades of Forensic Experience'}
+                          delay={1600}
                         />
                       )}
                     </div>

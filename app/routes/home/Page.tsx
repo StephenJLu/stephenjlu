@@ -6,10 +6,6 @@ import { Home } from './home';
 import { Forensics } from './forensics';
 import { Projects } from './projects';
 import { Header } from '../../layouts/Layouts'
-import webDevImage from 'app/static/images/web-dev-cropped.png';
-import csiCEOImage from 'app/static/images/csi-ceo.png';
-import musicImage from 'app/static/images/music.png';
-
 
 export const meta = () => {
   return baseMeta({
@@ -23,12 +19,12 @@ export const Page = () => {
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);    
   const home = useRef<HTMLElement>(null as unknown as HTMLElement);
   const forensics = useRef<HTMLElement>(null as unknown as HTMLElement);
-  const webDev = useRef<HTMLElement>(null as unknown as HTMLElement);
-  const csiCEO = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const webdev = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const csiceo = useRef<HTMLElement>(null as unknown as HTMLElement);
   const music = useRef<HTMLElement>(null as unknown as HTMLElement);
   
   useEffect(() => {
-    const sections = [home, forensics, webDev, csiCEO, music];
+    const sections = [home, forensics, webdev, csiceo, music];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -73,24 +69,22 @@ export const Page = () => {
       visible={visibleSections.includes(home.current)}
       />
       <Projects
-      id="web-dev"
-      sectionRef={webDev}
-      visible={visibleSections.includes(webDev.current)}
+      id="webdev"
+      sectionRef={webdev}
+      visible={visibleSections.includes(webdev.current)}
       index={1}
       title="Web Design and Development for the Public Good"
       buttonText="View Projects"
-      buttonLink="/projects/web-dev"
-      bannerImage={webDevImage}
+      buttonLink="/projects/webdev"      
       />
       <Projects
-      id="csi-ceo"
-      sectionRef={csiCEO}
-      visible={visibleSections.includes(csiCEO.current)}
+      id="csiceo"
+      sectionRef={csiceo}
+      visible={visibleSections.includes(csiceo.current)}
       index={2}
       title="CSI to CEO: What the Dead Can Teach Us About Life and Leadership"
       buttonText="Book Website"
-      buttonLink="https://www.CSItoCEO.com"
-      bannerImage={csiCEOImage}
+      buttonLink="https://www.CSItoCEO.com"      
       />
       <Projects
       id="music"
@@ -99,8 +93,7 @@ export const Page = () => {
       index={3}
       title="Music & Electronic Production"
       buttonText="Listen In"
-      buttonLink="/projects/music"
-      bannerImage={musicImage}
+      buttonLink="/projects/music"      
       />  
       <Forensics
       id="forensics"
