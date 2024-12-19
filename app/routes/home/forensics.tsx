@@ -143,7 +143,7 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
                     <div className={styles.tagText} data-visible={visible}>
                       {isInViewport && (
                         <DecoderText
-                          text={'Two Decades of Forensic Experience'}
+                          text={'Forensic Experience'}
                           delay={1600}
                         />
                       )}
