@@ -2717,21 +2717,21 @@ const ForensicsText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1,
     /* @__PURE__ */ jsxs(TableRow, { className: styles$2.row, "data-visible": visible, children: [
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 4, weight: "regular", children: "Previous Employers" }) }),
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$2.description, "data-visible": visible, size: "l", as: "ul", children: [
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.sdsheriff.gov", children: "San Diego County Sheriff's Department" }) }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://gfjc.fiu.edu/", children: "FIU Global Forensic Science and Justice Center" }) }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.azdps.gov/", children: "Arizona Department of Public Safety" }) }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.oag.ca.gov/", children: "California Department of Justice" }) }) })
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.sdsheriff.gov", children: "San Diego County Sheriff's Department" }) }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://gfjc.fiu.edu/", children: "FIU Global Forensic Science and Justice Center" }) }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.azdps.gov/", children: "Arizona Department of Public Safety" }) }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.oag.ca.gov/", children: "California Department of Justice" }) }) })
       ] }) })
     ] }),
     /* @__PURE__ */ jsxs(TableRow, { className: styles$2.row, "data-visible": visible, children: [
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 4, weight: "regular", children: "Forensic Experience" }) }),
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$2.description, "data-visible": visible, size: "l", as: "ul", children: [
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Forensic Biology" }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Forensic Firearms Analysis" }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Crime Scene Investigation" }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Bloodstain Pattern Analysis" }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Trajectory Analysis" }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Crime Scene and Shooting Incident Reconstruction" }) })
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: "Forensic Biology" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: "Forensic Firearms Analysis" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: "Crime Scene Investigation" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: "Bloodstain Pattern Analysis" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: "Trajectory Analysis" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: "Crime Scene and Shooting Incident Reconstruction" }) })
       ] }) })
     ] }),
     /* @__PURE__ */ jsxs(TableRow, { className: styles$2.row, "data-visible": visible, children: [
@@ -2739,17 +2739,17 @@ const ForensicsText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1,
       /* @__PURE__ */ jsxs(TableCell, { children: [
         /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 5, weight: "thin", children: "Qualified Subjects" }),
         /* @__PURE__ */ jsxs(List, { className: styles$2.description, "data-visible": visible, size: "l", as: "ul", children: [
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Forensic Biology" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Forensic Firearms Analysis" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Crime Scene Investigation and Reconstruction" }) })
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: "Forensic Biology" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: "Forensic Firearms Analysis" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: "Crime Scene Investigation and Reconstruction" }) })
         ] }),
         /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 5, weight: "thin", children: "Levels of Court" }),
         /* @__PURE__ */ jsxs(List, { className: styles$2.description, "data-visible": visible, size: "l", as: "ul", children: [
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: [
             /* @__PURE__ */ jsx("b", { children: "State" }),
             ": Arizona and California"
           ] }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: [
             /* @__PURE__ */ jsx("b", { children: "Federal" }),
             ": U.S. District Court for the Central District of California"
           ] }) })
@@ -2759,9 +2759,9 @@ const ForensicsText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1,
     /* @__PURE__ */ jsxs(TableRow, { className: styles$2.row, "data-visible": visible, children: [
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 4, weight: "regular", children: "Publications" }) }),
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$2.description, "data-visible": visible, size: "l", as: "ul", children: [
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: 'Lu, Stephen J. "The Cultural Context of Forensic Laboratories in California." The CACNews, Summer 2023, August 29, 2023.' }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: 'Lu, Stephen J. and Olivia A. Mendoza. "On a Mission to Improve Leadership in Forensics" Catalyst Magazine (Tucson, AZ), December 18, 2023.' }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Lu, Stephen J. 2024. CSI to CEO: What the Dead Can Teach Us About Life and Leadership. Edited by Eve Porinchak. 1st ed. San Diego: Independent." }) })
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: 'Lu, Stephen J. "The Cultural Context of Forensic Laboratories in California." The CACNews, Summer 2023, August 29, 2023.' }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: 'Lu, Stephen J. and Olivia A. Mendoza. "On a Mission to Improve Leadership in Forensics" Catalyst Magazine (Tucson, AZ), December 18, 2023.' }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", children: "Lu, Stephen J. 2024. CSI to CEO: What the Dead Can Teach Us About Life and Leadership. Edited by Eve Porinchak. 1st ed. San Diego: Independent." }) })
       ] }) })
     ] })
   ] }),
@@ -2881,8 +2881,8 @@ const ResearchText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, 
     /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Previous Employers" }) }),
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.nih.gov/", children: "National Institutes of Health" }) }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.arizona.edu/", children: "University of Arizona" }) }) })
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.nih.gov/", children: "National Institutes of Health" }) }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.arizona.edu/", children: "University of Arizona" }) }) })
       ] }) })
     ] }),
     /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
@@ -2890,17 +2890,17 @@ const ResearchText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, 
       /* @__PURE__ */ jsxs(TableCell, { children: [
         /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "Insect Biology and Biochemistry" }),
         /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Fat Metabolism" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Protease Regulation" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Amino Acid Metabolism" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Primer Design, PCR, and RNAi" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Radiological Tagging" }) })
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Fat Metabolism" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Protease Regulation" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Amino Acid Metabolism" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Primer Design, PCR, and RNAi" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Radiological Tagging" }) })
         ] }),
         /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "Human Biology and Biochemistry" }),
         /* @__PURE__ */ jsxs(List, { children: [
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Niemann-Pick Type C Disease" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Neutral Lipid Trafficking" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Fluorescent Microscopy" }) })
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Niemann-Pick Type C Disease" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Neutral Lipid Trafficking" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Fluorescent Microscopy" }) })
         ] })
       ] })
     ] }),
@@ -2909,32 +2909,32 @@ const ResearchText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, 
       /* @__PURE__ */ jsxs(TableCell, { children: [
         /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "University of Arizona Department of Biochemistry and Molecular Biophysics" }),
         /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx("b", { children: "Dr. Michael A. Wells" }) }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "James E. Pennington" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Jorge Zamora" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "April R. Stonehouse" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Linda M. Mobula" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Michelle C. Hines" }) })
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx("b", { children: "Dr. Michael A. Wells" }) }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "James E. Pennington" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Jorge Zamora" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "April R. Stonehouse" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Linda M. Mobula" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Michelle C. Hines" }) })
         ] }),
         /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "National Institute of Diabetes and Digestive and Kidney Diseases" }),
         /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx("b", { children: "Dr. E. Joan Blanchette-Mackie" }) }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Peter Pentchev" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Nancy Dwyer" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Lin Sun" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Marcy Comly" }) }),
-          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Sanjay Patel" }) })
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx("b", { children: "Dr. E. Joan Blanchette-Mackie" }) }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Peter Pentchev" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Nancy Dwyer" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Lin Sun" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Marcy Comly" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Sanjay Patel" }) })
         ] })
       ] })
     ] }),
     /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Publications" }) }),
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: [
           'Lu, Stephen J., James E. Pennington, April R. Stonehouse, Meta M. Mobula, and Michael A. Wells. "Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti." Insect Biochemistry and Molecular Biology 36, no. 4 (2006): 336-343. ',
           /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://doi.org/10.1016/j.ibmb.2006.01.011", children: "https://doi.org/10.1016/j.ibmb.2006.01.011." })
         ] }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: [
           'Lu, Stephen J., Nancy Dwyer, Marcy Comply, and E. Joan Blanchette-Mackie. "Neutral Lipid Trafficking Differentiates Niemann-Pick C (NPC) 1 from NPC2 Mutant Fibroblasts." Poster. Section of Lipid Cell Biology/LCBB, NIDDK, National Institutes of Health, Bethesda, MD. ',
           /* @__PURE__ */ jsx(Link, { secondary: true, href: nihPoster, target: "_blank", rel: "noopener noreferrer", download: true, children: "Download Poster" })
         ] }) })
@@ -2943,17 +2943,17 @@ const ResearchText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, 
     /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Education and Certifications" }) }),
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: [
           /* @__PURE__ */ jsx("b", { children: "Executive Master of Business Administration with Honors" }),
           " — Business Administration and Management, Quantic School of Business and Technology"
         ] }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: [
           /* @__PURE__ */ jsx("b", { children: "Bachelor of Science with Honors" }),
           " — Biochemistry and Molecular Biophysics and Molecular and Cellular Biology, University of Arizona. Phi Beta Kappa, ",
           /* @__PURE__ */ jsx("i", { children: "magna cum laude" })
         ] }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx("b", { children: "Society for Human Resource Management Certified Professional" }) }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx("b", { children: "2023 FBI San Diego Citizens' Academy" }) }) })
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx("b", { children: "Society for Human Resource Management Certified Professional" }) }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx("b", { children: "2023 FBI San Diego Citizens' Academy" }) }) })
       ] }) })
     ] })
   ] }),
@@ -3283,7 +3283,7 @@ const route5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-D5XxuwUj.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/projects.webdev": { "id": "routes/projects.webdev", "parentId": "root", "path": "projects/webdev", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B4_mg1pd.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/meta-B6cC3Xm-.js", "/assets/webdev-placeholder-DpKHFYfW.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-DLaUjEJ4.css"] }, "routes/projectsmusic": { "id": "routes/projectsmusic", "parentId": "root", "path": "projectsmusic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DWUqFO1v.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/meta-B6cC3Xm-.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-CZZ0NCXn.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BJlKLMWz.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/meta-B6cC3Xm-.js", "/assets/link-DwYPKvqO.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CdoyHmbI.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-QgoCOfQm.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CdoyHmbI.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-QgoCOfQm.css"] } }, "url": "/assets/manifest-3e8c93d5.js", "version": "3e8c93d5" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-D5XxuwUj.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/projects.webdev": { "id": "routes/projects.webdev", "parentId": "root", "path": "projects/webdev", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B4_mg1pd.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/meta-B6cC3Xm-.js", "/assets/webdev-placeholder-DpKHFYfW.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-DLaUjEJ4.css"] }, "routes/projectsmusic": { "id": "routes/projectsmusic", "parentId": "root", "path": "projectsmusic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DWUqFO1v.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/meta-B6cC3Xm-.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-CZZ0NCXn.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BJlKLMWz.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/meta-B6cC3Xm-.js", "/assets/link-DwYPKvqO.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-peWyiDfY.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-QgoCOfQm.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-peWyiDfY.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-QgoCOfQm.css"] } }, "url": "/assets/manifest-4111c915.js", "version": "4111c915" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
