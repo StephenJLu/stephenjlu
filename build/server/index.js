@@ -123,7 +123,7 @@ function classes(...classes2) {
   return classes2.filter(Boolean).join(" ");
 }
 const hidden$1 = "_hidden_1jyky_4";
-const styles$p = {
+const styles$q = {
   hidden: hidden$1
 };
 const VisuallyHidden = forwardRef(
@@ -131,7 +131,7 @@ const VisuallyHidden = forwardRef(
     return /* @__PURE__ */ jsx(
       Component,
       {
-        className: classes(styles$p.hidden, className),
+        className: classes(styles$q.hidden, className),
         "data-hidden": !visible && !showOnFocus,
         "data-show-on-focus": showOnFocus,
         ref,
@@ -145,7 +145,7 @@ VisuallyHidden.displayName = "VisuallyHidden";
 const text$4 = "_text_10c22_3";
 const glyph = "_glyph_10c22_10";
 const value = "_value_10c22_17";
-const styles$o = {
+const styles$p = {
   text: text$4,
   glyph,
   value
@@ -182,7 +182,7 @@ const DecoderText = memo(
       let animation;
       const renderOutput = () => {
         const characterMap = output.current.map((item2) => {
-          return `<span class="${styles$o[item2.type]}">${item2.value}</span>`;
+          return `<span class="${styles$p[item2.type]}">${item2.value}</span>`;
         });
         if (containerInstance) {
           containerInstance.innerHTML = characterMap.join("");
@@ -210,9 +210,9 @@ const DecoderText = memo(
         unsubscribeSpring == null ? void 0 : unsubscribeSpring();
       };
     }, [decoderSpring, reduceMotion, start, startDelay, text2]);
-    return /* @__PURE__ */ jsxs("span", { className: classes(styles$o.text, className), ...rest, children: [
-      /* @__PURE__ */ jsx(VisuallyHidden, { className: styles$o.label, children: text2 }),
-      /* @__PURE__ */ jsx("span", { "aria-hidden": true, className: styles$o.content, ref: container2 })
+    return /* @__PURE__ */ jsxs("span", { className: classes(styles$p.text, className), ...rest, children: [
+      /* @__PURE__ */ jsx(VisuallyHidden, { className: styles$p.label, children: text2 }),
+      /* @__PURE__ */ jsx("span", { "aria-hidden": true, className: styles$p.content, ref: container2 })
     ] });
   }
 );
@@ -249,7 +249,7 @@ const InViewport$1 = InViewport;
 const menuButton$1 = "_menuButton_maxbw_3";
 const active$1 = "_active_maxbw_13";
 const bounce$1 = "_bounce_maxbw_1";
-const styles$n = {
+const styles$o = {
   menuButton: menuButton$1,
   active: active$1,
   bounce: bounce$1
@@ -263,7 +263,7 @@ const MenuButton = ({ item: item2, isActive, onClick }) => {
     {
       type: "button",
       onClick: handleClick,
-      className: `${styles$n.menuButton} ${isActive ? styles$n.active : ""}`,
+      className: `${styles$o.menuButton} ${isActive ? styles$o.active : ""}`,
       children: item2.label
     }
   );
@@ -602,7 +602,7 @@ const themeStyles = squish(`
   }
 `);
 const icon$2 = "_icon_1tdl1_2";
-const styles$m = {
+const styles$n = {
   icon: icon$2
 };
 const sprites = "/assets/icons-Ghr-oXj8.svg";
@@ -612,7 +612,7 @@ const Icon = forwardRef(({ icon: icon2, className, size, ...rest }, ref) => {
     {
       "aria-hidden": true,
       ref,
-      className: classes(styles$m.icon, className),
+      className: classes(styles$n.icon, className),
       width: size || 24,
       height: size || 24,
       ...rest,
@@ -696,12 +696,12 @@ const TransitionContent = ({
   }, [isPresent, onExit, safeToRemove, timeout, onExited, show]);
   return children({ visible, status, nodeRef });
 };
-const button$4 = "_button_4rqg0_3";
+const button$5 = "_button_4rqg0_3";
 const text$3 = "_text_4rqg0_265";
 const loader$1 = "_loader_4rqg0_291";
 const icon$1 = "_icon_4rqg0_317";
-const styles$l = {
-  button: button$4,
+const styles$m = {
+  button: button$5,
   text: text$3,
   loader: loader$1,
   icon: icon$1
@@ -750,7 +750,7 @@ const ButtonContent = forwardRef(
     return /* @__PURE__ */ jsxs(
       Component,
       {
-        className: classes(styles$l.button, className),
+        className: classes(styles$m.button, className),
         "data-loading": loading,
         "data-icon-only": iconOnly,
         "data-secondary": secondary,
@@ -765,17 +765,17 @@ const ButtonContent = forwardRef(
           !!icon2 && /* @__PURE__ */ jsx(
             Icon,
             {
-              className: styles$l.icon,
+              className: styles$m.icon,
               "data-start": !iconOnly,
               "data-shift": iconHoverShift,
               icon: icon2
             }
           ),
-          !!children && /* @__PURE__ */ jsx("span", { className: styles$l.text, children }),
+          !!children && /* @__PURE__ */ jsx("span", { className: styles$m.text, children }),
           !!iconEnd && /* @__PURE__ */ jsx(
             Icon,
             {
-              className: styles$l.icon,
+              className: styles$m.icon,
               "data-end": !iconOnly,
               "data-shift": iconHoverShift,
               icon: iconEnd
@@ -785,7 +785,7 @@ const ButtonContent = forwardRef(
             Loader,
             {
               ref: nodeRef,
-              className: styles$l.loader,
+              className: styles$m.loader,
               size: 32,
               text: loadingText,
               "data-visible": visible
@@ -800,7 +800,7 @@ const loader = "_loader_1o1zt_2";
 const text$2 = "_text_1o1zt_17";
 const span = "_span_1o1zt_43";
 const loaderSpan = "_loaderSpan_1o1zt_1";
-const styles$k = {
+const styles$l = {
   loader,
   text: text$2,
   span,
@@ -810,24 +810,24 @@ const Loader = forwardRef(
   ({ className, style, width = 32, height = 4, text: text2 = "Loading...", center, ...rest }, ref) => {
     const reduceMotion = useReducedMotion();
     if (reduceMotion) {
-      return /* @__PURE__ */ jsx(Text, { className: classes(styles$k.text, className), weight: "medium", ...rest, children: text2 });
+      return /* @__PURE__ */ jsx(Text, { className: classes(styles$l.text, className), weight: "medium", ...rest, children: text2 });
     }
     return /* @__PURE__ */ jsx(
       "div",
       {
         ref,
-        className: classes(styles$k.loader, className),
+        className: classes(styles$l.loader, className),
         "data-center": center,
         style: cssProps({ width, height }, style),
         ...rest,
-        children: /* @__PURE__ */ jsx("div", { className: styles$k.span })
+        children: /* @__PURE__ */ jsx("div", { className: styles$l.span })
       }
     );
   }
 );
 const b = "_b_6k8yy_2";
 const c = "_c_6k8yy_6";
-const styles$j = {
+const styles$k = {
   b,
   c
 };
@@ -842,18 +842,18 @@ const Monogram = () => {
       height: "50",
       viewBox: "0 0 50 50",
       children: [
-        /* @__PURE__ */ jsx("path", { className: styles$j.c, d: "M0,0v50h50V0H0ZM48.38,47.96H1.62V2.04h46.75v45.92Z" }),
-        /* @__PURE__ */ jsx("path", { className: styles$j.b, d: "M31.5,34.71c.11-.03.13-.07.21-.12v-.04h.08v-.04h.08v-.04h.17v-.04c.13-.04.46.06.54.08.19.05.38-.07.54-.08l.21-.25h.04v-.08l.08-.04v-.12h.04v-.12h.04v-.21h.04v-.33h.04v-3.04c.07-.27.04-.71.04-1.04v-4.21h-.04v-.17c-.01-.49.07-1.13-.04-1.54v-.67c0-.5,0-1.07-.04-1.5l.04-3.08c.07-.26.09-1.42,0-1.67-.05.05-.02,0-.04.08h-.04l-.04.25c-.2.53-.08,1.2-.08,1.83l-.04,3.83v.17h.04v1.62c-.11.38-.04,1-.04,1.46l-.04,2c.09.33.09,1.67,0,2l-.04.62-.29,1.04h-.04v.08h-.04v.12h-.04l-.08.25h-.04v.08h-.04v.08h-.04v.08h-.04l-.08.25-.08.04-.04.17-.12.08v.08l-.08.04v.08l-.12.08v.08l-.12.08v.08l-.33.29v.08l-.29.25-.04.08h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.08.12h-.08l-.04.08-.12.04v.04h-.08l-.04.08-.17.04-.04.08-.17.04-.04.08-.25.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04h-.12v.04h-.08v.04l-.25.04v.04h-.12v.04h-.12v.04h-.12v.04l-.33.04v.04h-.17v.04h-.17v.04h-.17v.04h-.25v.04h-.25v.04h-.37v.04h-.75v.04l-.83-.04v-.04h-.42v-.04l-.83-.08v-.04h-.21v-.04l-.37-.04v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04h-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.08-.12h-.08l-.04-.08h-.08l-.08-.12h-.08l-.12-.17-.33-.29-.04-.12-.29-.25v-.04h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.04.08-.12.04v.04h-.08l-.04.08h-.08l-.04.08-.17.04-.04.08h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04l-.25.04v.04h-.08v.04h-.17v.04h-.12v.04h-.12v.04h-.12v.04h-.17v.04h-.17v.04h-.17v.04h-.17v.04h-.21v.04l-.42.04v.04h-.25v.04h-.29v.04h-.33v.04h-.37v.04h-.5v.04h-1.12v.04l-.87-.04v-.04h-.42v-.04h-.29c-.21-.06-.51-.1-.71-.17h-.21c-.22-.07-.5-.14-.71-.21h-.17v-.04h-.12v-.04h-.12v-.04l-.54-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.37-.12-.04-.08-.17-.04c-.43-.27-.61-.77-1.29-.79-.03.05-.07.06-.08.08v.08h-.04l-.04.37h-.04l-.04.62h-.04l-.08.25-.25.21s-.03.06-.04.08c-.07.05-.09,0-.17.08l-.42.04c-.07-.08-.1-.04-.17-.08l-.12-.17h-.04c-.23-.34-.3-1.48-.17-1.96v-.42h.04v-.33h.04v-.37h.04v-.37h.04v-.37h.04v-.5h.04v-.29h-.04v-.54l-.04-1.08h-.04l-.08-1.54h-.04v-.5h-.04v-.54c-.09-.31-.07-1.04.04-1.29l.25-.33h.08l.04-.08c.08-.05.09,0,.17-.08.29,0,.42.04.62.08l.21.25h.04v.08h.04l.04.17h.04l.04.46h.04v.54c0,.46-.02.99.08,1.33v.21h.04v.12h.04v.17h.04v.08h.04l.04.25h.04v.08h.04v.12h.04l.08.25h.04v.08h.04v.12h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.17h.04v.12h.04l.04.17h.04v.12h.04v.08h.04l.04.17h.04l.12.37.08.04.08.25.08.04v.08l.12.08v.08l.12.08v.08l.12.08v.08l.21.17v.08l.29.25v.08l.37.33.12.17h.08l.12.17h.08l.12.17h.08l.04.08h.08l.04.08.17.04.04.08h.08v.04h.08v.04c.43.19.9.28,1.37.42h.33c.31.09,1.52.09,1.83,0h.37c.25-.07.59-.09.83-.17h.21v-.04h.17v-.04h.17v-.04h.17v-.04h.17v-.04h.12v-.04h.12v-.04h.12v-.04h.08v-.04l.25-.04v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08v-.04h.12v-.04h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04.04-.08h.08l.04-.08h.08l.08-.12h.08l.12-.17h.08l.42-.46c.14-.14.35-.3.37-.54h-.04l-.04-.25h-.04v-.12h-.04v-.12c-.17-.43-.25-.94-.25-1.54l-.04-.5h.04l.04-.33h.04l.08-.25h.04v-.08h.04v-.08l.46-.5h.08l.04-.08h.08v-.04c.12-.07.07.04.12-.12h-.04l-.04-.25h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08l-.08-.04-.04-.17-.17-.12v-.08l-.21-.17-.37-.42h-.08l-.12-.17h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08-.21-.04v-.04h-.08v-.04l-.25-.08v-.04h-.12v-.04h-.08v-.04l-.21-.04v-.04h-.12v-.04h-.08v-.04l-.25-.04v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.21v-.04l-.42-.04v-.04l-.46-.04v-.04h-.33v-.04h-.29v-.04h-.29v-.04h-.29c-.27-.08-.62-.13-.87-.21h-.21v-.04l-.29-.04v-.04l-.29-.04v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04l-.25-.04v-.04l-.25-.08v-.04l-.25-.08-.04-.08h-.08l-.04-.08h-.08l-.08-.12h-.08l-.08-.12h-.08l-.12-.17h-.08l-.29-.33-.12-.08v-.08l-.25-.21v-.08l-.12-.08v-.08l-.08-.04v-.08l-.08-.04v-.08l-.08-.04-.08-.25h-.04v-.08h-.04v-.08h-.04l-.08-.25h-.04l-.29-1.04v-.33c-.15-.55.01-1.32.17-1.71v-.12h.04v-.08h.04v-.12h.04l.04-.17h.04l.04-.17.08-.04.04-.17.08-.04v-.08l.12-.08v-.08l.17-.12v-.08l.29-.25.17-.21h.08l.12-.17h.08l.08-.12.12-.04.04-.08h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04v-.04l.17-.04v-.04h.12v-.04h.08v-.04l.21-.04v-.04l.25-.04v-.04h.08v-.04l1.17-.25h.46c.13-.04.64-.1.83-.04v.04h.33v.04h.25v.04h.25v.04l.33.04v.04h.12v.04h.12v.04h.12v.04h.12v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04h.08v.04l.67.29v.04h.08v.04l.25.08v.04l.25.04v.04h.58v-.04c.25-.11.4-.28.58-.46l.08-.12c.22-.16.49-.21.87-.21v.04h.12l.04.08h.08l.21.29v.12h.04v.12h.04v.21h.04v.37h.04v.5h.04l.04.46h.04l.04.29h.04v.08h.04v.12h.04v.12h.04v.12h.04l.04.25h.04v.08h.04l.04.25h.04v.08h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04l.12.58h.04v.21c.03.08.09.35.04.5h-.04l-.04.21c-.09.05-.09.09-.21.12-.19.18-.59.05-.75-.04h-.08l-.46-.5-.04-.17-.08-.04-.04-.17h-.04l-.04-.12-.08-.04-.04-.17h-.04l-.04-.12-.08-.04v-.08l-.12-.08v-.08l-.42-.37-.04-.12h-.08l-.33-.37-.17-.12v-.08l-.33-.29-.04-.12-.12-.08-.25-.29h-.08l-.12-.17h-.08l-.08-.12h-.08l-.08-.12h-.08v-.04h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04l-.17-.04v-.04h-.12v-.04l-.17-.04v-.04l-.21-.04v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.21v-.04h-.25v-.04l-1.17-.04c-1.17,0-1.96.21-2.54.79l-.17.12v.08l-.08.04-.04.12h-.04v.08h-.04v.08h-.04v.12h-.04v.12c-.15.4-.16.82,0,1.21v.12h.04v.08l.08.04v.08l.08.04.21.25h.08l.08.12.17.04v.04l.25.08v.04h.12v.04h.12v.04h.12v.04h.17v.04h.17v.04h.29v.04h.37v.04h.87v.04h.37v.04h.29c.32.1.73.14,1.04.25l.33.04v.04h.12v.04h.12v.04l.42.08v.04h.08v.04l.25.04v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04l.25.08.04.08.25.08.04.08.25.08v.04l.12.04.04.08.17.04.04.08h.08v.04l.12.04.04.08h.08v.04l.12.04.04.08h.08l.08.12h.08l.04.08h.08l.08.12h.08l.04.08h.04l.04.08h.08l.12.17h.08l.21.25h.08l.37.42.46.42v.08l.21.17v.08l.12.08v.08l.12.08v.08l.12.08v.08l.08.04v.08l.08.04.08.25.08.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.25c.41.95.52,2.25.46,3.54l-.08.62h-.04l-.04.37h-.04l-.04.29h-.04l-.04.25h-.04v.08h-.04v.12h-.04l-.04.21h-.04v.08h-.04v.08h-.04v.08h-.04v.08h-.04v.08l-.08.04-.04.17h-.04v.04h.04l.21.25h.08l.25.29h.08l.12.17h.08l.08.12h.08l.08.12h.08l.04.08h.08l.04.08.17.04.04.08.25.08v.04h.08v.04h.08v.04l.25.08v.04l.25.04v.04h.12v.04h.12v.04h.12v.04h.12v.04h.21v.04h.21v.04h.25v.04h.42v.04h.42c.36,0,.84.04,1.12-.04h.29v-.04h.21v-.04h.17v-.04h.12v-.04h.17c1.81-.71,3.05-2.01,3.71-3.87l.08-.54v-.33c.07-.24.04-.65.04-.96v-1.75l.04-4.83h.04v-.62c.09-.32.04-.85.04-1.25v-2.58l-.04-1.25h-.04v-.12l-.08-.04v-.08l-.17-.12-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08c-.1-.06-.22-.04-.33-.08v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12c-.14-.06-.24-.15-.33-.25l-.08-.04v-.25l.12-.08v-.04h.08l.04-.08.25-.04v-.04c.24-.08,1.04.04,1.21.08h.42c.21.06.59-.03.83.04.07.02.29.09.42.04v-.04h.08v-.04l.29-.04v-.04c.06-.01.37.07.42.08l2,.04c.1-.03.44-.12.58-.08.19.05.59.16.87.08v-.04h1c.25-.07.66.03.92-.04v-.04h.33v.04h.33v.04l.25.04.12.17h.04c.06.09.04.24.04.37-.08.07-.03.1-.08.17l-.29.25-.04.08-.25.08v.04h-.12c-.46.18-1.33.13-1.46.62-.2.18-.12.79-.12,1.17l-.04,2.96v2.21c.07.27.04.71.04,1.04l.04,1.29v2.46h.04v1h.04v.62c0,.5.03,1.11-.04,1.54v1.12c0,1.11,0,2.29.75,2.62.54.24,1.49-.03,2.17.08.45.07,1.07.04,1.58.04.29,0,.66.02.88-.04l.54-.04v-.04h.17v-.04h.12v-.04h.12v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08l.04-.08.17-.04.04-.08h.08l.08-.12h.08l.08-.12h.08l.17-.21h.08l.17-.21h.08l.29-.33.12-.08v-.08l.5-.46c.36-.36.58-.74,1.29-.75.14.15.28.07.29.37.12.13-.04.59-.08.71l-.04.29h-.04v.12h-.04v.12h-.04v.12h-.04v.12h-.04l-.04.25h-.04v.08h-.04l-.04.25h-.04v.08h-.04l-.08.42-.42.92-.08.04v.08l-.29.25-.04.08-.25.08v.04h-.12v.04l-.96-.04v.04c-.47.13-1.01.04-1.58.04-1.19-.04-2.39-.08-3.58-.12v-.04h-1.46v.04c-.23.06-.59-.01-.79.04h-.75v.04h-1c-.06.02.02.03-.04.04h-1v.04c-.23.06-.84-.04-1-.08h-.33v-.04h-.33c-.32-.09-.72-.16-.87-.42-.09-.08-.09-.24-.08-.42.07-.05.14-.15.17-.25Z" })
+        /* @__PURE__ */ jsx("path", { className: styles$k.c, d: "M0,0v50h50V0H0ZM48.38,47.96H1.62V2.04h46.75v45.92Z" }),
+        /* @__PURE__ */ jsx("path", { className: styles$k.b, d: "M31.5,34.71c.11-.03.13-.07.21-.12v-.04h.08v-.04h.08v-.04h.17v-.04c.13-.04.46.06.54.08.19.05.38-.07.54-.08l.21-.25h.04v-.08l.08-.04v-.12h.04v-.12h.04v-.21h.04v-.33h.04v-3.04c.07-.27.04-.71.04-1.04v-4.21h-.04v-.17c-.01-.49.07-1.13-.04-1.54v-.67c0-.5,0-1.07-.04-1.5l.04-3.08c.07-.26.09-1.42,0-1.67-.05.05-.02,0-.04.08h-.04l-.04.25c-.2.53-.08,1.2-.08,1.83l-.04,3.83v.17h.04v1.62c-.11.38-.04,1-.04,1.46l-.04,2c.09.33.09,1.67,0,2l-.04.62-.29,1.04h-.04v.08h-.04v.12h-.04l-.08.25h-.04v.08h-.04v.08h-.04v.08h-.04l-.08.25-.08.04-.04.17-.12.08v.08l-.08.04v.08l-.12.08v.08l-.12.08v.08l-.33.29v.08l-.29.25-.04.08h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.08.12h-.08l-.04.08-.12.04v.04h-.08l-.04.08-.17.04-.04.08-.17.04-.04.08-.25.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04h-.12v.04h-.08v.04l-.25.04v.04h-.12v.04h-.12v.04h-.12v.04l-.33.04v.04h-.17v.04h-.17v.04h-.17v.04h-.25v.04h-.25v.04h-.37v.04h-.75v.04l-.83-.04v-.04h-.42v-.04l-.83-.08v-.04h-.21v-.04l-.37-.04v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04h-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.08-.12h-.08l-.04-.08h-.08l-.08-.12h-.08l-.12-.17-.33-.29-.04-.12-.29-.25v-.04h-.08l-.21.25h-.08l-.12.17-.12.04-.04.08h-.08l-.04.08-.12.04v.04h-.08l-.04.08h-.08l-.04.08-.17.04-.04.08h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04h-.08v.04l-.25.08v.04h-.12v.04l-.17.04v.04h-.12v.04h-.08v.04l-.25.04v.04h-.08v.04h-.17v.04h-.12v.04h-.12v.04h-.12v.04h-.17v.04h-.17v.04h-.17v.04h-.17v.04h-.21v.04l-.42.04v.04h-.25v.04h-.29v.04h-.33v.04h-.37v.04h-.5v.04h-1.12v.04l-.87-.04v-.04h-.42v-.04h-.29c-.21-.06-.51-.1-.71-.17h-.21c-.22-.07-.5-.14-.71-.21h-.17v-.04h-.12v-.04h-.12v-.04l-.54-.12v-.04h-.08v-.04h-.12v-.04l-.17-.04v-.04l-.37-.12-.04-.08-.17-.04c-.43-.27-.61-.77-1.29-.79-.03.05-.07.06-.08.08v.08h-.04l-.04.37h-.04l-.04.62h-.04l-.08.25-.25.21s-.03.06-.04.08c-.07.05-.09,0-.17.08l-.42.04c-.07-.08-.1-.04-.17-.08l-.12-.17h-.04c-.23-.34-.3-1.48-.17-1.96v-.42h.04v-.33h.04v-.37h.04v-.37h.04v-.37h.04v-.5h.04v-.29h-.04v-.54l-.04-1.08h-.04l-.08-1.54h-.04v-.5h-.04v-.54c-.09-.31-.07-1.04.04-1.29l.25-.33h.08l.04-.08c.08-.05.09,0,.17-.08.29,0,.42.04.62.08l.21.25h.04v.08h.04l.04.17h.04l.04.46h.04v.54c0,.46-.02.99.08,1.33v.21h.04v.12h.04v.17h.04v.08h.04l.04.25h.04v.08h.04v.12h.04l.08.25h.04v.08h.04v.12h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.17h.04v.12h.04l.04.17h.04v.12h.04v.08h.04l.04.17h.04l.12.37.08.04.08.25.08.04v.08l.12.08v.08l.12.08v.08l.12.08v.08l.21.17v.08l.29.25v.08l.37.33.12.17h.08l.12.17h.08l.12.17h.08l.04.08h.08l.04.08.17.04.04.08h.08v.04h.08v.04c.43.19.9.28,1.37.42h.33c.31.09,1.52.09,1.83,0h.37c.25-.07.59-.09.83-.17h.21v-.04h.17v-.04h.17v-.04h.17v-.04h.17v-.04h.12v-.04h.12v-.04h.12v-.04h.08v-.04l.25-.04v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08v-.04h.12v-.04h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04.04-.08h.08l.04-.08h.08l.08-.12h.08l.12-.17h.08l.42-.46c.14-.14.35-.3.37-.54h-.04l-.04-.25h-.04v-.12h-.04v-.12c-.17-.43-.25-.94-.25-1.54l-.04-.5h.04l.04-.33h.04l.08-.25h.04v-.08h.04v-.08l.46-.5h.08l.04-.08h.08v-.04c.12-.07.07.04.12-.12h-.04l-.04-.25h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08h-.04v-.08l-.08-.04-.04-.17-.17-.12v-.08l-.21-.17-.37-.42h-.08l-.12-.17h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08-.21-.04v-.04h-.08v-.04l-.25-.08v-.04h-.12v-.04h-.08v-.04l-.21-.04v-.04h-.12v-.04h-.08v-.04l-.25-.04v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.17v-.04h-.17v-.04h-.21v-.04l-.42-.04v-.04l-.46-.04v-.04h-.33v-.04h-.29v-.04h-.29v-.04h-.29c-.27-.08-.62-.13-.87-.21h-.21v-.04l-.29-.04v-.04l-.29-.04v-.04h-.12v-.04h-.12v-.04l-.25-.04v-.04h-.08v-.04l-.25-.04v-.04l-.25-.08v-.04l-.25-.08-.04-.08h-.08l-.04-.08h-.08l-.08-.12h-.08l-.08-.12h-.08l-.12-.17h-.08l-.29-.33-.12-.08v-.08l-.25-.21v-.08l-.12-.08v-.08l-.08-.04v-.08l-.08-.04v-.08l-.08-.04-.08-.25h-.04v-.08h-.04v-.08h-.04l-.08-.25h-.04l-.29-1.04v-.33c-.15-.55.01-1.32.17-1.71v-.12h.04v-.08h.04v-.12h.04l.04-.17h.04l.04-.17.08-.04.04-.17.08-.04v-.08l.12-.08v-.08l.17-.12v-.08l.29-.25.17-.21h.08l.12-.17h.08l.08-.12.12-.04.04-.08h.08v-.04h.08l.04-.08.25-.08.04-.08.17-.04v-.04l.17-.04v-.04h.12v-.04h.08v-.04l.21-.04v-.04l.25-.04v-.04h.08v-.04l1.17-.25h.46c.13-.04.64-.1.83-.04v.04h.33v.04h.25v.04h.25v.04l.33.04v.04h.12v.04h.12v.04h.12v.04h.12v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04h.08v.04l.67.29v.04h.08v.04l.25.08v.04l.25.04v.04h.58v-.04c.25-.11.4-.28.58-.46l.08-.12c.22-.16.49-.21.87-.21v.04h.12l.04.08h.08l.21.29v.12h.04v.12h.04v.21h.04v.37h.04v.5h.04l.04.46h.04l.04.29h.04v.08h.04v.12h.04v.12h.04v.12h.04l.04.25h.04v.08h.04l.04.25h.04v.08h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04v.12h.04l.12.58h.04v.21c.03.08.09.35.04.5h-.04l-.04.21c-.09.05-.09.09-.21.12-.19.18-.59.05-.75-.04h-.08l-.46-.5-.04-.17-.08-.04-.04-.17h-.04l-.04-.12-.08-.04-.04-.17h-.04l-.04-.12-.08-.04v-.08l-.12-.08v-.08l-.42-.37-.04-.12h-.08l-.33-.37-.17-.12v-.08l-.33-.29-.04-.12-.12-.08-.25-.29h-.08l-.12-.17h-.08l-.08-.12h-.08l-.08-.12h-.08v-.04h-.08l-.04-.08-.17-.04-.04-.08h-.08v-.04l-.17-.04v-.04h-.12v-.04l-.17-.04v-.04l-.21-.04v-.04h-.17v-.04h-.12v-.04h-.12v-.04h-.17v-.04h-.21v-.04h-.25v-.04l-1.17-.04c-1.17,0-1.96.21-2.54.79l-.17.12v.08l-.08.04-.04.12h-.04v.08h-.04v.08h-.04v.12h-.04v.12c-.15.4-.16.82,0,1.21v.12h.04v.08l.08.04v.08l.08.04.21.25h.08l.08.12.17.04v.04l.25.08v.04h.12v.04h.12v.04h.12v.04h.17v.04h.17v.04h.29v.04h.37v.04h.87v.04h.37v.04h.29c.32.1.73.14,1.04.25l.33.04v.04h.12v.04h.12v.04l.42.08v.04h.08v.04l.25.04v.04l.17.04v.04h.12v.04l.25.08v.04h.08v.04l.25.08.04.08.25.08.04.08.25.08v.04l.12.04.04.08.17.04.04.08h.08v.04l.12.04.04.08h.08v.04l.12.04.04.08h.08l.08.12h.08l.04.08h.08l.08.12h.08l.04.08h.04l.04.08h.08l.12.17h.08l.21.25h.08l.37.42.46.42v.08l.21.17v.08l.12.08v.08l.12.08v.08l.12.08v.08l.08.04v.08l.08.04.08.25.08.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04v.08h.04l.08.25h.04v.12h.04v.08h.04l.04.25c.41.95.52,2.25.46,3.54l-.08.62h-.04l-.04.37h-.04l-.04.29h-.04l-.04.25h-.04v.08h-.04v.12h-.04l-.04.21h-.04v.08h-.04v.08h-.04v.08h-.04v.08h-.04v.08l-.08.04-.04.17h-.04v.04h.04l.21.25h.08l.25.29h.08l.12.17h.08l.08.12h.08l.08.12h.08l.04.08h.08l.04.08.17.04.04.08.25.08v.04h.08v.04h.08v.04l.25.08v.04l.25.04v.04h.12v.04h.12v.04h.12v.04h.12v.04h.21v.04h.21v.04h.25v.04h.42v.04h.42c.36,0,.84.04,1.12-.04h.29v-.04h.21v-.04h.17v-.04h.12v-.04h.17c1.81-.71,3.05-2.01,3.71-3.87l.08-.54v-.33c.07-.24.04-.65.04-.96v-1.75l.04-4.83h.04v-.62c.09-.32.04-.85.04-1.25v-2.58l-.04-1.25h-.04v-.12l-.08-.04v-.08l-.17-.12-.04-.08h-.08l-.04-.08h-.08l-.04-.08h-.08v-.04h-.08v-.04h-.08v-.04h-.08l-.04-.08c-.1-.06-.22-.04-.33-.08v-.04h-.17v-.04h-.17v-.04h-.12v-.04h-.12c-.14-.06-.24-.15-.33-.25l-.08-.04v-.25l.12-.08v-.04h.08l.04-.08.25-.04v-.04c.24-.08,1.04.04,1.21.08h.42c.21.06.59-.03.83.04.07.02.29.09.42.04v-.04h.08v-.04l.29-.04v-.04c.06-.01.37.07.42.08l2,.04c.1-.03.44-.12.58-.08.19.05.59.16.87.08v-.04h1c.25-.07.66.03.92-.04v-.04h.33v.04h.33v.04l.25.04.12.17h.04c.06.09.04.24.04.37-.08.07-.03.1-.08.17l-.29.25-.04.08-.25.08v.04h-.12c-.46.18-1.33.13-1.46.62-.2.18-.12.79-.12,1.17l-.04,2.96v2.21c.07.27.04.71.04,1.04l.04,1.29v2.46h.04v1h.04v.62c0,.5.03,1.11-.04,1.54v1.12c0,1.11,0,2.29.75,2.62.54.24,1.49-.03,2.17.08.45.07,1.07.04,1.58.04.29,0,.66.02.88-.04l.54-.04v-.04h.17v-.04h.12v-.04h.12v-.04h.08v-.04h.12v-.04l.17-.04v-.04h.08l.04-.08.17-.04.04-.08h.08l.08-.12h.08l.08-.12h.08l.17-.21h.08l.17-.21h.08l.29-.33.12-.08v-.08l.5-.46c.36-.36.58-.74,1.29-.75.14.15.28.07.29.37.12.13-.04.59-.08.71l-.04.29h-.04v.12h-.04v.12h-.04v.12h-.04v.12h-.04l-.04.25h-.04v.08h-.04l-.04.25h-.04v.08h-.04l-.08.42-.42.92-.08.04v.08l-.29.25-.04.08-.25.08v.04h-.12v.04l-.96-.04v.04c-.47.13-1.01.04-1.58.04-1.19-.04-2.39-.08-3.58-.12v-.04h-1.46v.04c-.23.06-.59-.01-.79.04h-.75v.04h-1c-.06.02.02.03-.04.04h-1v.04c-.23.06-.84-.04-1-.08h-.33v-.04h-.33c-.32-.09-.72-.16-.87-.42-.09-.08-.09-.24-.08-.42.07-.05.14-.15.17-.25Z" })
       ]
     }
   );
 };
 const section = "_section_cvvm4_2";
-const styles$i = {
+const styles$j = {
   section
 };
 const Section = forwardRef(
-  ({ as: Component = "div", children, className, ...rest }, ref) => /* @__PURE__ */ jsx(Component, { className: classes(styles$i.section, className), ref, ...rest, children })
+  ({ as: Component = "div", children, className, ...rest }, ref) => /* @__PURE__ */ jsx(Component, { className: classes(styles$j.section, className), ref, ...rest, children })
 );
 function useHasMounted() {
   const [mounted, setMounted] = useState(false);
@@ -1013,19 +1013,19 @@ async function resolveSrcFromSrcSet({ srcSet, sizes }) {
   const output = sources.find((src) => src.image === fakeSrc);
   return output.src;
 }
-const image$3 = "_image_4szht_2";
+const image$4 = "_image_4szht_2";
 const container$1 = "_container_4szht_42";
 const elementWrapper = "_elementWrapper_4szht_49";
 const placeholder = "_placeholder_4szht_71";
 const element = "_element_4szht_49";
-const button$3 = "_button_4szht_104";
-const styles$h = {
-  image: image$3,
+const button$4 = "_button_4szht_104";
+const styles$i = {
+  image: image$4,
   container: container$1,
   elementWrapper,
   placeholder,
   element,
-  button: button$3
+  button: button$4
 };
 const Image$1 = ({
   className,
@@ -1049,7 +1049,7 @@ const Image$1 = ({
   return /* @__PURE__ */ jsx(
     "div",
     {
-      className: classes(styles$h.image, className),
+      className: classes(styles$i.image, className),
       "data-visible": inViewport || loaded,
       "data-reveal": reveal,
       "data-raised": raised,
@@ -1155,7 +1155,7 @@ const ImageElements = ({
   return /* @__PURE__ */ jsxs(
     "div",
     {
-      className: styles$h.elementWrapper,
+      className: styles$i.elementWrapper,
       "data-reveal": reveal,
       "data-visible": inViewport || loaded,
       style: cssProps({ delay: numToMs(delay2 + 1e3) }),
@@ -1167,7 +1167,7 @@ const ImageElements = ({
               muted: true,
               loop: true,
               playsInline: true,
-              className: styles$h.element,
+              className: styles$i.element,
               "data-loaded": loaded,
               "data-cover": cover,
               autoPlay: !reduceMotion,
@@ -1178,7 +1178,7 @@ const ImageElements = ({
               ...rest
             }
           ),
-          !noPauseButton && /* @__PURE__ */ jsxs(Button, { className: styles$h.button, onClick: togglePlaying, children: [
+          !noPauseButton && /* @__PURE__ */ jsxs(Button, { className: styles$i.button, onClick: togglePlaying, children: [
             /* @__PURE__ */ jsx(Icon, { icon: playing ? "pause" : "play" }),
             playing ? "Pause" : "Play"
           ] })
@@ -1186,7 +1186,7 @@ const ImageElements = ({
         !isVideo && /* @__PURE__ */ jsx(
           "img",
           {
-            className: styles$h.element,
+            className: styles$i.element,
             "data-loaded": loaded,
             "data-cover": cover,
             onLoad,
@@ -1204,7 +1204,7 @@ const ImageElements = ({
           "img",
           {
             "aria-hidden": true,
-            className: styles$h.placeholder,
+            className: styles$i.placeholder,
             "data-loaded": loaded,
             "data-cover": cover,
             style: cssProps({ delay: numToMs(delay2) }),
@@ -1227,12 +1227,12 @@ function getIsVideo(src) {
   return typeof src === "string" && src.includes(".mp4");
 }
 const polaroid = "_polaroid_19l73_1";
-const image$2 = "_image_19l73_11";
+const image$3 = "_image_19l73_11";
 const frame = "_frame_19l73_22";
 const caption = "_caption_19l73_33";
-const styles$g = {
+const styles$h = {
   polaroid,
-  image: image$2,
+  image: image$3,
   frame,
   caption
 };
@@ -1242,13 +1242,13 @@ const PolaroidImage = ({
   rotation = 0,
   caption: caption2 = "Test Caption"
 }) => {
-  return /* @__PURE__ */ jsxs("div", { className: styles$g.polaroid, style: { transform: `rotate(${rotation}deg)` }, children: [
-    /* @__PURE__ */ jsx("div", { className: styles$g.image, style: { backgroundImage: `url(${imageUrl})` } }),
-    caption2 && /* @__PURE__ */ jsx("div", { className: styles$g.caption, children: caption2 }),
+  return /* @__PURE__ */ jsxs("div", { className: styles$h.polaroid, style: { transform: `rotate(${rotation}deg)` }, children: [
+    /* @__PURE__ */ jsx("div", { className: styles$h.image, style: { backgroundImage: `url(${imageUrl})` } }),
+    caption2 && /* @__PURE__ */ jsx("div", { className: styles$h.caption, children: caption2 }),
     /* @__PURE__ */ jsx(
       "div",
       {
-        className: styles$g.frame,
+        className: styles$h.frame,
         style: { backgroundImage: `url(${polaroidFrame})` }
       }
     )
@@ -1256,7 +1256,7 @@ const PolaroidImage = ({
 };
 const PolaroidImage$1 = PolaroidImage;
 const heading = "_heading_hhgbc_2";
-const styles$f = {
+const styles$g = {
   heading
 };
 const Heading = ({
@@ -1273,7 +1273,7 @@ const Heading = ({
   return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx(
     Component,
     {
-      className: classes(styles$f.heading, className),
+      className: classes(styles$g.heading, className),
       "data-align": align,
       "data-weight": weight,
       "data-level": clampedLevel,
@@ -1285,7 +1285,7 @@ const Heading = ({
 const divider$1 = "_divider_t8fsy_2";
 const line = "_line_t8fsy_8";
 const notch = "_notch_t8fsy_30";
-const styles$e = {
+const styles$f = {
   divider: divider$1,
   line,
   notch
@@ -1303,7 +1303,7 @@ const Divider = ({
 }) => /* @__PURE__ */ jsxs(
   "div",
   {
-    className: classes(styles$e.divider, className),
+    className: classes(styles$f.divider, className),
     style: cssProps(
       {
         lineWidth,
@@ -1316,11 +1316,11 @@ const Divider = ({
     ),
     ...rest,
     children: [
-      /* @__PURE__ */ jsx("div", { className: styles$e.line, "data-collapsed": collapsed }),
+      /* @__PURE__ */ jsx("div", { className: styles$f.line, "data-collapsed": collapsed }),
       /* @__PURE__ */ jsx(
         "div",
         {
-          className: styles$e.notch,
+          className: styles$f.notch,
           "data-collapsed": collapsed,
           style: cssProps({ collapseDelay: numToMs(collapseDelay + 160) })
         }
@@ -1329,7 +1329,7 @@ const Divider = ({
   }
 );
 const link = "_link_10hh2_2";
-const styles$d = {
+const styles$e = {
   link
 };
 const VALID_EXT = ["txt", "png", "jpg"];
@@ -1343,7 +1343,7 @@ const Link = forwardRef(
     const relValue = rel || (isExternal ? "noreferrer noopener" : void 0);
     const targetValue = target || (isExternal ? "_blank" : void 0);
     const linkProps = {
-      className: classes(styles$d.link, className),
+      className: classes(styles$e.link, className),
       ["data-secondary"]: secondary,
       rel: relValue,
       href,
@@ -1359,7 +1359,7 @@ const Link = forwardRef(
 );
 const list = "_list_1cydw_3";
 const item = "_item_1cydw_29";
-const styles$c = {
+const styles$d = {
   list,
   item
 };
@@ -1370,31 +1370,31 @@ const List = ({
   ...rest
 }) => {
   const Element = ordered ? "ol" : "ul";
-  return /* @__PURE__ */ jsx(Element, { className: classes(styles$c.list, className), ...rest, children });
+  return /* @__PURE__ */ jsx(Element, { className: classes(styles$d.list, className), ...rest, children });
 };
 const ListItem = ({
   children,
   ...rest
 }) => {
-  return /* @__PURE__ */ jsx("li", { className: styles$c.item, ...rest, children });
+  return /* @__PURE__ */ jsx("li", { className: styles$d.item, ...rest, children });
 };
-const table$1 = "_table_1bqvi_3";
-const row$1 = "_row_1bqvi_13";
-const head$1 = "_head_1bqvi_31";
+const table$2 = "_table_1bqvi_3";
+const row$2 = "_row_1bqvi_13";
+const head$2 = "_head_1bqvi_31";
 const headCell = "_headCell_1bqvi_41";
 const cell = "_cell_1bqvi_51";
-const styles$b = {
-  table: table$1,
-  row: row$1,
-  head: head$1,
+const styles$c = {
+  table: table$2,
+  row: row$2,
+  head: head$2,
   headCell,
   cell
 };
-const Table = ({ children, ...rest }) => /* @__PURE__ */ jsx("table", { className: styles$b.table, ...rest, children });
-const TableRow = ({ children, ...rest }) => /* @__PURE__ */ jsx("tr", { className: styles$b.row, ...rest, children });
-const TableCell = ({ children, ...rest }) => /* @__PURE__ */ jsx("td", { className: styles$b.cell, ...rest, children });
+const Table = ({ children, ...rest }) => /* @__PURE__ */ jsx("table", { className: styles$c.table, ...rest, children });
+const TableRow = ({ children, ...rest }) => /* @__PURE__ */ jsx("tr", { className: styles$c.row, ...rest, children });
+const TableCell = ({ children, ...rest }) => /* @__PURE__ */ jsx("td", { className: styles$c.cell, ...rest, children });
 const text$1 = "_text_13dm1_2";
-const styles$a = {
+const styles$b = {
   text: text$1
 };
 const Text = ({
@@ -1410,7 +1410,7 @@ const Text = ({
   return /* @__PURE__ */ jsx(
     Component,
     {
-      className: classes(styles$a.text, className),
+      className: classes(styles$b.text, className),
       "data-align": align,
       "data-size": size,
       "data-weight": weight,
@@ -1423,7 +1423,7 @@ const Text = ({
 const toggle = "_toggle_c9w0l_2";
 const inner = "_inner_c9w0l_17";
 const icon = "_icon_c9w0l_25";
-const styles$9 = {
+const styles$a = {
   toggle,
   inner,
   icon
@@ -1433,16 +1433,16 @@ const NavToggle = ({ menuOpen, ...rest }) => {
     Button,
     {
       iconOnly: true,
-      className: styles$9.toggle,
+      className: styles$a.toggle,
       "aria-label": "Menu",
       "aria-expanded": menuOpen,
       ...rest,
-      children: /* @__PURE__ */ jsxs("div", { className: styles$9.inner, children: [
-        /* @__PURE__ */ jsx(Icon, { className: styles$9.icon, "data-menu": true, "data-open": menuOpen, icon: "menu" }),
+      children: /* @__PURE__ */ jsxs("div", { className: styles$a.inner, children: [
+        /* @__PURE__ */ jsx(Icon, { className: styles$a.icon, "data-menu": true, "data-open": menuOpen, icon: "menu" }),
         /* @__PURE__ */ jsx(
           Icon,
           {
-            className: styles$9.icon,
+            className: styles$a.icon,
             "data-close": true,
             "data-open": menuOpen,
             icon: "close"
@@ -1453,7 +1453,7 @@ const NavToggle = ({ menuOpen, ...rest }) => {
   );
 };
 const name$1 = "Stephen J. Lu";
-const title$3 = "Stephen J. Lu | Web Design and Development for the Public Good";
+const title$4 = "Stephen J. Lu | Web Design and Development for the Public Good";
 const roles = [
   "Author of CSI to CEO",
   "Web Design and Development",
@@ -1470,7 +1470,7 @@ const delay$1 = 500;
 const avatar = "https://legacy.stephenjlu.com/images/steve.svg";
 const config = {
   name: name$1,
-  title: title$3,
+  title: title$4,
   roles,
   url: url$1,
   bluesky: bluesky$1,
@@ -1533,7 +1533,7 @@ const navIconLink = "_navIconLink_1wkue_140";
 const navIcon = "_navIcon_1wkue_115";
 const mobileNav = "_mobileNav_1wkue_161";
 const mobileNavLink = "_mobileNavLink_1wkue_191";
-const styles$8 = {
+const styles$9 = {
   menuBarContainer,
   menuBarList,
   menuButton,
@@ -1587,33 +1587,33 @@ const MenuBar = () => {
     if (menuOpen)
       setMenuOpen(false);
   };
-  return /* @__PURE__ */ jsxs("header", { className: styles$8.navbar, ref: headerRef, "data-theme": "dark", children: [
+  return /* @__PURE__ */ jsxs("header", { className: styles$9.navbar, ref: headerRef, "data-theme": "dark", children: [
     /* @__PURE__ */ jsx(
       Link$1,
       {
         prefetch: "intent",
         to: location.pathname === "/" ? "/#home" : "/",
         "data-navbar-item": true,
-        className: styles$8.logo,
+        className: styles$9.logo,
         "aria-label": `${config.name}, ${config.role}`,
         onClick: (event) => handleMobileNavClick(event, { label: "Home", pathname: "/" }),
         children: /* @__PURE__ */ jsx(Monogram, {})
       }
     ),
     /* @__PURE__ */ jsx(NavToggle, { onClick: () => setMenuOpen(!menuOpen), menuOpen }),
-    /* @__PURE__ */ jsxs("nav", { className: styles$8.nav, children: [
+    /* @__PURE__ */ jsxs("nav", { className: styles$9.nav, children: [
       /* @__PURE__ */ jsx(
         "div",
         {
-          className: styles$8.menuBarContainer,
+          className: styles$9.menuBarContainer,
           style: { backgroundColor },
-          children: /* @__PURE__ */ jsx("ul", { className: styles$8.menuBarList, children: navLinks.map((item2, index2) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
+          children: /* @__PURE__ */ jsx("ul", { className: styles$9.menuBarList, children: navLinks.map((item2, index2) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
             Link$1,
             {
               prefetch: "intent",
               to: item2.pathname,
               "data-navbar-item": true,
-              className: styles$8.navLink,
+              className: styles$9.navLink,
               "aria-current": getCurrent(item2.pathname),
               onClick: (event) => handleNavItemClick(event, item2),
               children: /* @__PURE__ */ jsx(
@@ -1631,13 +1631,13 @@ const MenuBar = () => {
       ),
       /* @__PURE__ */ jsx(NavbarIcons, { desktop: true })
     ] }),
-    /* @__PURE__ */ jsx(Transition, { unmount: true, in: menuOpen, timeout: msToNum(tokens.base.durationL), children: ({ visible, nodeRef }) => /* @__PURE__ */ jsxs("nav", { className: styles$8.mobileNav, "data-visible": visible, ref: nodeRef, children: [
+    /* @__PURE__ */ jsx(Transition, { unmount: true, in: menuOpen, timeout: msToNum(tokens.base.durationL), children: ({ visible, nodeRef }) => /* @__PURE__ */ jsxs("nav", { className: styles$9.mobileNav, "data-visible": visible, ref: nodeRef, children: [
       navLinks.map((item2, index2) => /* @__PURE__ */ jsx(
         Link$1,
         {
           prefetch: "intent",
           to: item2.pathname,
-          className: styles$8.mobileNavLink,
+          className: styles$9.mobileNavLink,
           "data-visible": visible,
           "aria-current": getCurrent(item2.pathname),
           onClick: (event) => handleMobileNavClick(event, item2),
@@ -1654,16 +1654,16 @@ const MenuBar = () => {
     ] }) })
   ] });
 };
-const NavbarIcons = ({ desktop }) => /* @__PURE__ */ jsx("div", { className: styles$8.navIcons, children: socialLinks.map(({ label, url: url2, icon: icon2 }) => /* @__PURE__ */ jsx(
+const NavbarIcons = ({ desktop }) => /* @__PURE__ */ jsx("div", { className: styles$9.navIcons, children: socialLinks.map(({ label, url: url2, icon: icon2 }) => /* @__PURE__ */ jsx(
   "a",
   {
     "data-navbar-item": desktop || void 0,
-    className: styles$8.navIconLink,
+    className: styles$9.navIconLink,
     "aria-label": label,
     href: url2,
     target: "_blank",
     rel: "noopener noreferrer",
-    children: /* @__PURE__ */ jsx(Icon, { className: styles$8.navIcon, icon: icon2 })
+    children: /* @__PURE__ */ jsx(Icon, { className: styles$9.navIcon, icon: icon2 })
   },
   label
 )) });
@@ -1672,7 +1672,7 @@ const headerBackground = "_headerBackground_uc7y7_33";
 const hidden = "_hidden_uc7y7_65";
 const subtitle = "_subtitle_uc7y7_73";
 const text = "_text_uc7y7_145";
-const styles$7 = {
+const styles$8 = {
   header,
   headerBackground,
   hidden,
@@ -1697,10 +1697,10 @@ const Header = () => {
       return () => clearTimeout(timer);
     }
   }, [currentRoleIndex, roles2]);
-  return /* @__PURE__ */ jsx("header", { ref, children: /* @__PURE__ */ jsxs("div", { className: styles$7.header, children: [
-    /* @__PURE__ */ jsx("div", { className: `${styles$7.headerBackground} ${!inView2 ? styles$7.hidden : ""}` }),
+  return /* @__PURE__ */ jsx("header", { ref, children: /* @__PURE__ */ jsxs("div", { className: styles$8.header, children: [
+    /* @__PURE__ */ jsx("div", { className: `${styles$8.headerBackground} ${!inView2 ? styles$8.hidden : ""}` }),
     /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx(TextFade$1, { fadeText, delay: baseDelay }) }),
-    /* @__PURE__ */ jsx("span", { className: styles$7.subtitle, children: roles2.slice(0, currentRoleIndex + 1).map((role, index2) => {
+    /* @__PURE__ */ jsx("span", { className: styles$8.subtitle, children: roles2.slice(0, currentRoleIndex + 1).map((role, index2) => {
       const calculatedDelay = role.length * 75;
       return /* @__PURE__ */ jsxs(React.Fragment, { children: [
         /* @__PURE__ */ jsx(DecoderText, { text: role, delay: calculatedDelay }),
@@ -1711,21 +1711,21 @@ const Header = () => {
 };
 const footer = "_footer_lr3zr_4";
 const footerContent = "_footerContent_lr3zr_28";
-const styles$6 = {
+const styles$7 = {
   footer,
   footerContent
 };
 const delay = config.delay;
 const Footer = () => {
   return /* @__PURE__ */ jsxs("div", { "data-theme": "dark", children: [
-    /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => /* @__PURE__ */ jsx("div", { className: styles$6.footer, children: isInViewport && /* @__PURE__ */ jsx("div", { className: styles$6.footerContent, children: /* @__PURE__ */ jsx("span", { className: styles$6.date, children: /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => /* @__PURE__ */ jsx("div", { className: styles$7.footer, children: isInViewport && /* @__PURE__ */ jsx("div", { className: styles$7.footerContent, children: /* @__PURE__ */ jsx("span", { className: styles$7.date, children: /* @__PURE__ */ jsx(
       TextAnim$1,
       {
         typeText: `© ${(/* @__PURE__ */ new Date()).getFullYear()} ${config.name}. All rights reserved.`,
         delay
       }
     ) }) }) }) }),
-    /* @__PURE__ */ jsx("div", { className: styles$6.footer, children: /* @__PURE__ */ jsxs("p", { children: [
+    /* @__PURE__ */ jsx("div", { className: styles$7.footer, children: /* @__PURE__ */ jsxs("p", { children: [
       "Hand-crafted design by ",
       /* @__PURE__ */ jsx("a", { href: "humans.txt", children: "humans" }),
       "."
@@ -1734,7 +1734,7 @@ const Footer = () => {
 };
 const container = "_container_2gyay_2";
 const skip = "_skip_2gyay_12";
-const styles$5 = {
+const styles$6 = {
   container,
   skip
 };
@@ -1788,7 +1788,7 @@ function App() {
       /* @__PURE__ */ jsx(Rotation$1, {}),
       /* @__PURE__ */ jsxs(ThemeProvider, { theme, className: "", children: [
         /* @__PURE__ */ jsx(MenuBar, {}),
-        /* @__PURE__ */ jsxs("main", { id: "main-content", className: styles$5.container, tabIndex: -1, children: [
+        /* @__PURE__ */ jsxs("main", { id: "main-content", className: styles$6.container, tabIndex: -1, children: [
           /* @__PURE__ */ jsx(Outlet, {}),
           /* @__PURE__ */ jsx(Footer, {})
         ] })
@@ -1837,7 +1837,7 @@ const page$1 = "_page_10yvh_1";
 const contact = "_contact_10yvh_3";
 const notInView = "_notInView_10yvh_8";
 const inView = "_inView_10yvh_14";
-const styles$4 = {
+const styles$5 = {
   page: page$1,
   contact,
   notInView,
@@ -1852,10 +1852,10 @@ const meta = () => {
 const Contact = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
   const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
   const titleId = `${id}-title`;
-  return /* @__PURE__ */ jsx("div", { className: styles$4.page, "data-theme": "dark", children: /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsx("div", { className: styles$5.page, "data-theme": "dark", children: /* @__PURE__ */ jsx(
     Section,
     {
-      className: styles$4.contact,
+      className: styles$5.contact,
       as: "section",
       ref: sectionRef,
       id,
@@ -1866,8 +1866,8 @@ const Contact = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
         if (isInViewport && !hasEnteredViewport) {
           setHasEnteredViewport(true);
         }
-        return /* @__PURE__ */ jsxs("div", { className: hasEnteredViewport ? styles$4.inView : styles$4.notInView, children: [
-          /* @__PURE__ */ jsx(Heading, { level: 1, as: "span", weight: "light", align: "start", className: styles$4.heading, children: "Contact Me" }),
+        return /* @__PURE__ */ jsxs("div", { className: hasEnteredViewport ? styles$5.inView : styles$5.notInView, children: [
+          /* @__PURE__ */ jsx(Heading, { level: 1, as: "span", weight: "light", align: "start", className: styles$5.heading, children: "Contact Me" }),
           /* @__PURE__ */ jsx(Heading, { level: 2, as: "h2", children: "This new website is still under construction." }),
           /* @__PURE__ */ jsxs(Text, { as: "p", children: [
             "I'm currently converting my legacy website to a new, modern, and responsive design, based on ",
@@ -1894,46 +1894,46 @@ const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   meta
 }, Symbol.toStringTag, { value: "Module" }));
 const page = "_page_dcraf_2";
-const styles$3 = {
+const styles$4 = {
   page
 };
 const home = "_home_8gbqo_1";
 const content$1 = "_content_8gbqo_67";
 const column = "_column_8gbqo_99";
-const title$2 = "_title_8gbqo_117";
-const description$2 = "_description_8gbqo_139";
-const tag$1 = "_tag_8gbqo_159";
-const tagText$1 = "_tagText_8gbqo_189";
-const image$1 = "_image_8gbqo_233";
-const svg$2 = "_svg_8gbqo_243";
-const button$2 = "_button_8gbqo_275";
+const title$3 = "_title_8gbqo_117";
+const description$3 = "_description_8gbqo_139";
+const tag$2 = "_tag_8gbqo_159";
+const tagText$2 = "_tagText_8gbqo_189";
+const image$2 = "_image_8gbqo_233";
+const svg$3 = "_svg_8gbqo_243";
+const button$3 = "_button_8gbqo_275";
 const polaroidContainer = "_polaroidContainer_8gbqo_295";
-const styles$2 = {
+const styles$3 = {
   home,
   content: content$1,
   column,
-  title: title$2,
-  description: description$2,
-  tag: tag$1,
-  tagText: tagText$1,
-  image: image$1,
-  svg: svg$2,
-  button: button$2,
+  title: title$3,
+  description: description$3,
+  tag: tag$2,
+  tagText: tagText$2,
+  image: image$2,
+  svg: svg$3,
+  button: button$3,
   polaroidContainer
 };
 const steveImage = "/assets/steve-BGME7nvY.svg";
 const HomeText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
-  /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "Hello there" }),
-  /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: "I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns, bullet trajectories, and digging up clandestine graves. I've also worked as a freelance web designer, providing services to non-profit organizations and small businesses." }),
-  /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: "I'm currently working on this portfolio website, so please check back soon for updates and changes." }),
-  /* @__PURE__ */ jsxs(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: [
+  /* @__PURE__ */ jsx(Heading, { className: styles$3.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "Hello there" }),
+  /* @__PURE__ */ jsx(Text, { className: styles$3.description, "data-visible": visible, size: "l", as: "p", children: "I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns, bullet trajectories, and digging up clandestine graves. I've also worked as a freelance web designer, providing services to non-profit organizations and small businesses." }),
+  /* @__PURE__ */ jsx(Text, { className: styles$3.description, "data-visible": visible, size: "l", as: "p", children: "I'm currently working on this portfolio website, so please check back soon for updates and changes." }),
+  /* @__PURE__ */ jsxs(Text, { className: styles$3.description, "data-visible": visible, size: "l", as: "p", children: [
     "In the meantime, you can find more detailed information about me at my ",
     /* @__PURE__ */ jsx(Link, { href: "https://legacy.StephenJLu.com/", children: "legacy website" }),
     " or on ",
     /* @__PURE__ */ jsx(Link, { href: "https://www.linkedin.com/in/stephenjlu/", children: "LinkedIn" }),
     "."
   ] }),
-  /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", style: { fontStyle: "italic" }, children: "Thanks for visiting!" })
+  /* @__PURE__ */ jsx(Text, { className: styles$3.description, "data-visible": visible, size: "l", as: "p", style: { fontStyle: "italic" }, children: "Thanks for visiting!" })
 ] });
 const Home = ({ id, visible, sectionRef }) => {
   const [focused, setFocused] = useState(false);
@@ -1942,7 +1942,7 @@ const Home = ({ id, visible, sectionRef }) => {
   return /* @__PURE__ */ jsx(
     Section,
     {
-      className: styles$2.home,
+      className: styles$3.home,
       onFocus: () => setFocused(true),
       onBlur: () => setFocused(false),
       as: "section",
@@ -1950,9 +1950,9 @@ const Home = ({ id, visible, sectionRef }) => {
       id,
       "aria-labelledby": titleId,
       tabIndex: -1,
-      children: /* @__PURE__ */ jsx(Transition, { in: visible || focused, timeout: 0, unmount: false, children: ({ visible: visible2, nodeRef }) => /* @__PURE__ */ jsxs("div", { className: styles$2.content, ref: nodeRef, children: [
-        /* @__PURE__ */ jsxs("div", { className: styles$2.column, children: [
-          /* @__PURE__ */ jsxs("div", { className: styles$2.tag, "aria-hidden": true, children: [
+      children: /* @__PURE__ */ jsx(Transition, { in: visible || focused, timeout: 0, unmount: false, children: ({ visible: visible2, nodeRef }) => /* @__PURE__ */ jsxs("div", { className: styles$3.content, ref: nodeRef, children: [
+        /* @__PURE__ */ jsxs("div", { className: styles$3.column, children: [
+          /* @__PURE__ */ jsxs("div", { className: styles$3.tag, "aria-hidden": true, children: [
             /* @__PURE__ */ jsx(
               Divider,
               {
@@ -1968,7 +1968,7 @@ const Home = ({ id, visible, sectionRef }) => {
                   setIsInViewport(true);
                 }
               }, [inViewport]);
-              return /* @__PURE__ */ jsx("div", { className: styles$2.tagText, "data-visible": visible2, children: isInViewport && /* @__PURE__ */ jsx(
+              return /* @__PURE__ */ jsx("div", { className: styles$3.tagText, "data-visible": visible2, children: isInViewport && /* @__PURE__ */ jsx(
                 DecoderText,
                 {
                   text: `${config.name}`,
@@ -1979,26 +1979,187 @@ const Home = ({ id, visible, sectionRef }) => {
           ] }),
           /* @__PURE__ */ jsx(HomeText, { visible: visible2, titleId })
         ] }),
-        /* @__PURE__ */ jsx("div", { className: styles$2.column, children: /* @__PURE__ */ jsx("div", { className: styles$2.polaroidContainer, "data-visible": visible2, children: /* @__PURE__ */ jsx(PolaroidImage$1, { rotation: 10, imageUrl: steveImage, caption: "Steve at Mt. Woodson" }) }) })
+        /* @__PURE__ */ jsx("div", { className: styles$3.column, children: /* @__PURE__ */ jsx("div", { className: styles$3.polaroidContainer, "data-visible": visible2, children: /* @__PURE__ */ jsx(PolaroidImage$1, { rotation: 10, imageUrl: steveImage, caption: "Steve at Mt. Woodson" }) }) })
       ] }) })
     }
   );
 };
 const forensics = "_forensics_duw7d_1";
-const backgroundImage = "_backgroundImage_duw7d_69";
-const gradient = "_gradient_duw7d_119";
-const title$1 = "_title_duw7d_205";
-const description$1 = "_description_duw7d_225";
-const tag = "_tag_duw7d_245";
-const tagText = "_tagText_duw7d_273";
-const image = "_image_duw7d_315";
-const svg$1 = "_svg_duw7d_325";
-const button$1 = "_button_duw7d_357";
-const table = "_table_duw7d_377";
-const row = "_row_duw7d_401";
-const head = "_head_duw7d_421";
-const styles$1 = {
+const backgroundImage$1 = "_backgroundImage_duw7d_69";
+const gradient$1 = "_gradient_duw7d_119";
+const title$2 = "_title_duw7d_205";
+const description$2 = "_description_duw7d_225";
+const tag$1 = "_tag_duw7d_245";
+const tagText$1 = "_tagText_duw7d_273";
+const image$1 = "_image_duw7d_315";
+const svg$2 = "_svg_duw7d_325";
+const button$2 = "_button_duw7d_357";
+const table$1 = "_table_duw7d_377";
+const row$1 = "_row_duw7d_401";
+const head$1 = "_head_duw7d_421";
+const styles$2 = {
   forensics,
+  backgroundImage: backgroundImage$1,
+  gradient: gradient$1,
+  title: title$2,
+  description: description$2,
+  tag: tag$1,
+  tagText: tagText$1,
+  image: image$1,
+  svg: svg$2,
+  button: button$2,
+  table: table$1,
+  row: row$1,
+  head: head$1
+};
+const banner$2 = "/assets/forensics-Dot-pZsZ.svg";
+const bannerFull$1 = "/assets/forensicsfull-kQrgwl1a.svg";
+const bannerPlaceholder$1 = "/assets/forensics-placeholder-B8bWaMuw.svg";
+const ForensicsText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
+  /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "Crime Scene Investigator and Firearms Examiner" }),
+  /* @__PURE__ */ jsxs(Table, { className: styles$2.table, "data-visible": visible, children: [
+    /* @__PURE__ */ jsxs(TableRow, { className: styles$2.row, "data-visible": visible, children: [
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 4, weight: "regular", children: "Previous Employers" }) }),
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$2.description, "data-visible": visible, size: "l", as: "ul", children: [
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.sdsheriff.gov", children: "San Diego County Sheriff's Department" }) }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://gfjc.fiu.edu/", children: "FIU Global Forensic Science and Justice Center" }) }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.azdps.gov/", children: "Arizona Department of Public Safety" }) }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.oag.ca.gov/", children: "California Department of Justice" }) }) })
+      ] }) })
+    ] }),
+    /* @__PURE__ */ jsxs(TableRow, { className: styles$2.row, "data-visible": visible, children: [
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 4, weight: "regular", children: "Forensic Experience" }) }),
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$2.description, "data-visible": visible, size: "l", as: "ul", children: [
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Forensic Biology" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Forensic Firearms Analysis" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Crime Scene Investigation" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Bloodstain Pattern Analysis" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Trajectory Analysis" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Crime Scene and Shooting Incident Reconstruction" }) })
+      ] }) })
+    ] }),
+    /* @__PURE__ */ jsxs(TableRow, { className: styles$2.row, "data-visible": visible, children: [
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 4, weight: "regular", children: "Testimony Experience" }) }),
+      /* @__PURE__ */ jsxs(TableCell, { children: [
+        /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 5, weight: "thin", children: "Qualified Subjects" }),
+        /* @__PURE__ */ jsxs(List, { className: styles$2.description, "data-visible": visible, size: "l", as: "ul", children: [
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Forensic Biology" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Forensic Firearms Analysis" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Crime Scene Investigation and Reconstruction" }) })
+        ] }),
+        /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 5, weight: "thin", children: "Levels of Court" }),
+        /* @__PURE__ */ jsxs(List, { className: styles$2.description, "data-visible": visible, size: "l", as: "ul", children: [
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
+            /* @__PURE__ */ jsx("b", { children: "State" }),
+            ": Arizona and California"
+          ] }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
+            /* @__PURE__ */ jsx("b", { children: "Federal" }),
+            ": U.S. District Court for the Central District of California"
+          ] }) })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs(TableRow, { className: styles$2.row, "data-visible": visible, children: [
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 4, weight: "regular", children: "Publications" }) }),
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$2.description, "data-visible": visible, size: "l", as: "ul", children: [
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: 'Lu, Stephen J. "The Cultural Context of Forensic Laboratories in California." The CACNews, Summer 2023, August 29, 2023.' }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: 'Lu, Stephen J. and Olivia A. Mendoza. "On a Mission to Improve Leadership in Forensics" Catalyst Magazine (Tucson, AZ), December 18, 2023.' }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Lu, Stephen J. 2024. CSI to CEO: What the Dead Can Teach Us About Life and Leadership. Edited by Eve Porinchak. 1st ed. San Diego: Independent." }) })
+      ] }) })
+    ] })
+  ] }),
+  /* @__PURE__ */ jsxs(Heading, { className: styles$2.title, "data-visible": visible, level: 4, weight: "regular", children: [
+    /* @__PURE__ */ jsx("br", {}),
+    "Detailed Professional History"
+  ] }),
+  /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: "Throughout his forensic career, Stephen has analyzed over a thousand cases and participated in hundreds of death investigations, including homicides, suicides, officer-involved shootings, autopsies, and custodial deaths. Most recently, he served for ten years as a Criminalist with the San Diego County Sheriff’s Department, specializing in Forensic Biology, Forensic Firearms Analysis, and Crime Scene Investigation and Reconstruction." }),
+  /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: "Stephen also spent six years as a contract assessor and trainer with the National Forensic Science Technology Center (now FIU Global Forensic and Justice Center), where he performed DNA laboratory audits and taught courses on DNA amplification, likelihood ratios, and population statistics. Prior to that, Stephen worked with the Arizona Department of Public Safety, performing casework in Forensic Biology, and the California Department of Justice’s Richmond DNA Lab, where he contributed to the FBI’s Combined DNA Index System (CODIS)." }),
+  /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: "Over his career, Stephen has completed more than 2,000 hours of professional training in areas such as Forensic Biology, Forensic Firearms Analysis, Trajectory Analysis, Bloodstain Pattern Analysis, and courtroom testimony. He has testified as an expert witness in superior courts in Arizona and California, and in federal court for the U.S. District Court for the Central District of California. Stephen's courtroom experience has been noted for his ability to explain complex scientific concepts in an understandable and engaging way for juries and attorneys alike." }),
+  /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: "In addition to his forensic science work, Stephen served as the Regional Director South for the California Association of Criminalists (CAC), where he organized regional study groups and hosted presentations by experts, including a keynote address by Jeff Udvarhelyi, an Escondido Police Department Child Abuse Detective, on a significant child abuse case. As the Lead Webmaster for the CAC, he enhanced the organization’s public presence by overhauling its website for better communication and engagement." }),
+  /* @__PURE__ */ jsxs(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: [
+    "Since retiring from active casework, Stephen has shifted his focus towards leadership development in forensic science. He founded the Forensic Leaders Training Center®, where he provided online leadership and management training for forensic professionals, helping them to advance their careers and improve workplace culture. Stephen's interest in leadership and public education is further reflected in his recent book, ",
+    /* @__PURE__ */ jsx("i", { children: "CSI to CEO" }),
+    ", where he covers forensic science topics such as DNA analysis, crime scene investigation, bloodstain pattern analysis, and forensic leadership for a general audience. In 2023, Stephen had the honor of graduating from the FBI San Diego's Citizens Academy as a demonstration of his continued dedication to public service."
+  ] })
+] });
+const Forensics = ({ id, visible, sectionRef }) => {
+  const [focused, setFocused] = useState(false);
+  const [isInViewport, setIsInViewport] = useState(false);
+  const titleId = `${id}-title`;
+  return /* @__PURE__ */ jsx(
+    Section,
+    {
+      className: styles$2.forensics,
+      onFocus: () => setFocused(true),
+      onBlur: () => setFocused(false),
+      as: "section",
+      ref: sectionRef,
+      id,
+      "aria-labelledby": titleId,
+      tabIndex: -1,
+      children: /* @__PURE__ */ jsx(Transition, { in: visible || focused, timeout: 0, unmount: false, children: ({ visible: visible2, nodeRef }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
+        /* @__PURE__ */ jsxs("div", { className: styles$2.backgroundImage, "data-visible": visible2, ref: nodeRef, children: [
+          /* @__PURE__ */ jsx(
+            Image$1,
+            {
+              src: bannerFull$1,
+              srcSet: `${banner$2} 768w, ${bannerFull$1} 1440w`,
+              placeholder: bannerPlaceholder$1,
+              width: 1440,
+              height: 800,
+              sizes: `(max-width: 768px) 100vw, 1440px`,
+              loading: "eager",
+              alt: "Forensics banner"
+            }
+          ),
+          /* @__PURE__ */ jsx("div", { className: styles$2.gradient, "data-visible": visible2 })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: styles$2.tag, "aria-hidden": true, children: [
+          /* @__PURE__ */ jsx(
+            Divider,
+            {
+              notchWidth: "50%",
+              notchHeight: "8px",
+              collapsed: !visible2,
+              collapseDelay: 1e3
+            }
+          ),
+          /* @__PURE__ */ jsx(InViewport$1, { children: (inViewport) => {
+            useEffect(() => {
+              if (inViewport) {
+                setIsInViewport(true);
+              }
+            }, [inViewport]);
+            return /* @__PURE__ */ jsx("div", { className: styles$2.tagText, "data-visible": visible2, children: isInViewport && /* @__PURE__ */ jsx(
+              DecoderText,
+              {
+                text: "Forensic Experience",
+                delay: 1600
+              }
+            ) });
+          } })
+        ] }),
+        /* @__PURE__ */ jsx(ForensicsText, { visible: visible2, titleId })
+      ] }) })
+    }
+  );
+};
+const research = "_research_cwgmt_1";
+const backgroundImage = "_backgroundImage_cwgmt_69";
+const gradient = "_gradient_cwgmt_119";
+const title$1 = "_title_cwgmt_205";
+const description$1 = "_description_cwgmt_225";
+const tag = "_tag_cwgmt_245";
+const tagText = "_tagText_cwgmt_273";
+const image = "_image_cwgmt_315";
+const svg$1 = "_svg_cwgmt_325";
+const button$1 = "_button_cwgmt_357";
+const table = "_table_cwgmt_377";
+const row = "_row_cwgmt_401";
+const head = "_head_cwgmt_421";
+const styles$1 = {
+  research,
   backgroundImage,
   gradient,
   title: title$1,
@@ -2012,72 +2173,111 @@ const styles$1 = {
   row,
   head
 };
-const banner$1 = "/assets/forensics-Dot-pZsZ.svg";
-const bannerFull = "/assets/forensicsfull-kQrgwl1a.svg";
-const bannerPlaceholder = "/assets/forensics-placeholder-B8bWaMuw.svg";
-const ForensicsText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
-  /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "Crime Scene Investigator and Firearms Examiner" }),
+const banner$1 = "/assets/research-D9ZYtUFp.svg";
+const bannerFull = "/assets/researchfull-yA6gDBN9.svg";
+const bannerPlaceholder = "/assets/research-placeholder-BWQKBM3g.svg";
+const publicCV = "/sjlu-public-cv.pdf";
+const ResearchText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
+  /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "Insect Biochemistry and Human Cell Biology" }),
   /* @__PURE__ */ jsxs(Table, { className: styles$1.table, "data-visible": visible, children: [
     /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Previous Employers" }) }),
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.sdsheriff.gov", children: "San Diego County Sheriff's Department" }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://gfjc.fiu.edu/", children: "FIU Global Forensic Science and Justice Center" }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.azdps.gov/", children: "Arizona Department of Public Safety" }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.oag.ca.gov/", children: "California Department of Justice" }) })
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.nih.gov/", children: "National Institutes of Health" }) }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.arizona.edu/", children: "University of Arizona" }) }) })
       ] }) })
     ] }),
     /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
-      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Forensic Experience" }) }),
-      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
-        /* @__PURE__ */ jsx(ListItem, { children: "Forensic Biology" }),
-        /* @__PURE__ */ jsx(ListItem, { children: "Forensic Firearms Analysis" }),
-        /* @__PURE__ */ jsx(ListItem, { children: "Crime Scene Investigation" }),
-        /* @__PURE__ */ jsx(ListItem, { children: "Bloodstain Pattern Analysis" }),
-        /* @__PURE__ */ jsx(ListItem, { children: "Trajectory Analysis" }),
-        /* @__PURE__ */ jsx(ListItem, { children: "Crime Scene and Shooting Incident Reconstruction" })
-      ] }) })
-    ] }),
-    /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
-      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Testimony Experience" }) }),
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Areas of Research" }) }),
       /* @__PURE__ */ jsxs(TableCell, { children: [
-        /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "Qualified Subjects" }),
+        /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "Insect Biology and Biochemistry" }),
         /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
-          /* @__PURE__ */ jsx(ListItem, { children: "Forensic Biology" }),
-          /* @__PURE__ */ jsx(ListItem, { children: "Forensic Firearms Analysis" }),
-          /* @__PURE__ */ jsx(ListItem, { children: "Crime Scene Investigation and Reconstruction" })
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Fat Metabolism" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Protease Regulation" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Amino Acid Metabolism" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Primer Design, PCR, and RNAi" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Radiological Tagging" }) })
         ] }),
-        /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "Levels of Court" }),
-        /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
-          /* @__PURE__ */ jsxs(ListItem, { children: [
-            /* @__PURE__ */ jsx("b", { children: "State" }),
-            ": Arizona and California"
-          ] }),
-          /* @__PURE__ */ jsxs(ListItem, { children: [
-            /* @__PURE__ */ jsx("b", { children: "Federal" }),
-            ": U.S. District Court for the Central District of California"
-          ] })
+        /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "Human Biology and Biochemistry" }),
+        /* @__PURE__ */ jsxs(List, { children: [
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Niemann-Pick Type C Disease" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Neutral Lipid Trafficking" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Fluorescent Microscopy" }) })
         ] })
       ] })
+    ] }),
+    /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Primary Investigators and Lead Research Teams" }) }),
+      /* @__PURE__ */ jsxs(TableCell, { children: [
+        /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "University of Arizona Department of Biochemistry and Molecular Biophysics" }),
+        /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx("b", { children: "Dr. Michael A. Wells" }) }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "James E. Pennington" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Jorge Zamora" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "April R. Stonehouse" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Linda M. Mobula" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Michelle C. Hines" }) })
+        ] }),
+        /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "National Institute of Diabetes and Digestive and Kidney Diseases" }),
+        /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx("b", { children: "Dr. E. Joan Blanchette-Mackie" }) }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Peter Pentchev" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Nancy Dwyer" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Lin Sun" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Marcy Comly" }) }),
+          /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: "Sanjay Patel" }) })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Publications" }) }),
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
+        'Lu, Stephen J., James E. Pennington, April R. Stonehouse, Meta M. Mobula, and Michael A. Wells. "Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti." Insect Biochemistry and Molecular Biology 36, no. 4 (2006): 336-343. ',
+        /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://doi.org/10.1016/j.ibmb.2006.01.011.", children: "https://doi.org/10.1016/j.ibmb.2006.01.011." })
+      ] }) }) }) })
+    ] }),
+    /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Education and Certifications" }) }),
+      /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
+          /* @__PURE__ */ jsx("b", { children: "Executive Master of Business Administration with Honors" }),
+          " — Business Administration and Management, Quantic School of Business and Technology"
+        ] }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
+          /* @__PURE__ */ jsx("b", { children: "Bachelor of Science with Honors" }),
+          " — Biochemistry and Molecular Biophysics and Molecular and Cellular Biology, University of Arizona. Phi Beta Kappa, ",
+          /* @__PURE__ */ jsx("i", { children: "magna cum laude" })
+        ] }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx("b", { children: "Society for Human Resource Management Certified Professional" }) }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { children: /* @__PURE__ */ jsx("b", { children: "2023 FBI San Diego Citizens' Academy" }) }) })
+      ] }) })
     ] })
   ] }),
   /* @__PURE__ */ jsxs(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: [
     /* @__PURE__ */ jsx("br", {}),
     "Detailed Professional History"
   ] }),
-  /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", as: "p", children: "Throughout his forensic career, Stephen has analyzed over a thousand cases and participated in hundreds of death investigations, including homicides, suicides, officer-involved shootings, autopsies, and custodial deaths. Most recently, he served for ten years as a Criminalist with the San Diego County Sheriff’s Department, specializing in Forensic Biology, Forensic Firearms Analysis, and Crime Scene Investigation and Reconstruction." }),
-  /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", as: "p", children: "Stephen also spent six years as a contract assessor and trainer with the National Forensic Science Technology Center (now FIU Global Forensic and Justice Center), where he performed DNA laboratory audits and taught courses on DNA amplification, likelihood ratios, and population statistics. Prior to that, Stephen worked with the Arizona Department of Public Safety, performing casework in Forensic Biology, and the California Department of Justice’s Richmond DNA Lab, where he contributed to the FBI’s Combined DNA Index System (CODIS)." }),
-  /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", as: "p", children: "Over his career, Stephen has completed more than 2,000 hours of professional training in areas such as Forensic Biology, Forensic Firearms Analysis, Trajectory Analysis, Bloodstain Pattern Analysis, and courtroom testimony. He has testified as an expert witness in superior courts in Arizona and California, and in federal court for the U.S. District Court for the Central District of California. Stephen's courtroom experience has been noted for his ability to explain complex scientific concepts in an understandable and engaging way for juries and attorneys alike." }),
-  /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", as: "p", children: "In addition to his forensic science work, Stephen served as the Regional Director South for the California Association of Criminalists (CAC), where he organized regional study groups and hosted presentations by experts, including a keynote address by Jeff Udvarhelyi, an Escondido Police Department Child Abuse Detective, on a significant child abuse case. As the Lead Webmaster for the CAC, he enhanced the organization’s public presence by overhauling its website for better communication and engagement." })
+  /* @__PURE__ */ jsxs(Text, { className: styles$1.description, "data-visible": visible, size: "l", as: "p", children: [
+    "Before his career in forensics, Stephen worked for six years as a published research scientist. Under Dr. Michael Wells at the University of Arizona, he studied protease regulation in the Yellow Fever mosquito, ",
+    /* @__PURE__ */ jsx("i", { children: "Aedes aegypti" }),
+    ". He also completed an internship at the National Institutes of Health/NIDDK, studying neutral lipid trafficking in Niemann-Pick Type C disease under Dr. E. Joan Blanchette-Mackie."
+  ] }),
+  /* @__PURE__ */ jsxs(Text, { className: styles$1.description, "data-visible": visible, size: "l", as: "p", children: [
+    "Stephen holds an Executive MBA with Honors from Quantic School of Business and Technology and a Bachelor of Science with Honors, ",
+    /* @__PURE__ */ jsx("i", { children: "magna cum laude" }),
+    ", in Biochemistry and Molecular Biophysics and Molecular and Cellular Biology from the University of Arizona. Stephen is a Society for Human Resource Management Certified Professional (SHRM-CP). In addition, he is a member of Phi Beta Kappa, an honor society recognizing exceptional academic achievements in the humanities, social sciences, natural sciences, and mathematics."
+  ] }),
+  /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", as: "p", children: "Stephen volunteers his time and resources to support and improve the lives of people living with Amyotrophic Lateral Sclerosis (ALS). He is a community member of UC San Diego Health's Patient and Family Advisory Council, working to unify patients, family, and team members to enhance the experience for everyone, evaluate strategies and improve quality and safety outcomes." }),
+  /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", as: "p", children: "In his free time, Stephen enjoys reading and writing, web development, electronic music composition and production, and playing with Aries, a stubborn Siberian Husky." })
 ] });
-const Forensics = ({ id, visible, sectionRef }) => {
+const Research = ({ id, visible, sectionRef }) => {
   const [focused, setFocused] = useState(false);
   const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;
   return /* @__PURE__ */ jsx(
     Section,
     {
-      className: styles$1.forensics,
+      className: styles$1.research,
       onFocus: () => setFocused(true),
       onBlur: () => setFocused(false),
       as: "section",
@@ -2093,11 +2293,11 @@ const Forensics = ({ id, visible, sectionRef }) => {
               src: bannerFull,
               srcSet: `${banner$1} 768w, ${bannerFull} 1440w`,
               placeholder: bannerPlaceholder,
-              width: 1440,
+              width: 1067,
               height: 800,
               sizes: `(max-width: 768px) 100vw, 1440px`,
               loading: "eager",
-              alt: "Forensics banner"
+              alt: "Research banner"
             }
           ),
           /* @__PURE__ */ jsx("div", { className: styles$1.gradient, "data-visible": visible2 })
@@ -2121,13 +2321,14 @@ const Forensics = ({ id, visible, sectionRef }) => {
             return /* @__PURE__ */ jsx("div", { className: styles$1.tagText, "data-visible": visible2, children: isInViewport && /* @__PURE__ */ jsx(
               DecoderText,
               {
-                text: "Forensic Experience",
+                text: "Research Experience",
                 delay: 1600
               }
             ) });
           } })
         ] }),
-        /* @__PURE__ */ jsx(ForensicsText, { visible: visible2, titleId })
+        /* @__PURE__ */ jsx(ResearchText, { visible: visible2, titleId }),
+        /* @__PURE__ */ jsx(Button, { iconHoverShift: true, href: publicCV, target: "_blank", rel: "noopener noreferrer", iconEnd: "copy", children: "Download CV" })
       ] }) })
     }
   );
@@ -2279,8 +2480,9 @@ const Page = () => {
   const webdev = useRef(null);
   const csiceo = useRef(null);
   const music = useRef(null);
+  const research2 = useRef(null);
   useEffect(() => {
-    const sections = [home2, forensics2, webdev, csiceo, music];
+    const sections = [home2, forensics2, webdev, csiceo, music, research2];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry2) => {
@@ -2310,7 +2512,7 @@ const Page = () => {
       indicatorObserver.disconnect();
     };
   }, [visibleSections]);
-  return /* @__PURE__ */ jsxs("div", { "data-theme": "dark", className: `${styles$3.page} ${styles$3.container}`, children: [
+  return /* @__PURE__ */ jsxs("div", { "data-theme": "dark", className: `${styles$4.page} ${styles$4.container}`, children: [
     /* @__PURE__ */ jsx(Header, {}),
     /* @__PURE__ */ jsx(
       Home,
@@ -2363,6 +2565,14 @@ const Page = () => {
         sectionRef: forensics2,
         visible: visibleSections.includes(forensics2.current)
       }
+    ),
+    /* @__PURE__ */ jsx(
+      Research,
+      {
+        id: "research",
+        sectionRef: research2,
+        visible: visibleSections.includes(research2.current)
+      }
     )
   ] });
 };
@@ -2370,7 +2580,7 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-C5GQrN6v.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/loader-BEUbjURL.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DmSKJrlC.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/link-tkYwMuj0.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Dp3hvmoq.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/link-tkYwMuj0.js", "/assets/loader-BEUbjURL.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-CnKzK872.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Dp3hvmoq.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/link-tkYwMuj0.js", "/assets/loader-BEUbjURL.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-CnKzK872.css"] } }, "url": "/assets/manifest-9e9ca035.js", "version": "9e9ca035" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-C5GQrN6v.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/loader-BEUbjURL.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DmSKJrlC.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/link-tkYwMuj0.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CHPFGr-a.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/link-tkYwMuj0.js", "/assets/loader-BEUbjURL.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-Dcbvh8cJ.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CHPFGr-a.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/link-tkYwMuj0.js", "/assets/loader-BEUbjURL.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-Dcbvh8cJ.css"] } }, "url": "/assets/manifest-a7c0be21.js", "version": "a7c0be21" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
