@@ -44,7 +44,7 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Primary Investigators and Lead Research Teams</Heading>
     </TableCell>
     <TableCell>
-      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>University of Arizona Department of Biochemistry and Molecular Biophysics</Heading>
+      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>University of Arizona</Heading>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>Dr. Michael A. Wells</b></Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">James E. Pennington</Text></ListItem>
@@ -53,7 +53,7 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Linda M. Mobula</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Michelle C. Hines</Text></ListItem>
       </List>
-      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>National Institute of Diabetes and Digestive and Kidney Diseases</Heading>
+      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>NIH/NIDDK</Heading>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>Dr. E. Joan Blanchette-Mackie</b></Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Peter Pentchev</Text></ListItem>
@@ -70,8 +70,8 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
     </TableCell>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Lu, Stephen J., James E. Pennington, April R. Stonehouse, Meta M. Mobula, and Michael A. Wells. "Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti." Insect Biochemistry and Molecular Biology 36, no. 4 (2006): 336-343. <Link secondary href={'https://doi.org/10.1016/j.ibmb.2006.01.011'}>https://doi.org/10.1016/j.ibmb.2006.01.011.</Link></Text></ListItem>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Lu, Stephen J., Nancy Dwyer, Marcy Comply, and E. Joan Blanchette-Mackie. "Neutral Lipid Trafficking Differentiates Niemann-Pick C (NPC) 1 from NPC2 Mutant Fibroblasts." Poster. Section of Lipid Cell Biology/LCBB, NIDDK, National Institutes of Health, Bethesda, MD. <Link secondary href={nihPoster} target="_blank" rel="noopener noreferrer" download>Download Poster</Link></Text></ListItem>
+        <ListItem><Text className={styles.description} data-visible={visible} size="l">Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti<br/><Link secondary href={'https://doi.org/10.1016/j.ibmb.2006.01.011'}>Journal Link</Link></Text></ListItem>
+        <ListItem><Text className={styles.description} data-visible={visible} size="l">Neutral Lipid Trafficking Differentiates Niemann-Pick C (NPC) 1 from NPC2 Mutant Fibroblasts<br/><Link secondary href={nihPoster} target="_blank" rel="noopener noreferrer" download>Download Poster</Link></Text></ListItem>
         </List>
     </TableCell>
   </TableRow>

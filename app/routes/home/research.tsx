@@ -43,7 +43,7 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
           src={bannerFull}          
           srcSet={`${banner} 768w, ${bannerFull} 1440w`}
           placeholder={bannerPlaceholder}
-          width={1067}
+          width={1440}
           height={800}
           sizes={`(max-width: 768px) 100vw, 1440px`}          
           loading="eager" 
