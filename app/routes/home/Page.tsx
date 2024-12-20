@@ -4,6 +4,7 @@ import styles from './page.module.css';
 import config from "../../config.json";
 import { Home } from './home';
 import { Forensics } from './forensics';
+import { Research } from './research';
 import { Projects } from './projects';
 import { Header } from '../../layouts/Layouts'
 
@@ -22,9 +23,10 @@ export const Page = () => {
   const webdev = useRef<HTMLElement>(null as unknown as HTMLElement);
   const csiceo = useRef<HTMLElement>(null as unknown as HTMLElement);
   const music = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const research = useRef<HTMLElement>(null as unknown as HTMLElement);
   
   useEffect(() => {
-    const sections = [home, forensics, webdev, csiceo, music];
+    const sections = [home, forensics, webdev, csiceo, music, research];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -99,6 +101,11 @@ export const Page = () => {
       id="forensics"
       sectionRef={forensics}
       visible={visibleSections.includes(forensics.current)}
+      />
+      <Research
+      id="research"
+      sectionRef={research}
+      visible={visibleSections.includes(research.current)}
       />              
       </div>       
   );

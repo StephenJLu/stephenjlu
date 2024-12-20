@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Table, TableRow, TableCell, DecoderText, Transition,
-   Divider, InViewport, Image, List, ListItem, Link } from '../../components/Components';   
+   Divider, InViewport, Image, List, ListItem, Link, Button } from '../../components/Components';   
 import styles from './research.module.css';
 import banner from 'app/static/images/research.svg';
 import bannerFull from 'app/static/images/researchfull.svg';
 import bannerPlaceholder from 'app/static/images/research-placeholder.svg';
+import publicCV from '/sjlu-public-cv.pdf';
 
 interface ResearchProps {
   id?: string;
@@ -17,7 +18,7 @@ interface ResearchComponentProps extends ResearchProps {
 
 const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
   <>  
-    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Crime Scene Investigator and Firearms Examiner</Heading>
+    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Insect Biochemistry and Human Cell Biology</Heading>
     <Table className={styles.table} data-visible={visible}>
   <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
@@ -27,63 +28,105 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
     </TableCell>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-        <ListItem><Link secondary href={'https://www.sdsheriff.gov'}>San Diego County Sheriff's Department</Link></ListItem>
-        <ListItem><Link secondary href={'https://gfjc.fiu.edu/'}>FIU Global Forensic Science and Justice Center</Link></ListItem>
-        <ListItem><Link secondary href={'https://www.azdps.gov/'}>Arizona Department of Public Safety</Link></ListItem>
-        <ListItem><Link secondary href={'https://www.oag.ca.gov/'}>California Department of Justice</Link></ListItem>
+        <ListItem><Text><Link secondary href={'https://www.nih.gov/'}>National Institutes of Health</Link></Text></ListItem>
+        <ListItem><Text><Link secondary href={'https://www.arizona.edu/'}>University of Arizona</Link></Text></ListItem>        
       </List>
     </TableCell>
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
-        Forensic Experience
+        Areas of Research
       </Heading>
     </TableCell>
     <TableCell>
+      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>
+        Insect Biology and Biochemistry
+      </Heading>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-        <ListItem>Forensic Biology</ListItem>
-        <ListItem>Forensic Firearms Analysis</ListItem>
-        <ListItem>Crime Scene Investigation</ListItem>
-        <ListItem>Bloodstain Pattern Analysis</ListItem>
-        <ListItem>Trajectory Analysis</ListItem>
-        <ListItem>Crime Scene and Shooting Incident Reconstruction</ListItem>
+        <ListItem><Text>Fat Metabolism</Text></ListItem>
+        <ListItem><Text>Protease Regulation</Text></ListItem>
+        <ListItem><Text>Amino Acid Metabolism</Text></ListItem>
+        <ListItem><Text>Primer Design, PCR, and RNAi</Text></ListItem>
+        <ListItem><Text>Radiological Tagging</Text></ListItem>
+        </List>
+        <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>Human Biology and Biochemistry
+      </Heading>
+      <List>
+        <ListItem><Text>Niemann-Pick Type C Disease</Text></ListItem>
+        <ListItem><Text>Neutral Lipid Trafficking</Text></ListItem>
+        <ListItem><Text>Fluorescent Microscopy</Text></ListItem>
       </List>
     </TableCell>
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
-        Testimony Experience
+        Primary Investigators and Lead Research Teams
       </Heading>
     </TableCell>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>
-        Qualified Subjects
+        University of Arizona Department of Biochemistry and Molecular Biophysics
       </Heading>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-        <ListItem>Forensic Biology</ListItem>
-        <ListItem>Forensic Firearms Analysis</ListItem>
-        <ListItem>Crime Scene Investigation and Reconstruction</ListItem>
+        <ListItem><Text><b>Dr. Michael A. Wells</b></Text></ListItem>
+        <ListItem><Text>James E. Pennington</Text></ListItem>
+        <ListItem><Text>Jorge Zamora</Text></ListItem>
+        <ListItem><Text>April R. Stonehouse</Text></ListItem>
+        <ListItem><Text>Linda M. Mobula</Text></ListItem>
+        <ListItem><Text>Michelle C. Hines</Text></ListItem>
       </List>
       <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>
-        Levels of Court
+        National Institute of Diabetes and Digestive and Kidney Diseases
       </Heading>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-        <ListItem><b>State</b>: Arizona and California</ListItem>
-        <ListItem><b>Federal</b>: U.S. District Court for the Central District of California</ListItem>
+        <ListItem><Text><b>Dr. E. Joan Blanchette-Mackie</b></Text></ListItem>
+        <ListItem><Text>Peter Pentchev</Text></ListItem>
+        <ListItem><Text>Nancy Dwyer</Text></ListItem>
+        <ListItem><Text>Lin Sun</Text></ListItem>
+        <ListItem><Text>Marcy Comly</Text></ListItem>
+        <ListItem><Text>Sanjay Patel</Text></ListItem>
+      </List>
+    </TableCell>
+  </TableRow>
+  <TableRow className={styles.row} data-visible={visible}>
+    <TableCell>
+      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
+        Publications
+      </Heading>
+    </TableCell>
+    <TableCell>
+      <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
+        <ListItem><Text>Lu, Stephen J., James E. Pennington, April R. Stonehouse, Meta M. Mobula, and Michael A. Wells. "Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti." Insect Biochemistry and Molecular Biology 36, no. 4 (2006): 336-343. <Link secondary href={'https://doi.org/10.1016/j.ibmb.2006.01.011.'}>https://doi.org/10.1016/j.ibmb.2006.01.011.</Link></Text>
+        </ListItem>
+        </List>
+    </TableCell>
+  </TableRow>
+  <TableRow className={styles.row} data-visible={visible}>
+    <TableCell>
+      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
+        Education and Certifications
+      </Heading>
+    </TableCell>
+    <TableCell>
+      <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
+        <ListItem><Text><b>Executive Master of Business Administration with Honors</b> — Business Administration and Management, Quantic School of Business and Technology</Text></ListItem>
+        <ListItem><Text><b>Bachelor of Science with Honors</b> — Biochemistry and Molecular Biophysics and Molecular and Cellular Biology, University of Arizona. Phi Beta Kappa, <i>magna cum laude</i></Text></ListItem>
+        <ListItem><Text><b>Society for Human Resource Management Certified Professional</b></Text></ListItem>
+        <ListItem><Text><b>2023 FBI San Diego Citizens' Academy</b></Text></ListItem>        
       </List>
     </TableCell>
   </TableRow>
 </Table>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}><br />Detailed Professional History</Heading>
-      <Text className={styles.description} data-visible={visible} size={'l'} as={'p'}>Throughout his forensic career, Stephen has analyzed over a thousand cases and participated in hundreds of death investigations, including homicides, suicides, officer-involved shootings, autopsies, and custodial deaths. Most recently, he served for ten years as a Criminalist with the San Diego County Sheriff’s Department, specializing in Forensic Biology, Forensic Firearms Analysis, and Crime Scene Investigation and Reconstruction.</Text>
+      <Text className={styles.description} data-visible={visible} size={'l'} as={'p'}>Before his career in forensics, Stephen worked for six years as a published research scientist. Under Dr. Michael Wells at the University of Arizona, he studied protease regulation in the Yellow Fever mosquito, <i>Aedes aegypti</i>. He also completed an internship at the National Institutes of Health/NIDDK, studying neutral lipid trafficking in Niemann-Pick Type C disease under Dr. E. Joan Blanchette-Mackie.</Text>
 <Text className={styles.description} data-visible={visible} size={'l'} as={'p'}>
-Stephen also spent six years as a contract assessor and trainer with the National Forensic Science Technology Center (now FIU Global Forensic and Justice Center), where he performed DNA laboratory audits and taught courses on DNA amplification, likelihood ratios, and population statistics. Prior to that, Stephen worked with the Arizona Department of Public Safety, performing casework in Forensic Biology, and the California Department of Justice’s Richmond DNA Lab, where he contributed to the FBI’s Combined DNA Index System (CODIS).</Text>
+Stephen holds an Executive MBA with Honors from Quantic School of Business and Technology and a Bachelor of Science with Honors, <i>magna cum laude</i>, in Biochemistry and Molecular Biophysics and Molecular and Cellular Biology from the University of Arizona. Stephen is a Society for Human Resource Management Certified Professional (SHRM-CP). In addition, he is a member of Phi Beta Kappa, an honor society recognizing exceptional academic achievements in the humanities, social sciences, natural sciences, and mathematics.</Text>
 <Text className={styles.description} data-visible={visible} size={'l'} as={'p'}>
-Over his career, Stephen has completed more than 2,000 hours of professional training in areas such as Forensic Biology, Forensic Firearms Analysis, Trajectory Analysis, Bloodstain Pattern Analysis, and courtroom testimony. He has testified as an expert witness in superior courts in Arizona and California, and in federal court for the U.S. District Court for the Central District of California. Stephen's courtroom experience has been noted for his ability to explain complex scientific concepts in an understandable and engaging way for juries and attorneys alike.</Text>
+Stephen volunteers his time and resources to support and improve the lives of people living with Amyotrophic Lateral Sclerosis (ALS). He is a community member of UC San Diego Health's Patient and Family Advisory Council, working to unify patients, family, and team members to enhance the experience for everyone, evaluate strategies and improve quality and safety outcomes.</Text>
 <Text className={styles.description} data-visible={visible} size={'l'} as={'p'}>
-In addition to his forensic science work, Stephen served as the Regional Director South for the California Association of Criminalists (CAC), where he organized regional study groups and hosted presentations by experts, including a keynote address by Jeff Udvarhelyi, an Escondido Police Department Child Abuse Detective, on a significant child abuse case. As the Lead Webmaster for the CAC, he enhanced the organization’s public presence by overhauling its website for better communication and engagement.</Text>
+In his free time, Stephen enjoys reading and writing, web development, electronic music composition and production, and playing with Aries, a stubborn Siberian Husky.</Text>
   </>
 
 );
@@ -114,7 +157,7 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
           src={bannerFull}          
           srcSet={`${banner} 768w, ${bannerFull} 1440w`}
           placeholder={bannerPlaceholder}
-          width={1487}
+          width={1067}
           height={800}
           sizes={`(max-width: 768px) 100vw, 1440px`}          
           loading="eager" 
@@ -142,7 +185,7 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
                     <div className={styles.tagText} data-visible={visible}>
                       {isInViewport && (
                         <DecoderText
-                          text={'Forensic Experience'}
+                          text={'Research Experience'}
                           delay={1600}
                         />
                       )}
@@ -151,7 +194,10 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
                 }}
                 </InViewport>            
               </div>
-                <ResearchText visible={visible} titleId={titleId} />          
+                <ResearchText visible={visible} titleId={titleId} />
+                <Button iconHoverShift href={publicCV} target="_blank" rel="noopener noreferrer" iconEnd="copy">
+                            {'Download CV'}
+                          </Button>          
           </>
         )}        
       </Transition>
