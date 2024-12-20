@@ -21,9 +21,10 @@ export const WebDev = () => {
   const legacy = useRef<HTMLElement>(null as unknown as HTMLElement);  
   const fltc = useRef<HTMLElement>(null as unknown as HTMLElement);
   const als = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const cac = useRef<HTMLElement>(null as unknown as HTMLElement);
   
   useEffect(() => {
-    const sections = [intro, content, legacy, fltc, als];
+    const sections = [intro, content, legacy, fltc, als, cac];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -81,10 +82,19 @@ export const WebDev = () => {
             buttonLink="https://legacy.stephenjlu.com"      
             />
             <Projects
+            id="cac"
+            sectionRef={cac}
+            visible={visibleSections.includes(cac.current)}
+            index={2}
+            title="California Association of Criminalists"
+            buttonText="Visit Website"
+            buttonLink="https://www.cacnews.org"      
+            />
+            <Projects
             id="fltc"
             sectionRef={fltc}
             visible={visibleSections.includes(fltc.current)}
-            index={2}
+            index={3}
             title="Forensic Leaders Training Center"
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/FLTC"      
@@ -93,7 +103,7 @@ export const WebDev = () => {
             id="als"
             sectionRef={als}
             visible={visibleSections.includes(als.current)}
-            index={3}
+            index={4}
             title="A Lasting Strength"
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/A-Lasting-Strength"      

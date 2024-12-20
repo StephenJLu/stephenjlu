@@ -9,8 +9,10 @@ const ContentText = ({ visible, titleId }: { visible: boolean; titleId: string }
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}>I'm currently learning <Link secondary  href={'https://react.dev/'}>React</Link> for my front-end JavaScript library. I'd like to get into the mindset of the component-centric model for UI/UX design.</Text></ListItem>
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}>In a similar vein, I'll be learning <Link secondary  href={'https://motion.dev/'}>Motion</Link> for JavaScript animations, complementing React.</Text></ListItem>
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}>For CSS, Less, SCSS, and other pre-compiling, I use <Link secondary  href={'https://prepros.io/'}>Prepros</Link>.</Text></ListItem>
-    </List> 
-  <Heading className={styles.title} data-visible={visible} level={5} weight={'light'} id={titleId}>System Setup</Heading>
+    </List>
+    <br />
+    <br /> 
+  <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>System Setup</Heading>
     <Table className={styles.table} data-visible={visible}>  
   <TableRow className={styles.row} data-visible={visible}>
     <TableCell>

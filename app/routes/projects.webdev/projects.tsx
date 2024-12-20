@@ -10,6 +10,8 @@ import fltcBanner from 'app/static/images/fltc.svg';
 import fltcPlaceholder from 'app/static/images/fltc-placeholder.svg';
 import alsBanner from 'app/static/images/als.svg';
 import alsPlaceholder from 'app/static/images/als-placeholder.svg';
+import cacBanner from 'app/static/images/cac.svg';
+import cacPlaceholder from 'app/static/images/cac-placeholder.svg';
 
 interface ProjectsProps {
   id?: string;
@@ -57,7 +59,11 @@ export function Projects({
   als: {
     src: alsBanner,
     placeholder: alsPlaceholder,
-  },  
+  },
+  cac: {
+    src: cacBanner,
+    placeholder: cacPlaceholder,
+  },    
 };
 
   interface RenderBannerProps {
