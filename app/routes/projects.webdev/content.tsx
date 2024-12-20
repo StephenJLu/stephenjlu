@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Section, DecoderText, Transition,
    Divider, InViewport, Image } from 'app/components/Components';   
 import styles from './content.module.css';
-import banner from 'app/static/images/webdev.svg';
-import bannerPlaceholder from 'app/static/images/webdev-placeholder.svg';
+
 import { default as ContentText } from './ContentText';
 
 interface ContentProps {
@@ -37,20 +36,7 @@ export const Content = ({ id, visible, sectionRef }: ContentComponentProps) => {
       >        
         <Transition in={visible || focused} timeout={0} unmount={false}>
           {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
-            <>
-            <div className={styles.backgroundImage} data-visible={visible} ref={nodeRef}>
-        <Image                    
-          src={banner}
-          placeholder={bannerPlaceholder}
-          width={1440}
-          height={800}                    
-          loading="eager" 
-          alt="WebDev banner"                    
-        />
-        <div className={styles.gradient} data-visible={visible}/>
-      </div>
-                                 
-            
+            <>            
               <div className={styles.tag} aria-hidden>
                 <Divider                  
                   notchWidth="50%"

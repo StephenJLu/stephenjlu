@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Section, Heading, Text, Link,
+import { Section, Heading, Text, Link, Image,
   DecoderText, Transition, Divider, InViewport, PolaroidImage } from 'app/components/Components';
 import styles from './intro.module.css';
 import coding from './coding.jpg';
+import banner from 'app/static/images/webdev.svg';
+import bannerPlaceholder from 'app/static/images/webdev-placeholder.svg';
 
 interface IntroProps {
   id?: string;
@@ -14,22 +16,18 @@ interface IntroComponentProps extends IntroProps {
 }
 
 const IntroText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
-  <>
-    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Web Design and Development for the Public Good</Heading>
+  <>    
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-      I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout
-      my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns,
-      bullet trajectories, and digging up clandestine graves. I've also worked as a freelance web designer,
-      providing services to non-profit organizations and small businesses.
+      Growing up, Stephen learned Turbo Pascal and BASIC. In high school, he taught himself HTML, took classes in C++, and helped the Programming Club design and code the school's first website. In his spare time, he developed a game for the TI-85 calculator inspired by horse racing, where players place bets on which mathematical symbol they think will "win" the race.
       </Text>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-      I'm currently working on this portfolio website, so please check back soon for updates and changes.
+      His first personal website—which detailed starship specifications and histories from Star Trek—was hosted by GeoCities, one of the first widely available platforms offering free website creation and hosting in the 1990s.
      </Text>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-     In the meantime, you can find more detailed information about me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.
+     In college, Stephen took additional courses in JavaScript and has continued to work on personal web development projects ever since. While serving as Lead Webmaster for the California Association of Criminalists, he overhauled the organization's website for more effective and attractive visitor engagement and communication.
      </Text>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>
-     Thanks for visiting!
+     Scroll down for information about Stephen's development environment, coding languages, and web development projects.
     </Text>
   </>
 
@@ -55,8 +53,21 @@ export const Intro = ({ id, visible, sectionRef }: IntroComponentProps) => {
       >
         <Transition in={visible || focused} timeout={0} unmount={false}>
           {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
+            <>
+<div className={styles.backgroundImage} data-visible={visible} ref={nodeRef}>
+        <Image                    
+          src={banner}
+          placeholder={bannerPlaceholder}
+          width={1024}
+          height={450}                    
+          loading="eager" 
+          alt="WebDev banner"                    
+        />
+        <div className={styles.gradient} data-visible={visible}/>
+      </div>      
           <div className={styles.content} ref={nodeRef}>
             <div className={styles.column}>
+              <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Web Design and Development for the Public Good</Heading>
               <div className={styles.tag} aria-hidden>
                 <Divider
                   notchWidth="64px"
@@ -75,7 +86,7 @@ export const Intro = ({ id, visible, sectionRef }: IntroComponentProps) => {
                     <div className={styles.tagText} data-visible={visible}>
                       {isInViewport && (
                         <DecoderText
-                          text={'Building in Public'}
+                          text={'#buildinpublic'}
                           delay={1300}
                         />
                       )}
@@ -88,11 +99,12 @@ export const Intro = ({ id, visible, sectionRef }: IntroComponentProps) => {
             </div>
               <div className={styles.column}>                        
                   <div className={styles.polaroidContainer} data-visible={visible}>
-                    <PolaroidImage rotation={-8} imageUrl={coding} caption={'Steve is happy when coding'} />
+                    <PolaroidImage rotation={-8} imageUrl={coding} caption={'Coding happiness'} />
                   </div>
               </div>            
           </div>
-        )}
+          </>
+        )}        
       </Transition>
     </Section>
   );
