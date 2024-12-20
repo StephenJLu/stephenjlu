@@ -77,7 +77,7 @@ export const WebDev = () => {
             sectionRef={legacy}
             visible={visibleSections.includes(legacy.current)}
             index={1}
-            title="Legacy Portfolio Website"
+            title="Legacy Portfolio Website: legacy.stephenjlu.com"
             buttonText="Visit Website"
             buttonLink="https://legacy.stephenjlu.com"      
             />
@@ -95,7 +95,7 @@ export const WebDev = () => {
             sectionRef={fltc}
             visible={visibleSections.includes(fltc.current)}
             index={3}
-            title="Forensic Leaders Training Center"
+            title="Forensic Leaders Training Center: Flexibility in Leadeship. Trust through Consistency."
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/FLTC"      
             />
@@ -104,7 +104,7 @@ export const WebDev = () => {
             sectionRef={als}
             visible={visibleSections.includes(als.current)}
             index={4}
-            title="A Lasting Strength"
+            title="A Lasting Strength: Change What It Means to Live with ALS"
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/A-Lasting-Strength"      
             />         
