@@ -12,7 +12,7 @@ export const meta = () => {
   });
 };
 
-export const Page = () => {  
+export const Music = () => {  
   const [visibleSections, setVisibleSections] = useState<HTMLElement[]>([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);    
   const home = useRef<HTMLElement>(null as unknown as HTMLElement);
