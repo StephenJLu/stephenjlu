@@ -24,7 +24,7 @@ export const Footer = () => {
       )}
     </InViewport>
     <div className={styles.footer}>
-          <p>Hand-crafted design by <a href="humans.txt">humans</a>.</p>
+          <p>Hand-crafted design by <a href="/humans.txt">humans</a>.</p>
           </div>
     </div>
   );
