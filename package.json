@@ -16,11 +16,7 @@
     "dev": "node ./scripts/dev.cjs && remix vite:dev",
     "start": "wrangler pages dev ./build/client",
     "postinstall": "node ./scripts/draco.cjs",
-    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name stephenjlu",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "deploy-storybook": "npm run build-storybook && wrangler pages deploy ./storybook-static --project-name stephenjlu-sbdev",
-    "chromatic": "npx chromatic --project-token=chpt_4effadb6dca298c"
+    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name stephenjlu"    
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.515.0",
