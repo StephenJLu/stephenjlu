@@ -9,9 +9,7 @@ async function handleRequest(request, responseStatusCode, responseHeaders, remix
   const body = await renderToReadableStream(
     /* @__PURE__ */ jsx(RemixServer, { context: remixContext, url: request.url }),
     {
-      // If you wish to abort the rendering process, you can pass a signal here.
-      // Please refer to the templates for example son how to configure this.
-      // signal: controller.signal,
+      signal: request.signal,
       onError(error) {
         console.error(error);
         responseStatusCode = 500;
@@ -63,6 +61,7 @@ const Rotation = () => {
   }, []);
   return null;
 };
+const Rotation$1 = Rotation;
 const TextAnim = ({ typeText, delay: delay2 = 0 }) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -76,6 +75,7 @@ const TextAnim = ({ typeText, delay: delay2 = 0 }) => {
   }, [typeText, delay2]);
   return /* @__PURE__ */ jsx("span", { children: typeText.slice(0, count) });
 };
+const TextAnim$1 = TextAnim;
 const TextFade = ({ fadeText, delay: delay2 = 0 }) => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -86,6 +86,7 @@ const TextFade = ({ fadeText, delay: delay2 = 0 }) => {
   }, [delay2]);
   return /* @__PURE__ */ jsx("span", { style: { opacity: visible ? 1 : 0, transition: "opacity 1s" }, children: fadeText });
 };
+const TextFade$1 = TextFade;
 const delay$2 = async function(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
@@ -244,6 +245,7 @@ const InViewport = ({ children }) => {
   const childElement = children(isInViewport);
   return React.cloneElement(childElement, { ref: elementRef });
 };
+const InViewport$1 = InViewport;
 const menuButton$1 = "_menuButton_maxbw_3";
 const active$1 = "_active_maxbw_13";
 const bounce$1 = "_bounce_maxbw_1";
@@ -266,6 +268,7 @@ const MenuButton = ({ item: item2, isActive, onClick }) => {
     }
   );
 };
+const MenuButton$1 = MenuButton;
 const OperatorMonoLig = "/assets/OperatorMono-D7WvIKEd.woff2";
 const CedarvilleCursive = "/assets/CedarvilleCursive-C2jkQaQV.ttf";
 const AtlasGroteskLCThin = "/assets/AGThin-BV3b-dHU.ttf";
@@ -661,7 +664,8 @@ const TransitionContent = ({
   const visible = hasEntered && show ? isPresent : false;
   useEffect(() => {
     var _a;
-    if (hasEntered || !show) return;
+    if (hasEntered || !show)
+      return;
     const actualTimeout = splitTimeout ? timeout.enter : timeout;
     clearTimeout(enterTimeout.current);
     clearTimeout(exitTimeout.current);
@@ -676,7 +680,8 @@ const TransitionContent = ({
   }, [onEnter, onEntered, timeout, status, show]);
   useEffect(() => {
     var _a;
-    if (isPresent && show) return;
+    if (isPresent && show)
+      return;
     const actualTimeout = splitTimeout ? timeout.exit : timeout;
     clearTimeout(enterTimeout.current);
     clearTimeout(exitTimeout.current);
@@ -861,7 +866,8 @@ function useInViewport(elementRef, unobserveOnIntersect, options = {}, shouldObs
   const [intersect, setIntersect] = useState(false);
   const [isUnobserved, setIsUnobserved] = useState(false);
   useEffect(() => {
-    if (!(elementRef == null ? void 0 : elementRef.current)) return;
+    if (!(elementRef == null ? void 0 : elementRef.current))
+      return;
     const observer = new IntersectionObserver(([entry2]) => {
       const { isIntersecting, target } = entry2;
       setIntersect(isIntersecting);
@@ -985,7 +991,8 @@ async function generateImage(width = 1, height = 1) {
     ctx.fillStyle = "rgba(0, 0, 0, 0)";
     ctx.fillRect(0, 0, width, height);
     canvas.toBlob(async (blob) => {
-      if (!blob) throw new Error("Video thumbnail failed to load");
+      if (!blob)
+        throw new Error("Video thumbnail failed to load");
       const image2 = URL.createObjectURL(blob);
       canvas.remove();
       resolve(image2);
@@ -1107,7 +1114,8 @@ const ImageElements = ({
     }
   }, [isVideo, sizes, src, srcSet]);
   useEffect(() => {
-    if (!videoRef.current || !videoSrc) return;
+    if (!videoRef.current || !videoSrc)
+      return;
     const playVideo = () => {
       var _a;
       setPlaying(true);
@@ -1124,7 +1132,8 @@ const ImageElements = ({
         videoRef.current.currentTime = 0;
       }
     }
-    if (videoInteracted) return;
+    if (videoInteracted)
+      return;
     if (!inViewport) {
       pauseVideo();
     } else if (inViewport && !reduceMotion && play) {
@@ -1245,6 +1254,7 @@ const PolaroidImage = ({
     )
   ] });
 };
+const PolaroidImage$1 = PolaroidImage;
 const heading = "_heading_hhgbc_2";
 const styles$f = {
   heading
@@ -1551,7 +1561,8 @@ const MenuBar = () => {
     setCurrent(`${location.pathname}${location.hash}`);
   }, [location]);
   useEffect(() => {
-    if (!target || location.pathname !== "/") return;
+    if (!target || location.pathname !== "/")
+      return;
     setCurrent(`${location.pathname}${target}`);
     scrollToHash(target, () => setTarget(null));
   }, [location.pathname, scrollToHash, target]);
@@ -1573,7 +1584,8 @@ const MenuBar = () => {
   };
   const handleMobileNavClick = (event, item2) => {
     handleNavItemClick(event, item2);
-    if (menuOpen) setMenuOpen(false);
+    if (menuOpen)
+      setMenuOpen(false);
   };
   return /* @__PURE__ */ jsxs("header", { className: styles$8.navbar, ref: headerRef, "data-theme": "dark", children: [
     /* @__PURE__ */ jsx(
@@ -1605,7 +1617,7 @@ const MenuBar = () => {
               "aria-current": getCurrent(item2.pathname),
               onClick: (event) => handleNavItemClick(event, item2),
               children: /* @__PURE__ */ jsx(
-                MenuButton,
+                MenuButton$1,
                 {
                   item: item2,
                   isActive: activeItem === item2.label,
@@ -1687,7 +1699,7 @@ const Header = () => {
   }, [currentRoleIndex, roles2]);
   return /* @__PURE__ */ jsx("header", { ref, children: /* @__PURE__ */ jsxs("div", { className: styles$7.header, children: [
     /* @__PURE__ */ jsx("div", { className: `${styles$7.headerBackground} ${!inView2 ? styles$7.hidden : ""}` }),
-    /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx(TextFade, { fadeText, delay: baseDelay }) }),
+    /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx(TextFade$1, { fadeText, delay: baseDelay }) }),
     /* @__PURE__ */ jsx("span", { className: styles$7.subtitle, children: roles2.slice(0, currentRoleIndex + 1).map((role, index2) => {
       const calculatedDelay = role.length * 75;
       return /* @__PURE__ */ jsxs(React.Fragment, { children: [
@@ -1706,8 +1718,8 @@ const styles$6 = {
 const delay = config.delay;
 const Footer = () => {
   return /* @__PURE__ */ jsxs("div", { "data-theme": "dark", children: [
-    /* @__PURE__ */ jsx(InViewport, { children: (isInViewport) => /* @__PURE__ */ jsx("div", { className: styles$6.footer, children: isInViewport && /* @__PURE__ */ jsx("div", { className: styles$6.footerContent, children: /* @__PURE__ */ jsx("span", { className: styles$6.date, children: /* @__PURE__ */ jsx(
-      TextAnim,
+    /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => /* @__PURE__ */ jsx("div", { className: styles$6.footer, children: isInViewport && /* @__PURE__ */ jsx("div", { className: styles$6.footerContent, children: /* @__PURE__ */ jsx("span", { className: styles$6.date, children: /* @__PURE__ */ jsx(
+      TextAnim$1,
       {
         typeText: `© ${(/* @__PURE__ */ new Date()).getFullYear()} ${config.name}. All rights reserved.`,
         delay
@@ -1726,6 +1738,8 @@ const styles$5 = {
   container,
   skip
 };
+const reset_module = {};
+const global_module = {};
 const links = () => [
   {
     rel: "preload",
@@ -1771,7 +1785,7 @@ function App() {
       /* @__PURE__ */ jsx(Links, {})
     ] }),
     /* @__PURE__ */ jsxs("body", { children: [
-      /* @__PURE__ */ jsx(Rotation, {}),
+      /* @__PURE__ */ jsx(Rotation$1, {}),
       /* @__PURE__ */ jsxs(ThemeProvider, { theme, className: "", children: [
         /* @__PURE__ */ jsx(MenuBar, {}),
         /* @__PURE__ */ jsxs("main", { id: "main-content", className: styles$5.container, tabIndex: -1, children: [
@@ -1848,7 +1862,7 @@ const Contact = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
       "aria-labelledby": titleId,
       tabIndex: -1,
       ...rest,
-      children: /* @__PURE__ */ jsx(InViewport, { children: (isInViewport) => {
+      children: /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => {
         if (isInViewport && !hasEnteredViewport) {
           setHasEnteredViewport(true);
         }
@@ -1948,7 +1962,7 @@ const Home = ({ id, visible, sectionRef }) => {
                 collapseDelay: 1e3
               }
             ),
-            /* @__PURE__ */ jsx(InViewport, { children: (inViewport) => {
+            /* @__PURE__ */ jsx(InViewport$1, { children: (inViewport) => {
               useEffect(() => {
                 if (inViewport) {
                   setIsInViewport(true);
@@ -1965,7 +1979,7 @@ const Home = ({ id, visible, sectionRef }) => {
           ] }),
           /* @__PURE__ */ jsx(HomeText, { visible: visible2, titleId })
         ] }),
-        /* @__PURE__ */ jsx("div", { className: styles$2.column, children: /* @__PURE__ */ jsx("div", { className: styles$2.polaroidContainer, "data-visible": visible2, children: /* @__PURE__ */ jsx(PolaroidImage, { rotation: 10, imageUrl: steveImage, caption: "Steve at Mt. Woodson" }) }) })
+        /* @__PURE__ */ jsx("div", { className: styles$2.column, children: /* @__PURE__ */ jsx("div", { className: styles$2.polaroidContainer, "data-visible": visible2, children: /* @__PURE__ */ jsx(PolaroidImage$1, { rotation: 10, imageUrl: steveImage, caption: "Steve at Mt. Woodson" }) }) })
       ] }) })
     }
   );
@@ -1998,9 +2012,9 @@ const styles$1 = {
   row,
   head
 };
-const banner$1 = "/assets/forensics-BG1I8zbC.svg";
-const bannerFull = "/assets/forensicsfull-BMsHZvXT.svg";
-const bannerPlaceholder = "/assets/forensics-placeholder-C_kyHeZN.svg";
+const banner$1 = "/assets/forensics-Dot-pZsZ.svg";
+const bannerFull = "/assets/forensicsfull-kQrgwl1a.svg";
+const bannerPlaceholder = "/assets/forensics-placeholder-B8bWaMuw.svg";
 const ForensicsText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
   /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "Crime Scene Investigator and Firearms Examiner" }),
   /* @__PURE__ */ jsxs(Table, { className: styles$1.table, "data-visible": visible, children: [
@@ -2098,7 +2112,7 @@ const Forensics = ({ id, visible, sectionRef }) => {
               collapseDelay: 1e3
             }
           ),
-          /* @__PURE__ */ jsx(InViewport, { children: (inViewport) => {
+          /* @__PURE__ */ jsx(InViewport$1, { children: (inViewport) => {
             useEffect(() => {
               if (inViewport) {
                 setIsInViewport(true);
@@ -2273,7 +2287,8 @@ const Page = () => {
           if (entry2.isIntersecting) {
             const section2 = entry2.target;
             observer.unobserve(section2);
-            if (visibleSections.includes(section2)) return;
+            if (visibleSections.includes(section2))
+              return;
             setVisibleSections((prevSections) => [...prevSections, section2]);
           }
         });
@@ -2355,11 +2370,11 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-CHYELu7_.js", "imports": ["/assets/components-CiVcszop.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-DFPM2t5V.js", "imports": ["/assets/components-CiVcszop.js", "/assets/loader-CY4_5UF9.js", "/assets/config-CJRWHsGV.js"], "css": ["/assets/root-CYGtV11H.css", "/assets/loader-fIZL14-t.css", "/assets/config-BVfzfjJQ.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-VIVidomm.js", "imports": ["/assets/components-CiVcszop.js", "/assets/config-CJRWHsGV.js", "/assets/link-DNzIUJc9.js"], "css": ["/assets/route-ex8QkAGm.css", "/assets/config-BVfzfjJQ.css", "/assets/link-BUHPIruz.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-fHiBBTW0.js", "imports": ["/assets/components-CiVcszop.js", "/assets/config-CJRWHsGV.js", "/assets/link-DNzIUJc9.js", "/assets/loader-CY4_5UF9.js"], "css": ["/assets/route-CLbvzT6X.css", "/assets/config-BVfzfjJQ.css", "/assets/link-BUHPIruz.css", "/assets/loader-fIZL14-t.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-fHiBBTW0.js", "imports": ["/assets/components-CiVcszop.js", "/assets/config-CJRWHsGV.js", "/assets/link-DNzIUJc9.js", "/assets/loader-CY4_5UF9.js"], "css": ["/assets/route-CLbvzT6X.css", "/assets/config-BVfzfjJQ.css", "/assets/link-BUHPIruz.css", "/assets/loader-fIZL14-t.css"] } }, "url": "/assets/manifest-7561d18c.js", "version": "7561d18c" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-C5GQrN6v.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/loader-BEUbjURL.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DmSKJrlC.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/link-tkYwMuj0.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Dp3hvmoq.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/link-tkYwMuj0.js", "/assets/loader-BEUbjURL.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-CnKzK872.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Dp3hvmoq.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-C1_bsfkj.js", "/assets/link-tkYwMuj0.js", "/assets/loader-BEUbjURL.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-CnKzK872.css"] } }, "url": "/assets/manifest-9e9ca035.js", "version": "9e9ca035" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
-const future = { "v3_fetcherPersist": true, "v3_relativeSplatPath": true, "v3_throwAbortReason": true, "v3_routeConfig": false, "v3_singleFetch": true, "v3_lazyRouteDiscovery": true, "unstable_optimizeDeps": false };
+const future = { "v3_fetcherPersist": false, "v3_relativeSplatPath": false, "v3_throwAbortReason": false };
 const isSpaMode = false;
 const publicPath = "/";
 const entry = { module: entryServer };

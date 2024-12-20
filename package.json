@@ -2,22 +2,33 @@
   "name": "stephenjlu",
   "homepage": "https://www.stephenjlu.com",
   "description": "Projects Portfolio for Stephen J. Lu - Web Design and Development for the Public Good.",
-  "repository": "https://github.com/StephenJLu/stephenjlu",
-  "author": "Stephen J. Lu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StephenJLu/stephenjlu.git"
+  },
+  "author": {
+    "name": "Stephen J. Lu"
+  },
   "sideEffects": false,
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
     "dev": "node ./scripts/dev.cjs && remix vite:dev",
-    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name stephenjlu"
+    "start": "wrangler pages dev ./build/client",
+    "postinstall": "node ./scripts/draco.cjs",
+    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name stephenjlu",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "deploy-storybook": "npm run build-storybook && wrangler pages deploy ./storybook-static --project-name stephenjlu-sbdev",
+    "chromatic": "npx chromatic --project-token=chpt_4effadb6dca298c"
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.515.0",
-    "@mdx-js/loader": "^3.1.0",
-    "@mdx-js/react": "^3.1.0",
+    "@mdx-js/react": "^3.0.1",
     "@remix-run/cloudflare": "^2.7.1",
     "@remix-run/cloudflare-pages": "^2.7.1",
     "@remix-run/react": "^2.7.1",
+    "@vitejs/plugin-react": "^4.3.4",
     "framer-motion": "11.0.5",
     "isbot": "^4.1.0",
     "miniflare": "^3.20231030.4",
@@ -26,30 +37,33 @@
     "rehype-img-size": "^1.0.1",
     "rehype-slug": "^6.0.0",
     "three": "^0.161.0",
-    "three-stdlib": "^2.29.4",
-    "vite-plugin-mdx": "^3.6.1"
+    "three-stdlib": "^2.29.4"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.2",
     "@csstools/postcss-global-data": "^2.1.1",
     "@mapbox/rehype-prism": "^0.9.0",
     "@mdx-js/rollup": "^3.0.1",
     "@remix-run/dev": "^2.7.1",
-    "@storybook/addon-a11y": "^7.6.17",
-    "@storybook/addon-essentials": "^7.6.17",
-    "@storybook/addon-interactions": "^7.6.17",
-    "@storybook/addon-links": "^7.6.17",
-    "@storybook/blocks": "^7.6.17",
-    "@storybook/react": "^7.6.17",
-    "@storybook/react-vite": "^7.6.17",
-    "@storybook/test": "^7.6.17",
-    "@types/react-dom": "^19.0.2",
+    "@storybook/addon-a11y": "^8.4.7",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-links": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/manager-api": "^8.4.7",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-vite": "^8.4.7",
+    "@storybook/test": "^8.4.7",
+    "@storybook/theming": "^8.4.7",
+    "@types/react": "^19.0.1",
+    "chromatic": "^11.20.2",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-storybook": "^0.8.0",
+    "eslint-plugin-storybook": "^0.11.1",
     "node-fetch": "^3.3.2",
     "postcss": "^8.4.33",
     "postcss-custom-media": "^10.0.2",
@@ -57,13 +71,16 @@
     "react-intersection-observer": "^9.14.0",
     "remark-frontmatter": "^5.0.0",
     "remark-mdx-frontmatter": "^4.0.0",
-    "storybook": "^7.6.17",
-    "vite": "^5.1.8",
+    "storybook": "^8.4.7",
+    "vite": "^5.1.0",
     "vite-jsconfig-paths": "^2.0.1",
-    "vite-tsconfig-paths": "^5.1.4",
     "wrangler": "^3.24.0"
   },
   "engines": {
     "node": ">=19.9.0"
+  },
+  "version": "",
+  "bugs": {
+    "url": "https://github.com/StephenJLu/stephenjlu/issues"
   }
 }
