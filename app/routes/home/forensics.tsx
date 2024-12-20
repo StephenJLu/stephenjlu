@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Table, TableRow, TableCell, DecoderText, Transition,
-   Divider, InViewport, Image, List, ListItem, Link } from '../../components/Components';
-   import { media } from '../../utils/style'
+   Divider, InViewport, Image, List, ListItem, Link } from '../../components/Components';   
 import styles from './forensics.module.css';
 import banner from 'app/static/images/forensics.svg';
 import bannerFull from 'app/static/images/forensicsfull.svg';
