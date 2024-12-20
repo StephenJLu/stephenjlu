@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Link,
-  DecoderText, Transition, Divider, InViewport, PolaroidImage } from '../../components/Components';
-import styles from './home.module.css';
-import config from '../../config.json';
-import steveImage from 'app/static/images/steve.svg';
+  DecoderText, Transition, Divider, InViewport, PolaroidImage } from 'app/components/Components';
+import styles from './intro.module.css';
+import coding from './coding.jpg';
 
-interface HomeProps {
+interface IntroProps {
   id?: string;
   sectionRef?: React.RefObject<HTMLElement>;
 }
 
-interface HomeComponentProps extends HomeProps {
+interface IntroComponentProps extends IntroProps {
   visible: boolean;  
 }
 
-const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
+const IntroText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
   <>
-    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Hello there</Heading>
+    <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Web Design and Development for the Public Good</Heading>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
       I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout
       my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns,
@@ -35,17 +34,17 @@ const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) =
   </>
 
 );
-interface HomeComponentProps extends HomeProps {
+interface IntroComponentProps extends IntroProps {
   visible: boolean;}
 
-export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {  
+export const Intro = ({ id, visible, sectionRef }: IntroComponentProps) => {  
   const [focused, setFocused] = useState(false);
   const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;  
   
   return (
     <Section       
-      className={styles.home}
+      className={styles.intro}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}  
       as="section"
@@ -76,7 +75,7 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
                     <div className={styles.tagText} data-visible={visible}>
                       {isInViewport && (
                         <DecoderText
-                          text={`${config.name}`}
+                          text={'Building in Public'}
                           delay={1300}
                         />
                       )}
@@ -85,11 +84,11 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
                 }}
                 </InViewport>            
               </div>
-                <HomeText visible={visible} titleId={titleId} />
+                <IntroText visible={visible} titleId={titleId} />
             </div>
               <div className={styles.column}>                        
                   <div className={styles.polaroidContainer} data-visible={visible}>
-                    <PolaroidImage rotation={10} imageUrl={steveImage} caption={'Steve at Mt. Woodson'} />
+                    <PolaroidImage rotation={-8} imageUrl={coding} caption={'Steve is happy when coding'} />
                   </div>
               </div>            
           </div>

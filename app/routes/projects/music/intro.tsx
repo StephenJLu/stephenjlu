@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Link,
-  DecoderText, Transition, Divider, InViewport, PolaroidImage } from '../../components/Components';
-import styles from './home.module.css';
-import config from '../../config.json';
+  DecoderText, Transition, Divider, InViewport, PolaroidImage } from 'app/components/Components';
+import styles from './intro.module.css';
+import config from 'app/config.json';
 import steveImage from 'app/static/images/steve.svg';
 
-interface HomeProps {
+interface IntroProps {
   id?: string;
   sectionRef?: React.RefObject<HTMLElement>;
 }
 
-interface HomeComponentProps extends HomeProps {
+interface IntroComponentProps extends IntroProps {
   visible: boolean;  
 }
 
-const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
+const IntroText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
   <>
     <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Hello there</Heading>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
@@ -35,17 +35,17 @@ const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) =
   </>
 
 );
-interface HomeComponentProps extends HomeProps {
+interface IntroComponentProps extends IntroProps {
   visible: boolean;}
 
-export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {  
+export const Intro = ({ id, visible, sectionRef }: IntroComponentProps) => {  
   const [focused, setFocused] = useState(false);
   const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;  
   
   return (
     <Section       
-      className={styles.home}
+      className={styles.intro}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}  
       as="section"
@@ -85,7 +85,7 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
                 }}
                 </InViewport>            
               </div>
-                <HomeText visible={visible} titleId={titleId} />
+                <IntroText visible={visible} titleId={titleId} />
             </div>
               <div className={styles.column}>                        
                   <div className={styles.polaroidContainer} data-visible={visible}>
