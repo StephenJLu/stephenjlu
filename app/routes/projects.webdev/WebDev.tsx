@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { baseMeta } from 'app/utils/meta';
-import styles from './page.module.css';
+import styles from './webdev.module.css';
 import config from "app/config.json";
 import { Intro } from './intro';
 import { Content } from './content';
@@ -12,7 +12,7 @@ export const meta = () => {
   });
 };
 
-export const Page = () => {  
+export const WebDev = () => {  
   const [visibleSections, setVisibleSections] = useState<HTMLElement[]>([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);    
   const intro = useRef<HTMLElement>(null as unknown as HTMLElement);
@@ -56,7 +56,7 @@ export const Page = () => {
   
   
   return (
-    <div data-theme='dark' className={`${styles.page} ${styles.container}`}>               
+    <div data-theme='dark' className={`${styles.webdev} ${styles.container}`}>               
       <Intro
       id="intro"
       sectionRef={intro}
