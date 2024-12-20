@@ -8,7 +8,8 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
-    "dev": "node ./scripts/dev.cjs && remix vite:dev"
+    "dev": "node ./scripts/dev.cjs && remix vite:dev",
+    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name stephenjlu"
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.515.0",
