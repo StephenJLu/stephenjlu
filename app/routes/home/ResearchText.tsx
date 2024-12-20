@@ -84,7 +84,7 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
     </TableCell>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-        <ListItem><Text>Lu, Stephen J., James E. Pennington, April R. Stonehouse, Meta M. Mobula, and Michael A. Wells. "Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti." Insect Biochemistry and Molecular Biology 36, no. 4 (2006): 336-343. <Link secondary href={'https://doi.org/10.1016/j.ibmb.2006.01.011.'}>https://doi.org/10.1016/j.ibmb.2006.01.011.</Link></Text>
+        <ListItem><Text>Lu, Stephen J., James E. Pennington, April R. Stonehouse, Meta M. Mobula, and Michael A. Wells. "Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti." Insect Biochemistry and Molecular Biology 36, no. 4 (2006): 336-343. <Link secondary href={'https://doi.org/10.1016/j.ibmb.2006.01.011/'}>https://doi.org/10.1016/j.ibmb.2006.01.011.</Link></Text>
         </ListItem>
         <ListItem><Text>Lu, Stephen J., Nancy Dwyer, Marcy Comply, and E. Joan Blanchette-Mackie. "Neutral Lipid Trafficking Differentiates Niemann-Pick C (NPC) 1 from NPC2 Mutant Fibroblasts." Poster. Section of Lipid Cell Biology/LCBB, NIDDK, National Institutes of Health, Bethesda, MD. <Link secondary href={nihPoster} target="_blank" rel="noopener noreferrer" download>Download Poster</Link></Text>
         </ListItem>
