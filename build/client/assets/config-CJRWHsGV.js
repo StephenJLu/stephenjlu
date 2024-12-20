@@ -1,0 +1,9 @@
+import{r,x as i,n as l}from"./components-CiVcszop.js";const P={desktop:2080,laptop:1680,tablet:1040,mobile:696,mobileS:400},u=e=>`${e}px`,R=e=>`${e/16}rem`,T=e=>Number(e.replace("ms","")),p=e=>`${e}ms`;function J(e,_={}){let o={};const n=Object.keys(e);for(const s of n){let t=e[s];typeof t=="number"&&s==="delay"&&(t=p(t)),typeof t=="number"&&s!=="opacity"&&(t=u(t)),typeof t=="number"&&s==="opacity"&&(t=`${t*100}%`),o[`--${s}`]=t}return{...o,..._}}function m(...e){return e.filter(Boolean).join(" ")}const L=({children:e})=>{const[_,o]=r.useState(!1),n=r.useRef(null);r.useEffect(()=>{const t=new IntersectionObserver(([a])=>{o(a.isIntersecting)},{root:null,rootMargin:"0px",threshold:.1});return n.current&&t.observe(n.current),()=>{n.current&&t.unobserve(n.current)}},[]);const s=e(_);return i.cloneElement(s,{ref:n})},f="_text_13dm1_2",h={text:f},$=({children:e,size:_="m",as:o="span",align:n="auto",weight:s="auto",secondary:t,className:a,...c})=>l.jsx(o,{className:m(h.text,a),"data-align":n,"data-size":_,"data-weight":s,"data-secondary":t,...c,children:e}),b="Stephen J. Lu",d="Stephen J. Lu | Web Design and Development for the Public Good",y=["Author of CSI to CEO","Web Design and Development","for the Public Good","EMBA | SHRM-CP | Phi Beta Kappa"],x="https://www.stephenjlu.com",g="stephenjlu.com",v="StephenJLu",S="StephenJLu",j="https://github.com/StephenJLu/Stephenjlu/",k=` _________________       
+(  ____ \\__    _( \\      
+| (    \\/  )  ( | (      
+| (_____   |  | | |      
+(_____  )  |  | | |      
+      ) |  |  | | |      
+/\\____) |\\_)  ) | (____/\\
+\\_______(____/  (_______/
+`,w=500,I="https://legacy.stephenjlu.com/images/steve.svg",D={name:b,title:d,roles:y,url:x,bluesky:g,linkedin:v,github:S,repo:j,ascii:k,delay:w,avatar:I};export{L as I,$ as T,J as a,m as b,D as c,P as d,T as m,p as n,R as p};

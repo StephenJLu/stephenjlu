@@ -9,7 +9,9 @@ async function handleRequest(request, responseStatusCode, responseHeaders, remix
   const body = await renderToReadableStream(
     /* @__PURE__ */ jsx(RemixServer, { context: remixContext, url: request.url }),
     {
-      signal: request.signal,
+      // If you wish to abort the rendering process, you can pass a signal here.
+      // Please refer to the templates for example son how to configure this.
+      // signal: controller.signal,
       onError(error) {
         console.error(error);
         responseStatusCode = 500;
@@ -61,7 +63,6 @@ const Rotation = () => {
   }, []);
   return null;
 };
-const Rotation$1 = Rotation;
 const TextAnim = ({ typeText, delay: delay2 = 0 }) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -75,7 +76,6 @@ const TextAnim = ({ typeText, delay: delay2 = 0 }) => {
   }, [typeText, delay2]);
   return /* @__PURE__ */ jsx("span", { children: typeText.slice(0, count) });
 };
-const TextAnim$1 = TextAnim;
 const TextFade = ({ fadeText, delay: delay2 = 0 }) => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -86,7 +86,6 @@ const TextFade = ({ fadeText, delay: delay2 = 0 }) => {
   }, [delay2]);
   return /* @__PURE__ */ jsx("span", { style: { opacity: visible ? 1 : 0, transition: "opacity 1s" }, children: fadeText });
 };
-const TextFade$1 = TextFade;
 const delay$2 = async function(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
@@ -245,7 +244,6 @@ const InViewport = ({ children }) => {
   const childElement = children(isInViewport);
   return React.cloneElement(childElement, { ref: elementRef });
 };
-const InViewport$1 = InViewport;
 const menuButton$1 = "_menuButton_maxbw_3";
 const active$1 = "_active_maxbw_13";
 const bounce$1 = "_bounce_maxbw_1";
@@ -268,7 +266,6 @@ const MenuButton = ({ item: item2, isActive, onClick }) => {
     }
   );
 };
-const MenuButton$1 = MenuButton;
 const OperatorMonoLig = "/assets/OperatorMono-D7WvIKEd.woff2";
 const CedarvilleCursive = "/assets/CedarvilleCursive-C2jkQaQV.ttf";
 const AtlasGroteskLCThin = "/assets/AGThin-BV3b-dHU.ttf";
@@ -664,8 +661,7 @@ const TransitionContent = ({
   const visible = hasEntered && show ? isPresent : false;
   useEffect(() => {
     var _a;
-    if (hasEntered || !show)
-      return;
+    if (hasEntered || !show) return;
     const actualTimeout = splitTimeout ? timeout.enter : timeout;
     clearTimeout(enterTimeout.current);
     clearTimeout(exitTimeout.current);
@@ -680,8 +676,7 @@ const TransitionContent = ({
   }, [onEnter, onEntered, timeout, status, show]);
   useEffect(() => {
     var _a;
-    if (isPresent && show)
-      return;
+    if (isPresent && show) return;
     const actualTimeout = splitTimeout ? timeout.exit : timeout;
     clearTimeout(enterTimeout.current);
     clearTimeout(exitTimeout.current);
@@ -717,7 +712,6 @@ const Button = forwardRef(
     return /* @__PURE__ */ jsx(
       ButtonContent,
       {
-        unstable_viewTransition: true,
         as: Link$1,
         prefetch: "intent",
         to: href,
@@ -867,8 +861,7 @@ function useInViewport(elementRef, unobserveOnIntersect, options = {}, shouldObs
   const [intersect, setIntersect] = useState(false);
   const [isUnobserved, setIsUnobserved] = useState(false);
   useEffect(() => {
-    if (!(elementRef == null ? void 0 : elementRef.current))
-      return;
+    if (!(elementRef == null ? void 0 : elementRef.current)) return;
     const observer = new IntersectionObserver(([entry2]) => {
       const { isIntersecting, target } = entry2;
       setIntersect(isIntersecting);
@@ -992,8 +985,7 @@ async function generateImage(width = 1, height = 1) {
     ctx.fillStyle = "rgba(0, 0, 0, 0)";
     ctx.fillRect(0, 0, width, height);
     canvas.toBlob(async (blob) => {
-      if (!blob)
-        throw new Error("Video thumbnail failed to load");
+      if (!blob) throw new Error("Video thumbnail failed to load");
       const image2 = URL.createObjectURL(blob);
       canvas.remove();
       resolve(image2);
@@ -1115,8 +1107,7 @@ const ImageElements = ({
     }
   }, [isVideo, sizes, src, srcSet]);
   useEffect(() => {
-    if (!videoRef.current || !videoSrc)
-      return;
+    if (!videoRef.current || !videoSrc) return;
     const playVideo = () => {
       var _a;
       setPlaying(true);
@@ -1133,8 +1124,7 @@ const ImageElements = ({
         videoRef.current.currentTime = 0;
       }
     }
-    if (videoInteracted)
-      return;
+    if (videoInteracted) return;
     if (!inViewport) {
       pauseVideo();
     } else if (inViewport && !reduceMotion && play) {
@@ -1237,7 +1227,7 @@ const styles$g = {
   frame,
   caption
 };
-const polaroidFrame = "/assets/polaroid-QWl6TdX0.png";
+const polaroidFrame = "/assets/polaroid-DmxX1H9-.svg";
 const PolaroidImage = ({
   imageUrl,
   rotation = 0,
@@ -1255,7 +1245,6 @@ const PolaroidImage = ({
     )
   ] });
 };
-const PolaroidImage$1 = PolaroidImage;
 const heading = "_heading_hhgbc_2";
 const styles$f = {
   heading
@@ -1355,7 +1344,7 @@ const Link = forwardRef(
     if (isAnchor(href)) {
       return /* @__PURE__ */ jsx("a", { ...linkProps, href, children });
     }
-    return /* @__PURE__ */ jsx(Link$1, { unstable_viewTransition: true, prefetch: "intent", ...linkProps, to: href, children });
+    return /* @__PURE__ */ jsx(Link$1, { prefetch: "intent", ...linkProps, to: href, children });
   }
 );
 const list = "_list_1cydw_3";
@@ -1380,14 +1369,14 @@ const ListItem = ({
   return /* @__PURE__ */ jsx("li", { className: styles$c.item, ...rest, children });
 };
 const table$1 = "_table_1bqvi_3";
-const row = "_row_1bqvi_13";
-const head = "_head_1bqvi_31";
+const row$1 = "_row_1bqvi_13";
+const head$1 = "_head_1bqvi_31";
 const headCell = "_headCell_1bqvi_41";
 const cell = "_cell_1bqvi_51";
 const styles$b = {
   table: table$1,
-  row,
-  head,
+  row: row$1,
+  head: head$1,
   headCell,
   cell
 };
@@ -1468,7 +1457,7 @@ const github = "StephenJLu";
 const repo = "https://github.com/StephenJLu/Stephenjlu/";
 const ascii = " _________________       \n(  ____ \\__    _( \\      \n| (    \\/  )  ( | (      \n| (_____   |  | | |      \n(_____  )  |  | | |      \n      ) |  |  | | |      \n/\\____) |\\_)  ) | (____/\\\n\\_______(____/  (_______/\n";
 const delay$1 = 500;
-const avatar = "https://legacy.stephenjlu.com/images/steve.jpg";
+const avatar = "https://legacy.stephenjlu.com/images/steve.svg";
 const config = {
   name: name$1,
   title: title$3,
@@ -1489,7 +1478,7 @@ const navLinks = [
   },
   {
     label: "Projects",
-    pathname: "/#web-dev"
+    pathname: "/#webdev"
   },
   {
     label: "Ledger",
@@ -1562,8 +1551,7 @@ const MenuBar = () => {
     setCurrent(`${location.pathname}${location.hash}`);
   }, [location]);
   useEffect(() => {
-    if (!target || location.pathname !== "/")
-      return;
+    if (!target || location.pathname !== "/") return;
     setCurrent(`${location.pathname}${target}`);
     scrollToHash(target, () => setTarget(null));
   }, [location.pathname, scrollToHash, target]);
@@ -1585,14 +1573,12 @@ const MenuBar = () => {
   };
   const handleMobileNavClick = (event, item2) => {
     handleNavItemClick(event, item2);
-    if (menuOpen)
-      setMenuOpen(false);
+    if (menuOpen) setMenuOpen(false);
   };
   return /* @__PURE__ */ jsxs("header", { className: styles$8.navbar, ref: headerRef, "data-theme": "dark", children: [
     /* @__PURE__ */ jsx(
       Link$1,
       {
-        unstable_viewTransition: true,
         prefetch: "intent",
         to: location.pathname === "/" ? "/#home" : "/",
         "data-navbar-item": true,
@@ -1612,7 +1598,6 @@ const MenuBar = () => {
           children: /* @__PURE__ */ jsx("ul", { className: styles$8.menuBarList, children: navLinks.map((item2, index2) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
             Link$1,
             {
-              unstable_viewTransition: true,
               prefetch: "intent",
               to: item2.pathname,
               "data-navbar-item": true,
@@ -1620,7 +1605,7 @@ const MenuBar = () => {
               "aria-current": getCurrent(item2.pathname),
               onClick: (event) => handleNavItemClick(event, item2),
               children: /* @__PURE__ */ jsx(
-                MenuButton$1,
+                MenuButton,
                 {
                   item: item2,
                   isActive: activeItem === item2.label,
@@ -1638,7 +1623,6 @@ const MenuBar = () => {
       navLinks.map((item2, index2) => /* @__PURE__ */ jsx(
         Link$1,
         {
-          unstable_viewTransition: true,
           prefetch: "intent",
           to: item2.pathname,
           className: styles$8.mobileNavLink,
@@ -1703,7 +1687,7 @@ const Header = () => {
   }, [currentRoleIndex, roles2]);
   return /* @__PURE__ */ jsx("header", { ref, children: /* @__PURE__ */ jsxs("div", { className: styles$7.header, children: [
     /* @__PURE__ */ jsx("div", { className: `${styles$7.headerBackground} ${!inView2 ? styles$7.hidden : ""}` }),
-    /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx(TextFade$1, { fadeText, delay: baseDelay }) }),
+    /* @__PURE__ */ jsx("h1", { children: /* @__PURE__ */ jsx(TextFade, { fadeText, delay: baseDelay }) }),
     /* @__PURE__ */ jsx("span", { className: styles$7.subtitle, children: roles2.slice(0, currentRoleIndex + 1).map((role, index2) => {
       const calculatedDelay = role.length * 75;
       return /* @__PURE__ */ jsxs(React.Fragment, { children: [
@@ -1722,8 +1706,8 @@ const styles$6 = {
 const delay = config.delay;
 const Footer = () => {
   return /* @__PURE__ */ jsxs("div", { "data-theme": "dark", children: [
-    /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => /* @__PURE__ */ jsx("div", { className: styles$6.footer, children: isInViewport && /* @__PURE__ */ jsx("div", { className: styles$6.footerContent, children: /* @__PURE__ */ jsx("span", { className: styles$6.date, children: /* @__PURE__ */ jsx(
-      TextAnim$1,
+    /* @__PURE__ */ jsx(InViewport, { children: (isInViewport) => /* @__PURE__ */ jsx("div", { className: styles$6.footer, children: isInViewport && /* @__PURE__ */ jsx("div", { className: styles$6.footerContent, children: /* @__PURE__ */ jsx("span", { className: styles$6.date, children: /* @__PURE__ */ jsx(
+      TextAnim,
       {
         typeText: `© ${(/* @__PURE__ */ new Date()).getFullYear()} ${config.name}. All rights reserved.`,
         delay
@@ -1742,8 +1726,6 @@ const styles$5 = {
   container,
   skip
 };
-const reset_module = {};
-const global_module = {};
 const links = () => [
   {
     rel: "preload",
@@ -1789,7 +1771,7 @@ function App() {
       /* @__PURE__ */ jsx(Links, {})
     ] }),
     /* @__PURE__ */ jsxs("body", { children: [
-      /* @__PURE__ */ jsx(Rotation$1, {}),
+      /* @__PURE__ */ jsx(Rotation, {}),
       /* @__PURE__ */ jsxs(ThemeProvider, { theme, className: "", children: [
         /* @__PURE__ */ jsx(MenuBar, {}),
         /* @__PURE__ */ jsxs("main", { id: "main-content", className: styles$5.container, tabIndex: -1, children: [
@@ -1866,7 +1848,7 @@ const Contact = ({ id, sectionRef, scrollIndicatorHidden, ...rest }) => {
       "aria-labelledby": titleId,
       tabIndex: -1,
       ...rest,
-      children: /* @__PURE__ */ jsx(InViewport$1, { children: (isInViewport) => {
+      children: /* @__PURE__ */ jsx(InViewport, { children: (isInViewport) => {
         if (isInViewport && !hasEnteredViewport) {
           setHasEnteredViewport(true);
         }
@@ -1925,7 +1907,7 @@ const styles$2 = {
   button: button$2,
   polaroidContainer
 };
-const steveImage = "/assets/steve-Cy0wBmUI.jpg";
+const steveImage = "/assets/steve-BGME7nvY.svg";
 const HomeText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
   /* @__PURE__ */ jsx(Heading, { className: styles$2.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "Hello there" }),
   /* @__PURE__ */ jsx(Text, { className: styles$2.description, "data-visible": visible, size: "l", as: "p", children: "I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns, bullet trajectories, and digging up clandestine graves. I've also worked as a freelance web designer, providing services to non-profit organizations and small businesses." }),
@@ -1966,7 +1948,7 @@ const Home = ({ id, visible, sectionRef }) => {
                 collapseDelay: 1e3
               }
             ),
-            /* @__PURE__ */ jsx(InViewport$1, { children: (inViewport) => {
+            /* @__PURE__ */ jsx(InViewport, { children: (inViewport) => {
               useEffect(() => {
                 if (inViewport) {
                   setIsInViewport(true);
@@ -1976,29 +1958,31 @@ const Home = ({ id, visible, sectionRef }) => {
                 DecoderText,
                 {
                   text: `${config.name}`,
-                  delay: 1400
+                  delay: 1300
                 }
               ) });
             } })
           ] }),
           /* @__PURE__ */ jsx(HomeText, { visible: visible2, titleId })
         ] }),
-        /* @__PURE__ */ jsx("div", { className: styles$2.column, children: /* @__PURE__ */ jsx("div", { className: styles$2.polaroidContainer, "data-visible": visible2, children: /* @__PURE__ */ jsx(PolaroidImage$1, { rotation: 10, imageUrl: steveImage, caption: "Steve at Mt. Woodson" }) }) })
+        /* @__PURE__ */ jsx("div", { className: styles$2.column, children: /* @__PURE__ */ jsx("div", { className: styles$2.polaroidContainer, "data-visible": visible2, children: /* @__PURE__ */ jsx(PolaroidImage, { rotation: 10, imageUrl: steveImage, caption: "Steve at Mt. Woodson" }) }) })
       ] }) })
     }
   );
 };
-const forensics = "_forensics_1ls5a_1";
-const backgroundImage = "_backgroundImage_1ls5a_69";
-const gradient = "_gradient_1ls5a_137";
-const title$1 = "_title_1ls5a_209";
-const description$1 = "_description_1ls5a_229";
-const tag = "_tag_1ls5a_249";
-const tagText = "_tagText_1ls5a_279";
-const image = "_image_1ls5a_323";
-const svg$1 = "_svg_1ls5a_333";
-const button$1 = "_button_1ls5a_365";
-const table = "_table_1ls5a_385";
+const forensics = "_forensics_duw7d_1";
+const backgroundImage = "_backgroundImage_duw7d_69";
+const gradient = "_gradient_duw7d_119";
+const title$1 = "_title_duw7d_205";
+const description$1 = "_description_duw7d_225";
+const tag = "_tag_duw7d_245";
+const tagText = "_tagText_duw7d_273";
+const image = "_image_duw7d_315";
+const svg$1 = "_svg_duw7d_325";
+const button$1 = "_button_duw7d_357";
+const table = "_table_duw7d_377";
+const row = "_row_duw7d_401";
+const head = "_head_duw7d_421";
 const styles$1 = {
   forensics,
   backgroundImage,
@@ -2010,22 +1994,26 @@ const styles$1 = {
   image,
   svg: svg$1,
   button: button$1,
-  table
+  table,
+  row,
+  head
 };
-const banner$1 = "/assets/forensics-CO8IM2gH.jpg";
+const banner$1 = "/assets/forensics-BG1I8zbC.svg";
+const bannerFull = "/assets/forensicsfull-BMsHZvXT.svg";
+const bannerPlaceholder = "/assets/forensics-placeholder-C_kyHeZN.svg";
 const ForensicsText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
   /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 3, weight: "light", id: titleId, children: "Crime Scene Investigator and Firearms Examiner" }),
-  /* @__PURE__ */ jsxs(Table, { "data-visible": visible, children: [
-    /* @__PURE__ */ jsxs(TableRow, { children: [
+  /* @__PURE__ */ jsxs(Table, { className: styles$1.table, "data-visible": visible, children: [
+    /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Previous Employers" }) }),
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { href: "https://www.sdsheriff.gov", children: "San Diego County Sheriff's Department" }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { href: "https://gfjc.fiu.edu/", children: "FIU Global Forensic Science and Justice Center" }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { href: "https://www.azdps.gov/", children: "Arizona Department of Public Safety" }) }),
-        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { href: "https://www.oag.ca.gov/", children: "California Department of Justice" }) })
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.sdsheriff.gov", children: "San Diego County Sheriff's Department" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://gfjc.fiu.edu/", children: "FIU Global Forensic Science and Justice Center" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.azdps.gov/", children: "Arizona Department of Public Safety" }) }),
+        /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://www.oag.ca.gov/", children: "California Department of Justice" }) })
       ] }) })
     ] }),
-    /* @__PURE__ */ jsxs(TableRow, { children: [
+    /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Forensic Experience" }) }),
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
         /* @__PURE__ */ jsx(ListItem, { children: "Forensic Biology" }),
@@ -2036,7 +2024,7 @@ const ForensicsText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1,
         /* @__PURE__ */ jsx(ListItem, { children: "Crime Scene and Shooting Incident Reconstruction" })
       ] }) })
     ] }),
-    /* @__PURE__ */ jsxs(TableRow, { children: [
+    /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Testimony Experience" }) }),
       /* @__PURE__ */ jsxs(TableCell, { children: [
         /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "Qualified Subjects" }),
@@ -2088,24 +2076,29 @@ const Forensics = ({ id, visible, sectionRef }) => {
           /* @__PURE__ */ jsx(
             Image$1,
             {
-              src: banner$1,
-              placeholder: `${banner$1.split(".")[0]}-placeholder.jpg`,
+              src: bannerFull,
+              srcSet: `${banner$1} 768w, ${bannerFull} 1440w`,
+              placeholder: bannerPlaceholder,
+              width: 1440,
+              height: 800,
+              sizes: `(max-width: 768px) 100vw, 1440px`,
+              loading: "eager",
               alt: "Forensics banner"
             }
           ),
-          /* @__PURE__ */ jsx("div", { className: styles$1.gradient })
+          /* @__PURE__ */ jsx("div", { className: styles$1.gradient, "data-visible": visible2 })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: styles$1.tag, "aria-hidden": true, children: [
           /* @__PURE__ */ jsx(
             Divider,
             {
-              notchWidth: "64px",
+              notchWidth: "50%",
               notchHeight: "8px",
               collapsed: !visible2,
               collapseDelay: 1e3
             }
           ),
-          /* @__PURE__ */ jsx(InViewport$1, { children: (inViewport) => {
+          /* @__PURE__ */ jsx(InViewport, { children: (inViewport) => {
             useEffect(() => {
               if (inViewport) {
                 setIsInViewport(true);
@@ -2114,8 +2107,8 @@ const Forensics = ({ id, visible, sectionRef }) => {
             return /* @__PURE__ */ jsx("div", { className: styles$1.tagText, "data-visible": visible2, children: isInViewport && /* @__PURE__ */ jsx(
               DecoderText,
               {
-                text: "Forensics",
-                delay: 1400
+                text: "Forensic Experience",
+                delay: 1600
               }
             ) });
           } })
@@ -2151,7 +2144,12 @@ const styles = {
   button,
   divider
 };
-const bannerPlaceholder = "/assets/banner-placeholder-DSrzNYX_.png";
+const csiceoBanner = "/assets/csiceo-DDNyCHW0.svg";
+const csiceoPlaceholder = "/assets/csiceo-placeholder-CLGMRRSO.svg";
+const webdevBanner = "/assets/webdev-CEWC20A0.svg";
+const webdevPlaceholder = "/assets/webdev-placeholder-CYyT73H-.svg";
+const musicBanner = "/assets/music-CQQZ7x7i.svg";
+const musicPlaceholder = "/assets/music-placeholder-CyI-NPm-.svg";
 function Projects({
   id,
   sectionRef,
@@ -2171,16 +2169,30 @@ function Projects({
   const titleId = `${id}-title`;
   const isMobile = width.w <= media.tablet;
   const indexText = index2 < 10 ? `0${index2}` : index2;
-  function renderBanner({ visible }) {
+  const imageMap = {
+    csiceo: {
+      src: csiceoBanner,
+      placeholder: csiceoPlaceholder
+    },
+    webdev: {
+      src: webdevBanner,
+      placeholder: webdevPlaceholder
+    },
+    music: {
+      src: musicBanner,
+      placeholder: musicPlaceholder
+    }
+  };
+  function renderBanner({ id: id2, visible }) {
+    const { src, placeholder: placeholder2 } = imageMap[id2] || {};
     return /* @__PURE__ */ jsx("div", { className: styles.banner, "data-visible": visible, children: /* @__PURE__ */ jsx(
       Image$1,
       {
         reveal: true,
         delay: 300,
-        placeholder: bannerPlaceholder,
-        src: bannerImage,
+        src,
+        placeholder: placeholder2,
         alt: "Project banner",
-        width: 600,
         height: 300,
         style: { objectFit: "cover" }
       }
@@ -2230,14 +2242,14 @@ function Projects({
       tabIndex: -1,
       ...rest,
       children: /* @__PURE__ */ jsxs("div", { className: styles.content, children: [
-        /* @__PURE__ */ jsx(Transition, { in: sectionVisible || focused, unmount: false, children: (props) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
+        /* @__PURE__ */ jsx(Transition, { in: sectionVisible || focused, unmount: false, children: ({ visible }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
           !alternate && !isMobile && /* @__PURE__ */ jsxs(Fragment$1, { children: [
-            renderDetails({ visible: props.visible }),
-            renderBanner({ visible: props.visible, bannerImage: props.bannerImage })
+            renderDetails({ visible }),
+            id && renderBanner({ id, visible })
           ] }),
           (alternate || isMobile) && /* @__PURE__ */ jsxs(Fragment$1, { children: [
-            renderBanner({ visible: props.visible, bannerImage: props.bannerImage }),
-            renderDetails({ visible: props.visible })
+            id && renderBanner({ id, visible }),
+            renderDetails({ visible })
           ] })
         ] }) }),
         /* @__PURE__ */ jsx("div", { className: styles.divider, children: /* @__PURE__ */ jsx(Divider, {}) })
@@ -2245,27 +2257,23 @@ function Projects({
     }
   );
 }
-const webDevImage = "/assets/web-dev-cropped-CqgC9GYc.png";
-const csiCEOImage = "/assets/csi-ceo-OCBHHBWz.png";
-const musicImage = "/assets/music-PLXlTp04.png";
 const Page = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const home2 = useRef(null);
   const forensics2 = useRef(null);
-  const webDev = useRef(null);
-  const csiCEO = useRef(null);
+  const webdev = useRef(null);
+  const csiceo = useRef(null);
   const music = useRef(null);
   useEffect(() => {
-    const sections = [home2, forensics2, webDev, csiCEO, music];
+    const sections = [home2, forensics2, webdev, csiceo, music];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry2) => {
           if (entry2.isIntersecting) {
             const section2 = entry2.target;
             observer.unobserve(section2);
-            if (visibleSections.includes(section2))
-              return;
+            if (visibleSections.includes(section2)) return;
             setVisibleSections((prevSections) => [...prevSections, section2]);
           }
         });
@@ -2300,27 +2308,25 @@ const Page = () => {
     /* @__PURE__ */ jsx(
       Projects,
       {
-        id: "web-dev",
-        sectionRef: webDev,
-        visible: visibleSections.includes(webDev.current),
+        id: "webdev",
+        sectionRef: webdev,
+        visible: visibleSections.includes(webdev.current),
         index: 1,
         title: "Web Design and Development for the Public Good",
         buttonText: "View Projects",
-        buttonLink: "/projects/web-dev",
-        bannerImage: webDevImage
+        buttonLink: "/projects/webdev"
       }
     ),
     /* @__PURE__ */ jsx(
       Projects,
       {
-        id: "csi-ceo",
-        sectionRef: csiCEO,
-        visible: visibleSections.includes(csiCEO.current),
+        id: "csiceo",
+        sectionRef: csiceo,
+        visible: visibleSections.includes(csiceo.current),
         index: 2,
         title: "CSI to CEO: What the Dead Can Teach Us About Life and Leadership",
         buttonText: "Book Website",
-        buttonLink: "https://www.CSItoCEO.com",
-        bannerImage: csiCEOImage
+        buttonLink: "https://www.CSItoCEO.com"
       }
     ),
     /* @__PURE__ */ jsx(
@@ -2332,8 +2338,7 @@ const Page = () => {
         index: 3,
         title: "Music & Electronic Production",
         buttonText: "Listen In",
-        buttonLink: "/projects/music",
-        bannerImage: musicImage
+        buttonLink: "/projects/music"
       }
     ),
     /* @__PURE__ */ jsx(
@@ -2350,11 +2355,11 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BHLZ9vok.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/loader-D2nc6Yc1.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BfFBgb1r.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Bbt2vOsg.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-D2nc6Yc1.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-qomesIfC.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-Bbt2vOsg.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-TWCdCk-N.js", "/assets/link-B4wG9071.js", "/assets/loader-D2nc6Yc1.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/loader-BFaiECiV.css", "/assets/route-qomesIfC.css"] } }, "url": "/assets/manifest-b5c9ee26.js", "version": "b5c9ee26" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-CHYELu7_.js", "imports": ["/assets/components-CiVcszop.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-DFPM2t5V.js", "imports": ["/assets/components-CiVcszop.js", "/assets/loader-CY4_5UF9.js", "/assets/config-CJRWHsGV.js"], "css": ["/assets/root-CYGtV11H.css", "/assets/loader-fIZL14-t.css", "/assets/config-BVfzfjJQ.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-VIVidomm.js", "imports": ["/assets/components-CiVcszop.js", "/assets/config-CJRWHsGV.js", "/assets/link-DNzIUJc9.js"], "css": ["/assets/route-ex8QkAGm.css", "/assets/config-BVfzfjJQ.css", "/assets/link-BUHPIruz.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-fHiBBTW0.js", "imports": ["/assets/components-CiVcszop.js", "/assets/config-CJRWHsGV.js", "/assets/link-DNzIUJc9.js", "/assets/loader-CY4_5UF9.js"], "css": ["/assets/route-CLbvzT6X.css", "/assets/config-BVfzfjJQ.css", "/assets/link-BUHPIruz.css", "/assets/loader-fIZL14-t.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-fHiBBTW0.js", "imports": ["/assets/components-CiVcszop.js", "/assets/config-CJRWHsGV.js", "/assets/link-DNzIUJc9.js", "/assets/loader-CY4_5UF9.js"], "css": ["/assets/route-CLbvzT6X.css", "/assets/config-BVfzfjJQ.css", "/assets/link-BUHPIruz.css", "/assets/loader-fIZL14-t.css"] } }, "url": "/assets/manifest-7561d18c.js", "version": "7561d18c" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
-const future = { "v3_fetcherPersist": false, "v3_relativeSplatPath": false, "v3_throwAbortReason": false };
+const future = { "v3_fetcherPersist": true, "v3_relativeSplatPath": true, "v3_throwAbortReason": true, "v3_routeConfig": false, "v3_singleFetch": true, "v3_lazyRouteDiscovery": true, "unstable_optimizeDeps": false };
 const isSpaMode = false;
 const publicPath = "/";
 const entry = { module: entryServer };
