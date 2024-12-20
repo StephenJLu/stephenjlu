@@ -45,8 +45,7 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
           placeholder={bannerPlaceholder}
           width={1440}
           height={800}
-          sizes={`(max-width: 768px) 100vw, 1440px`}          
-          loading="eager" 
+          sizes={`(max-width: 768px) 100vw, 1440px`}                     
           alt="Research banner"                    
         />
         <div className={styles.gradient} data-visible={visible}/>
