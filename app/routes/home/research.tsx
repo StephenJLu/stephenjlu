@@ -52,8 +52,7 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
         <div className={styles.gradient} data-visible={visible}/>
       </div>
               <div className={styles.tag} aria-hidden>
-                <Divider                  
-                  notchWidth="20%"
+                <Divider                                    
                   notchHeight="8px"
                   collapsed={!visible}
                   collapseDelay={1000}
