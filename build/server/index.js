@@ -1837,7 +1837,7 @@ function baseMeta({
     { property: "twitter:image", content: ogImage }
   ];
 }
-const webdev = "_webdev_50lcz_2";
+const webdev = "_webdev_npkcz_3";
 const styles$b = {
   webdev
 };
@@ -2132,14 +2132,14 @@ const styles$8 = {
   button: button$5,
   divider: divider$1
 };
-const legacyBanner = "/assets/legacy-9Yq3tR8c.svg";
-const legacyPlaceholder = "/assets/legacy-placeholder-CFlRJt2l.svg";
-const fltcBanner = "/assets/fltc-C26-_Mn1.svg";
-const fltcPlaceholder = "/assets/fltc-placeholder-63bspvuf.svg";
-const alsBanner = "/assets/als-AI27geVN.svg";
-const alsPlaceholder = "/assets/als-placeholder-CXLP6RAC.svg";
-const cacBanner = "/assets/cac-CfkOuS71.svg";
-const cacPlaceholder = "/assets/cac-placeholder-K7OtTqLw.svg";
+const legacyBanner = "/assets/legacy-B2cRY3Yk.svg";
+const legacyPlaceholder = "/assets/legacy-placeholder-C3NsgF55.svg";
+const fltcBanner = "/assets/fltc-BeP3iWW3.svg";
+const fltcPlaceholder = "/assets/fltc-placeholder-DpiA1-7s.svg";
+const alsBanner = "/assets/als-C2M-GuRG.svg";
+const alsPlaceholder = "/assets/als-placeholder-BEGoyOQJ.svg";
+const cacBanner = "/assets/cac-DHNT9box.svg";
+const cacPlaceholder = "/assets/cac-placeholder-DYL44oLd.svg";
 function Projects$1({
   id,
   sectionRef,
@@ -2369,7 +2369,7 @@ const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: WebDev,
   meta: meta$2
 }, Symbol.toStringTag, { value: "Module" }));
-const page$2 = "_page_dcraf_2";
+const page$2 = "_page_r1kpb_3";
 const styles$7 = {
   page: page$2
 };
@@ -2870,9 +2870,9 @@ const styles$1 = {
   row,
   head
 };
-const banner$1 = "/assets/research-D9ZYtUFp.svg";
-const bannerFull = "/assets/researchfull-yA6gDBN9.svg";
-const bannerPlaceholder = "/assets/research-placeholder-BWQKBM3g.svg";
+const banner$1 = "/assets/research-DdN-355Y.svg";
+const bannerFull = "/assets/researchfull-1R7wOA9B.svg";
+const bannerPlaceholder = "/assets/research-placeholder-BHydLhzi.svg";
 const publicCV = "/docs/sjlu-public-cv.pdf";
 const nihPoster = "/docs/nih-poster.pdf";
 const ResearchText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
@@ -2932,7 +2932,7 @@ const ResearchText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, 
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
         /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
           'Lu, Stephen J., James E. Pennington, April R. Stonehouse, Meta M. Mobula, and Michael A. Wells. "Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti." Insect Biochemistry and Molecular Biology 36, no. 4 (2006): 336-343. ',
-          /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://doi.org/10.1016/j.ibmb.2006.01.011/", children: "https://doi.org/10.1016/j.ibmb.2006.01.011." })
+          /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://doi.org/10.1016/j.ibmb.2006.01.011", children: "https://doi.org/10.1016/j.ibmb.2006.01.011." })
         ] }) }),
         /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { children: [
           'Lu, Stephen J., Nancy Dwyer, Marcy Comply, and E. Joan Blanchette-Mackie. "Neutral Lipid Trafficking Differentiates Niemann-Pick C (NPC) 1 from NPC2 Mutant Fibroblasts." Poster. Section of Lipid Cell Biology/LCBB, NIDDK, National Institutes of Health, Bethesda, MD. ',
@@ -3283,7 +3283,7 @@ const route5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-D5XxuwUj.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/projects.webdev": { "id": "routes/projects.webdev", "parentId": "root", "path": "projects/webdev", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BQxDG18A.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/meta-B6cC3Xm-.js", "/assets/webdev-placeholder-DpKHFYfW.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-CvAEhiZa.css"] }, "routes/projectsmusic": { "id": "routes/projectsmusic", "parentId": "root", "path": "projectsmusic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BF4Gf6iZ.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/meta-B6cC3Xm-.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-Cm4p5XsY.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BJlKLMWz.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/meta-B6cC3Xm-.js", "/assets/link-DwYPKvqO.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DGmO5nhJ.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-QgoCOfQm.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DGmO5nhJ.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-QgoCOfQm.css"] } }, "url": "/assets/manifest-dff3599e.js", "version": "dff3599e" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-D5XxuwUj.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/projects.webdev": { "id": "routes/projects.webdev", "parentId": "root", "path": "projects/webdev", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-6BXAK_3M.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/meta-B6cC3Xm-.js", "/assets/webdev-placeholder-DpKHFYfW.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-CiTWYs4v.css"] }, "routes/projectsmusic": { "id": "routes/projectsmusic", "parentId": "root", "path": "projectsmusic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DWUqFO1v.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/meta-B6cC3Xm-.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-CZZ0NCXn.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BJlKLMWz.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/meta-B6cC3Xm-.js", "/assets/link-DwYPKvqO.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CdoyHmbI.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-QgoCOfQm.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-CdoyHmbI.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-QgoCOfQm.css"] } }, "url": "/assets/manifest-42fbfda2.js", "version": "42fbfda2" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
