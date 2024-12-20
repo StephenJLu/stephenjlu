@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Section, DecoderText, Transition,
    Divider, InViewport, Image } from '../../components/Components';   
 import styles from './forensics.module.css';
-import banner from 'app/static/images/forensics.svg';
-import bannerFull from 'app/static/images/forensicsfull.svg';
+import banner from 'app/static/images/forensics.png';
+import bannerFull from 'app/static/images/forensicsfull.png';
 import bannerPlaceholder from 'app/static/images/forensics-placeholder.svg';
 import { default as ForensicsText } from './ForensicsText';
 
@@ -40,19 +40,19 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
           {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
             <>
             <div className={styles.backgroundImage} data-visible={visible} ref={nodeRef}>
-        <Image                    
+         <Image                    
           src={bannerFull}          
           srcSet={`${banner} 768w, ${bannerFull} 1440w`}
           placeholder={bannerPlaceholder}
-          width={1440}
+          width={1471}
           height={800}
-          sizes={`(max-width: 768px) 100vw, 1440px`}                     
+          sizes={`(max-width: 1471px) 100vw, 1440px`}                     
           alt="Forensics banner"
           role="presentation"
           loading="lazy"
+          loaded={visible}
           onLoad={() => console.log('Forensics banner loaded.')}
-  onError={() => console.error('Failed to load Forensics banner image.')}
-                    
+          onError={() => console.error('Failed to load Forensics banner image.')}
         />
         <div className={styles.gradient} data-visible={visible}/>
       </div>                     

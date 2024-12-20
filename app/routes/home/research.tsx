@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Section, DecoderText, Transition, Divider, InViewport, Image, Button } from '../../components/Components';   
 import styles from './research.module.css';
-import banner from 'app/static/images/research.svg';
-import bannerFull from 'app/static/images/researchfull.svg';
+import banner from 'app/static/images/research.png';
+import bannerFull from 'app/static/images/researchfull.png';
 import bannerPlaceholder from 'app/static/images/research-placeholder.svg';
 import publicCV from '/docs/sjlu-public-cv.pdf';
 import ResearchText from './ResearchText';
@@ -43,10 +43,15 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
           src={bannerFull}          
           srcSet={`${banner} 768w, ${bannerFull} 1440w`}
           placeholder={bannerPlaceholder}
-          width={1440}
+          width={1471}
           height={800}
-          sizes={`(max-width: 768px) 100vw, 1440px`}                     
-          alt="Research banner"                    
+          sizes={`(max-width: 1471px) 100vw, 1440px`}                     
+          alt="Research banner"
+          role="presentation"
+          loading="lazy"
+          loaded={visible}
+          onLoad={() => console.log('Research banner loaded.')}
+          onError={() => console.error('Failed to load Research banner image.')}
         />
         <div className={styles.gradient} data-visible={visible}/>
       </div>
