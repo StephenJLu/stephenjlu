@@ -1379,15 +1379,15 @@ const ListItem = ({
 }) => {
   return /* @__PURE__ */ jsx("li", { className: styles$j.item, ...rest, children });
 };
-const table$3 = "_table_1bqvi_3";
-const row$3 = "_row_1bqvi_13";
-const head$3 = "_head_1bqvi_31";
+const table$1 = "_table_1bqvi_3";
+const row$1 = "_row_1bqvi_13";
+const head$1 = "_head_1bqvi_31";
 const headCell = "_headCell_1bqvi_41";
 const cell = "_cell_1bqvi_51";
 const styles$i = {
-  table: table$3,
-  row: row$3,
-  head: head$3,
+  table: table$1,
+  row: row$1,
+  head: head$1,
   headCell,
   cell
 };
@@ -1952,9 +1952,9 @@ const tagText$4 = "_tagText_5d9g7_139";
 const image$4 = "_image_5d9g7_181";
 const svg$6 = "_svg_5d9g7_191";
 const button$6 = "_button_5d9g7_223";
-const table$2 = "_table_5d9g7_243";
-const row$2 = "_row_5d9g7_267";
-const head$2 = "_head_5d9g7_287";
+const table = "_table_5d9g7_243";
+const row = "_row_5d9g7_267";
+const head = "_head_5d9g7_287";
 const styles$9 = {
   content: content$4,
   title: title$6,
@@ -1964,9 +1964,9 @@ const styles$9 = {
   image: image$4,
   svg: svg$6,
   button: button$6,
-  table: table$2,
-  row: row$2,
-  head: head$2
+  table,
+  row,
+  head
 };
 const ContentText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, { children: [
   /* @__PURE__ */ jsxs(List, { className: styles$9.description, "data-visible": visible, size: "l", as: "ul", children: [
@@ -2680,19 +2680,16 @@ const Home = ({ id, visible, sectionRef }) => {
     }
   );
 };
-const forensics = "_forensics_duw7d_1";
-const backgroundImage$1 = "_backgroundImage_duw7d_69";
-const gradient$1 = "_gradient_duw7d_119";
-const title$2 = "_title_duw7d_205";
-const description$2 = "_description_duw7d_225";
-const tag$1 = "_tag_duw7d_245";
-const tagText$1 = "_tagText_duw7d_273";
-const image$1 = "_image_duw7d_315";
-const svg$2 = "_svg_duw7d_325";
-const button$2 = "_button_duw7d_357";
-const table$1 = "_table_duw7d_377";
-const row$1 = "_row_duw7d_401";
-const head$1 = "_head_duw7d_421";
+const forensics = "_forensics_6jd6m_1";
+const backgroundImage$1 = "_backgroundImage_6jd6m_69";
+const gradient$1 = "_gradient_6jd6m_119";
+const title$2 = "_title_6jd6m_205";
+const description$2 = "_description_6jd6m_227";
+const tag$1 = "_tag_6jd6m_249";
+const tagText$1 = "_tagText_6jd6m_277";
+const image$1 = "_image_6jd6m_319";
+const svg$2 = "_svg_6jd6m_329";
+const button$2 = "_button_6jd6m_361";
 const styles$2 = {
   forensics,
   backgroundImage: backgroundImage$1,
@@ -2703,10 +2700,7 @@ const styles$2 = {
   tagText: tagText$1,
   image: image$1,
   svg: svg$2,
-  button: button$2,
-  table: table$1,
-  row: row$1,
-  head: head$1
+  button: button$2
 };
 const banner$2 = "/assets/forensics-Dot-pZsZ.svg";
 const bannerFull$1 = "/assets/forensicsfull-kQrgwl1a.svg";
@@ -2842,19 +2836,16 @@ const Forensics = ({ id, visible, sectionRef }) => {
     }
   );
 };
-const research = "_research_cwgmt_1";
-const backgroundImage = "_backgroundImage_cwgmt_69";
-const gradient = "_gradient_cwgmt_119";
-const title$1 = "_title_cwgmt_205";
-const description$1 = "_description_cwgmt_225";
-const tag = "_tag_cwgmt_245";
-const tagText = "_tagText_cwgmt_273";
-const image = "_image_cwgmt_315";
-const svg$1 = "_svg_cwgmt_325";
-const button$1 = "_button_cwgmt_357";
-const table = "_table_cwgmt_377";
-const row = "_row_cwgmt_401";
-const head = "_head_cwgmt_421";
+const research = "_research_11axz_1";
+const backgroundImage = "_backgroundImage_11axz_69";
+const gradient = "_gradient_11axz_119";
+const title$1 = "_title_11axz_205";
+const description$1 = "_description_11axz_227";
+const tag = "_tag_11axz_247";
+const tagText = "_tagText_11axz_275";
+const image = "_image_11axz_317";
+const svg$1 = "_svg_11axz_327";
+const button$1 = "_button_11axz_359";
 const styles$1 = {
   research,
   backgroundImage,
@@ -2865,13 +2856,10 @@ const styles$1 = {
   tagText,
   image,
   svg: svg$1,
-  button: button$1,
-  table,
-  row,
-  head
+  button: button$1
 };
-const banner$1 = "/assets/research-DdN-355Y.svg";
-const bannerFull = "/assets/researchfull-1R7wOA9B.svg";
+const banner$1 = "/assets/research-BYwDMDrQ.svg";
+const bannerFull = "/assets/researchfull-D3ijD9hg.svg";
 const bannerPlaceholder = "/assets/research-placeholder-BHydLhzi.svg";
 const publicCV = "/docs/sjlu-public-cv.pdf";
 const nihPoster = "/docs/nih-poster.pdf";
@@ -2907,7 +2895,7 @@ const ResearchText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, 
     /* @__PURE__ */ jsxs(TableRow, { className: styles$1.row, "data-visible": visible, children: [
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Primary Investigators and Lead Research Teams" }) }),
       /* @__PURE__ */ jsxs(TableCell, { children: [
-        /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "University of Arizona Department of Biochemistry and Molecular Biophysics" }),
+        /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "University of Arizona" }),
         /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
           /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx("b", { children: "Dr. Michael A. Wells" }) }) }),
           /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "James E. Pennington" }) }),
@@ -2916,7 +2904,7 @@ const ResearchText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, 
           /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Linda M. Mobula" }) }),
           /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Michelle C. Hines" }) })
         ] }),
-        /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "National Institute of Diabetes and Digestive and Kidney Diseases" }),
+        /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 5, weight: "thin", children: "NIH/NIDDK" }),
         /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
           /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: /* @__PURE__ */ jsx("b", { children: "Dr. E. Joan Blanchette-Mackie" }) }) }),
           /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsx(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: "Peter Pentchev" }) }),
@@ -2931,11 +2919,13 @@ const ResearchText = ({ visible, titleId }) => /* @__PURE__ */ jsxs(Fragment$1, 
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsx(Heading, { className: styles$1.title, "data-visible": visible, level: 4, weight: "regular", children: "Publications" }) }),
       /* @__PURE__ */ jsx(TableCell, { children: /* @__PURE__ */ jsxs(List, { className: styles$1.description, "data-visible": visible, size: "l", as: "ul", children: [
         /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: [
-          'Lu, Stephen J., James E. Pennington, April R. Stonehouse, Meta M. Mobula, and Michael A. Wells. "Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti." Insect Biochemistry and Molecular Biology 36, no. 4 (2006): 336-343. ',
-          /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://doi.org/10.1016/j.ibmb.2006.01.011", children: "https://doi.org/10.1016/j.ibmb.2006.01.011." })
+          "Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti",
+          /* @__PURE__ */ jsx("br", {}),
+          /* @__PURE__ */ jsx(Link, { secondary: true, href: "https://doi.org/10.1016/j.ibmb.2006.01.011", children: "Journal Link" })
         ] }) }),
         /* @__PURE__ */ jsx(ListItem, { children: /* @__PURE__ */ jsxs(Text, { className: styles$1.description, "data-visible": visible, size: "l", children: [
-          'Lu, Stephen J., Nancy Dwyer, Marcy Comply, and E. Joan Blanchette-Mackie. "Neutral Lipid Trafficking Differentiates Niemann-Pick C (NPC) 1 from NPC2 Mutant Fibroblasts." Poster. Section of Lipid Cell Biology/LCBB, NIDDK, National Institutes of Health, Bethesda, MD. ',
+          "Neutral Lipid Trafficking Differentiates Niemann-Pick C (NPC) 1 from NPC2 Mutant Fibroblasts",
+          /* @__PURE__ */ jsx("br", {}),
           /* @__PURE__ */ jsx(Link, { secondary: true, href: nihPoster, target: "_blank", rel: "noopener noreferrer", download: true, children: "Download Poster" })
         ] }) })
       ] }) })
@@ -2998,7 +2988,7 @@ const Research = ({ id, visible, sectionRef }) => {
               src: bannerFull,
               srcSet: `${banner$1} 768w, ${bannerFull} 1440w`,
               placeholder: bannerPlaceholder,
-              width: 1067,
+              width: 1440,
               height: 800,
               sizes: `(max-width: 768px) 100vw, 1440px`,
               loading: "eager",
@@ -3283,7 +3273,7 @@ const route5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: Page
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-D5XxuwUj.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/projects.webdev": { "id": "routes/projects.webdev", "parentId": "root", "path": "projects/webdev", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B4_mg1pd.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/meta-B6cC3Xm-.js", "/assets/webdev-placeholder-DpKHFYfW.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-DLaUjEJ4.css"] }, "routes/projectsmusic": { "id": "routes/projectsmusic", "parentId": "root", "path": "projectsmusic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DWUqFO1v.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/meta-B6cC3Xm-.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-CZZ0NCXn.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BJlKLMWz.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/meta-B6cC3Xm-.js", "/assets/link-DwYPKvqO.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-peWyiDfY.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-QgoCOfQm.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-peWyiDfY.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-QgoCOfQm.css"] } }, "url": "/assets/manifest-4111c915.js", "version": "4111c915" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-BF17NoGw.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-D5XxuwUj.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/root-B87oRh0L.css"] }, "routes/projects.webdev": { "id": "routes/projects.webdev", "parentId": "root", "path": "projects/webdev", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-B4_mg1pd.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/meta-B6cC3Xm-.js", "/assets/webdev-placeholder-DpKHFYfW.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-DLaUjEJ4.css"] }, "routes/projectsmusic": { "id": "routes/projectsmusic", "parentId": "root", "path": "projectsmusic", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-DWUqFO1v.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/meta-B6cC3Xm-.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/route-CZZ0NCXn.css"] }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BJlKLMWz.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/meta-B6cC3Xm-.js", "/assets/link-DwYPKvqO.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/route-UoUCyV_o.css"] }, "routes/home": { "id": "routes/home", "parentId": "root", "path": "home", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BvDOkZh0.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-5Zb919CZ.css"] }, "routes/home/route": { "id": "routes/home/route", "parentId": "root", "path": "/", "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/route-BvDOkZh0.js?client-route=1", "imports": ["/assets/components-BRXnhjxE.js", "/assets/config-rBykOrRa.js", "/assets/transition-BNkJdlDQ.js", "/assets/loader-4Z8Igpvp.js", "/assets/steve-BcqYwcgk.js", "/assets/link-DwYPKvqO.js", "/assets/divider-phVp3xnl.js", "/assets/webdev-placeholder-DpKHFYfW.js"], "css": ["/assets/config-DcSU-yMW.css", "/assets/link-BLaSEycy.css", "/assets/divider-qpeatE-I.css", "/assets/loader-BFaiECiV.css", "/assets/webdev-placeholder-BpTw0Y9m.css", "/assets/route-5Zb919CZ.css"] } }, "url": "/assets/manifest-679e047f.js", "version": "679e047f" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
