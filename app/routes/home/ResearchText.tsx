@@ -1,4 +1,4 @@
-import { Heading, Text, Table, TableRow, TableCell, List, ListItem, Link } from '../../components/Components';
+import { Heading, Text, Table, TableHead, TableBody, TableRow, List, ListItem, Link } from '../../components/Components';
 import styles from './research.module.css';
 import nihPoster from '/docs/nih-poster.pdf';
 
@@ -7,25 +7,25 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
     <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Insect Biochemistry and Human Cell Biology</Heading>
     <Table className={styles.table} data-visible={visible}>
   <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableHead>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Previous Employers</Heading>
-    </TableCell>
+    </TableHead>
     </TableRow>
     <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableBody>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.nih.gov/'}>National Institutes of Health</Link></Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.arizona.edu/'}>University of Arizona</Link></Text></ListItem>        
       </List>
-    </TableCell>
+    </TableBody>
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableHead>    
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Areas of Research</Heading>
-    </TableCell>
+        </TableHead>
     </TableRow>
     <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableBody>
       <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>Insect Biology and Biochemistry</Heading>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Fat Metabolism</Text></ListItem>
@@ -41,15 +41,15 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Neutral Lipid Trafficking</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Fluorescent Microscopy</Text></ListItem>
       </List>
-    </TableCell>
+    </TableBody>
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableHead>    
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Primary Investigators and Lead Research Teams</Heading>
-    </TableCell>
+        </TableHead>
     </TableRow>
     <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableBody>
       <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>University of Arizona</Heading>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>Dr. Michael A. Wells</b></Text></ListItem>
@@ -68,35 +68,35 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Marcy Comly</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Sanjay Patel</Text></ListItem>
       </List>
-    </TableCell>
+    </TableBody>
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableHead>    
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Publications</Heading>
-    </TableCell>
+        </TableHead>
     </TableRow>
     <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableBody>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti<br/><Link secondary href={'https://doi.org/10.1016/j.ibmb.2006.01.011'}>Journal Link</Link></Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Neutral Lipid Trafficking Differentiates Niemann-Pick C (NPC) 1 from NPC2 Mutant Fibroblasts<br/><Link secondary href={nihPoster} target="_blank" rel="noopener noreferrer" download>Download Poster</Link></Text></ListItem>
         </List>
-    </TableCell>
+    </TableBody>
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableHead>    
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Education and Certifications</Heading>
-    </TableCell>
+        </TableHead>
     </TableRow>
     <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableBody>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>Executive Master of Business Administration with Honors</b> — Business Administration and Management, Quantic School of Business and Technology</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>Bachelor of Science with Honors</b> — Biochemistry and Molecular Biophysics and Molecular and Cellular Biology, University of Arizona. Phi Beta Kappa, <i>magna cum laude</i></Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>Society for Human Resource Management Certified Professional</b></Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>2023 FBI San Diego Citizens' Academy</b></Text></ListItem>        
       </List>
-    </TableCell>
+    </TableBody>
   </TableRow>
 </Table>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}><br />Detailed Professional History</Heading>

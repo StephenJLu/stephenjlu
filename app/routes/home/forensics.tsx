@@ -47,7 +47,12 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
           width={1440}
           height={800}
           sizes={`(max-width: 768px) 100vw, 1440px`}                     
-          alt="Forensics banner"                    
+          alt="Forensics banner"
+          role="presentation"
+          loading="lazy"
+          onLoad={() => console.log('Forensics banner loaded.')}
+  onError={() => console.error('Failed to load Forensics banner image.')}
+                    
         />
         <div className={styles.gradient} data-visible={visible}/>
       </div>                     

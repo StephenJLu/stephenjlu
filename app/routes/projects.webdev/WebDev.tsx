@@ -95,7 +95,7 @@ export const WebDev = () => {
             sectionRef={fltc}
             visible={visibleSections.includes(fltc.current)}
             index={3}
-            title="Forensic Leaders Training Center: Flexibility in Leadeship. Trust through Consistency."
+            title="Forensic Leaders Training Center: Flexibility in Leadership. Trust through Consistency."
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/FLTC"      
             />

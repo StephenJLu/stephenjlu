@@ -1,4 +1,4 @@
-import { Heading, Text, Table, TableRow, TableCell, List, ListItem, Link } from '../../components/Components';
+import { Heading, Text, Table, TableHead, TableBody, TableRow, List, ListItem, Link } from '../../components/Components';
 import styles from './forensics.module.css';
 
 const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
@@ -6,27 +6,27 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
     <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Crime Scene Investigator and Firearms Examiner</Heading>
     <Table className={styles.table} data-visible={visible}>
   <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
-      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Previous Employers</Heading>
-    </TableCell>
+    <TableHead>    
+      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Previous Employers</Heading>    
+    </TableHead>
     </TableRow>
     <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+      <TableBody>    
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.sdsheriff.gov'}>San Diego County Sheriff's Department</Link></Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://gfjc.fiu.edu/'}>FIU Global Forensic Science and Justice Center</Link></Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.azdps.gov/'}>Arizona Department of Public Safety</Link></Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.oag.ca.gov/'}>California Department of Justice</Link></Text></ListItem>
       </List>
-    </TableCell>
+       </TableBody>
     </TableRow>  
   <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableHead>    
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Forensic Experience</Heading>
-    </TableCell>
+        </TableHead>
     </TableRow>
     <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+            <TableBody>    
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Forensic Biology</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Forensic Firearms Analysis</Text></ListItem>
@@ -35,17 +35,17 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Trajectory Analysis</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Crime Scene and Shooting Incident Reconstruction</Text></ListItem>
       </List>
-    </TableCell>    
+        </TableBody>   
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableHead>          
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
         Testimony Experience
       </Heading>
-    </TableCell>
+        </TableHead>
     </TableRow>
     <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+      <TableBody>    
       <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>Qualified Subjects</Heading>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Forensic Biology</Text></ListItem>
@@ -56,24 +56,24 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>State</b>: Arizona and California</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>Federal</b>: U.S. District Court for the Central District of California</Text></ListItem>
-      </List>
-    </TableCell>
+      </List>    
+    </TableBody>
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+    <TableHead>    
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
         Publications
       </Heading>
-    </TableCell>
+        </TableHead>
     </TableRow>
     <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
+            <TableBody>    
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Lu, Stephen J. "The Cultural Context of Forensic Laboratories in California." The CACNews, Summer 2023, August 29, 2023.</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Lu, Stephen J. and Olivia A. Mendoza. "On a Mission to Improve Leadership in Forensics" Catalyst Magazine (Tucson, AZ), December 18, 2023.</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Lu, Stephen J. 2024. CSI to CEO: What the Dead Can Teach Us About Life and Leadership. Edited by Eve Porinchak. 1st ed. San Diego: Independent.</Text></ListItem>
-        </List>
-    </TableCell>
+        </List>    
+    </TableBody>
   </TableRow>
 </Table>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}><br />Detailed Professional History</Heading>
@@ -83,7 +83,6 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
 <Text className={styles.description} data-visible={visible} size={'l'} as={'p'}>In addition to his forensic science work, Stephen served as the Regional Director South for the California Association of Criminalists (CAC), where he organized regional study groups and hosted presentations by experts, including a keynote address by Jeff Udvarhelyi, an Escondido Police Department Child Abuse Detective, on a significant child abuse case. As the Lead Webmaster for the CAC, he enhanced the organization’s public presence by overhauling its website for better communication and engagement.</Text>
 <Text className={styles.description} data-visible={visible} size={'l'} as={'p'}>Since retiring from active casework, Stephen has shifted his focus towards leadership development in forensic science. He founded the Forensic Leaders Training Center®, where he provided online leadership and management training for forensic professionals, helping them to advance their careers and improve workplace culture. Stephen's interest in leadership and public education is further reflected in his recent book, <i>CSI to CEO</i>, where he covers forensic science topics such as DNA analysis, crime scene investigation, bloodstain pattern analysis, and forensic leadership for a general audience. In 2023, Stephen had the honor of graduating from the FBI San Diego's Citizens Academy as a demonstration of his continued dedication to public service.</Text>
   </>
-
 );
 
 export default ForensicsText;
