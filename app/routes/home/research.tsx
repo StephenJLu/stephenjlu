@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Table, TableRow, TableCell, DecoderText, Transition,
    Divider, InViewport, Image, List, ListItem, Link } from '../../components/Components';   
-import styles from './forensics.module.css';
-import banner from 'app/static/images/forensics.svg';
-import bannerFull from 'app/static/images/forensicsfull.svg';
-import bannerPlaceholder from 'app/static/images/forensics-placeholder.svg';
+import styles from './research.module.css';
+import banner from 'app/static/images/research.svg';
+import bannerFull from 'app/static/images/researchfull.svg';
+import bannerPlaceholder from 'app/static/images/research-placeholder.svg';
 
-interface ForensicsProps {
+interface ResearchProps {
   id?: string;
   sectionRef?: React.RefObject<HTMLElement>;
 }
 
-interface ForensicsComponentProps extends ForensicsProps {
+interface ResearchComponentProps extends ResearchProps {
   visible: boolean;  
 }
 
-const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
+const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
   <>  
     <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Crime Scene Investigator and Firearms Examiner</Heading>
     <Table className={styles.table} data-visible={visible}>
@@ -87,17 +87,17 @@ In addition to his forensic science work, Stephen served as the Regional Directo
   </>
 
 );
-interface ForensicsComponentProps extends ForensicsProps {
+interface ResearchComponentProps extends ResearchProps {
   visible: boolean;}
 
-export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) => {  
+export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) => {  
   const [focused, setFocused] = useState(false);
   const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;  
   
   return (
     <Section       
-      className={styles.forensics}
+      className={styles.research}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}  
       as="section"
@@ -118,7 +118,7 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
           height={800}
           sizes={`(max-width: 768px) 100vw, 1440px`}          
           loading="eager" 
-          alt="Forensics banner"                    
+          alt="Research banner"                    
         />
         <div className={styles.gradient} data-visible={visible}/>
       </div>
@@ -151,7 +151,7 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
                 }}
                 </InViewport>            
               </div>
-                <ForensicsText visible={visible} titleId={titleId} />          
+                <ResearchText visible={visible} titleId={titleId} />          
           </>
         )}        
       </Transition>
