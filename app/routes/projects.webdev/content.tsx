@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Section, DecoderText, Transition,
-   Divider, InViewport, Image } from 'app/components/Components';   
+   Divider, InViewport } from 'app/components/Components';   
 import styles from './content.module.css';
 
 import { default as ContentText } from './ContentText';
@@ -55,7 +55,7 @@ export const Content = ({ id, visible, sectionRef }: ContentComponentProps) => {
                     <div className={styles.tagText} data-visible={visible}>
                       {isInViewport && (
                         <DecoderText
-                          text={'Forensic Experience'}
+                          text={'Web Development Uses'}
                           delay={1600}
                         />
                       )}

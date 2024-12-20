@@ -4,6 +4,7 @@ import styles from './webdev.module.css';
 import config from "app/config.json";
 import { Intro } from './intro';
 import { Content } from './content';
+import { Projects } from './projects';
 
 export const meta = () => {
   return baseMeta({
@@ -16,10 +17,13 @@ export const WebDev = () => {
   const [visibleSections, setVisibleSections] = useState<HTMLElement[]>([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);    
   const intro = useRef<HTMLElement>(null as unknown as HTMLElement);
-  const content = useRef<HTMLElement>(null as unknown as HTMLElement);  
+  const content = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const legacy = useRef<HTMLElement>(null as unknown as HTMLElement);  
+  const fltc = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const als = useRef<HTMLElement>(null as unknown as HTMLElement);
   
   useEffect(() => {
-    const sections = [intro, content];
+    const sections = [intro, content, legacy, fltc, als];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -66,7 +70,34 @@ export const WebDev = () => {
       id="content"
       sectionRef={content}
       visible={visibleSections.includes(content.current)}
-      />              
+      />
+      <Projects
+            id="legacy"
+            sectionRef={legacy}
+            visible={visibleSections.includes(legacy.current)}
+            index={1}
+            title="Legacy Portfolio Website"
+            buttonText="Visit Website"
+            buttonLink="https://legacy.stephenjlu.com"      
+            />
+            <Projects
+            id="fltc"
+            sectionRef={fltc}
+            visible={visibleSections.includes(fltc.current)}
+            index={2}
+            title="Forensic Leaders Training Center"
+            buttonText="GitHub Archive"
+            buttonLink="https://github.com/StephenJLu/FLTC"      
+            />
+            <Projects
+            id="als"
+            sectionRef={als}
+            visible={visibleSections.includes(als.current)}
+            index={3}
+            title="A Lasting Strength"
+            buttonText="GitHub Archive"
+            buttonLink="https://github.com/StephenJLu/A-Lasting-Strength"      
+            />         
       </div>       
   );
 };
