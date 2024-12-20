@@ -32,6 +32,15 @@
   }
 }
 
+.content {
+  width: 70%;
+  margin: 0 auto;
+
+  @media (--mediaTablet), (--mediaMobile) {
+    width: 100%
+  }
+}
+
  .backgroundImage {
   background-color: var(--background);
   position: absolute;

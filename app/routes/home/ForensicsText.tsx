@@ -9,6 +9,8 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Previous Employers</Heading>
     </TableCell>
+    </TableRow>
+    <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.sdsheriff.gov'}>San Diego County Sheriff's Department</Link></Text></ListItem>
@@ -17,11 +19,13 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.oag.ca.gov/'}>California Department of Justice</Link></Text></ListItem>
       </List>
     </TableCell>
-  </TableRow>
+    </TableRow>  
   <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Forensic Experience</Heading>
     </TableCell>
+    </TableRow>
+    <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Forensic Biology</Text></ListItem>
@@ -31,7 +35,7 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Trajectory Analysis</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Crime Scene and Shooting Incident Reconstruction</Text></ListItem>
       </List>
-    </TableCell>
+    </TableCell>    
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
@@ -39,6 +43,8 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
         Testimony Experience
       </Heading>
     </TableCell>
+    </TableRow>
+    <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>Qualified Subjects</Heading>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
@@ -59,6 +65,8 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
         Publications
       </Heading>
     </TableCell>
+    </TableRow>
+    <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Lu, Stephen J. "The Cultural Context of Forensic Laboratories in California." The CACNews, Summer 2023, August 29, 2023.</Text></ListItem>

@@ -50,6 +50,7 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
         />
         <div className={styles.gradient} data-visible={visible}/>
       </div>
+      <div className={styles.content} data-visible={visible}>
               <div className={styles.tag} aria-hidden>
                 <Divider                                    
                   notchHeight="8px"
@@ -79,7 +80,8 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
                 <ResearchText visible={visible} titleId={titleId} />
                 <Button iconHoverShift href={publicCV} target="_blank" rel="noopener noreferrer" iconEnd="copy" download>
                             {'Download CV'}
-                          </Button>          
+                          </Button>
+                          </div>          
           </>
         )}        
       </Transition>

@@ -50,9 +50,8 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
           alt="Forensics banner"                    
         />
         <div className={styles.gradient} data-visible={visible}/>
-      </div>
-                                 
-            
+      </div>                     
+            <div className={styles.content} data-visible={visible}>
               <div className={styles.tag} aria-hidden>
                 <Divider                                    
                   notchHeight="8px"
@@ -79,7 +78,8 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
                 }}
                 </InViewport>            
               </div>
-                <ForensicsText visible={visible} titleId={titleId} />          
+                <ForensicsText visible={visible} titleId={titleId} />  
+                </div>        
           </>
         )}        
       </Transition>

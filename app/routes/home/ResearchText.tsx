@@ -10,6 +10,8 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Previous Employers</Heading>
     </TableCell>
+    </TableRow>
+    <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.nih.gov/'}>National Institutes of Health</Link></Text></ListItem>
@@ -21,6 +23,8 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Areas of Research</Heading>
     </TableCell>
+    </TableRow>
+    <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>Insect Biology and Biochemistry</Heading>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
@@ -43,6 +47,8 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Primary Investigators and Lead Research Teams</Heading>
     </TableCell>
+    </TableRow>
+    <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>University of Arizona</Heading>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
@@ -68,6 +74,8 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Publications</Heading>
     </TableCell>
+    </TableRow>
+    <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito Aedes Aegypti<br/><Link secondary href={'https://doi.org/10.1016/j.ibmb.2006.01.011'}>Journal Link</Link></Text></ListItem>
@@ -79,6 +87,8 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Education and Certifications</Heading>
     </TableCell>
+    </TableRow>
+    <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
         <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>Executive Master of Business Administration with Honors</b> — Business Administration and Management, Quantic School of Business and Technology</Text></ListItem>
