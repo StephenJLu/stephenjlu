@@ -53,7 +53,7 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
       </div>
               <div className={styles.tag} aria-hidden>
                 <Divider                  
-                  notchWidth="50%"
+                  notchWidth="20%"
                   notchHeight="8px"
                   collapsed={!visible}
                   collapseDelay={1000}

@@ -56,7 +56,7 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
             
               <div className={styles.tag} aria-hidden>
                 <Divider                  
-                  notchWidth="50%"
+                  notchWidth="20%"
                   notchHeight="8px"
                   collapsed={!visible}
                   collapseDelay={1000}
