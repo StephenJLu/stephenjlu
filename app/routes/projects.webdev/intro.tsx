@@ -3,7 +3,7 @@ import { Section, Heading, Text, Link, Image,
   DecoderText, Transition, Divider, InViewport, PolaroidImage } from 'app/components/Components';
 import styles from './intro.module.css';
 import coding from './coding.jpg';
-import banner from 'app/static/images/webdev.svg';
+import banner from 'app/static/images/webdev.png';
 import bannerPlaceholder from 'app/static/images/webdev-placeholder.svg';
 
 interface IntroProps {
@@ -56,12 +56,17 @@ export const Intro = ({ id, visible, sectionRef }: IntroComponentProps) => {
             <>
 <div className={styles.backgroundImage} data-visible={visible} ref={nodeRef}>
         <Image                    
-          src={banner}
+          src={banner}                    
           placeholder={bannerPlaceholder}
-          width={1024}
-          height={450}                    
-          loading="eager" 
-          alt="WebDev banner"                    
+          width={600}
+          height={327}
+          sizes={`(max-width: 768px) 100vw, 1440px`}                     
+          alt="Research banner"
+          role="presentation"
+          loading="lazy"
+          loaded={visible}
+          onLoad={() => console.log('Webdev banner loaded.')}
+          onError={() => console.error('Failed to load Webdev banner image.')}
         />
         <div className={styles.gradient} data-visible={visible}/>
       </div>      

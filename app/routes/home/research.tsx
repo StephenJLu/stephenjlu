@@ -45,7 +45,7 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
           placeholder={bannerPlaceholder}
           width={1471}
           height={800}
-          sizes={`(max-width: 1471px) 100vw, 1440px`}                     
+          sizes={`(max-width: 768px) 100vw, 1440px`}                     
           alt="Research banner"
           role="presentation"
           loading="lazy"

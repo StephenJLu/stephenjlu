@@ -6,7 +6,7 @@ import { cssProps, media } from 'app/utils/style';
 import styles from './projects.module.css';
 import csiceoBanner from 'app/static/images/csiceo.svg';
 import csiceoPlaceholder from 'app/static/images/csiceo-placeholder.svg';
-import webdevBanner from 'app/static/images/webdev.svg';
+import webdevBanner from 'app/static/images/webdev.png';
 import webdevPlaceholder from 'app/static/images/webdev-placeholder.svg';
 import musicBanner from 'app/static/images/music.svg';
 import musicPlaceholder from 'app/static/images/music-placeholder.svg';
