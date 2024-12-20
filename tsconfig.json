@@ -24,6 +24,11 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     // Vite takes care of building everything, not tsc.
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@components/*": ["app/components/*"],
+      "@utils/*": ["app/utils/*"],
+      "@hooks/*": ["app/hooks/*"]
+    }
   },  
 }
