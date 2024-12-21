@@ -24,7 +24,7 @@ const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) =
       providing services to non-profit organizations and small businesses.
       </Text>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-      I'm currently working on this portfolio website, so please check back soon for updates and changes.
+      Welcome to my new portfolio site! Here you'll find information <Link href='/#forensics'>about me</Link>, <Link href='/#webdev'>my work</Link>, and how to <Link href='/contact'>get in touch</Link>.
      </Text>    
     <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>
      Thanks for visiting!
