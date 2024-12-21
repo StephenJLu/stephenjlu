@@ -100,7 +100,7 @@ export const Intro = ({ id, visible, sectionRef }: IntroComponentProps) => {
             </div>
               <div className={styles.column}>                        
                   <div className={styles.polaroidContainer} data-visible={visible}>
-                    <PolaroidImage rotation={-8} imageUrl={coding} caption={'Music is life'} />
+                    <PolaroidImage rotation={15} imageUrl={coding} caption={'Music is life'} />
                   </div>
               </div>            
           </div>

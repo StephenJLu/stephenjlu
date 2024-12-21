@@ -75,7 +75,7 @@ export const Music = () => {
             visible={visibleSections.includes(production.current)}
             index={1}
             title="Listen to SJL Productions on SoundCloud"
-            buttonText="Listen on SoundCloud"
+            buttonText="Visit SoundCloud"
             buttonLink="https://soundcloud.com/stephen-j-lu/sets/sjl-productions"      
             />            
       </div>       
