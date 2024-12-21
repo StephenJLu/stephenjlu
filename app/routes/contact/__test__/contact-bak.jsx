@@ -30,7 +30,7 @@ const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export async function action({ request }) {
+export async function action({ context, request }) {
   const formData = await request.formData();
   const name = formData.get('name');
   const email = formData.get('email');
@@ -42,6 +42,12 @@ export async function action({ request }) {
   if (!name || !email || !message) {
     return json({ error: 'All fields are required.' }, { status: 400 });
   }
+
+  
+
+  // SendLayer API endpoint
+  const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
+
   // Return without sending if a bot trips the honeypot
   if (isBot) return json({ success: true });
 
@@ -70,9 +76,20 @@ export async function action({ request }) {
   } 
 
   try {
+    const env = context.env;
+
+    if (!env || !env.SL_API_KEY) {
+      console.error('SendLayer API key is not defined.');
+      return json({ error: 'Server configuration error.' }, { status: 500 });
+    }
+
+    const { SL_API_KEY } = env;
+
+    // Debugging: Log the environment variables (Remove in production)
+    console.log('SL_API_KEY:', SL_API_KEY);
     
-
-
+    
+    // Construct email payload based on SendLayer's API documentation
     const payload = {
       from: {
         name: "StephenJLu.com",
@@ -109,8 +126,12 @@ ${message}`,
     };
 
     // Send the email using SendLayer API
-    const response = await fetch('https://hook.us2.make.com/h7vxtn6nh4j494frxsbg8mhfpkgbsest', {
+    const response = await fetch(sendLayerEndpoint, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${SL_API_KEY}`, // Use the API key from environment variables
+      },
       body: JSON.stringify(payload),
     });
 
