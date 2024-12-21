@@ -162,7 +162,9 @@ export const Contact = () => {
             >
               <DecoderText text="Send a message" start={status !== 'exited'} delay={300} />
             </Heading>
-            <Divider                         
+            <Divider
+              collapsed={status !== 'entered'}
+              collapseDelay={0}                         
               className={styles.divider}
               data-status={status}
               style={getDelay(tokens.base.durationXS, initDelay, 0.4)}
