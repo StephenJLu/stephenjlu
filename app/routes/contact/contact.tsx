@@ -21,16 +21,8 @@ export async function action ({ request, context }: { request: Request, context:
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
-
- console.log('Received POST request');
- console.log(context.cloudflare.env.SL_API_KEY);
-
-  
 // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
-
-
-
 
 try {
     const response = await fetch(sendLayerEndpoint, {

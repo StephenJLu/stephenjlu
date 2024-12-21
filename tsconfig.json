@@ -14,8 +14,7 @@
     "app/layouts/menu-bar/MenuBar.tsx",
     "app/components/text/text.stories.jsx",
     "app/components/heading/heading.stories.jsx",
-    "app/routes/contact/contact.tsx",
-    "types/**/*.d.ts",
+    "app/routes/contact/contact.tsx",    
     ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
