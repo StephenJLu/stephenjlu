@@ -38,7 +38,7 @@ try {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer 22ED985F-A0DBD118-1ADB063D-B7C750CE`,
+        'Authorization': `Bearer ${process.env.SL_API_KEY}`,
       },
       body: JSON.stringify({
         "from": {
