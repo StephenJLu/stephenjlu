@@ -57,12 +57,12 @@ export const Intro = ({ id, visible, sectionRef }: IntroComponentProps) => {
           width={600}
           height={327}
           sizes={`(max-width: 768px) 100vw, 1440px`}                     
-          alt="Research banner"
+          alt="Music banner"
           role="presentation"
           loading="lazy"
           loaded={visible}
-          onLoad={() => console.log('Webdev banner loaded.')}
-          onError={() => console.error('Failed to load Webdev banner image.')}
+          onLoad={() => console.log('Music banner loaded.')}
+          onError={() => console.error('Failed to load Music banner image.')}
         />
         <div className={styles.gradient} data-visible={visible}/>
       </div>      

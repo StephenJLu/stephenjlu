@@ -61,7 +61,7 @@ export const Intro = ({ id, visible, sectionRef }: IntroComponentProps) => {
           width={600}
           height={327}
           sizes={`(max-width: 768px) 100vw, 1440px`}                     
-          alt="Research banner"
+          alt="Webdev banner"
           role="presentation"
           loading="lazy"
           loaded={visible}
