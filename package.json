@@ -16,11 +16,10 @@
     "dev": "node ./scripts/dev.cjs && remix vite:dev",
     "start": "wrangler pages dev ./build/client",
     "postinstall": "node ./scripts/draco.cjs",
-    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name stephenjlu"
+    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name stephenjlu"    
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.515.0",
-    "@cloudflare/workers-types": "^4.20241218.0",
     "@mdx-js/react": "^3.0.1",
     "@remix-run/cloudflare": "^2.7.1",
     "@remix-run/cloudflare-pages": "^2.7.1",
