@@ -19,7 +19,7 @@ export const navLinks = [
   },
   {
     label: 'Contact',
-    pathname: 'https://legacy.stephenjlu.com/contact',
+    pathname: '/contact',
   },
   
 ];
