@@ -6,6 +6,7 @@ build/
 .wrangler
 .dev.vars
 
+
 public/draco
 storybook-static/
 hashnode-archive/
