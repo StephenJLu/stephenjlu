@@ -7,6 +7,7 @@ import { cssProps, msToNum, numToMs } from 'app/utils/style';
 import { Form, useActionData, useNavigation } from '@remix-run/react';
 import { json, ActionFunction } from '@remix-run/cloudflare';
 import styles from './contact.module.css';
+import type { KVNamespace } from '@cloudflare/workers-types';
 
 
 export const meta = () => {
@@ -17,8 +18,7 @@ export const meta = () => {
   });
 };
 interface Env {
-  SENDLAYER_API_KEY: string;
-  SENDLAYER_SENDER_EMAIL: string;
+  SL_API: KVNamespace;
 }
 
 
@@ -27,37 +27,22 @@ export const action: ActionFunction = async ({ context, request }) => {
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
-  const env = context.env as Env;
-  const { SENDLAYER_API_KEY, SENDLAYER_SENDER_EMAIL } = env;
-  // Access environment variables securely
-  console.log('SENDLAYER_API_KEY:', SENDLAYER_API_KEY);
-    console.log('SENDLAYER_SENDER_EMAIL:', SENDLAYER_SENDER_EMAIL);
-    
-
-   if (!SENDLAYER_API_KEY || !SENDLAYER_SENDER_EMAIL) {
-      console.error('SendLayer API key or sender email is not defined.');
-      return json({ error: 'Server configuration error.' }, { status: 500 });
-    }
-
-
+  const api = await (context.env as Env).SL_API.get("send-layer");
   
 // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
-
-
-
 
 try {
     const response = await fetch(sendLayerEndpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${SENDLAYER_API_KEY}`,
+        'Authorization': `Bearer ${api}`,
       },
       body: JSON.stringify({
         "from": {
           "name": "StephenJLu.com",
-          "email": SENDLAYER_SENDER_EMAIL
+          "email": "no-reply@stephenjlu.com"
         },
         "to": [
           {
