@@ -21,20 +21,26 @@ const MAX_MESSAGE_LENGTH = 4096;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const action: ActionFunction = async ({ request }) => {
+  try {
+  console.log('Action function invoked');
   const formData = await request.formData();
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
-  const isBot = String(formData.get('name'));
+  const isBot = String(formData.get('botName'));
   const errors: { name?: string; email?: string; message?: string } = {};
 
-  // Ensure you're accessing environment variables correctly
-const SENDLAYER_API_KEY = process.env.SENDLAYER_API_KEY;
-const SENDLAYER_SENDER_EMAIL = process.env.SENDLAYER_SENDER_EMAIL;
+  // Access environment variables securely
+    const SENDLAYER_API_KEY = process.env.SENDLAYER_API_KEY;
+    const SENDLAYER_SENDER_EMAIL = process.env.SENDLAYER_SENDER_EMAIL;
 
-if (!SENDLAYER_API_KEY || !SENDLAYER_SENDER_EMAIL) {
-  throw new Error('SendLayer API key or sender email is not defined.');
-}
+    console.log('SENDLAYER_API_KEY:', SENDLAYER_API_KEY);
+    console.log('SENDLAYER_SENDER_EMAIL:', SENDLAYER_SENDER_EMAIL);
+
+    if (!SENDLAYER_API_KEY || !SENDLAYER_SENDER_EMAIL) {
+      console.error('SendLayer API key or sender email is not defined.');
+      return json({ error: 'Server configuration error.' }, { status: 500 });
+    }
 
   // Basic validation
   if (!name || !email || !message) {
@@ -42,42 +48,6 @@ if (!SENDLAYER_API_KEY || !SENDLAYER_SENDER_EMAIL) {
   }
 // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
-
-  // Construct email payload
-const payload = {
-  "from": {
-    "name": "StephenJLu.com",
-    "email": "no-reply@StephenJLu.com"
-  },
-  "to": [
-    {
-      "name": "Stephen J. Lu",
-      "email": "Stephen@StephenJLu.com"
-    }
-  ],
-  "subject": "New Contact Form Submission",
-  "ContentType": "HTML",
-  "HTMLContent": `<html><body>
-    <p>You have a new contact form submission:</p>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Message:</strong><br/>${message}</p>
-  </body></html>`,
-  "PlainContent": `You have a new contact form submission:
-  
-Name: ${name}
-Email: ${email}
-Message:
-${message}`,
-  "Tags": [
-    "tag-name",
-    "daily"
-  ],
-  "Headers": {
-    "X-Mailer": "StephenJLu.com",
-    "X-Test": "test header"
-  }
-};
 
   // Return without sending if a bot trips the honeypot
   if (isBot) return json({ success: true });
@@ -107,14 +77,47 @@ ${message}`,
   } 
 
 
-try {
+
     const response = await fetch(sendLayerEndpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.SENDLAYER_API_KEY}`,
+        'Authorization': `Bearer ${SENDLAYER_API_KEY}`,
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        "from": {
+          "name": "StephenJLu.com",
+          "email": SENDLAYER_SENDER_EMAIL
+        },
+        "to": [
+          {
+            "name": "Stephen J. Lu",
+            "email": "Stephen@StephenJLu.com"
+          }
+        ],
+        "subject": "New Contact Form Submission",
+        "ContentType": "HTML",
+        "HTMLContent": `<html><body>
+          <p>You have a new contact form submission:</p>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong><br/>${message}</p>
+        </body></html>`,
+        "PlainContent": `You have a new contact form submission:
+        
+Name: ${name}
+Email: ${email}
+Message:
+${message}`,
+        "Tags": [
+          "tag-name",
+          "daily"
+        ],
+        "Headers": {
+          "X-Mailer": "StephenJLu.com",
+          "X-Test": "test header"
+        }
+      }),
     });
 
     if (!response.ok) {
@@ -196,7 +199,7 @@ export const Contact = () => {
 
       {/* Hidden honeypot field to identify bots */}
       <Input
-        id="botName"
+        id="name"
         value=""
         multiline={false}
         style={{ display: 'none' }}

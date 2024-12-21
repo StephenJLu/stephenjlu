@@ -7,8 +7,6 @@ import { cssProps, msToNum, numToMs } from 'app/utils/style';
 import { Form, useActionData, useNavigation } from '@remix-run/react';
 import { json, ActionFunction } from '@remix-run/cloudflare';
 import styles from './contact.module.css';
-import dotenv from 'dotenv';
-dotenv.config();
 
 export const meta = () => {
   return baseMeta({
@@ -18,53 +16,35 @@ export const meta = () => {
   });
 };
 
-const MAX_EMAIL_LENGTH = 512;
-const MAX_MESSAGE_LENGTH = 4096;
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+interface Env {
+  SENDLAYER_API_KEY: string;
+}
 
-export const action: ActionFunction = async ({ request }) => {
+
+export const action: ActionFunction = async ({ context, request }) => {
   const formData = await request.formData();
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
-  const message = formData.get('message') as string;
-  const isBot = String(formData.get('botName'));
-  const errors: { name?: string; email?: string; message?: string } = {};
+  const message = formData.get('message') as string;  
 
-  console.log('SENDLAYER_API_KEY:', process.env.SENDLAYER_API_KEY);
+  // Access environment variables securely
+    const apiKey = context.env.SENDLAYER_API_KEY;
+    
 
-  // Basic validation
-  if (!name || !email || !message) {
-    return json({ error: 'All fields are required.' }, { status: 400 });
-  }
+    console.log('SENDLAYER_API_KEY:', apiKey);
+    
+
+    if (!apiKey) {
+      console.error('SendLayer API key is not defined.');
+      return json({ error: 'Server configuration error.' }, { status: 500 });
+    }
+
+
+  
 // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
 
-  // Return without sending if a bot trips the honeypot
-  if (isBot) return json({ success: true });
 
-  // Handle input validation on the server
-  if (!name) {
-    errors.name = 'Please enter your name.';
-  }
-  if (!email || !EMAIL_PATTERN.test(email)) {
-    errors.email = 'Please enter a valid email address.';
-  }
-
-  if (!message) {
-    errors.message = 'Please enter a message.';
-  }
-
-  if (email.length > MAX_EMAIL_LENGTH) {
-    errors.email = `Email address must be shorter than ${MAX_EMAIL_LENGTH} characters.`;
-  }
-
-  if (message.length > MAX_MESSAGE_LENGTH) {
-    errors.message = `Message must be shorter than ${MAX_MESSAGE_LENGTH} characters.`;
-  }
-
-  if (Object.keys(errors).length > 0) {
-    return json({ errors });
-  } 
 
 
 try {
@@ -72,7 +52,7 @@ try {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.SENDLAYER_API_KEY}`,
+        'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         "from": {
@@ -116,6 +96,10 @@ ${message}`,
       return json({ error: 'Failed to send email. Please try again later.' }, { status: 500 });
     }
 
+    console.log('Received POST request');
+    console.log('Name:', name);
+console.log('Email:', email);
+console.log('Message:', message);
     return json({ success: true }, { status: 200 });
   } catch (error) {
     console.error('Error sending email:', error);
@@ -175,7 +159,7 @@ export const Contact = () => {
         value={name.value}
         multiline={false}
         style={{}}
-        error={!!actionData.errors?.name}
+        error={false}
         onBlur={() => {}}
         autoComplete="name"
         required={true}
@@ -184,26 +168,10 @@ export const Contact = () => {
         className={styles.name}
         label="Name"
         name="name"
-        maxLength={MAX_EMAIL_LENGTH}
+        maxLength={100}
       />
 
-      {/* Hidden honeypot field to identify bots */}
-      <Input
-        id="name"
-        value=""
-        multiline={false}
-        style={{ display: 'none' }}
-        error={false}
-        onBlur={() => {}}
-        autoComplete="off"
-        required={false}
-        type="text"
-        onChange={() => {}}
-        className={styles.botkiller}
-        label="Bot Field"
-        name="botName"
-        maxLength={MAX_EMAIL_LENGTH}
-      />
+      
 
       {/* Existing email and message fields */}
       <Input
@@ -220,7 +188,7 @@ export const Contact = () => {
         className={styles.email}
         label="Email"
         name="email"
-        maxLength={MAX_EMAIL_LENGTH}
+        maxLength={500}
       />
 
       <Input
@@ -237,7 +205,7 @@ export const Contact = () => {
         className={styles.message}
         label="Message"
         name="message"
-        maxLength={MAX_MESSAGE_LENGTH}
+        maxLength={500}
       />
             <Transition
               unmount
