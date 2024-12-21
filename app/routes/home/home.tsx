@@ -25,10 +25,7 @@ const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) =
       </Text>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
       I'm currently working on this portfolio website, so please check back soon for updates and changes.
-     </Text>
-    <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-     In the meantime, you can find more detailed information about me at my <Link href="https://legacy.StephenJLu.com/">legacy website</Link> or on <Link href="https://www.linkedin.com/in/stephenjlu/">LinkedIn</Link>.
-     </Text>
+     </Text>    
     <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>
      Thanks for visiting!
     </Text>
