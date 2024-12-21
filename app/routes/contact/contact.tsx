@@ -143,9 +143,10 @@ export const Contact = () => {
   }
 
   return (
-    <Section className={styles.contact}>
+    <Section data-theme="dark" className={styles.contact}>
       <Transition unmount in={!actionData?.success} timeout={1600}>
         {({ status, nodeRef }: { status: string; nodeRef: React.RefObject<HTMLFormElement> }) => (
+          
           <Form
             unstable_viewTransition
             className={styles.form}
@@ -156,17 +157,16 @@ export const Contact = () => {
               className={styles.title}
               data-status={status}
               level={3}
-              as="h1"
+              as="h2"
               style={getDelay(tokens.base.durationXS, initDelay, 0.3)}
             >
-              <DecoderText text="Say hello" start={status !== 'exited'} delay={300} />
+              <DecoderText text="Send a message" start={status !== 'exited'} delay={300} />
             </Heading>
-            <Divider
+            <Divider                         
               className={styles.divider}
               data-status={status}
               style={getDelay(tokens.base.durationXS, initDelay, 0.4)}
-            />
-            {/* Hidden honeypot field to identify bots */}
+            />            
             <Input
               id="name"
               required
@@ -246,7 +246,7 @@ export const Contact = () => {
             >
               Send message
             </Button>
-          </Form>
+          </Form>          
         )}
       </Transition>
       <Transition unmount in={actionData?.success}>
@@ -280,7 +280,7 @@ export const Contact = () => {
             >
               Back to homepage
             </Button>
-          </div>
+          </div>          
         )}
       </Transition>      
     </Section>
