@@ -1,5 +1,0 @@
-name = "stephenjlu"
-account_id = "a1a2c26f84060b5c3f74f812cdc1888b"
-workers_dev = false
-compatibility_date = "2023-10-04"
-main = "workers-site/index.js"

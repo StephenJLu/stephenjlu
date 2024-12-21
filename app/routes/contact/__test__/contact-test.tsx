@@ -23,50 +23,15 @@ export const action: ActionFunction = async ({ request }) => {
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
-  
+
  
 
   
 // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
 
-  // Construct email payload
-const payload = {
-  "from": {
-    "name": "StephenJLu.com",
-    "email": "no-reply@StephenJLu.com"
-  },
-  "to": [
-    {
-      "name": "Stephen J. Lu",
-      "email": "Stephen@StephenJLu.com"
-    }
-  ],
-  "subject": "New Contact Form Submission",
-  "ContentType": "HTML",
-  "HTMLContent": `<html><body>
-    <p>You have a new contact form submission:</p>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Message:</strong><br/>${message}</p>
-  </body></html>`,
-  "PlainContent": `You have a new contact form submission:
-  
-Name: ${name}
-Email: ${email}
-Message:
-${message}`,
-  "Tags": [
-    "tag-name",
-    "daily"
-  ],
-  "Headers": {
-    "X-Mailer": "StephenJLu.com",
-    "X-Test": "test header"
-  }
-};
 
-  
+
 
 try {
     const response = await fetch(sendLayerEndpoint, {
@@ -75,7 +40,40 @@ try {
         'Content-Type': 'application/json',
         'Authorization': `Bearer 22ED985F-A0DBD118-1ADB063D-B7C750CE`,
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        "from": {
+          "name": "StephenJLu.com",
+          "email": "no-reply@stephenjlu.com"
+        },
+        "to": [
+          {
+            "name": "Stephen J. Lu",
+            "email": "Stephen@StephenJLu.com"
+          }
+        ],
+        "subject": "New Contact Form Submission",
+        "ContentType": "HTML",
+        "HTMLContent": `<html><body>
+          <p>You have a new contact form submission:</p>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong><br/>${message}</p>
+        </body></html>`,
+        "PlainContent": `You have a new contact form submission:
+        
+Name: ${name}
+Email: ${email}
+Message:
+${message}`,
+        "Tags": [
+          "tag-name",
+          "daily"
+        ],
+        "Headers": {
+          "X-Mailer": "StephenJLu.com",
+          "X-Test": "test header"
+        }
+      }),
     });
 
     if (!response.ok) {
@@ -84,6 +82,10 @@ try {
       return json({ error: 'Failed to send email. Please try again later.' }, { status: 500 });
     }
 
+    console.log('Received POST request');
+    console.log('Name:', name);
+console.log('Email:', email);
+console.log('Message:', message);
     return json({ success: true }, { status: 200 });
   } catch (error) {
     console.error('Error sending email:', error);

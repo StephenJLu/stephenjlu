@@ -5,6 +5,7 @@ node_modules
 build/
 .wrangler
 *.dev.vars
+*.toml
 
 
 public/draco

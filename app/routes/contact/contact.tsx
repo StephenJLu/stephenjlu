@@ -7,6 +7,8 @@ import { cssProps, msToNum, numToMs } from 'app/utils/style';
 import { Form, useActionData, useNavigation } from '@remix-run/react';
 import { json, ActionFunction } from '@remix-run/cloudflare';
 import styles from './contact.module.css';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const meta = () => {
   return baseMeta({
@@ -25,16 +27,10 @@ export const action: ActionFunction = async ({ request }) => {
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
-  const isBot = String(formData.get('name'));
+  const isBot = String(formData.get('botName'));
   const errors: { name?: string; email?: string; message?: string } = {};
 
-  // Ensure you're accessing environment variables correctly
-const SENDLAYER_API_KEY = process.env.SENDLAYER_API_KEY;
-const SENDLAYER_SENDER_EMAIL = process.env.SENDLAYER_SENDER_EMAIL;
-
-if (!SENDLAYER_API_KEY || !SENDLAYER_SENDER_EMAIL) {
-  throw new Error('SendLayer API key or sender email is not defined.');
-}
+  console.log('SENDLAYER_API_KEY:', process.env.SENDLAYER_API_KEY);
 
   // Basic validation
   if (!name || !email || !message) {
@@ -42,42 +38,6 @@ if (!SENDLAYER_API_KEY || !SENDLAYER_SENDER_EMAIL) {
   }
 // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
-
-  // Construct email payload
-const payload = {
-  "from": {
-    "name": "StephenJLu.com",
-    "email": "no-reply@StephenJLu.com"
-  },
-  "to": [
-    {
-      "name": "Stephen J. Lu",
-      "email": "Stephen@StephenJLu.com"
-    }
-  ],
-  "subject": "New Contact Form Submission",
-  "ContentType": "HTML",
-  "HTMLContent": `<html><body>
-    <p>You have a new contact form submission:</p>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Message:</strong><br/>${message}</p>
-  </body></html>`,
-  "PlainContent": `You have a new contact form submission:
-  
-Name: ${name}
-Email: ${email}
-Message:
-${message}`,
-  "Tags": [
-    "tag-name",
-    "daily"
-  ],
-  "Headers": {
-    "X-Mailer": "StephenJLu.com",
-    "X-Test": "test header"
-  }
-};
 
   // Return without sending if a bot trips the honeypot
   if (isBot) return json({ success: true });
@@ -114,7 +74,40 @@ try {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${process.env.SENDLAYER_API_KEY}`,
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        "from": {
+          "name": "StephenJLu.com",
+          "email": "no-reply@stephenjlu.com"
+        },
+        "to": [
+          {
+            "name": "Stephen J. Lu",
+            "email": "Stephen@StephenJLu.com"
+          }
+        ],
+        "subject": "New Contact Form Submission",
+        "ContentType": "HTML",
+        "HTMLContent": `<html><body>
+          <p>You have a new contact form submission:</p>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong><br/>${message}</p>
+        </body></html>`,
+        "PlainContent": `You have a new contact form submission:
+        
+Name: ${name}
+Email: ${email}
+Message:
+${message}`,
+        "Tags": [
+          "tag-name",
+          "daily"
+        ],
+        "Headers": {
+          "X-Mailer": "StephenJLu.com",
+          "X-Test": "test header"
+        }
+      }),
     });
 
     if (!response.ok) {
@@ -196,7 +189,7 @@ export const Contact = () => {
 
       {/* Hidden honeypot field to identify bots */}
       <Input
-        id="botName"
+        id="name"
         value=""
         multiline={false}
         style={{ display: 'none' }}
