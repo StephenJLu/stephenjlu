@@ -26,8 +26,10 @@ export const action: ActionFunction = async ({ request }) => {
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
   const isBot = String(formData.get('name'));
-  const errors: { email?: string; message?: string } = {};
-  const SENDLAYER_API_KEY = process.env.SENDLAYER_API_KEY;
+  const errors: { name?: string; email?: string; message?: string } = {};
+
+  // Ensure you're accessing environment variables correctly
+const SENDLAYER_API_KEY = process.env.SENDLAYER_API_KEY;
 const SENDLAYER_SENDER_EMAIL = process.env.SENDLAYER_SENDER_EMAIL;
 
 if (!SENDLAYER_API_KEY || !SENDLAYER_SENDER_EMAIL) {
@@ -42,35 +44,37 @@ if (!SENDLAYER_API_KEY || !SENDLAYER_SENDER_EMAIL) {
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
 
   // Construct email payload
-  const payload = {
-  From: {
-    name: "StephenJLu.com",
-    email: "no-reply@stephenjlu.com",
+const payload = {
+  "from": {
+    "name": "StephenJLu.com",
+    "email": "no-reply@StephenJLu.com"
   },
-  To: [
+  "to": [
     {
-      name: "Stephen Lu",
-      email: "Stephen@StephenJLu.com",
+      "name": "Stephen J. Lu",
+      "email": "Stephen@StephenJLu.com"
     }
   ],
-  Subject: 'New Contact Form Submission',
-  ContentType: 'HTML',
-  HTMLContent: `<html><body>
-    <p>You have a new contact form submission:</p>    
+  "subject": "New Contact Form Submission",
+  "ContentType": "HTML",
+  "HTMLContent": `<html><body>
+    <p>You have a new contact form submission:</p>
+    <p><strong>Name:</strong> ${name}</p>
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Message:</strong><br/>${message}</p>
   </body></html>`,
-  PlainContent: `You have a new contact form submission:
-
+  "PlainContent": `You have a new contact form submission:
+  
+Name: ${name}
 Email: ${email}
 Message:
 ${message}`,
-  Tags: [
-    "contact-form",
+  "Tags": [
+    "tag-name",
     "daily"
   ],
-  Headers: {
-    "X-Mailer": "Remix App",
+  "Headers": {
+    "X-Mailer": "StephenJLu.com",
     "X-Test": "test header"
   }
 };
@@ -79,6 +83,9 @@ ${message}`,
   if (isBot) return json({ success: true });
 
   // Handle input validation on the server
+  if (!name) {
+    errors.name = 'Please enter your name.';
+  }
   if (!email || !EMAIL_PATTERN.test(email)) {
     errors.email = 'Please enter a valid email address.';
   }
@@ -126,13 +133,16 @@ try {
 
 
 export const Contact = () => {
+  const name = useFormInput(''); // Add this line
   const errorRef = useRef<HTMLDivElement>(null);
   const email = useFormInput('');
   const message = useFormInput('');
   const initDelay = tokens.base.durationS;
+
   interface ActionData {
     success?: boolean;
     errors?: {
+      name?: string;
       email?: string;
       message?: string;
     };
@@ -165,52 +175,77 @@ export const Contact = () => {
               className={styles.divider}
               data-status={status}
               style={getDelay(tokens.base.durationXS, initDelay, 0.4)}
-            />
-            {/* Hidden honeypot field to identify bots */}
-            <Input
-              id="name"
-              value=""
-              multiline={false}
-              style={{}}
-              error={false}
-              onBlur={() => {}}
-              autoComplete="off"
-              required={false}
-              type="text"
-              onChange={() => {}}
-              className={styles.botkiller}
-              label="Name"
-              name="name"
-              maxLength={MAX_EMAIL_LENGTH}
-            />
-            <Input
-              id="email"
-              multiline={false}
-              required
-              className={styles.input}
-              data-status={status}
-              style={getDelay(tokens.base.durationXS, initDelay)}
-              autoComplete="email"
-              label="Your email"
-              type="email"
-              name="email"
-              maxLength={MAX_EMAIL_LENGTH}
-              {...email}
-            />
-            <Input
-              id="message"
-              type="text"
-              required
-              multiline
-              className={styles.input}
-              data-status={status}
-              style={getDelay(tokens.base.durationS, initDelay)}
-              autoComplete="off"
-              label="Message"
-              name="message"
-              maxLength={MAX_MESSAGE_LENGTH}
-              {...message}
-            />
+            />           
+             {/* Visible name input field */}
+      <Input
+        id="name"
+        value={name.value}
+        multiline={false}
+        style={{}}
+        error={!!actionData.errors?.name}
+        onBlur={() => {}}
+        autoComplete="name"
+        required={true}
+        type="text"
+        onChange={name.onChange}
+        className={styles.name}
+        label="Name"
+        name="name"
+        maxLength={MAX_EMAIL_LENGTH}
+      />
+
+      {/* Hidden honeypot field to identify bots */}
+      <Input
+        id="botName"
+        value=""
+        multiline={false}
+        style={{ display: 'none' }}
+        error={false}
+        onBlur={() => {}}
+        autoComplete="off"
+        required={false}
+        type="text"
+        onChange={() => {}}
+        className={styles.botkiller}
+        label="Bot Field"
+        name="botName"
+        maxLength={MAX_EMAIL_LENGTH}
+      />
+
+      {/* Existing email and message fields */}
+      <Input
+        id="email"
+        value={email.value}
+        multiline={false}
+        style={{}}
+        error={!!actionData.errors?.email}
+        onBlur={() => {}}
+        autoComplete="email"
+        required={true}
+        type="email"
+        onChange={email.onChange}
+        className={styles.email}
+        label="Email"
+        name="email"
+        maxLength={MAX_EMAIL_LENGTH}
+      />
+
+      <Input
+        id="message"
+        value={message.value}
+        multiline={true}
+        style={{}}
+        error={!!actionData.errors?.message}
+        onBlur={() => {}}
+        autoComplete="off"
+        required={true}
+        type="text"
+        onChange={message.onChange}
+        className={styles.message}
+        label="Message"
+        name="message"
+        maxLength={MAX_MESSAGE_LENGTH}
+      />
             <Transition
               unmount
               in={!sending && actionData?.errors}
