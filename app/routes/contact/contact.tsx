@@ -8,6 +8,7 @@ import { Form, useActionData, useNavigation } from '@remix-run/react';
 import { json, ActionFunction } from '@remix-run/cloudflare';
 import styles from './contact.module.css';
 
+
 export const meta = () => {
   return baseMeta({
     title: 'Contact',
@@ -15,9 +16,9 @@ export const meta = () => {
       'Send me a message if you’re interested in discussing a project or if you just want to say hi',
   });
 };
-
 interface Env {
   SENDLAYER_API_KEY: string;
+  SENDLAYER_SENDER_EMAIL: string;
 }
 
 
@@ -25,17 +26,16 @@ export const action: ActionFunction = async ({ context, request }) => {
   const formData = await request.formData();
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
-  const message = formData.get('message') as string;  
-
+  const message = formData.get('message') as string;
+  const env = context.env as Env;
+  const { SENDLAYER_API_KEY, SENDLAYER_SENDER_EMAIL } = env;
   // Access environment variables securely
-    const apiKey = context.env.SENDLAYER_API_KEY;
+  console.log('SENDLAYER_API_KEY:', SENDLAYER_API_KEY);
+    console.log('SENDLAYER_SENDER_EMAIL:', SENDLAYER_SENDER_EMAIL);
     
 
-    console.log('SENDLAYER_API_KEY:', apiKey);
-    
-
-    if (!apiKey) {
-      console.error('SendLayer API key is not defined.');
+   if (!SENDLAYER_API_KEY || !SENDLAYER_SENDER_EMAIL) {
+      console.error('SendLayer API key or sender email is not defined.');
       return json({ error: 'Server configuration error.' }, { status: 500 });
     }
 
@@ -52,12 +52,12 @@ try {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': `Bearer ${SENDLAYER_API_KEY}`,
       },
       body: JSON.stringify({
         "from": {
           "name": "StephenJLu.com",
-          "email": "no-reply@stephenjlu.com"
+          "email": SENDLAYER_SENDER_EMAIL
         },
         "to": [
           {
