@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { Button, DecoderText, Divider, Heading, Icon, Input, Section, Text,
   tokens, Transition } from 'app/components/Components';
   import { useFormInput } from 'app/hooks/useFormInput'; 
@@ -16,6 +16,11 @@ export const meta = () => {
   });
 };
 
+const MAX_NAME_LENGTH = 128;
+const MAX_EMAIL_LENGTH = 512;
+const MAX_MESSAGE_LENGTH = 4096;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export async function action ({ request, context }: { request: Request, context: any }) {
   const formData = await request.formData();
   const name = formData.get('name') as string;
@@ -23,6 +28,37 @@ export async function action ({ request, context }: { request: Request, context:
   const message = formData.get('message') as string;
 // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
+  const errors: { name?: string; email?: string; message?: string } = {};
+
+  // Handle input validation on the server
+
+  if (!name) {
+    errors.name = 'Please enter your name.';
+  }
+
+  if (!email || !EMAIL_PATTERN.test(email)) {
+    errors.email = 'Please enter a valid email address.';
+  }
+
+  if (!message) {
+    errors.message = 'Please enter a message.';
+  }
+
+  if (name.length > MAX_NAME_LENGTH) {
+    errors.email = `Name must be shorter than ${MAX_NAME_LENGTH} characters.`;
+  }
+
+  if (email.length > MAX_EMAIL_LENGTH) {
+    errors.email = `Email address must be shorter than ${MAX_EMAIL_LENGTH} characters.`;
+  }
+
+  if (message.length > MAX_MESSAGE_LENGTH) {
+    errors.message = `Message must be shorter than ${MAX_MESSAGE_LENGTH} characters.`;
+  }
+
+  if (Object.keys(errors).length > 0) {
+    return json({ errors });
+  }
 
 try {
     const response = await fetch(sendLayerEndpoint, {
@@ -75,9 +111,10 @@ ${message}`,
 
     console.log('Received POST request');
     console.log('Name:', name);
-console.log('Email:', email);
-console.log('Message:', message);
+    console.log('Email:', email);
+    console.log('Message:', message);
     return json({ success: true }, { status: 200 });
+
   } catch (error) {
     console.error('Error sending email:', error);
     return json({ error: 'An unexpected error occurred.' }, { status: 500 });
@@ -87,11 +124,14 @@ console.log('Message:', message);
 
 
 export const Contact = () => {
-  const name = useFormInput(''); // Add this line
   const errorRef = useRef<HTMLDivElement>(null);
+  const name = useFormInput('');
   const email = useFormInput('');
   const message = useFormInput('');
   const initDelay = tokens.base.durationS;
+  const actionData = useActionData<ActionData>();
+  const { state } = useNavigation();
+  const sending = state === 'submitting';
 
   interface ActionData {
     success?: boolean;
@@ -101,10 +141,6 @@ export const Contact = () => {
       message?: string;
     };
   }
-
-  const actionData = useActionData<ActionData>() || {};
-  const { state } = useNavigation();
-  const sending = state === 'submitting';
 
   return (
     <Section className={styles.contact}>
@@ -129,61 +165,50 @@ export const Contact = () => {
               className={styles.divider}
               data-status={status}
               style={getDelay(tokens.base.durationXS, initDelay, 0.4)}
-            />           
-             {/* Visible name input field */}
-      <Input
-        id="name"
-        value={name.value}
-        multiline={false}
-        style={{}}
-        error={false}
-        onBlur={() => {}}
-        autoComplete="name"
-        required={true}
-        type="text"
-        onChange={name.onChange}
-        className={styles.name}
-        label="Name"
-        name="name"
-        maxLength={100}
-      />
-
-      
-
-      {/* Existing email and message fields */}
-      <Input
-        id="email"
-        value={email.value}
-        multiline={false}
-        style={{}}
-        error={!!actionData.errors?.email}
-        onBlur={() => {}}
-        autoComplete="email"
-        required={true}
-        type="email"
-        onChange={email.onChange}
-        className={styles.email}
-        label="Email"
-        name="email"
-        maxLength={500}
-      />
-
-      <Input
-        id="message"
-        value={message.value}
-        multiline={true}
-        style={{}}
-        error={!!actionData.errors?.message}
-        onBlur={() => {}}
-        autoComplete="off"
-        required={true}
-        type="text"
-        onChange={message.onChange}
-        className={styles.message}
-        label="Message"
-        name="message"
-        maxLength={500}
-      />
+            />
+            {/* Hidden honeypot field to identify bots */}
+            <Input
+              id="name"
+              required
+              className={styles.input}
+              data-status={status}
+              style={getDelay(tokens.base.durationXS, initDelay)}
+              autoComplete="name"
+              label="Your name"
+              type="name"
+              name="name"
+              maxLength={MAX_NAME_LENGTH}
+              multiline={false}
+              {...name}
+            />
+            <Input
+              id="email"
+              required
+              className={styles.input}
+              data-status={status}
+              style={getDelay(tokens.base.durationS, initDelay)}
+              autoComplete="email"
+              label="Your email"
+              type="email"
+              name="email"
+              maxLength={MAX_EMAIL_LENGTH}
+              multiline={false}
+              {...email}
+            />
+            <Input
+              id="message"
+              required
+              multiline
+              className={styles.input}
+              data-status={status}
+              style={getDelay(tokens.base.durationM, initDelay)}
+              autoComplete="off"
+              type="textarea"
+              label="Message"
+              name="message"
+              maxLength={MAX_MESSAGE_LENGTH}
+              {...message}
+            />
             <Transition
               unmount
               in={!sending && actionData?.errors}
