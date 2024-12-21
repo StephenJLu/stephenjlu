@@ -1,13 +1,22 @@
-import React, { useState, useRef } from 'react';
-import { Button, DecoderText, Divider, Heading, Icon, Input, Section, Text,
-  tokens, Transition } from 'app/components/Components';
-  import { useFormInput } from 'app/hooks/useFormInput'; 
+import { useRef } from 'react';
+import {
+  Button,
+  DecoderText,
+  Divider,
+  Heading,
+  Icon,
+  Input,
+  Section,
+  Text,
+  tokens,
+  Transition
+} from 'app/components/Components';
+import { useFormInput } from 'app/hooks/useFormInput'; 
 import { baseMeta } from '../../utils/meta';
 import { cssProps, msToNum, numToMs } from 'app/utils/style';
 import { Form, useActionData, useNavigation } from '@remix-run/react';
-import { json, ActionFunction } from '@remix-run/cloudflare';
+import { json } from '@remix-run/cloudflare';
 import styles from './contact.module.css';
-
 
 export const meta = () => {
   return baseMeta({
@@ -16,123 +25,143 @@ export const meta = () => {
       'Send me a message if you’re interested in discussing a project or if you just want to say hi',
   });
 };
-interface Env {
-  SENDLAYER_API_KEY: string;
-  SENDLAYER_SENDER_EMAIL: string;
-}
 
+const MAX_EMAIL_LENGTH = 512;
+const MAX_MESSAGE_LENGTH = 4096;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export const action: ActionFunction = async ({ context, request }) => {
+export async function action({ context, request }) {
   const formData = await request.formData();
-  const name = formData.get('name') as string;
-  const email = formData.get('email') as string;
-  const message = formData.get('message') as string;
-  const env = context.env as Env;
-  const { SENDLAYER_API_KEY, SENDLAYER_SENDER_EMAIL } = env;
-  // Access environment variables securely
-  console.log('SENDLAYER_API_KEY:', SENDLAYER_API_KEY);
-    console.log('SENDLAYER_SENDER_EMAIL:', SENDLAYER_SENDER_EMAIL);
-    
+  const name = formData.get('name');
+  const email = formData.get('email');
+  const message = formData.get('message');
+  const isBot = String(formData.get('botName'));
+  const errors = {};
 
-   if (!SENDLAYER_API_KEY || !SENDLAYER_SENDER_EMAIL) {
-      console.error('SendLayer API key or sender email is not defined.');
+  // Basic validation
+  if (!name || !email || !message) {
+    return json({ error: 'All fields are required.' }, { status: 400 });
+  }
+
+  // SendLayer API endpoint
+  const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
+
+  // Return without sending if a bot trips the honeypot
+  if (isBot) return json({ success: true });
+
+  // Handle input validation on the server
+  if (!name) {
+    errors.name = 'Please enter your name.';
+  }
+  if (!email || !EMAIL_PATTERN.test(email)) {
+    errors.email = 'Please enter a valid email address.';
+  }
+
+  if (!message) {
+    errors.message = 'Please enter a message.';
+  }
+
+  if (email.length > MAX_EMAIL_LENGTH) {
+    errors.email = `Email address must be shorter than ${MAX_EMAIL_LENGTH} characters.`;
+  }
+
+  if (message.length > MAX_MESSAGE_LENGTH) {
+    errors.message = `Message must be shorter than ${MAX_MESSAGE_LENGTH} characters.`;
+  }
+
+  if (Object.keys(errors).length > 0) {
+    return json({ errors }, { status: 400 });
+  } 
+
+  try {
+    const env = context.env;
+
+    if (!env || !env.SL_API_KEY) {
+      console.error('SendLayer API key is not defined.');
       return json({ error: 'Server configuration error.' }, { status: 500 });
     }
 
+    const { SL_API_KEY } = env;
 
-  
-// SendLayer API endpoint
-  const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
+    // Debugging: Log the environment variables (Remove in production)
+    console.log('SL_API_KEY:', SL_API_KEY);
 
-
-
-
-try {
-    const response = await fetch(sendLayerEndpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${SENDLAYER_API_KEY}`,
+    // Construct email payload based on SendLayer's API documentation
+    const payload = {
+      from: {
+        name: "StephenJLu.com",
+        email: "no-reply@stephenjlu.com"
       },
-      body: JSON.stringify({
-        "from": {
-          "name": "StephenJLu.com",
-          "email": SENDLAYER_SENDER_EMAIL
-        },
-        "to": [
-          {
-            "name": "Stephen J. Lu",
-            "email": "Stephen@StephenJLu.com"
-          }
-        ],
-        "subject": "New Contact Form Submission",
-        "ContentType": "HTML",
-        "HTMLContent": `<html><body>
-          <p>You have a new contact form submission:</p>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Message:</strong><br/>${message}</p>
-        </body></html>`,
-        "PlainContent": `You have a new contact form submission:
-        
+      to: [
+        {
+          name: "Stephen J. Lu",
+          email: "Stephen@StephenJLu.com"
+        }
+      ],
+      subject: "New Contact Form Submission",
+      ContentType: "HTML",
+      HTMLContent: `<html><body>
+        <p>You have a new contact form submission:</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong><br/>${message}</p>
+      </body></html>`,
+      PlainContent: `You have a new contact form submission:
+      
 Name: ${name}
 Email: ${email}
 Message:
 ${message}`,
-        "Tags": [
-          "tag-name",
-          "daily"
-        ],
-        "Headers": {
-          "X-Mailer": "StephenJLu.com",
-          "X-Test": "test header"
-        }
-      }),
+      Tags: [
+        "tag-name",
+        "daily"
+      ],
+      Headers: {
+        "X-Mailer": "StephenJLu.com",
+        "X-Test": "test header"
+      }
+    };
+
+    // Send the email using SendLayer API
+    const response = await fetch(sendLayerEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${SL_API_KEY}`, // Use the API key from environment variables
+      },
+      body: JSON.stringify(payload),
     });
 
+    // Handle SendLayer API response
     if (!response.ok) {
       const errorData = await response.json();
       console.error('SendLayer Error:', errorData);
       return json({ error: 'Failed to send email. Please try again later.' }, { status: 500 });
     }
 
-    console.log('Received POST request');
-    console.log('Name:', name);
-console.log('Email:', email);
-console.log('Message:', message);
     return json({ success: true }, { status: 200 });
+
   } catch (error) {
     console.error('Error sending email:', error);
     return json({ error: 'An unexpected error occurred.' }, { status: 500 });
   }
-};
-
-
+}
 
 export const Contact = () => {
-  const name = useFormInput(''); // Add this line
-  const errorRef = useRef<HTMLDivElement>(null);
+  const name = useFormInput('');
+  const errorRef = useRef(null);
   const email = useFormInput('');
   const message = useFormInput('');
   const initDelay = tokens.base.durationS;
 
-  interface ActionData {
-    success?: boolean;
-    errors?: {
-      name?: string;
-      email?: string;
-      message?: string;
-    };
-  }
-
-  const actionData = useActionData<ActionData>() || {};
+  const actionData = useActionData() || {};
   const { state } = useNavigation();
   const sending = state === 'submitting';
 
   return (
     <Section className={styles.contact}>
       <Transition unmount in={!actionData?.success} timeout={1600}>
-        {({ status, nodeRef }: { status: string; nodeRef: React.RefObject<HTMLFormElement> }) => (
+        {({ status, nodeRef }) => (
           <Form
             unstable_viewTransition
             className={styles.form}
@@ -159,7 +188,7 @@ export const Contact = () => {
         value={name.value}
         multiline={false}
         style={{}}
-        error={false}
+        error={!!actionData.errors?.name}
         onBlur={() => {}}
         autoComplete="name"
         required={true}
@@ -168,10 +197,26 @@ export const Contact = () => {
         className={styles.name}
         label="Name"
         name="name"
-        maxLength={100}
+        maxLength={MAX_EMAIL_LENGTH}
       />
 
-      
+      {/* Hidden honeypot field to identify bots */}
+      <Input
+        id="botName"
+        value=""
+        multiline={false}
+        style={{ display: 'none' }}
+        error={false}
+        onBlur={() => {}}
+        autoComplete="off"
+        required={false}
+        type="text"
+        onChange={() => {}}
+        className={styles.botkiller}
+        label="Bot Field"
+        name="botName"
+        maxLength={MAX_EMAIL_LENGTH}
+      />
 
       {/* Existing email and message fields */}
       <Input
@@ -188,7 +233,7 @@ export const Contact = () => {
         className={styles.email}
         label="Email"
         name="email"
-        maxLength={500}
+        maxLength={MAX_EMAIL_LENGTH}
       />
 
       <Input
@@ -205,14 +250,14 @@ export const Contact = () => {
         className={styles.message}
         label="Message"
         name="message"
-        maxLength={500}
+        maxLength={MAX_MESSAGE_LENGTH}
       />
             <Transition
               unmount
               in={!sending && actionData?.errors}
               timeout={msToNum(tokens.base.durationM)}
             >
-              {({ status: errorStatus, nodeRef }: { status: string; nodeRef: React.RefObject<HTMLDivElement> }) => (
+              {({ status: errorStatus, nodeRef }) => (
                 <div
                   className={styles.formError}
                   ref={nodeRef}
@@ -248,7 +293,7 @@ export const Contact = () => {
         )}
       </Transition>
       <Transition unmount in={actionData?.success}>
-        {({ status, nodeRef }: { status: string; nodeRef: React.RefObject<HTMLDivElement> }) => (
+        {({ status, nodeRef }) => (
           <div className={styles.complete} aria-live="polite" ref={nodeRef}>
             <Heading
               level={3}
@@ -285,14 +330,7 @@ export const Contact = () => {
   );
 };
 
-interface GetDelayParams {
-  delayMs: string;
-  offset?: string;
-  multiplier?: number;
-}
-
-function getDelay(delayMs: string, offset: string = numToMs(0), multiplier: number = 1): React.CSSProperties {
+function getDelay(delayMs, offset = numToMs(0), multiplier = 1) {
   const numDelay = msToNum(delayMs) * multiplier;
   return cssProps({ delay: numToMs(parseFloat((msToNum(offset) + numDelay).toFixed(0))) });
 }
-

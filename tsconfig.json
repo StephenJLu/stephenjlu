@@ -7,7 +7,7 @@
     "**/.client/**/*.ts",
     "**/.client/**/*.tsx",
     "tailwind.config.js"
-, "public/_index.bak", "app/routes/home/route.js", "app/layouts/menu-bar/nav-toggle.tsx", "app/components/button/button.tsx", "app/layouts/menu-bar/MenuBar.tsx", "app/components/text/text.stories.jsx", "app/components/heading/heading.stories.jsx"  ],
+, "public/_index.bak", "app/routes/home/route.js", "app/layouts/menu-bar/nav-toggle.tsx", "app/components/button/button.tsx", "app/layouts/menu-bar/MenuBar.tsx", "app/components/text/text.stories.jsx", "app/components/heading/heading.stories.jsx", "app/routes/contact/contact.jsx"  ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "types": ["@remix-run/node", "vite/client"],
