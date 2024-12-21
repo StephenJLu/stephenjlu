@@ -5,7 +5,7 @@ import { Button, DecoderText, Divider, Heading, Icon, Input, Section, Text,
 import { baseMeta } from '../../utils/meta';
 import { cssProps, msToNum, numToMs } from 'app/utils/style';
 import { Form, useActionData, useNavigation } from '@remix-run/react';
-import { json, ActionFunction } from '@remix-run/cloudflare';
+import { json } from '@remix-run/cloudflare';
 import styles from './contact.module.css';
 
 export const meta = () => {
@@ -16,14 +16,14 @@ export const meta = () => {
   });
 };
 
-export const action: ActionFunction = async ({ request, context }) => {
+export async function action ({ request, context }: { request: Request, context: any }) {
   const formData = await request.formData();
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
 
  console.log('Received POST request');
- console.log(context.SL_API_KEY);
+ console.log(context.cloudflare.env.SL_API_KEY);
 
   
 // SendLayer API endpoint
@@ -37,7 +37,7 @@ try {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${context.SL_API_KEY}`,
+        'Authorization': `Bearer ${context.cloudflare.env.SL_API_KEY}`,
       },
       body: JSON.stringify({
         "from": {
