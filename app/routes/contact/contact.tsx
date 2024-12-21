@@ -16,15 +16,14 @@ export const meta = () => {
   });
 };
 
-
-
-export const action: ActionFunction = async ({ request }) => {
+export const action: ActionFunction = async ({ request, context }) => {
   const formData = await request.formData();
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
 
- 
+ console.log('Received POST request');
+ console.log(context.SL_API_KEY);
 
   
 // SendLayer API endpoint
@@ -38,7 +37,7 @@ try {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.SL_API_KEY}`,
+        'Authorization': `Bearer ${context.SL_API_KEY}`,
       },
       body: JSON.stringify({
         "from": {
