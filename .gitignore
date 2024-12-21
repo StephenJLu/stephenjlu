@@ -6,6 +6,7 @@ build/
 .wrangler
 *.dev.vars
 *.toml
+*.d.ts
 
 
 public/draco
