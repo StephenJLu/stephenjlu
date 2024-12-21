@@ -6,7 +6,7 @@ build/
 .wrangler
 *.dev.vars
 *.toml
-
+__test__
 
 public/draco
 storybook-static/
