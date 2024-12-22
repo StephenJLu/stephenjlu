@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button, DecoderText, Divider, Heading, Icon, Input, Section, Text,
   tokens, Transition } from 'app/components/Components';
   import { useFormInput } from 'app/hooks/useFormInput'; 
@@ -21,12 +21,24 @@ const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+interface ActionData {
+  success?: boolean;
+  errors?: {
+    name?: string;
+    email?: string;
+    message?: string;
+    phone?: string;
+  };
+}
+
 export async function action ({ request, context }: { request: Request, context: any }) {
   const formData = await request.formData();
   const isBot = formData.get('phone') as string;
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
+  const token = formData.get('cf-turnstile-response') as string; // Captured Turnstile token
+
 // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
   const errors: { name?: string; email?: string; message?: string } = {};
@@ -61,7 +73,35 @@ export async function action ({ request, context }: { request: Request, context:
   }
 
   if (Object.keys(errors).length > 0) {
-    return json({ errors });
+    return json<ActionData>({ errors }, { status: 400 });
+  }
+
+  // Verify the Turnstile token using the Cloudflare Worker
+  try {
+    const workerUrl = 'https://turnstile.stephenjlu.workers.dev'; // Replace with your Worker URL
+
+    const verificationResponse = await fetch(workerUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token }),
+    });
+
+    const verificationResult = await verificationResponse.json();
+
+    if (!verificationResult.success) {
+      return json<ActionData>(
+        { errors: { message: 'CAPTCHA verification failed. Please try again.' } },
+        { status: 400 }
+      );
+    }
+  } catch (error) {
+    console.error('Error verifying Turnstile token:', error);
+    return json<ActionData>(
+      { errors: { message: 'An error occurred during CAPTCHA verification.' } },
+      { status: 500 }
+    );
   }
 
 try {
@@ -137,16 +177,28 @@ export const Contact = () => {
   const actionData = useActionData<ActionData>();
   const { state } = useNavigation();
   const sending = state === 'submitting';
-
-  interface ActionData {
-    success?: boolean;
-    errors?: {
-      name?: string;
-      email?: string;
-      message?: string;
-      phone?: string;
+  const [turnstileToken, setTurnstileToken] = useState<string>(''); 
+  
+  useEffect(() => {
+    // Define the global callback function for Turnstile
+    (window as any).onTurnstileSubmit = (token: string) => {
+      setTurnstileToken(token);
     };
-  }
+
+    // Load the Turnstile API script
+    const script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    // Cleanup on unmount
+    return () => {
+      delete (window as any).onTurnstileSubmit;
+      document.body.removeChild(script);
+    };
+  }, []);
+  
 
   return (
     <Section data-theme="dark" className={styles.contact}>
@@ -188,7 +240,7 @@ export const Contact = () => {
             autoComplete="phone"
             type="phone"
             {...phone}
-            />            
+            />        
             <Input
               id="name"
               required
@@ -255,6 +307,18 @@ export const Contact = () => {
                 </div>
               )}
             </Transition>
+             {/* Hidden input to store Turnstile token */}
+            <input type="hidden" name="cf-turnstile-response" value={turnstileToken} />
+
+            <div 
+            className={(`${styles.turnstile} cf-turnstile`)}
+            data-sitekey="0x4AAAAAAA30n09B49oMBU_q"
+            data-callback="onTurnstileSubmit"            
+            data-theme="dark"
+            data-status={status}
+            data-sending={sending}
+            style={getDelay(tokens.base.durationM, initDelay)}                        
+            />
             <Button
               className={styles.button}
               data-status={status}
@@ -290,7 +354,7 @@ export const Contact = () => {
               style={getDelay(tokens.base.durationXS)}
             >
               I’ll get back to you within a couple days, sit tight
-            </Text>
+            </Text>            
             <Button
               secondary
               iconHoverShift
