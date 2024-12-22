@@ -1,7 +1,8 @@
 <p align="center">
 <img src="/public/favicon.svg" width="50" alt="SJL Logo">
 </p>
-<h1 align="center">Stephen J. Lu - Web Design and Development for the Public Good</h1>
+<h1 align="center">Stephen J. Lu
+  <br>Web Design and Development for the Public Good</h1>
 
 [![Site Preview](/public/social-image.png)](https://www.stephenjlu.com)
 
@@ -42,7 +43,7 @@ December 21, 2024
 
 ### Want to build a site like this?
 
-This repo is public and open source. I want people to be able to learn from it and adapt it for their own use. I encourage modifying to your style and tastes. If you do use content that is not significantly modified, please provide design attribution to Stephen J. Lu and link to [https://www.StephenJLu.com](https://www.stephenjlu.com).
+This repo is public and open source. I want people to be able to learn from it and adapt it for their own use. I encourage modifying to your style and tastes. If you do use code that is not significantly modified, please provide design attribution to Stephen J. Lu and link to [https://www.StephenJLu.com](https://www.stephenjlu.com).
 
 All content, projects, and information contained in the site are my own and protected by copyright. I do not give you permission to present any such content contained therein as your own. If you have any questions, please contact me below.
 
