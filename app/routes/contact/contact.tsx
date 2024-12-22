@@ -23,12 +23,16 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function action ({ request, context }: { request: Request, context: any }) {
   const formData = await request.formData();
+  const isBot = formData.get('phone') as string;
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
 // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
   const errors: { name?: string; email?: string; message?: string } = {};
+
+  //Return without sending email if bot
+  if (isBot) return json({ success: true }, { status: 200 });
 
   // Handle input validation on the server
 
@@ -128,6 +132,7 @@ export const Contact = () => {
   const name = useFormInput('');
   const email = useFormInput('');
   const message = useFormInput('');
+  const phone = useFormInput('');
   const initDelay = tokens.base.durationS;
   const actionData = useActionData<ActionData>();
   const { state } = useNavigation();
@@ -139,6 +144,7 @@ export const Contact = () => {
       name?: string;
       email?: string;
       message?: string;
+      phone?: string;
     };
   }
 
@@ -168,6 +174,20 @@ export const Contact = () => {
               className={styles.divider}
               data-status={status}
               style={getDelay(tokens.base.durationXS, initDelay, 0.4)}
+            />
+            {/* Honeypot for bots */}
+            <Input
+            id="phone"
+            required={false}
+            className={styles.botkiller}
+            label="Phone"
+            name="phone"
+            maxLength={MAX_EMAIL_LENGTH}
+            multiline={false}
+            style={{}}
+            autoComplete="phone"
+            type="phone"
+            {...phone}
             />            
             <Input
               id="name"
