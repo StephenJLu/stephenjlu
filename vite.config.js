@@ -29,7 +29,7 @@ export default defineConfig({
     remix({
       routes(defineRoutes) {
         return defineRoutes(route => {
-          route('/', 'routes/home/route.js', { index: true });
+          route('/', 'routes/home/route.ts', { index: true });
         });
       },
     }),
