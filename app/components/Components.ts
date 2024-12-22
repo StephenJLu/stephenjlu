@@ -24,4 +24,3 @@ export { Table, TableCell, TableRow, TableBody, TableHead, TableHeadCell } from 
 export { Text } from './text/text';
 export { VisuallyHidden } from './visually-hidden/visually-hidden';
 export { default as GTM } from './tag-manager/gtm';
-
