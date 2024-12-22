@@ -8,7 +8,7 @@ build/
 *.toml
 __test__
 *a7.json
-*.code*
+*.code-workspace
 
 public/draco
 storybook-static/
