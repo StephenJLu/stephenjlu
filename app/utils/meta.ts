@@ -25,7 +25,7 @@ export function baseMeta({
     { property: 'og:image', content: ogImage },
     { property: 'og:image:alt', content: 'Banner for the site' },
     { property: 'og:image:width', content: '1020' },
-    { property: 'og:image:height', content: '532' },
+    { property: 'og:image:height', content: '484' },
     { property: 'og:title', content: titleText },
     { property: 'og:site_name', content: name },
     { property: 'og:type', content: 'website' },
