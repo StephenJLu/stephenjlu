@@ -23,4 +23,5 @@ export { Progress } from './progress/progress';
 export { Table, TableCell, TableRow, TableBody, TableHead, TableHeadCell } from './table/table';
 export { Text } from './text/text';
 export { VisuallyHidden } from './visually-hidden/visually-hidden';
+export { default as GTM } from './tag-manager/gtm';
 
