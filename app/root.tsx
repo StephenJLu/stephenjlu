@@ -52,7 +52,8 @@ export default function App() {
   return (
     <html lang="en">
       <head>
-        <GTM />                
+        <GTM />
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>        
         <title>Stephen J. Lu | Web Design and Development for the Public Good</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
