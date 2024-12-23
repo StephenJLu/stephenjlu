@@ -9,7 +9,8 @@ import { ThemeProvider } from '~/components/theme-provider/theme-provider';
 import { themeStyles } from '~/components/theme-provider/theme-provider';
 import Rotation from '~/components/bg-rotation/Rotation';
 import GTM from '~/components/tag-manager/gtm';
-import { MenuBar, Footer } from './layouts/Layouts';
+import { MenuBar } from '~/layouts/menu-bar/MenuBar';
+import { Footer } from '~/layouts/footer/Footer';
 import { useEffect } from 'react';
 
 import AtlasGroteskLC from '~/fonts/AGRegular.ttf';

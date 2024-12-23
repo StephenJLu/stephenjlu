@@ -6,7 +6,7 @@ import { Home } from './home';
 import { Forensics } from './forensics';
 import { Research } from './research';
 import { Projects } from './projects';
-import { Header } from '../../layouts/Layouts'
+import { Header } from '~/layouts/header/Header';
 
 export const meta = () => {
   return baseMeta({
