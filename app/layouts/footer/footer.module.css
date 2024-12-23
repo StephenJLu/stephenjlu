@@ -5,6 +5,7 @@
   font-family: 'OperatorMonoLig', monospace;
   position: relative;
   display: flex;
+  text-align: center;
   flex-direction: column;
   justify-content: center; /* Align content to the start (left) */
   align-items: center; /* Align content to the end (bottom) */
@@ -15,7 +16,7 @@
 
 
  .footer p {
-  margin: 1em 0;
+  padding-bottom: 20px;
   font-size: 1rem;
 }
 
@@ -30,7 +31,8 @@
   align-items: flex-end; /* Align content to the end (bottom) */
   position: absolute;
   bottom: 20px; 
-  font-size: 1rem; 
+  font-size: 1rem;
+  padding-bottom: 20px; 
 }
 
 
