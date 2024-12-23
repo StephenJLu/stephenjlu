@@ -1,6 +1,7 @@
 import styles from './footer.module.css';
 import config from '../../config.json';
-import { TextAnim, InViewport } from "../../components";
+import TextAnim from '~/components/text-animation/TextAnim';
+import InViewport from '~/components/in-viewport/InViewport';
 
 const delay = config.delay;
 

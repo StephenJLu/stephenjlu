@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { Button, Divider, Heading, Section,
-  Text, Image, Transition, useTheme } from '../../components';
+import Button from '~/components/button/button';
+import { Divider } from '~/components/divider/divider';
+import { Heading } from '~/components/heading/heading';
+import { Section } from '~/components/section/section';
+import { Text } from '~/components/text/text';
+import { Image } from '~/components/image/image';
+import { Transition } from '~/components/transition/transition';
+import { useTheme } from '~/components/theme-provider/theme-provider';
 import { useWindowSize } from 'app/hooks';
 import { cssProps, media } from 'app/utils/style';
 import styles from './projects.module.css';

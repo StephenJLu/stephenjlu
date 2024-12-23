@@ -1,7 +1,15 @@
 import { useRef, useEffect } from 'react';
-import { Button, DecoderText, Divider, Heading, Icon, Input, Section, Text,
-  tokens, Transition } from '~/components';
-  import { useFormInput } from 'app/hooks/useFormInput'; 
+import Button from '~/components/button/button';
+import { DecoderText } from '~/components/decoder-text/decoder-text';
+import { Divider } from '~/components/divider/divider';
+import { Heading } from '~/components/heading/heading';
+import { Icon } from '~/components/icon/icon';
+import { Input } from '~/components/input/input';
+import { Section } from '~/components/section/section';
+import { Text } from '~/components/text/text';
+import { tokens } from '~/components/theme-provider/theme';
+import { Transition } from '~/components/transition/transition';
+import { useFormInput } from 'app/hooks/useFormInput'; 
 import { baseMeta } from '../../utils/meta';
 import { cssProps, msToNum, numToMs } from 'app/utils/style';
 import { Form, useActionData, useNavigation } from '@remix-run/react';

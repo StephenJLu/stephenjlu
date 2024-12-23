@@ -1,4 +1,6 @@
-import { Button, Icon, useTheme } from '..';
+import { Button } from '~/components/button/button';
+import { Icon } from '~/components/icon/icon';
+import { useTheme } from '~/components/theme-provider/theme-provider';
 import { useReducedMotion } from 'framer-motion';
 import { useHasMounted, useInViewport } from '../../hooks';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';

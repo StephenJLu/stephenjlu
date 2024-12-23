@@ -1,4 +1,11 @@
-import { Heading, Text, Table, TableRow, TableCell, List, ListItem, Link } from '../../components';
+import { Heading } from '~/components/heading/heading';
+import { Text } from '~/components/text/text';
+import { Table } from '~/components/table/table';
+import { TableRow } from '~/components/table/table';
+import { TableCell } from '~/components/table/table';
+import { List } from '~/components/list/list';
+import { ListItem } from '~/components/list/list';
+import { Link } from '~/components/link/link';
 import styles from './forensics.module.css';
 
 const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (

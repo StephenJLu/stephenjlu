@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Section, Heading, Text, Link, Image,
-  DecoderText, Transition, Divider, InViewport, PolaroidImage } from '~/components';
+import { Section } from '~/components/section/section';
+import { Heading } from '~/components/heading/heading';
+import { Text } from '~/components/text/text';
+import { DecoderText } from '~/components/decoder-text/decoder-text';
+import { Transition } from '~/components/transition/transition';
+import { Divider } from '~/components/divider/divider';
+import { Image } from '~/components/image/image';
+import InViewport from '~/components/in-viewport/InViewport';
+import PolaroidImage from '~/components/image/PolaroidImage';
 import styles from './intro.module.css';
 import coding from './piano.png';
 import banner from 'app/static/images/music.png';

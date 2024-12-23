@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { MenuButton, Icon, themes, tokens, Transition, Monogram } from '../../components';
+import MenuButton from '~/components/button/MenuButton';
+import { Icon } from '~/components/icon/icon';
+import { Monogram } from '~/components/monogram/monogram';
+import { tokens } from '~/components/theme-provider/theme';
+import { Transition } from '~/components/transition/transition';
 import { useScrollToHash } from '../../hooks';
 import { Link as RouterLink, useLocation } from '@remix-run/react';
 import { cssProps, msToNum, numToMs } from '../../utils/style';
@@ -15,8 +19,7 @@ export const MenuBar = () => {
   const [target, setTarget] = useState();  
   const location = useLocation();  
   const headerRef = useRef();  
-  const scrollToHash = useScrollToHash();
-  const backgroundColor = (themes.dark.background);
+  const scrollToHash = useScrollToHash();  
 
 useEffect(() => {
     // Prevent ssr mismatch by storing this in state
@@ -74,8 +77,7 @@ useEffect(() => {
       <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
         <nav className={styles.nav}>
 <div
-      className={styles.menuBarContainer}
-      style={{ backgroundColor }}      
+      className={styles.menuBarContainer}            
     >
      
           <ul className={styles.menuBarList}>

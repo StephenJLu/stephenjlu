@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Section, DecoderText, Transition,
-   Divider, InViewport, Image } from '../../components';   
+import { Section } from '~/components/section/section';
+import { DecoderText } from '~/components/decoder-text/decoder-text';
+import { Transition } from '~/components/transition/transition';
+import { Divider } from '~/components/divider/divider';
+import InViewport from '~/components/in-viewport/InViewport';
+import { Image } from '~/components/image/image';
 import styles from './forensics.module.css';
 import banner from 'app/static/images/forensics.png';
 import bannerFull from 'app/static/images/forensicsfull.png';

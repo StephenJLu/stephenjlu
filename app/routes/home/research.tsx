@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Section, DecoderText, Transition, Divider, InViewport, Image, Button } from '../../components';   
+import { Section } from '~/components/section/section';
+import { DecoderText } from '~/components/decoder-text/decoder-text';
+import { Transition } from '~/components/transition/transition';
+import { Divider } from '~/components/divider/divider';
+import InViewport from '~/components/in-viewport/InViewport';
+import { Image } from '~/components/image/image';
+import { Button } from '~/components/button/button';
 import styles from './research.module.css';
 import banner from 'app/static/images/research.png';
 import bannerFull from 'app/static/images/researchfull.png';

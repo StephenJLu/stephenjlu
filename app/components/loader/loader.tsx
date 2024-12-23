@@ -1,4 +1,4 @@
-import { Text } from '..';
+import { Text } from '~/components/text/text';
 import { useReducedMotion } from 'framer-motion';
 import { classes, cssProps } from '../../utils/style';
 import { forwardRef, CSSProperties } from 'react';

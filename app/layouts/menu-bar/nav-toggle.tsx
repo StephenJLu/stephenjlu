@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Icon } from '../../components';
+import Button from '~/components/button/button';
+import { Icon } from '~/components/icon/icon';
 import styles from './nav-toggle.module.css';
 
 interface NavToggleProps {

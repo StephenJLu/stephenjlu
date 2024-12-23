@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Section, DecoderText, Transition,
-   Divider, InViewport } from '~/components';   
+import { Section } from '~/components/section/section';
+import { DecoderText } from '~/components/decoder-text/decoder-text';
+import { Transition } from '~/components/transition/transition';
+import { Divider } from '~/components/divider/divider';
+import InViewport from '~/components/in-viewport/InViewport';
 import styles from './content.module.css';
 
 import { default as ContentText } from './ContentText';

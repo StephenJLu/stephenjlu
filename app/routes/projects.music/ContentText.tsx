@@ -1,4 +1,7 @@
-import { Text, List, ListItem, Link } from '~/components';
+import { Text } from '~/components/text/text';
+import { List } from '~/components/list/list';
+import { ListItem } from '~/components/list/list';
+import { Link } from '~/components/link/link';
 import styles from './content.module.css';
 
 const ContentText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
