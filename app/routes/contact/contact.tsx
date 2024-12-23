@@ -175,18 +175,8 @@ export const Contact = () => {
   const initDelay = tokens.base.durationS;
   const actionData = useActionData<ActionData>();
   const { state } = useNavigation();
-  const sending = state === 'submitting';
+  const sending = state === 'submitting';  
   
-   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-    script.async = true;
-    document.head.appendChild(script);
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
-
   return (
     <Section data-theme="dark" className={styles.contact}>
       <Transition unmount in={!actionData?.success} timeout={1600}>
