@@ -38,8 +38,7 @@
     transition-duration: var(--durationS);
   }
 
-  &[data-sending='true'] {
-    & svg {
+  &[data-sending='true'] {    
       transition: transform var(--bezierFastoutSlowin) var(--durationXL),
         opacity var(--durationS) ease var(--durationS);
       transform: translate3d(var(--space5XL), 0, 0);
@@ -48,19 +47,13 @@
       @media (--mediaReduceMotion) {
         transition-property: opacity;
         transform: none;
-      }
-    }
+      }    
   }
 
   &[data-status='entering'],
   &[data-status='entered'] {
     opacity: 1;
-  }
-
-  &[data-status='entering']:not(:hover),
-  &[data-status='entering']:hover {
-    transform: none;
-  }
+  }  
 
   &[data-status='exiting'] {
     transition-duration: var(--durationM);
