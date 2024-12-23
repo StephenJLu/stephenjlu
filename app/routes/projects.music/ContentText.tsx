@@ -1,4 +1,4 @@
-import { Text, List, ListItem, Link } from 'app/components/Components';
+import { Text, List, ListItem, Link } from '~/components';
 import styles from './content.module.css';
 
 const ContentText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (

@@ -5,7 +5,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
-import { ThemeProvider, themeStyles, Rotation, GTM } from './components/Components';
+import { ThemeProvider, themeStyles, Rotation, GTM } from './components';
 import { MenuBar, Footer } from './layouts/Layouts';
 import { useEffect } from 'react';
 

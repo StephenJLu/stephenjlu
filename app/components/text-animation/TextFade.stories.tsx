@@ -1,5 +1,5 @@
 import FadeText from './TextFade';
-import { Heading } from '../Components';
+import { Heading } from '..';
 import { StoryContainer } from '../../../.storybook/story-container';
 
 export default {

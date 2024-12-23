@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { Button, DecoderText, Divider, Heading, Icon, Input, Section, Text,
-  tokens, Transition } from 'app/components/Components';
+  tokens, Transition } from '~/components';
   import { useFormInput } from 'app/hooks/useFormInput'; 
 import { baseMeta } from '../../utils/meta';
 import { cssProps, msToNum, numToMs } from 'app/utils/style';

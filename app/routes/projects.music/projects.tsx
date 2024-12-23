@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Divider, Heading, Section,
-  Text, Image, Transition, useTheme } from '../../components/Components';
+  Text, Image, Transition, useTheme } from '../../components';
 import { useWindowSize } from 'app/hooks';
 import { cssProps, media } from 'app/utils/style';
 import styles from './projects.module.css';

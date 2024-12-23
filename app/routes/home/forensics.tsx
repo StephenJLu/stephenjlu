@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Section, DecoderText, Transition,
-   Divider, InViewport, Image } from '../../components/Components';   
+   Divider, InViewport, Image } from '../../components';   
 import styles from './forensics.module.css';
 import banner from 'app/static/images/forensics.png';
 import bannerFull from 'app/static/images/forensicsfull.png';

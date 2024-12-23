@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { MenuButton, Icon, themes, tokens, Transition, Monogram } from '../../components/Components';
+import { MenuButton, Icon, themes, tokens, Transition, Monogram } from '../../components';
 import { useScrollToHash } from '../../hooks';
 import { Link as RouterLink, useLocation } from '@remix-run/react';
 import { cssProps, msToNum, numToMs } from '../../utils/style';

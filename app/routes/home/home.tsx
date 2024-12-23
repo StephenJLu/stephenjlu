@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Link,
-  DecoderText, Transition, Divider, InViewport, PolaroidImage } from '../../components/Components';
+  DecoderText, Transition, Divider, InViewport, PolaroidImage } from '../../components';
 import styles from './home.module.css';
 import config from '../../config.json';
 import steveImage from 'app/static/images/steve.svg';

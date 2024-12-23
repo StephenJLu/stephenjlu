@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Section, DecoderText, Transition, Divider, InViewport, Image, Button } from '../../components/Components';   
+import { Section, DecoderText, Transition, Divider, InViewport, Image, Button } from '../../components';   
 import styles from './research.module.css';
 import banner from 'app/static/images/research.png';
 import bannerFull from 'app/static/images/researchfull.png';

@@ -1,5 +1,5 @@
 import React, { forwardRef, ReactNode } from 'react';
-import { Icon, Loader, Transition } from '../Components';
+import { Icon, Loader, Transition } from '..';
 import { Link } from '@remix-run/react';
 import { classes } from '../../utils/style';
 import styles from './button.module.css';

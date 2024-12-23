@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Section, DecoderText, Transition,
-   Divider, InViewport } from 'app/components/Components';   
+   Divider, InViewport } from '~/components';   
 import styles from './content.module.css';
 
 import { default as ContentText } from './ContentText';

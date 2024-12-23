@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Section, Heading, Text, Link, Image,
-  DecoderText, Transition, Divider, InViewport, PolaroidImage } from 'app/components/Components';
+  DecoderText, Transition, Divider, InViewport, PolaroidImage } from '~/components';
 import styles from './intro.module.css';
 import coding from './piano.png';
 import banner from 'app/static/images/music.png';
