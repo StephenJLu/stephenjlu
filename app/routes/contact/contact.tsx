@@ -317,7 +317,7 @@ export const Contact = () => {
             data-status={status}
             data-sending={sending}
             style={getDelay(tokens.base.durationM, initDelay)}                        
-            >&nbsp;</div>
+            />
             <Button
               className={styles.button}
               data-status={status}
