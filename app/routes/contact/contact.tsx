@@ -10,6 +10,7 @@ import { Text } from '~/components/text/text';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition/transition';
 import { Turnstile } from '~/components/turnstile/turnstile';
+import { verifyTurnstileToken } from '~/utils/turnstile';
 import { useFormInput } from 'app/hooks/useFormInput'; 
 import { baseMeta } from '../../utils/meta';
 import { cssProps, msToNum, numToMs } from 'app/utils/style';
@@ -84,25 +85,17 @@ export async function action ({ request, context }: { request: Request, context:
     return json<ActionData>({ errors }, { status: 400 });
   }
   
-  // Verify the Turnstile token using the Cloudflare Worker
-  try {
-    const workerUrl = 'https://turnstile.stephenjlu.com'; // Ensure this is correct
+  // Verify the Turnstile token
+   try {
 
-    const verificationResponse = await fetch(workerUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ 'cf-turnstile-response': token }),
-    });
-
-    // Check if the response is JSON
-    const contentType = verificationResponse.headers.get('Content-Type') || '';
-    if (!contentType.includes('application/json')) {
-      throw new Error(`Expected JSON response but received: ${contentType}`);
+    const verificationResult = await verifyTurnstileToken(token);
+    
+    if ('status' in verificationResult) {
+      return json<ActionData>(
+        { errors: { message: verificationResult.message } },
+        { status: verificationResult.status }
+      );
     }
-
-    const verificationResult = await verificationResponse.json();
 
     if (!verificationResult.success) {
       return json<ActionData>(
@@ -110,16 +103,7 @@ export async function action ({ request, context }: { request: Request, context:
         { status: 400 }
       );
     }
-  } catch (error) {
-    console.error('Error verifying Turnstile token:', error);
-    return json<ActionData>(
-      { errors: { message: 'An error occurred during CAPTCHA verification.' } },
-      { status: 500 }
-    );
-  }
-  
 
-try {
     const response = await fetch(sendLayerEndpoint, {
       method: 'POST',
       headers: {
