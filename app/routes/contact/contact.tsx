@@ -9,6 +9,7 @@ import { Section } from '~/components/section/section';
 import { Text } from '~/components/text/text';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition/transition';
+import { Turnstile } from '~/components/turnstile/turnstile';
 import { useFormInput } from 'app/hooks/useFormInput'; 
 import { baseMeta } from '../../utils/meta';
 import { cssProps, msToNum, numToMs } from 'app/utils/style';
@@ -310,19 +311,17 @@ export const Contact = () => {
                 </div>
               )}
             </Transition>
-            <div 
-            className={(`${styles.turnstile} cf-turnstile`)}
-            data-sitekey="0x4AAAAAAA30n09B49oMBU_q"
-            data-theme="dark"
+            <Turnstile
+            className={styles.turnstile}
             data-status={status}
             data-sending={sending}
-            style={getDelay(tokens.base.durationM, initDelay)}                        
+            style={getDelay(tokens.base.durationM, initDelay)}                                    
             />
             <Button
               className={styles.button}
               data-status={status}
               data-sending={sending}
-              style={getDelay(tokens.base.durationM, initDelay)}
+              style={getDelay(tokens.base.durationL, initDelay)}
               disabled={sending}
               loading={sending}
               loadingText="Sending..."

@@ -15,8 +15,9 @@
   }
 }
 
-.turnstile {  
+.turnstile {
   margin-top: calc(var(--spaceL) * 2);
+  margin-bottom: var(--space-m);    
   transition-delay: var(--delay);
   transition-duration: var(--durationL);
   opacity: 0;
