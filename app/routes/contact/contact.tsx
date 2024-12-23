@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { Button, DecoderText, Divider, Heading, Icon, Input, Section, Text,
   tokens, Transition } from 'app/components/Components';
   import { useFormInput } from 'app/hooks/useFormInput'; 
@@ -27,8 +27,7 @@ interface ActionData {
     name?: string;
     email?: string;
     message?: string;
-    phone?: string;
-    captcha?: string;
+    phone?: string;    
   };
 }
 
@@ -40,7 +39,8 @@ export async function action ({ request, context }: { request: Request, context:
   const message = formData.get('message') as string;
   // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
-  const errors: { name?: string; email?: string; message?: string; captcha?: string; } = {};
+  const errors: { name?: string; email?: string; message?: string } = {};
+  const token = formData.get('cf-turnstile-response') as string;
 
   //Return without sending email if bot
   if (isBot) return json({ success: true }, { status: 200 });
@@ -71,13 +71,43 @@ export async function action ({ request, context }: { request: Request, context:
     errors.message = `Message must be shorter than ${MAX_MESSAGE_LENGTH} characters.`;
   }
 
-  if (errors.captcha) {
-    errors.captcha = 'CAPTCHA verification failed.';
-  }
-
   if (Object.keys(errors).length > 0) {
     return json<ActionData>({ errors }, { status: 400 });
-  }  
+  }
+  
+  // Verify the Turnstile token using the Cloudflare Worker
+  try {
+    const workerUrl = 'https://turnstile.stephenjlu.com'; // Ensure this is correct
+
+    const verificationResponse = await fetch(workerUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 'cf-turnstile-response': token }),
+    });
+
+    // Check if the response is JSON
+    const contentType = verificationResponse.headers.get('Content-Type') || '';
+    if (!contentType.includes('application/json')) {
+      throw new Error(`Expected JSON response but received: ${contentType}`);
+    }
+
+    const verificationResult = await verificationResponse.json();
+
+    if (!verificationResult.success) {
+      return json<ActionData>(
+        { errors: { message: 'CAPTCHA verification failed. Please try again.' } },
+        { status: 400 }
+      );
+    }
+  } catch (error) {
+    console.error('Error verifying Turnstile token:', error);
+    return json<ActionData>(
+      { errors: { message: 'An error occurred during CAPTCHA verification.' } },
+      { status: 500 }
+    );
+  }
   
 
 try {
@@ -192,7 +222,7 @@ export const Contact = () => {
             multiline={false}
             style={{}}
             autoComplete="phone"
-            type="phone"
+            type="hidden"
             {...phone}
             />        
             <Input
@@ -203,7 +233,7 @@ export const Contact = () => {
               style={getDelay(tokens.base.durationXS, initDelay)}
               autoComplete="name"
               label="Your name"
-              type="name"
+              type="text"
               name="name"
               maxLength={MAX_NAME_LENGTH}
               multiline={false}
@@ -256,8 +286,7 @@ export const Contact = () => {
                       <Icon className={styles.formErrorIcon} icon="error" />
                       {actionData?.errors?.name}
                       {actionData?.errors?.email}
-                      {actionData?.errors?.message}
-                      {actionData?.errors?.captcha}
+                      {actionData?.errors?.message}                      
                     </div>
                   </div>
                 </div>
@@ -270,7 +299,7 @@ export const Contact = () => {
             data-status={status}
             data-sending={sending}
             style={getDelay(tokens.base.durationM, initDelay)}                        
-            />
+            >&nbsp;</div>
             <Button
               className={styles.button}
               data-status={status}
