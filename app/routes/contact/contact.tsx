@@ -182,8 +182,7 @@ export const Contact = () => {
   const initDelay = tokens.base.durationS;
   const actionData = useActionData<ActionData>();
   const { state } = useNavigation();
-  const sending = state === 'submitting';
-  const CFT_SITE_KEY = process.env.CFT_SITE_KEY;   
+  const sending = state === 'submitting';     
 
   return (
     <Section data-theme="dark" className={styles.contact}>
@@ -295,7 +294,7 @@ export const Contact = () => {
             </Transition>
             <div 
             className={(`${styles.turnstile} cf-turnstile`)}
-            data-sitekey={CFT_SITE_KEY}
+            data-sitekey="0x4AAAAAAA30n09B49oMBU_q"
             data-theme="dark"
             data-status={status}
             data-sending={sending}
