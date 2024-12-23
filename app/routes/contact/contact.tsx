@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Button, DecoderText, Divider, Heading, Icon, Input, Section, Text,
   tokens, Transition } from 'app/components/Components';
   import { useFormInput } from 'app/hooks/useFormInput'; 
@@ -182,7 +182,17 @@ export const Contact = () => {
   const initDelay = tokens.base.durationS;
   const actionData = useActionData<ActionData>();
   const { state } = useNavigation();
-  const sending = state === 'submitting';     
+  const sending = state === 'submitting';
+  
+   useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <Section data-theme="dark" className={styles.contact}>
