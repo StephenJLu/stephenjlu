@@ -28,6 +28,7 @@ interface ActionData {
     email?: string;
     message?: string;
     phone?: string;
+    captcha?: string;
   };
 }
 
@@ -39,7 +40,7 @@ export async function action ({ request, context }: { request: Request, context:
   const message = formData.get('message') as string;
   // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
-  const errors: { name?: string; email?: string; message?: string } = {};
+  const errors: { name?: string; email?: string; message?: string; captcha?: string; } = {};
 
   //Return without sending email if bot
   if (isBot) return json({ success: true }, { status: 200 });
@@ -68,6 +69,10 @@ export async function action ({ request, context }: { request: Request, context:
 
   if (message.length > MAX_MESSAGE_LENGTH) {
     errors.message = `Message must be shorter than ${MAX_MESSAGE_LENGTH} characters.`;
+  }
+
+  if (errors.captcha) {
+    errors.captcha = 'CAPTCHA verification failed.';
   }
 
   if (Object.keys(errors).length > 0) {
@@ -249,8 +254,10 @@ export const Contact = () => {
                   <div className={styles.formErrorContent} ref={errorRef}>
                     <div className={styles.formErrorMessage}>
                       <Icon className={styles.formErrorIcon} icon="error" />
+                      {actionData?.errors?.name}
                       {actionData?.errors?.email}
                       {actionData?.errors?.message}
+                      {actionData?.errors?.captcha}
                     </div>
                   </div>
                 </div>
