@@ -10,7 +10,7 @@ interface TurnstileError {
 
 export async function verifyTurnstileToken(token: string): Promise<TurnstileResponse | TurnstileError> {
   try {
-    const workerUrl = '/scripts/turnstile.cjs';
+    const workerUrl = 'https://turnstile.stephenjlu.com';
 
     const verificationResponse = await fetch(workerUrl, {
       method: 'POST',
