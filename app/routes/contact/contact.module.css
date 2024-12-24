@@ -41,7 +41,7 @@
 
   &[data-sending='true'] {    
       transition: transform var(--bezierFastoutSlowin) var(--durationXL),
-        opacity var(--durationS) ease var(--durationS);
+        opacity var(--bezierFastoutSlowin) ease var(--durationXL);
       transform: translate3d(var(--space5XL), 0, 0);
       opacity: 0;
 
