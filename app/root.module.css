@@ -1,13 +1,5 @@
 @layer layout {
 
-.gtm {
-  height: 0;
-  width: 0;
-  display: none;
-  visibility: hidden;
-}
-
-
   .container {
     width: 100%;
     position: relative;

@@ -55,8 +55,7 @@ export default function App() {
 
   return (
     <html lang="en">
-      <head>
-        <GTM />                
+      <head>                        
         <title>Stephen J. Lu | Web Design and Development for the Public Good</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -67,7 +66,6 @@ export default function App() {
         <Links />
       </head>      
       <body>
-        <iframe className={styles.gtm} src="https://www.googletagmanager.com/ns.html?id=GTM-58XPTFBM" title="Google Tag Manager"></iframe>
         <Rotation />
         <ThemeProvider theme={theme} className="">
           <MenuBar />
