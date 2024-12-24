@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Button from '~/components/button/button';
 import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Divider } from '~/components/divider/divider';
@@ -175,7 +175,15 @@ export const Contact = () => {
   const initDelay = tokens.base.durationS;
   const actionData = useActionData<ActionData>();
   const { state } = useNavigation();
-  const sending = state === 'submitting';  
+  const sending = state === 'submitting';
+  const [widgetId, setWidgetId] = useState<string>();
+  
+  useEffect(() => {
+    if (actionData?.success && widgetId && window.turnstile) {
+      window.turnstile.remove(widgetId);
+    }
+  }, [actionData?.success, widgetId]);
+
   
   return (
     <Section data-theme="dark" className={styles.contact}>
@@ -289,7 +297,8 @@ export const Contact = () => {
             className={styles.turnstile}
             data-status={status}
             data-sending={sending}
-            style={getDelay(tokens.base.durationM, initDelay)}                                    
+            style={getDelay(tokens.base.durationM, initDelay)}
+            onWidgetId={setWidgetId}                                    
             />
             <Button
               className={styles.button}
