@@ -295,8 +295,7 @@ export const Contact = () => {
             </Transition>
             <Turnstile
             className={styles.turnstile}
-            data-status={status}
-            data-sending={sending}
+            data-status={status}            
             style={getDelay(tokens.base.durationM, initDelay)}
             onWidgetId={setWidgetId}                                    
             />
