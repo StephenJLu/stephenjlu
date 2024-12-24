@@ -12,7 +12,6 @@ declare global {
 }
 }
 
-
 const PUBLIC_KEY = '0x4AAAAAAA30n09B49oMBU_q';
 
 interface TurnstileProps {  
