@@ -1,3 +1,7 @@
+/*
+Turnstile token verification utility function
+*/
+
 interface TurnstileResponse {
   success: boolean;
   'error-codes'?: string[];
@@ -10,6 +14,8 @@ interface TurnstileError {
 
 export async function verifyTurnstileToken(token: string): Promise<TurnstileResponse | TurnstileError> {
   try {
+    
+    /* Worker URL for Turnstile verification */
     const workerUrl = 'https://turnstile.stephenjlu.com';
 
     const verificationResponse = await fetch(workerUrl, {
