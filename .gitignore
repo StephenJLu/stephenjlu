@@ -8,7 +8,6 @@ build/
 *.toml
 __test__
 *a7.json
-keys.json
 *.code-workspace
 
 public/draco
