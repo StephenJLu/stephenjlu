@@ -89,9 +89,20 @@ export async function action ({ request, context }: { request: Request, context:
    try {
 
     const verificationResult = await verifyTurnstileToken(token);
-  if (verificationResult.errors) {
-    return json({ errors: verificationResult.errors }, { status: verificationResult.status });
-  }
+    
+    if ('status' in verificationResult) {
+      return json<ActionData>(
+        { errors: { message: verificationResult.message } },
+        { status: verificationResult.status }
+      );
+    }
+
+    if (!verificationResult.success) {
+      return json<ActionData>(
+        { errors: { message: 'CAPTCHA verification failed. Please try again.' } },
+        { status: 400 }
+      );
+    }
 
     const response = await fetch(sendLayerEndpoint, {
       method: 'POST',
@@ -275,7 +286,7 @@ export const Contact = () => {
                 </div>
               )}
             </Transition>
-            {/* Turnstile widget*/}
+            {/* Turnstile widget, sets WidgetId */}
             <Turnstile
             className={styles.turnstile}
             theme="dark"

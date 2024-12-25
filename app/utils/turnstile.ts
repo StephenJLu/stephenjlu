@@ -1,3 +1,7 @@
+/*
+Turnstile token verification utility function
+*/
+
 interface TurnstileResponse {
   success: boolean;
   'error-codes'?: string[];
@@ -8,14 +12,12 @@ interface TurnstileError {
   status: number;
 }
 
-interface ActionData {
-  errors?: { message: string };
-  status?: number;
-}
-
-export async function verifyTurnstileToken(token: string): Promise<ActionData> {
+export async function verifyTurnstileToken(token: string): Promise<TurnstileResponse | TurnstileError> {
   try {
+    
+    /* Worker URL for Turnstile verification */
     const workerUrl = 'https://turnstile.stephenjlu.com';
+
     const verificationResponse = await fetch(workerUrl, {
       method: 'POST',
       headers: {
@@ -26,33 +28,15 @@ export async function verifyTurnstileToken(token: string): Promise<ActionData> {
 
     const contentType = verificationResponse.headers.get('Content-Type') || '';
     if (!contentType.includes('application/json')) {
-      return {
-        errors: { message: `Expected JSON response but received: ${contentType}` },
-        status: 400
-      };
+      throw new Error(`Expected JSON response but received: ${contentType}`);
     }
 
-    const result = await verificationResponse.json();
-    
-    if ('status' in result) {
-      return {
-        errors: { message: result.message },
-        status: result.status
-      };
-    }
-
-    if (!result.success) {
-      return {
-        errors: { message: 'CAPTCHA verification failed. Please try again.' },
-        status: 400
-      };
-    }
-
-    return { status: 200 };
+    const verificationResult = await verificationResponse.json();
+    return verificationResult;
   } catch (error) {
     console.error('Error verifying Turnstile token:', error);
     return {
-      errors: { message: 'An error occurred during CAPTCHA verification.' },
+      message: 'An error occurred during CAPTCHA verification.',
       status: 500
     };
   }
