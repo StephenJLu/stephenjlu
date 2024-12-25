@@ -84,11 +84,13 @@ export async function action ({ request, context }: { request: Request, context:
   if (Object.keys(errors).length > 0) {
     return json<ActionData>({ errors }, { status: 400 });
   }
+  
+  const token = formData.get('cf-turnstile-response') as string;
 
   try {
 
   // Verify the Turnstile token
-    const token = formData.get('cf-turnstile-response') as string;
+   
     const verificationResult = await verifyTurnstileToken(token);
   if (verificationResult.errors) {
     return json({ errors: verificationResult.errors }, { status: verificationResult.status });
