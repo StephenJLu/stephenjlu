@@ -21,7 +21,7 @@ This is the latest iteration of my portfolio website to showcase my professional
 
 ## Last Major Update 📆
 
-December 21, 2024
+[Release v1.0](https://github.com/StephenJLu/stephenjlu/releases/tag/v1.0) - December 24, 2024
 
 ## Languages Used 💻
 
