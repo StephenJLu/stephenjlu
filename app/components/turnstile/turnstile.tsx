@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { classes } from '~/utils/style';
 import styles from './turnstile.module.css';
-import keys from '~/keys.json';
+import keys from './keys.json';
 
 declare global {
   interface Window {
