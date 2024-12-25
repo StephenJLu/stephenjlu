@@ -4,24 +4,32 @@ import { verifyTurnstileToken } from '~/utils/turnstile';
 import { Form } from '@remix-run/react';
 
 export const TurnstileTest = () => {
-  const [success, setSuccess] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setStatus('loading');
+    setErrorMessage('');
+    
     const formData = new FormData(event.currentTarget);
     const token = formData.get('cf-turnstile-response') as string;
     
     try {
       const result = await verifyTurnstileToken(token);
-      if (!result.errors) {
-        setSuccess(true);
-        alert('Turnstile verification successful!');
+      if ('success' in result && result.success) {
+        setStatus('success');
       } else {
-        alert('Verification failed: ' + result.errors.message);
+        setStatus('error');
+        if ('message' in result) {
+          setErrorMessage(result.message || 'Verification failed');
+        } else {
+          setErrorMessage('Verification failed');
+        }
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert('Verification failed');
+      setStatus('error');
+      setErrorMessage('Verification failed');
     }
   };
 
@@ -30,7 +38,7 @@ export const TurnstileTest = () => {
       display: 'flex', 
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '2rem'
+      padding: '6rem'
     }}>
       <h1>Turnstile Test</h1>
       <Form onSubmit={handleSubmit} style={{ marginTop: '2rem' }}>
@@ -49,12 +57,19 @@ export const TurnstileTest = () => {
           Verify Turnstile
         </button>
       </Form>
-      {success && (
-        <div style={{ 
-          marginTop: '1rem',
-          color: 'green' 
-        }}>
+      {status === 'success' && (
+        <div style={{ marginTop: '1rem', color: 'green' }}>
           ✓ Verification successful
+        </div>
+      )}
+      {status === 'error' && (
+        <div style={{ marginTop: '1rem', color: 'red' }}>
+          ✗ {errorMessage}
+        </div>
+      )}
+      {status === 'loading' && (
+        <div style={{ marginTop: '1rem', color: 'blue' }}>
+          Verifying...
         </div>
       )}
     </div>
