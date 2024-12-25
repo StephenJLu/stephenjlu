@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef } from 'react';
 import Button from '~/components/button/button';
 import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Divider } from '~/components/divider/divider';
