@@ -66,5 +66,9 @@
   "soundcloud": {
     "width": 24,
     "height": 24
+  },
+  "tictactoe": {
+    "width": 24,
+    "height": 24
   }
 }

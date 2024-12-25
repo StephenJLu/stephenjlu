@@ -40,4 +40,9 @@ export const socialLinks = [
     url: `https://github.com/${config.github}`,
     icon: 'github',
   },
+  {
+    label: 'Tic-Tac-Toe',
+    url: `https://tictactoe.stephenjlu.com`,
+    icon: 'tictactoe',
+  },
 ];
