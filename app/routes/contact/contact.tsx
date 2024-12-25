@@ -178,6 +178,8 @@ export const Contact = () => {
   const sending = state === 'submitting';
   const [widgetId, setWidgetId] = useState<string>();
   
+
+  /* Remove Turnstile widget after successful submission */
   useEffect(() => {
     if (actionData?.success && widgetId && window.turnstile) {
       window.turnstile.remove(widgetId);
@@ -293,6 +295,7 @@ export const Contact = () => {
                 </div>
               )}
             </Transition>
+            /* Turnstile widget, sets WidgetId */
             <Turnstile
             className={styles.turnstile}
             data-status={status}            
