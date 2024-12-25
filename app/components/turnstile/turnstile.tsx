@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { classes } from '~/utils/style';
-import styles from './turnstile.module.css';
 import keys from './keys.json';
 
 declare global {
@@ -70,7 +68,7 @@ export const Turnstile = ({ className, onWidgetId, success, theme, ...rest }: Tu
   return (
     <div
     id="cf-turnstile"
-     className={classes(styles.turnstile, className)}     
+     className={className}     
       {...rest}      
     />
   );
