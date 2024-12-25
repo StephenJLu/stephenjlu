@@ -295,7 +295,7 @@ export const Contact = () => {
                 </div>
               )}
             </Transition>
-            /* Turnstile widget, sets WidgetId */
+            {/* Turnstile widget, sets WidgetId */}
             <Turnstile
             className={styles.turnstile}
             data-status={status}            
