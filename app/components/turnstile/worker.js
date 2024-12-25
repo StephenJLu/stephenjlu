@@ -1,4 +1,5 @@
-/* Cloudflare Turnstile Worker */
+/* Cloudflare Turnstile Worker
+   Ensure you have your secret key stored as an environment variable for your worker */
 
 const CORS_HEADERS = {
   'Content-Type': 'application/json',
