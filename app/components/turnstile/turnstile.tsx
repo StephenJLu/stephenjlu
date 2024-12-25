@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { classes } from '~/utils/style';
 import styles from './turnstile.module.css';
+import keys from '~/keys.json';
 
 declare global {
   interface Window {
@@ -16,11 +17,11 @@ declare global {
 }
 }
 
-const PUBLIC_KEY = '0x4AAAAAAA30n09B49oMBU_q';
-
 interface TurnstileProps {  
   className?: string;
-  onWidgetId?: (id: string) => void;  
+  onWidgetId?: (id: string) => void;
+  success?: boolean;
+  theme?: string;  
   [key: string]: any; // Allow additional props
 }
 
@@ -31,27 +32,38 @@ interface TurnstileProps {
     D --> E[Return Widget ID]
     E --> F[Call onWidgetId]
     A --> G[Component Unmounts]
-    G --> H[Remove Script] 
+    G --> H[Remove Script]
+    H --> I[Remove Widget] 
 */
 
-export const Turnstile = ({ className, onWidgetId, ...rest }: TurnstileProps) => {
+export const Turnstile = ({ className, onWidgetId, success, theme, ...rest }: TurnstileProps) => {
+  const [widgetId, setWidgetId] = useState<string>();
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
     script.defer = true;
     script.async = true;
     script.onload = () => {
-      const widgetId = window.turnstile.render('#cf-turnstile', {
-        sitekey: `${PUBLIC_KEY}`,
-        theme: "dark"
+      const id = window.turnstile.render('#cf-turnstile', {
+        sitekey: `${keys.cft_public_key}`,
+        theme: `${theme}`
       });
-      if (onWidgetId) onWidgetId(widgetId);
+       setWidgetId(id);
+      if (onWidgetId) onWidgetId(id);
     };
     document.head.appendChild(script);
     return () => {
       document.head.removeChild(script);
     };
   }, [onWidgetId]);
+
+  /* Remove Turnstile widget after successful submission */
+  useEffect(() => {
+    if (success && widgetId && window.turnstile) {
+      window.turnstile.remove(widgetId);
+    }
+  }, [success, widgetId]);
 
   /* Explicit render of Turnstile widget */
   

@@ -176,16 +176,7 @@ export const Contact = () => {
   const actionData = useActionData<ActionData>();
   const { state } = useNavigation();
   const sending = state === 'submitting';
-  const [widgetId, setWidgetId] = useState<string>();
   
-
-  /* Remove Turnstile widget after successful submission */
-  useEffect(() => {
-    if (actionData?.success && widgetId && window.turnstile) {
-      window.turnstile.remove(widgetId);
-    }
-  }, [actionData?.success, widgetId]);
-
   
   return (
     <Section data-theme="dark" className={styles.contact}>
@@ -298,9 +289,9 @@ export const Contact = () => {
             {/* Turnstile widget, sets WidgetId */}
             <Turnstile
             className={styles.turnstile}
+            theme="dark"
             data-status={status}            
-            style={getDelay(tokens.base.durationM, initDelay)}
-            onWidgetId={setWidgetId}                                    
+            style={getDelay(tokens.base.durationM, initDelay)}                                                
             />
             <Button
               className={styles.button}
