@@ -50,7 +50,7 @@ export async function action ({ request, context }: { request: Request, context:
   // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
   const errors: { name?: string; email?: string; message?: string } = {};
-  
+  const token = formData.get('cf-turnstile-response') as string;
 
   //Return without sending email if bot
   if (isBot) return json({ success: true }, { status: 200 });
@@ -85,19 +85,14 @@ export async function action ({ request, context }: { request: Request, context:
     return json<ActionData>({ errors }, { status: 400 });
   }
   
-  const token = formData.get('cf-turnstile-response') as string;
-
-  try {
-
   // Verify the Turnstile token
-   
+   try {
+
     const verificationResult = await verifyTurnstileToken(token);
   if (verificationResult.errors) {
     return json({ errors: verificationResult.errors }, { status: verificationResult.status });
   }
 
-  // Continue with email sending if verification is successful
-  
     const response = await fetch(sendLayerEndpoint, {
       method: 'POST',
       headers: {

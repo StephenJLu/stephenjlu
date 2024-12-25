@@ -1,8 +1,16 @@
+interface TurnstileResponse {
+  success: boolean;
+  'error-codes'?: string[];
+}
+
+interface TurnstileError {
+  message: string;
+  status: number;
+}
+
 interface ActionData {
-  success?: boolean;
   errors?: { message: string };
   status?: number;
-  'error-codes'?: string[];
 }
 
 export async function verifyTurnstileToken(token: string): Promise<ActionData> {
@@ -16,12 +24,35 @@ export async function verifyTurnstileToken(token: string): Promise<ActionData> {
       body: JSON.stringify({ 'cf-turnstile-response': token }),
     });
 
-    return await verificationResponse.json();
+    const contentType = verificationResponse.headers.get('Content-Type') || '';
+    if (!contentType.includes('application/json')) {
+      return {
+        errors: { message: `Expected JSON response but received: ${contentType}` },
+        status: 400
+      };
+    }
+
+    const result = await verificationResponse.json();
+    
+    if ('status' in result) {
+      return {
+        errors: { message: result.message },
+        status: result.status
+      };
+    }
+
+    if (!result.success) {
+      return {
+        errors: { message: 'CAPTCHA verification failed. Please try again.' },
+        status: 400
+      };
+    }
+
+    return { status: 200 };
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error verifying Turnstile token:', error);
     return {
-      success: false,
-      errors: { message: 'Failed to verify token' },
+      errors: { message: 'An error occurred during CAPTCHA verification.' },
       status: 500
     };
   }
