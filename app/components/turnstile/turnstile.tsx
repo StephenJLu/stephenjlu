@@ -59,7 +59,7 @@ export const Turnstile = ({ className, onWidgetId, success, theme, ...rest }: Tu
       }
       document.head.removeChild(script);
     };
-  }, [onWidgetId]);
+  }, [onWidgetId, theme, widgetId]);
 
   /* Remove Turnstile widget after successful submission 
   useEffect(() => {
