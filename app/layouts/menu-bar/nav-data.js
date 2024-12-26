@@ -41,6 +41,11 @@ export const socialLinks = [
     icon: 'github',
   },
   {
+    label: 'Docs',
+    url: `https://docs.stephenjlu.com`,
+    icon: 'copy',
+  },
+  {
     label: 'Tic-Tac-Toe',
     url: `https://tictactoe.stephenjlu.com`,
     icon: 'tictactoe',

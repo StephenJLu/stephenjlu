@@ -22,9 +22,10 @@ export const WebDev = () => {
   const fltc = useRef<HTMLElement>(null as unknown as HTMLElement);
   const als = useRef<HTMLElement>(null as unknown as HTMLElement);
   const cac = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const turnstile = useRef<HTMLElement>(null as unknown as HTMLElement);
   
   useEffect(() => {
-    const sections = [intro, content, legacy, fltc, als, cac];
+    const sections = [intro, content, legacy, fltc, als, cac, turnstile];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -82,10 +83,19 @@ export const WebDev = () => {
             buttonLink="https://legacy.stephenjlu.com"      
             />
             <Projects
+            id="turnstile"
+            sectionRef={turnstile}
+            visible={visibleSections.includes(turnstile.current)}
+            index={2}
+            title="Cloudflare Turnstile: An Implementation of Cloudflare's CAPTCHA Challenge"
+            buttonText="Full Documentation"
+            buttonLink="https://docs.stephenjlu.com/cloudflare-turnstile/how-to-implement-cloudflares-turnstile"      
+            />
+            <Projects
             id="cac"
             sectionRef={cac}
             visible={visibleSections.includes(cac.current)}
-            index={2}
+            index={3}
             title="California Association of Criminalists"
             buttonText="Visit Website"
             buttonLink="https://www.cacnews.org"      
@@ -94,7 +104,7 @@ export const WebDev = () => {
             id="fltc"
             sectionRef={fltc}
             visible={visibleSections.includes(fltc.current)}
-            index={3}
+            index={4}
             title="Forensic Leaders Training Center: Flexibility in Leadership. Trust through Consistency."
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/FLTC"      
@@ -103,7 +113,7 @@ export const WebDev = () => {
             id="als"
             sectionRef={als}
             visible={visibleSections.includes(als.current)}
-            index={4}
+            index={5}
             title="A Lasting Strength: Change What It Means to Live with ALS"
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/A-Lasting-Strength"      

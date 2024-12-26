@@ -18,6 +18,8 @@ import alsBanner from 'app/static/images/als.svg';
 import alsPlaceholder from 'app/static/images/als-placeholder.svg';
 import cacBanner from 'app/static/images/cac.svg';
 import cacPlaceholder from 'app/static/images/cac-placeholder.svg';
+import turnstileBanner from 'app/static/images/turnstile.svg';
+import turnstilePlaceholder from 'app/static/images/turnstile-placeholder.svg';
 
 interface ProjectsProps {
   id?: string;
@@ -69,6 +71,10 @@ export function Projects({
   cac: {
     src: cacBanner,
     placeholder: cacPlaceholder,
+  },
+  turnstile: {
+    src: turnstileBanner,
+    placeholder: turnstilePlaceholder,
   },    
 };
 
