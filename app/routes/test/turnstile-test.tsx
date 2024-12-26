@@ -68,7 +68,7 @@ export const TurnstileTest = () => {
         </div>
       )}
       {status === 'loading' && (
-        <div style={{ marginTop: '1rem', color: 'blue' }}>
+        <div style={{ marginTop: '1rem', color: '#FFDE21' }}>
           Verifying...
         </div>
       )}
