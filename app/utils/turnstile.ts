@@ -1,3 +1,4 @@
+import keys from '~/components/turnstile/keys.json';
 /*
 Turnstile token verification utility function
 */
@@ -16,7 +17,7 @@ export async function verifyTurnstileToken(token: string): Promise<TurnstileResp
   try {
     
     /* Worker URL for Turnstile verification */
-    const workerUrl = 'https://turnstile.stephenjlu.com';
+    const workerUrl = `${keys.worker_url}`;
 
     const verificationResponse = await fetch(workerUrl, {
       method: 'POST',

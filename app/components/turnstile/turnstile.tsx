@@ -15,11 +15,13 @@ declare global {
 }
 }
 
+type TurnstileTheme = 'light' | 'dark' | 'auto';
+
 interface TurnstileProps {  
   className?: string;
   onWidgetId?: (id: string) => void;
   success?: boolean;
-  theme?: string;  
+  theme?: TurnstileTheme;  
   [key: string]: any; // Allow additional props
 }
 
