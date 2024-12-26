@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Turnstile } from '~/components/turnstile/turnstile';
 import { verifyTurnstileToken } from '~/utils/turnstile';
 import { Form } from '@remix-run/react';
+import { Button } from '~/components/button/button';
 
 export const TurnstileTest = () => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -34,29 +35,28 @@ export const TurnstileTest = () => {
   };
 
   return (
-    <div style={{ 
+    <div 
+    data-theme="dark"
+    style={{ 
       display: 'flex', 
       flexDirection: 'column',
       alignItems: 'center',
       padding: '6rem'
     }}>
       <h1>Turnstile Test</h1>
+      <h3>Try verifying again after removal of the widget</h3>
       <Form onSubmit={handleSubmit} style={{ marginTop: '2rem' }}>
         <Turnstile
           theme="dark"
           style={{ marginBottom: '1rem' }}
           success={status === 'success'}
         />
-        <button 
-          type="submit"
-          style={{
-            padding: '0.5rem 1rem',
-            fontSize: '1rem',
-            cursor: 'pointer'
-          }}
-        >
-          Verify Turnstile
-        </button>
+        <Button                      
+              icon="check"
+              type="submit"              
+            >
+              Verify Turnstile
+            </Button>        
       </Form>
       {status === 'success' && (
         <div style={{ marginTop: '1rem', color: 'green' }}>
