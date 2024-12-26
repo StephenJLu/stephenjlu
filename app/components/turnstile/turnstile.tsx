@@ -54,17 +54,20 @@ export const Turnstile = ({ className, onWidgetId, success, theme, ...rest }: Tu
     };
     document.head.appendChild(script);
     return () => {
+      if (widgetId && window.turnstile) {
+        window.turnstile.remove(widgetId);
+      }
       document.head.removeChild(script);
     };
   }, [onWidgetId]);
 
-  /* Remove Turnstile widget after successful submission */
+  /* Remove Turnstile widget after successful submission 
   useEffect(() => {
     if (success && widgetId && window.turnstile) {
       window.turnstile.remove(widgetId);
     }
   }, [success, widgetId]);
-
+*/
   /* Explicit render of Turnstile widget */
   
   return (
