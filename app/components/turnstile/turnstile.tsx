@@ -54,7 +54,7 @@ export const Turnstile = ({ className, onWidgetId, success, theme, ...rest }: Tu
     };
     document.head.appendChild(script);
     return () => {
-      if (widgetId && window.turnstile) {
+      if (success && widgetId && window.turnstile) {
         window.turnstile.remove(widgetId);
       }
       document.head.removeChild(script);
