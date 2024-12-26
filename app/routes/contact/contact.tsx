@@ -217,7 +217,7 @@ export const Contact = () => {
             multiline={false}
             style={{}}
             autoComplete="phone"
-            type="hidden"
+            type="phone"
             {...phone}
             />        
             <Input
