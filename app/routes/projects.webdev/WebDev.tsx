@@ -89,7 +89,7 @@ export const WebDev = () => {
             index={2}
             title="Cloudflare Turnstile: An Implementation of Cloudflare's CAPTCHA Challenge"
             buttonText="Full Documentation"
-            buttonLink="https://docs.stephenjlu.com/cloudflare-turnstile/how-to-implement-cloudflares-turnstile"      
+            buttonLink="https://docs.stephenjlu.com/docs-stephenjlu/how-to-implement-cloudflares-turnstile"      
             />
             <Projects
             id="cac"
