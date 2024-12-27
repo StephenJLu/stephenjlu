@@ -30,7 +30,7 @@
   display: flex;
   align-items: flex-end; /* Align content to the end (bottom) */
   position: absolute;
-  bottom: 25px; 
+  bottom: 20px; 
   font-size: 1rem;
   padding-bottom: 20px; 
 }

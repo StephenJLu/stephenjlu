@@ -25,7 +25,7 @@ export const Footer = () => {
       )}
     </InViewport>
     <div className={styles.footer}>
-          <p>Hand-crafted design by <a href="/humans.txt">humans</a>.<br /><br /><a href="https://github.com/StephenJLu/stephenjlu?tab=coc-ov-file#contributor-covenant-code-of-conduct" target="_blank" rel="noopener noreferrer">Code of Conduct</a><br /><br /><a href="https://github.com/StephenJLu#want-to-build-a-site-like-this" target="_blank" rel="noopener noreferrer">Want to build a site like this?</a>.</p>
+          <p>Hand-crafted design by <a href="/humans.txt">humans</a>.<br /><br /><a href="https://github.com/StephenJLu#want-to-build-a-site-like-this" target="_blank" rel="noopener noreferrer">Want to build a site like this?</a>.</p>
           </div>
     </div>
   );
