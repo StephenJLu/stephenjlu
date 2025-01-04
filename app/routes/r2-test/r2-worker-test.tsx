@@ -1,10 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Turnstile } from '~/components/turnstile/turnstile';
 import { verifyTurnstileToken } from '~/utils/turnstile';
 import { Form, useActionData, useLoaderData, useNavigate } from '@remix-run/react';
 import { Button } from '~/components/button/button';
 import { Input } from '~/components/input/input';
 import { json } from '@remix-run/cloudflare';
+import { Icon } from '~/components/icon/icon';
+import { Transition } from '~/components/transition/transition';
+import { tokens } from '~/components/theme-provider/theme';
+import { cssProps, msToNum } from '~/utils/style';
+import styles from './r2-worker-test.module.css';
 
 interface ActionData {
   success?: boolean;
@@ -27,7 +32,6 @@ interface LoaderData {
 
 export const loader = async ({ context }: { context: any }) => {
   try {
-    console.log('Fetching comments...');
     const response = await fetch('https://r2-worker.stephenjlu.com/comments.json', {
       method: 'GET',
       headers: {
@@ -36,16 +40,9 @@ export const loader = async ({ context }: { context: any }) => {
       }
     });
     
-    console.log('Response status:', response.status);
-    const text = await response.text();
-    console.log('Raw response:', text);
-    
-    const comments = text ? JSON.parse(text) : [];
-    console.log('Parsed comments:', comments);
-    
+    const comments = await response.json();
     return json<LoaderData>({ comments });
   } catch (error) {
-    console.error('Loader error:', error);
     return json<LoaderData>({ comments: [] });
   }
 };
@@ -57,12 +54,7 @@ export const action = async ({ request, context }: { request: Request; context: 
     const comment = formData.get('comment') as string;
     const token = formData.get('cf-turnstile-response') as string;
 
-    console.log('Submitting comment:', { name, comment });
-
-    // Verify Turnstile
     const verificationResult = await verifyTurnstileToken(token);
-    console.log('Turnstile verification:', verificationResult);
-
     if ('success' in verificationResult && !verificationResult.success) {
       return json<ActionData>({ 
         success: false, 
@@ -70,7 +62,6 @@ export const action = async ({ request, context }: { request: Request; context: 
       });
     }
 
-    // Validate inputs
     if (!name || !comment) {
       return json<ActionData>({
         success: false,
@@ -81,140 +72,110 @@ export const action = async ({ request, context }: { request: Request; context: 
       });
     }
 
-    const timestamp = new Date().toISOString();
-    console.log('Sending to worker:', { name, comment, timestamp });
-
     const response = await fetch('https://r2-worker.stephenjlu.com/comments.json', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         'X-Custom-Auth-Key': context.cloudflare.env.AUTH_KEY_SECRET,
       },
-      body: JSON.stringify({ 
-        name, 
-        comment, 
-        timestamp 
-      }),
+      body: JSON.stringify({ name, comment, timestamp: new Date().toISOString() }),
     });
 
-    console.log('Worker response:', response.status);
-    const responseData = await response.text();
-    console.log('Worker response data:', responseData);
-
-    if (!response.ok) {
-      throw new Error(`Failed to save comment: ${response.status} ${responseData}`);
-    }
-
+    if (!response.ok) throw new Error('Failed to save comment');
     return json<ActionData>({ success: true });
-  } catch (error) {
-    console.error('Action error:', error);
-    return json<ActionData>({ 
-      success: false, 
-      errors: { comment: 'Failed to save comment' } 
-    });
+  } catch {
+    return json<ActionData>({ success: false, errors: { comment: 'Failed to save comment' } });
   }
 };
 
-const formatDate = (timestamp: string) => {
-  const date = new Date(timestamp);
-  return date.toLocaleString();
-};
-
-export const R2WorkerTest = () => {
-  const [name, setName] = useState('');
-  const [comment, setComment] = useState('');
+export default function R2WorkerTest() {
   const loaderData = useLoaderData<typeof loader>();
   const actionData = useActionData<ActionData>();
-  const comments = loaderData?.comments || [];
   const navigate = useNavigate();
+  const errorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (actionData?.success) {
-      setName('');
-      setComment('');
-      // Force reload of page data
-      navigate('.', { replace: true });
-    }
+    if (actionData?.success) navigate('.', { replace: true });
   }, [actionData?.success, navigate]);
 
-  console.log('Render comments:', comments);
-
   return (
-    <div data-theme="dark" style={{ 
-      display: 'flex', 
-      flexDirection: 'column',
-      alignItems: 'center',
-      padding: '6rem'
-    }}>
+    <div data-theme="dark" className={styles.container}>
       <h1>R2 Comments Test</h1>
-      <Form method="post" style={{ 
-        width: '100%',
-        maxWidth: '600px',
-        marginTop: '2rem' 
-      }}>
+      <Form method="post" className={styles.form}>
         <Input
           required
           label="Name"
           name="name"
-          id="name"
           error={actionData?.errors?.name}
-          value={name}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
-          multiline={false}
           maxLength={255}
-          type="text"
-          autoComplete="off" className={undefined} style={undefined} onBlur={undefined}        />
+          type="text" id={undefined} value={undefined} multiline={undefined} className={undefined} style={undefined} onBlur={undefined} autoComplete={undefined} onChange={undefined}        />
         <Input
           required
           label="Comment"
           name="comment"
-          id="comment"
           multiline
           error={actionData?.errors?.comment}
-          value={comment}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setComment(e.target.value)}
-          maxLength={255}
-          type="text"
-          autoComplete="off" className={undefined} style={undefined} onBlur={undefined}        />
-        <br />
+          maxLength={255} id={undefined} value={undefined} className={undefined} style={undefined} onBlur={undefined} autoComplete={undefined} type={undefined} onChange={undefined}        />
+          <br />
+          <Transition
+          unmount
+          in={!!actionData?.errors}
+          timeout={msToNum(tokens.base.durationM)}
+        >
+          {({ status: errorStatus, nodeRef }: { status: string; nodeRef: React.RefObject<HTMLDivElement> }) => (
+            <div
+              className={styles.formError}
+              ref={nodeRef}
+              data-status={errorStatus}
+              style={cssProps({
+                height: errorStatus ? errorRef.current?.offsetHeight ?? 0 : 0,
+              })}
+            >
+              <div className={styles.formErrorContent} ref={errorRef}>
+                <div className={styles.formErrorMessage}>
+                  <Icon className={styles.formErrorIcon} icon="error" />
+                  {actionData?.errors?.name}
+                  {actionData?.errors?.comment}
+                  {actionData?.errors?.turnstile}
+                </div>
+              </div>
+            </div>
+          )}
+        </Transition>
         <Turnstile
           theme="dark"
-          style={{ marginBottom: '1rem' }}
+          className={styles.turnstile}
           success={actionData?.success}
         />
-        <Button
-          icon="send"
-          type="submit"
-        >
+        <Button icon="send" type="submit">
           Submit Comment
         </Button>
       </Form>
 
       {actionData?.success && (
-        <div style={{ marginTop: '1rem', color: 'green' }}>
-          ✓ Comment submitted successfully
-        </div>
+        <div className={styles.success}>✓ Comment submitted successfully</div>
       )}
       {actionData?.errors && (
-        <div style={{ marginTop: '1rem', color: 'red' }}>
+        <div className={styles.error}>
           ✗ {Object.values(actionData.errors).filter(Boolean).join(', ')}
         </div>
       )}
 
-      <div style={{ width: '100%', maxWidth: '600px', marginTop: '2rem' }}>
-      <h2>Comments ({comments.length})</h2>
-      {comments.length === 0 ? (
-        <div>No comments yet!</div>
-      ) : (
-        comments.map((comment, index) => (
-          <div key={index} style={{ marginBottom: '1rem', padding: '1rem', border: '1px solid #ccc' }}>
-            <strong>{comment.name}</strong>
-            <p>{comment.comment}</p>
-            <small>{formatDate(comment.timestamp)}</small>
-          </div>
-        ))
-      )}
-    </div>
+      <div className={styles.comments}>
+        <h2>Comments ({loaderData.comments.length})</h2>
+        <br />
+        {loaderData.comments.length === 0 ? (
+          <div>No comments yet!</div>
+        ) : (
+          loaderData.comments.map((comment, index) => (
+            <div key={index} className={styles.comment}>
+              <strong>{comment.name}</strong>
+              <p>{comment.comment}</p>
+              <small>{new Date(comment.timestamp).toLocaleString()}</small>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
-};
+}

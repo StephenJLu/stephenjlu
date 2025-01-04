@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem;
+}
+
+.form {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 2rem;
+}
+
+.turnstile {
+  margin-bottom: 1rem;
+}
+
+.message {
+  margin-top: 1rem;
+}
+
+.success {
+  composes: message;
+  color: green;
+}
+
+.error {
+  composes: message;
+  color: red;
+}
+
+.comments {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 2rem;
+}
+
+.comment {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+.formError {
+  color: var(--error);
+  overflow: hidden;
+  height: var(--height);
+  transition-property: height;
+  transition-duration: var(--durationM);
+  transition-timing-function: var(--bezierFastoutSlowin);
+}
+
+.formErrorContent {
+  padding-top: var(--spaceXL);
+}
+
+.formErrorMessage {
+  display: flex;
+  padding: var(--spaceM);
+  line-height: 24px;
+  background-color: color-mix(in lab, var(--error) 10%, transparent);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+}
+
+.formErrorIcon {
+  flex: 0 0 auto;
+  margin-right: var(--spaceS);
+}

@@ -1,77 +1,55 @@
-const hasValidHeader = (request, env) => {    
-    return (request.headers.get("X-Custom-Auth-Key") === env.AUTH_KEY_SECRET);
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, PUT, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, X-Custom-Auth-Key',
+  'Content-Type': 'application/json'
 };
 
+const createResponse = (data, status = 200) => new Response(
+  JSON.stringify(data), 
+  { status, headers: corsHeaders }
+);
+
+const hasValidHeader = (request, env) => 
+  request.headers.get("X-Custom-Auth-Key") === env.AUTH_KEY_SECRET;
+
 export default {
-    async fetch(request, env) {       
-        const corsHeaders = {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, PUT, OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type, X-Custom-Auth-Key',
-            'Content-Type': 'application/json'
-        };
-
-        if (request.method === 'OPTIONS') {
-            return new Response(null, {
-                headers: corsHeaders
-            });
-        }
-        
-        if (!hasValidHeader(request, env)) {
-            return new Response("Forbidden", { 
-                status: 403,
-                headers: corsHeaders 
-            });
-        }
-
-        try {
-            switch (request.method) {
-                case "PUT": {
-                    let comments = [];
-                    const existingComments = await env.R2_BUCKET.get('comments.json');
-                    
-                    if (existingComments) {
-                        try {
-                            const existingText = await existingComments.text();
-                            if (existingText) {
-                                comments = JSON.parse(existingText);
-                            }
-                        } catch (e) {
-                            console.error('Failed to parse existing comments:', e);
-                            comments = [];
-                        }
-                    }
-
-                    const newComment = await request.json();
-                    comments.push(newComment);
-
-                    await env.R2_BUCKET.put('comments.json', JSON.stringify(comments));
-
-                    return new Response(JSON.stringify({ 
-                        success: true,
-                        message: 'Comment saved'
-                    }), {
-                        headers: corsHeaders
-                    });
-                }
-                case "GET": {
-                    const comments = await env.R2_BUCKET.get('comments.json');
-                    if (!comments) {
-                        return new Response(JSON.stringify([]), {
-                            headers: corsHeaders
-                        });
-                    }
-                    const data = await comments.text();
-                    return new Response(data, {
-                        headers: corsHeaders
-                    });
-                }
-            }
-        } catch (error) {
-            console.error('Worker error:', error);
-            return new Response(JSON.stringify([]), {
-                headers: corsHeaders
-            });
-        }
+  async fetch(request, env) {       
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { headers: corsHeaders });
     }
+    
+    if (!hasValidHeader(request, env)) {
+      return createResponse({ error: 'Forbidden' }, 403);
+    }
+
+    try {
+      const bucket = env.R2_BUCKET;
+      
+      switch (request.method) {
+        case "GET": {
+          const file = await bucket.get('comments.json');
+          const comments = file ? JSON.parse(await file.text()) : [];
+          return createResponse(comments);
+        }
+
+        case "PUT": {
+          const file = await bucket.get('comments.json');
+          const comments = file ? JSON.parse(await file.text()) : [];
+          const newComment = await request.json();
+          
+          comments.push(newComment);
+          await bucket.put('comments.json', JSON.stringify(comments));
+          
+          return createResponse({ success: true });
+        }
+
+        default:
+          return createResponse({ error: 'Method not allowed' }, 405);
+      }
+    } catch (error) {
+      console.error('Worker error:', error);
+      return createResponse({ error: error.message }, 500);
+    }
+  }
 };
