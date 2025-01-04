@@ -43,6 +43,29 @@ export const loader = async ({ context }: { context: any }) => {
 };
 
 export const action = async ({ request, context }: { request: Request; context: any }) => {
+const formData = await request.formData();
+  const intent = formData.get('intent');
+
+  // Handle delete
+  if (intent === 'delete') {
+    const timestamp = formData.get('timestamp') as string;
+    if (!timestamp) {
+      return json<ActionData>({ success: false, errors: { comment: 'Missing timestamp for deletion' } });
+    }
+
+    const response = await fetch('https://r2-worker.stephenjlu.com/comments.json', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Custom-Auth-Key': context.cloudflare.env.AUTH_KEY_SECRET,
+      },
+      body: JSON.stringify({ timestamp })
+    });
+
+    if (!response.ok) throw new Error('Failed to delete comment');
+    return json<ActionData>({ success: true });
+  }
+
   try {
     const formData = await request.formData();
     const name = formData.get('name') as string;
