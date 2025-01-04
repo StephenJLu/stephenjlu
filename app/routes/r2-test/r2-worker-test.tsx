@@ -27,7 +27,7 @@ interface LoaderData {
 
 export const loader = async () => {
   try {
-    const response = await fetch('https://r2-worker.stephenjlu.com/comments.json');
+    const response = await fetch('https://r2.stephenjlu.com/comments.json');
     const comments = await response.json();
     return json<LoaderData>({ comments: comments || [] });
   } catch (error) {
