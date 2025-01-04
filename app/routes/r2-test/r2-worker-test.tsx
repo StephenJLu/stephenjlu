@@ -118,8 +118,7 @@ export default function R2WorkerTest() {
   </label>
         <Turnstile
           theme="dark"
-          className={styles.turnstile}
-          success={actionData?.success}
+          className={styles.turnstile}          
         />
         <Button icon="send" type="submit">
           Submit Comment
