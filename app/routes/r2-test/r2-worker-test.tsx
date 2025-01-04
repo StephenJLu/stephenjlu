@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Turnstile } from '~/components/turnstile/turnstile';
 import { verifyTurnstileToken } from '~/utils/turnstile';
 import { Form, useActionData, useLoaderData, useNavigate } from '@remix-run/react';
@@ -86,8 +86,7 @@ export const action = async ({ request, context }: { request: Request; context: 
 export default function R2WorkerTest() {
   const loaderData = useLoaderData<typeof loader>();
   const actionData = useActionData<ActionData>();
-  const navigate = useNavigate();
-  const errorRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();  
 
   useEffect(() => {
     if (actionData?.success) navigate('.', { replace: true });
