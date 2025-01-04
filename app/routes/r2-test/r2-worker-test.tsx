@@ -25,12 +25,23 @@ interface LoaderData {
   comments: Comment[];
 }
 
-export const loader = async () => {
+export const loader = async ({ context }: { context: any }) => {
   try {
-    const response = await fetch('https://r2.stephenjlu.com/comments.json');
+    const response = await fetch('https://r2-worker.stephenjlu.com/comments.json', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Custom-Auth-Key': context.cloudflare.env.AUTH_KEY_SECRET // Need to pass auth key for GET
+      }
+    });
+    
+    console.log('Loader response status:', response.status);
     const comments = await response.json();
+    console.log('Loaded comments:', comments);
+    
     return json<LoaderData>({ comments: comments || [] });
   } catch (error) {
+    console.error('Loader error:', error);
     return json<LoaderData>({ comments: [] });
   }
 };
