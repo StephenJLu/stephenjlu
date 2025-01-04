@@ -12,7 +12,6 @@ interface ActionData {
     name?: string;
     comment?: string;
     turnstile?: string;
-    delete?: string;
   };
 }
 
@@ -44,32 +43,6 @@ export const loader = async ({ context }: { context: any }) => {
 };
 
 export const action = async ({ request, context }: { request: Request; context: any }) => {
-  const formData = await request.formData();
-  const intent = formData.get('intent');
-
-  if (intent === 'delete') {
-    try {
-      const timestamp = formData.get('timestamp') as string;
-      if (!timestamp) {
-        return { success: false, errors: { delete: 'Missing timestamp' } };
-      }
-
-      const response = await fetch('https://r2-worker.stephenjlu.com/comments.json', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Custom-Auth-Key': context.cloudflare.env.AUTH_KEY_SECRET,
-        },
-        body: JSON.stringify({ timestamp })
-      });
-
-      if (!response.ok) throw new Error('Failed to delete comment');
-      return { success: true };
-    } catch {
-      return { success: false, errors: { delete: 'Failed to delete comment' } };
-    }
-  }
-
   try {
     const formData = await request.formData();
     const name = formData.get('name') as string;
@@ -170,24 +143,7 @@ export default function R2WorkerTest() {
         ) : (
           loaderData.comments.map((comment, index) => (
             <div key={index} className={styles.comment}>
-              <div className={styles.commentHeader}>
-                <strong>{comment.name}</strong>
-                <Form method="post">
-                  <input type="hidden" name="timestamp" value={comment.timestamp} />
-                  <input type="hidden" name="intent" value="delete" />
-                  <button
-                    type="submit"
-                    className={styles.deleteButton}
-                    onClick={(e) => {
-                      if (!confirm('Are you sure you want to delete this comment?')) {
-                        e.preventDefault();
-                      }
-                    }}
-                  >
-                    Delete
-                  </button>
-                </Form>
-              </div>
+              <strong>{comment.name}</strong>
               <p>{comment.comment}</p>
               <small>{new Date(comment.timestamp).toLocaleString()}</small>
             </div>
