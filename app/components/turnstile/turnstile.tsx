@@ -61,7 +61,7 @@ export const Turnstile = ({ className, onWidgetId, success, theme, ...rest }: Tu
   /* Remove Turnstile widget after successful submission */
   useEffect(() => {
     if (success && widgetId && window.turnstile) {
-      window.turnstile.remove(widgetId);
+      window.turnstile.reset(widgetId);
     }
   }, [success, widgetId]);
 
