@@ -1,4 +1,3 @@
-// Check requests for a pre-shared secret
 const hasValidHeader = (request, env) => {    
     return (request.headers.get("X-Custom-Auth-Key") === env.AUTH_KEY_SECRET);
 };
@@ -12,7 +11,6 @@ export default {
             'Content-Type': 'application/json'
         };
 
-        // Handle OPTIONS preflight
         if (request.method === 'OPTIONS') {
             return new Response(null, {
                 headers: corsHeaders
@@ -26,93 +24,54 @@ export default {
             });
         }
 
-        const url = new URL(request.url);
-        const key = url.pathname.slice(1);
-
         try {
             switch (request.method) {
                 case "PUT": {
-                    // Get existing comments or initialize empty array
                     let comments = [];
                     const existingComments = await env.R2_BUCKET.get('comments.json');
                     
                     if (existingComments) {
-                        const existingData = await existingComments.json();
-                        comments = existingData || [];
+                        try {
+                            const existingText = await existingComments.text();
+                            if (existingText) {
+                                comments = JSON.parse(existingText);
+                            }
+                        } catch (e) {
+                            console.error('Failed to parse existing comments:', e);
+                            comments = [];
+                        }
                     }
 
-                    // Add new comment
                     const newComment = await request.json();
                     comments.push(newComment);
 
-                    // Save updated comments
                     await env.R2_BUCKET.put('comments.json', JSON.stringify(comments));
 
-                    return new Response(JSON.stringify({ success: true }), {
+                    return new Response(JSON.stringify({ 
+                        success: true,
+                        message: 'Comment saved'
+                    }), {
                         headers: corsHeaders
                     });
                 }
-
-                case "GET":
-                    if (key.endsWith('/')) {
-                        // List objects with prefix
-                        const prefix = key;
-                        const objects = [];
-                        let cursor;
-                        
-                        do {
-                            const listing = await env.R2_STORAGE.list({
-                                prefix: prefix,
-                                cursor: cursor,
-                                limit: 1000
-                            });
-                            
-                            objects.push(...listing.objects.map(obj => ({
-                                name: obj.key,
-                                size: obj.size,
-                                uploaded: obj.uploaded.toISOString()
-                            })));
-                            
-                            cursor = listing.cursor;
-                        } while (cursor);
-
-                        return new Response(JSON.stringify(objects), {
-                            headers: {
-                                ...corsHeaders,
-                                'Content-Type': 'application/json'
-                            }
+                case "GET": {
+                    const comments = await env.R2_BUCKET.get('comments.json');
+                    if (!comments) {
+                        return new Response(JSON.stringify([]), {
+                            headers: corsHeaders
                         });
-                    } else {
-                        const object = await env.R2_STORAGE.get(key);
-                        if (object === null) {
-                            return new Response("Object Not Found", { 
-                                status: 404,
-                                headers: corsHeaders 
-                            });
-                        }
-                        const headers = new Headers(corsHeaders);
-                        object.writeHttpMetadata(headers);
-                        headers.set("etag", object.httpEtag);
-                        return new Response(object.body, { headers });
-                    }               
-                default:
-                    return new Response("Method Not Allowed", {
-                        status: 405,
-                        headers: {
-                            ...corsHeaders,
-                            Allow: "PUT, GET"
-                        }
+                    }
+                    const data = await comments.text();
+                    return new Response(data, {
+                        headers: corsHeaders
                     });
                 }
-            } catch (error) {
-                console.error('Worker error:', error);
-                return new Response(JSON.stringify({ 
-                    success: false, 
-                    error: error.message 
-                }), {
-                    status: 500,
-                    headers: corsHeaders
-                });
             }
+        } catch (error) {
+            console.error('Worker error:', error);
+            return new Response(JSON.stringify([]), {
+                headers: corsHeaders
+            });
         }
-    };
+    }
+};

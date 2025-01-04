@@ -27,19 +27,23 @@ interface LoaderData {
 
 export const loader = async ({ context }: { context: any }) => {
   try {
+    console.log('Fetching comments...');
     const response = await fetch('https://r2-worker.stephenjlu.com/comments.json', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'X-Custom-Auth-Key': context.cloudflare.env.AUTH_KEY_SECRET // Need to pass auth key for GET
+        'X-Custom-Auth-Key': context.cloudflare.env.AUTH_KEY_SECRET
       }
     });
     
-    console.log('Loader response status:', response.status);
-    const comments = await response.json();
-    console.log('Loaded comments:', comments);
+    console.log('Response status:', response.status);
+    const text = await response.text();
+    console.log('Raw response:', text);
     
-    return json<LoaderData>({ comments: comments || [] });
+    const comments = text ? JSON.parse(text) : [];
+    console.log('Parsed comments:', comments);
+    
+    return json<LoaderData>({ comments });
   } catch (error) {
     console.error('Loader error:', error);
     return json<LoaderData>({ comments: [] });
@@ -133,6 +137,8 @@ export const R2WorkerTest = () => {
     }
   }, [actionData?.success, navigate]);
 
+  console.log('Render comments:', comments);
+
   return (
     <div data-theme="dark" style={{ 
       display: 'flex', 
@@ -195,30 +201,20 @@ export const R2WorkerTest = () => {
         </div>
       )}
 
-      <div style={{ 
-        width: '100%',
-        maxWidth: '600px',
-        marginTop: '2rem'
-      }}>
-        <h2>Comments</h2>
-        {comments.length === 0 ? (
-          <div>No comments yet!</div>
-        ) : (
-          comments.map((comment: Comment, index: number) => (
-          <div key={index} style={{ 
-            padding: '1rem',
-            marginBottom: '1rem',
-            borderBottom: '1px solid #333'
-          }}>
+      <div style={{ width: '100%', maxWidth: '600px', marginTop: '2rem' }}>
+      <h2>Comments ({comments.length})</h2>
+      {comments.length === 0 ? (
+        <div>No comments yet!</div>
+      ) : (
+        comments.map((comment, index) => (
+          <div key={index} style={{ marginBottom: '1rem', padding: '1rem', border: '1px solid #ccc' }}>
             <strong>{comment.name}</strong>
             <p>{comment.comment}</p>
-            <small style={{ color: '#666' }}>
-              {formatDate(comment.timestamp)}
-            </small>
+            <small>{formatDate(comment.timestamp)}</small>
           </div>
-       ))
-        )}
-      </div>
+        ))
+      )}
+    </div>
     </div>
   );
 };
