@@ -122,6 +122,16 @@ export const R2WorkerTest = () => {
   const loaderData = useLoaderData<typeof loader>();
   const actionData = useActionData<ActionData>();
   const comments = loaderData?.comments || [];
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (actionData?.success) {
+      setName('');
+      setComment('');
+      // Force reload of page data
+      navigate('.', { replace: true });
+    }
+  }, [actionData?.success, navigate]);
 
   return (
     <div data-theme="dark" style={{ 
