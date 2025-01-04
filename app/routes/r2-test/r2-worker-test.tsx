@@ -5,7 +5,6 @@ import { Form, useActionData, useLoaderData, useNavigate } from '@remix-run/reac
 import { Button } from '~/components/button/button';
 import { json } from '@remix-run/cloudflare';
 import styles from './r2-worker-test.module.css';
-import { Comments } from '~/components/comments/comments';
 
 interface ActionData {
   success?: boolean;
@@ -15,6 +14,7 @@ interface ActionData {
     turnstile?: string;
   };
 }
+
 interface Comment {
   name: string;
   comment: string;
@@ -86,7 +86,7 @@ export const action = async ({ request, context }: { request: Request; context: 
 export default function R2WorkerTest() {
   const loaderData = useLoaderData<typeof loader>();
   const actionData = useActionData<ActionData>();
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
 
   useEffect(() => {
     if (actionData?.success) navigate('.', { replace: true });
@@ -124,7 +124,7 @@ export default function R2WorkerTest() {
         <Button icon="send" type="submit">
           Submit Comment
         </Button>
-     </Form>
+      </Form>
 
       {actionData?.success && (
         <div className={styles.success}>✓ Comment submitted successfully</div>
@@ -135,7 +135,21 @@ export default function R2WorkerTest() {
         </div>
       )}
 
-      <Comments comments={loaderData.comments} />
+      <div className={styles.comments}>
+        <h2>Comments ({loaderData.comments.length})</h2>
+        <br />
+        {loaderData.comments.length === 0 ? (
+          <div>No comments yet!</div>
+        ) : (
+          loaderData.comments.map((comment, index) => (
+            <div key={index} className={styles.comment}>
+              <strong>{comment.name}</strong>
+              <p>{comment.comment}</p>
+              <small>{new Date(comment.timestamp).toLocaleString()}</small>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 }
