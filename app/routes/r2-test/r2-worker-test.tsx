@@ -3,12 +3,7 @@ import { Turnstile } from '~/components/turnstile/turnstile';
 import { verifyTurnstileToken } from '~/utils/turnstile';
 import { Form, useActionData, useLoaderData, useNavigate } from '@remix-run/react';
 import { Button } from '~/components/button/button';
-import { Input } from '~/components/input/input';
 import { json } from '@remix-run/cloudflare';
-import { Icon } from '~/components/icon/icon';
-import { Transition } from '~/components/transition/transition';
-import { tokens } from '~/components/theme-provider/theme';
-import { cssProps, msToNum } from '~/utils/style';
 import styles from './r2-worker-test.module.css';
 
 interface ActionData {
@@ -102,46 +97,26 @@ export default function R2WorkerTest() {
     <div data-theme="dark" className={styles.container}>
       <h1>R2 Comments Test</h1>
       <Form method="post" className={styles.form}>
-        <Input
-          required
-          label="Name"
-          name="name"
-          error={actionData?.errors?.name}
-          maxLength={255}
-          type="text" id={undefined} value={undefined} multiline={undefined} className={undefined} style={undefined} onBlur={undefined} autoComplete={undefined} onChange={undefined}        />
-        <Input
-          required
-          label="Comment"
-          name="comment"
-          multiline
-          error={actionData?.errors?.comment}
-          maxLength={255} id={undefined} value={undefined} className={undefined} style={undefined} onBlur={undefined} autoComplete={undefined} type={undefined} onChange={undefined}        />
-          <br />
-          <Transition
-          unmount
-          in={!!actionData?.errors}
-          timeout={msToNum(tokens.base.durationM)}
-        >
-          {({ status: errorStatus, nodeRef }: { status: string; nodeRef: React.RefObject<HTMLDivElement> }) => (
-            <div
-              className={styles.formError}
-              ref={nodeRef}
-              data-status={errorStatus}
-              style={cssProps({
-                height: errorStatus ? errorRef.current?.offsetHeight ?? 0 : 0,
-              })}
-            >
-              <div className={styles.formErrorContent} ref={errorRef}>
-                <div className={styles.formErrorMessage}>
-                  <Icon className={styles.formErrorIcon} icon="error" />
-                  {actionData?.errors?.name}
-                  {actionData?.errors?.comment}
-                  {actionData?.errors?.turnstile}
-                </div>
-              </div>
-            </div>
-          )}
-        </Transition>
+  <label className={styles.label}>
+    Name
+    <input
+      required
+      name="name"
+      type="text"
+      maxLength={255}
+      className={`${styles.input} ${actionData?.errors?.name ? styles.error : ''}`}
+    />
+  </label>
+  
+  <label className={styles.label}>
+    Comment
+    <textarea
+      required
+      name="comment"
+      maxLength={255}
+      className={`${styles.textarea} ${actionData?.errors?.comment ? styles.error : ''}`}
+    />
+  </label>
         <Turnstile
           theme="dark"
           className={styles.turnstile}
