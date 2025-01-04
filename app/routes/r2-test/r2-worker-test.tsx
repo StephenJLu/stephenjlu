@@ -36,38 +36,44 @@ export const loader = async () => {
 };
 
 export const action = async ({ request, context }: { request: Request; context: any }) => {
-  const formData = await request.formData();
-  const name = formData.get('name') as string;
-  const comment = formData.get('comment') as string;
-  const token = formData.get('cf-turnstile-response') as string;
-
-  // Verify Turnstile
-  const verificationResult = await verifyTurnstileToken(token);
-  if ('success' in verificationResult && !verificationResult.success) {
-    return json<ActionData>({ 
-      success: false, 
-      errors: { turnstile: 'Please complete the CAPTCHA' } 
-    });
-  }
-
-  // Validate inputs
-  if (!name || !comment) {
-    return json<ActionData>({
-      success: false,
-      errors: {
-        name: !name ? 'Name is required' : undefined,
-        comment: !comment ? 'Comment is required' : undefined,
-      },
-    });
-  }
-
   try {
+    const formData = await request.formData();
+    const name = formData.get('name') as string;
+    const comment = formData.get('comment') as string;
+    const token = formData.get('cf-turnstile-response') as string;
+
+    console.log('Submitting comment:', { name, comment });
+
+    // Verify Turnstile
+    const verificationResult = await verifyTurnstileToken(token);
+    console.log('Turnstile verification:', verificationResult);
+
+    if ('success' in verificationResult && !verificationResult.success) {
+      return json<ActionData>({ 
+        success: false, 
+        errors: { turnstile: 'Please complete the CAPTCHA' } 
+      });
+    }
+
+    // Validate inputs
+    if (!name || !comment) {
+      return json<ActionData>({
+        success: false,
+        errors: {
+          name: !name ? 'Name is required' : undefined,
+          comment: !comment ? 'Comment is required' : undefined,
+        },
+      });
+    }
+
     const timestamp = new Date().toISOString();
+    console.log('Sending to worker:', { name, comment, timestamp });
+
     const response = await fetch('https://r2-worker.stephenjlu.com/comments.json', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'X-Custom-Auth-Key': context.env.AUTH_KEY_SECRET,
+        'X-Custom-Auth-Key': context.cloudflare.env.AUTH_KEY_SECRET,
       },
       body: JSON.stringify({ 
         name, 
@@ -76,11 +82,17 @@ export const action = async ({ request, context }: { request: Request; context: 
       }),
     });
 
+    console.log('Worker response:', response.status);
+    const responseData = await response.text();
+    console.log('Worker response data:', responseData);
+
     if (!response.ok) {
-      throw new Error('Failed to save comment');
+      throw new Error(`Failed to save comment: ${response.status} ${responseData}`);
     }
+
     return json<ActionData>({ success: true });
   } catch (error) {
+    console.error('Action error:', error);
     return json<ActionData>({ 
       success: false, 
       errors: { comment: 'Failed to save comment' } 
