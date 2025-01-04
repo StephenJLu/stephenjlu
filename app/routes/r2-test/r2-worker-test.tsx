@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Turnstile } from '~/components/turnstile/turnstile';
 import { verifyTurnstileToken } from '~/utils/turnstile';
 import { Form, useActionData, useLoaderData, useNavigate } from '@remix-run/react';
@@ -93,6 +93,8 @@ export const R2WorkerTest = () => {
   const comments = loaderData?.comments || [];
   const navigate = useNavigate();
   const actionData = useActionData<ActionData>();
+  const [name, setName] = useState('');
+  const [comment, setComment] = useState('');
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleString();
@@ -119,22 +121,18 @@ export const R2WorkerTest = () => {
         maxWidth: '600px',
         marginTop: '2rem' 
       }}>
-        <Input
+       <Input
           required
           label="Name"
           name="name"
           id="name"
           error={actionData?.errors?.name}
-          value=""
+          value={name}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
           multiline={false}
-          className=""
-          style={{}}
-          onBlur={() => {}}
-          autoComplete="off"
           maxLength={255}
           type="text"
-          onChange={() => {}}
-        />
+          autoComplete="off" className={undefined} style={undefined} onBlur={undefined}        />
         <Input
           required
           label="Comment"
@@ -142,15 +140,12 @@ export const R2WorkerTest = () => {
           id="comment"
           multiline
           error={actionData?.errors?.comment}
-          value=""
-          className=""
-          style={{}}
-          onBlur={() => {}}
-          autoComplete="off"
+          value={comment}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setComment(e.target.value)}
           maxLength={255}
           type="text"
-          onChange={() => {}}
-        />
+          autoComplete="off" className={undefined} style={undefined} onBlur={undefined}        />
+          <br />
         <Turnstile
           theme="dark"
           style={{ marginBottom: '1rem' }}
