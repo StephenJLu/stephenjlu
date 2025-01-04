@@ -88,25 +88,17 @@ export const action = async ({ request, context }: { request: Request; context: 
   }
 };
 
+const formatDate = (timestamp: string) => {
+  const date = new Date(timestamp);
+  return date.toLocaleString();
+};
+
 export const R2WorkerTest = () => {
-  const loaderData = useLoaderData<typeof loader>();
-  const comments = loaderData?.comments || [];
-  const navigate = useNavigate();
-  const actionData = useActionData<ActionData>();
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
-
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleString();
-  };
-
-  useEffect(() => {
-    if (actionData?.success) {
-      // Refresh page to show new comments
-      navigate('.', { replace: true });
-    }
-  }, [actionData?.success, navigate]);
-
+  const loaderData = useLoaderData<typeof loader>();
+  const actionData = useActionData<ActionData>();
+  const comments = loaderData?.comments || [];
 
   return (
     <div data-theme="dark" style={{ 
@@ -121,7 +113,7 @@ export const R2WorkerTest = () => {
         maxWidth: '600px',
         marginTop: '2rem' 
       }}>
-       <Input
+        <Input
           required
           label="Name"
           name="name"
@@ -145,7 +137,7 @@ export const R2WorkerTest = () => {
           maxLength={255}
           type="text"
           autoComplete="off" className={undefined} style={undefined} onBlur={undefined}        />
-          <br />
+        <br />
         <Turnstile
           theme="dark"
           style={{ marginBottom: '1rem' }}
@@ -158,6 +150,17 @@ export const R2WorkerTest = () => {
           Submit Comment
         </Button>
       </Form>
+
+      {actionData?.success && (
+        <div style={{ marginTop: '1rem', color: 'green' }}>
+          ✓ Comment submitted successfully
+        </div>
+      )}
+      {actionData?.errors && (
+        <div style={{ marginTop: '1rem', color: 'red' }}>
+          ✗ {Object.values(actionData.errors).filter(Boolean).join(', ')}
+        </div>
+      )}
 
       <div style={{ 
         width: '100%',
