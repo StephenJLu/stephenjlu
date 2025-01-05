@@ -43,8 +43,7 @@ export const TurnstileTest = () => {
       alignItems: 'center',
       padding: '6rem'
     }}>
-      <h1>Turnstile Test</h1>
-      <h3>Try verifying again after removal of the widget</h3>
+      <h1>Turnstile Test</h1>      
       <Form onSubmit={handleSubmit} style={{ marginTop: '2rem' }}>
         <Turnstile
           theme="dark"
