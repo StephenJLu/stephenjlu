@@ -22,6 +22,8 @@ import turnstileBanner from 'app/static/images/turnstile.svg';
 import turnstilePlaceholder from 'app/static/images/turnstile-placeholder.svg';
 import commentsBanner from 'app/static/images/comments.svg';
 import commentsPlaceholder from 'app/static/images/comments-placeholder.svg';
+import striaeBanner from 'app/static/images/striae.svg';
+import striaePlaceholder from 'app/static/images/striae-placeholder.svg';
 
 interface ProjectsProps {
   id?: string;
@@ -81,7 +83,11 @@ export function Projects({
   comments: {
     src: commentsBanner,
     placeholder: commentsPlaceholder,
-  },    
+  },
+  striae: {
+    src: striaeBanner,
+    placeholder: striaePlaceholder,
+  },     
 };
 
   interface RenderBannerProps {
