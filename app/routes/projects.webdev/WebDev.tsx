@@ -27,7 +27,7 @@ export const WebDev = () => {
   const striae = useRef<HTMLElement>(null as unknown as HTMLElement);
   
   useEffect(() => {
-    const sections = [intro, content, legacy, fltc, als, cac, turnstile, comments];
+    const sections = [intro, content, legacy, fltc, als, cac, turnstile, comments, striae];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
