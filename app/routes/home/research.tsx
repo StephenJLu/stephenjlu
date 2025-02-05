@@ -89,9 +89,9 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
                 </InViewport>            
               </div>
                 <ResearchText visible={visible} titleId={titleId} />
-                <Button iconHoverShift href={publicCV} target="_blank" rel="noopener noreferrer" iconEnd="copy" download>
+                {/*<Button iconHoverShift href={publicCV} target="_blank" rel="noopener noreferrer" iconEnd="copy" download>
                             {'Download CV'}
-                          </Button>
+                          </Button>*/}
                           </div>          
           </>
         )}        
