@@ -27,8 +27,7 @@ const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) =
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
       I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout
       my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns,
-      bullet trajectories, and digging up clandestine graves. I've also worked as a freelance web designer,
-      providing services to non-profit organizations and small businesses.
+      bullet trajectories, and digging up clandestine graves.
       </Text>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
       Welcome to my new portfolio site! Here you'll find information <Link href='/#forensics'>about me</Link>, <Link href='/#webdev'>my work</Link>, and how to <Link href='/contact'>get in touch</Link>. I've also written a few articles about my transition from forensics to web development, which you can find <Link href='https://ledger.stephenjlu.com'>here</Link>.
