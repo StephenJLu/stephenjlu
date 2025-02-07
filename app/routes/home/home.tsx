@@ -30,7 +30,7 @@ const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) =
       bullet trajectories, and digging up clandestine graves.
       </Text>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-      Welcome to my new portfolio site! Here you'll find information <Link href='/#forensics'>about me</Link>, <Link href='/#webdev'>my work</Link>, and how to <Link href='/contact'>get in touch</Link>. I've also written a few articles about my transition from forensics to web development, which you can find <Link href='https://ledger.stephenjlu.com'>here</Link>.
+      Welcome to my portfolio site! Here you'll find information <Link href='/#forensics'>about me</Link>, <Link href='/#webdev'>my work</Link>, and how to <Link href='/contact'>get in touch</Link>. I've also written a few articles about my transition from forensics to web development, which you can find <Link href='https://ledger.stephenjlu.com'>here</Link>.
      </Text>    
     <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>
      Thanks for visiting!
