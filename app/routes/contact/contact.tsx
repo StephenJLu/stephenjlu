@@ -294,6 +294,7 @@ export const Contact = () => {
             data-status={status}            
             style={getDelay(tokens.base.durationM, initDelay)}                                                
             />
+            <div className={styles.buttonContainer}>              
             <Button
               className={styles.button}
               data-status={status}
@@ -307,6 +308,18 @@ export const Contact = () => {
             >
               Send message
             </Button>
+            <Button
+                className={styles.button}
+                data-status={status}
+                style={getDelay(tokens.base.durationL, initDelay)}
+                href="https://stephenjlu.setmore.com"
+                icon="link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Schedule Meeting
+              </Button>
+            </div>
           </Form>          
         )}
       </Transition>
