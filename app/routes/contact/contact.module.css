@@ -181,11 +181,6 @@
   display: none;
 }
 
-.buttonContainer {
-  display: flex;
-  gap: 16px;
-}
-
 .button {
   --buttonLoaderDelay: var(--durationL);
 
