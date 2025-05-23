@@ -12,9 +12,9 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "remix vite:build",
+    "build": "node ./scripts/dev.cjs && remix vite:build",
     "dev": "node ./scripts/dev.cjs && remix vite:dev",
-    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name stephenjlu"
+    "deploy": "node ./scripts/dev.cjs && npm run build && wrangler pages deploy ./build/client --project-name stephenjlu"
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.515.0",
