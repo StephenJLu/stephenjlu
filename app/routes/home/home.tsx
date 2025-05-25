@@ -92,7 +92,7 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
             </div>
               <div className={styles.column}>                        
                   <div className={styles.polaroidContainer} data-visible={visible}>
-                    <PolaroidImage rotation={10} imageUrl={steveImage} caption={'Steve at Mt. Woodson'} />
+                    <PolaroidImage rotation={10} imageUrl={steveImage} caption={'Steve at home'} />
                   </div>
               </div>            
           </div>
