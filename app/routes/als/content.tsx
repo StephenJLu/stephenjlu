@@ -57,7 +57,7 @@ export const Content = ({ id, visible, sectionRef }: ContentComponentProps) => {
                     <div className={styles.tagText} data-visible={visible}>
                       {isInViewport && (
                         <DecoderText
-                          text={'Organizations working to end ALS'}
+                          text={'ALS Organizations'}
                           delay={1600}
                         />
                       )}
