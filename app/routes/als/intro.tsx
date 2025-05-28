@@ -36,6 +36,8 @@ const IntroText = ({ visible, titleId }: { visible: boolean; titleId: string }) 
     <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>
     You can help advance the mission to fight ALS. Please consider visiting and contributing to the organizations, individuals, and initiatives listed below. Your support brings hope, awareness, and vital resources to those who need it most.
     </Text>
+    <br />
+    <br />
   </>
 
 );
