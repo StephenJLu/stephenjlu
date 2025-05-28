@@ -94,7 +94,7 @@ export const Page = () => {
       sectionRef={als}
       visible={visibleSections.includes(als.current)}
       index={3}
-      title="What is ALS?"
+      title="What is ALS? Join the Fight to End ALS"
       buttonText="#EndALS"
       buttonLink="/als"      
       />
