@@ -18,7 +18,7 @@ export const navLinks = [
     pathname: '/#forensics',
   },
   {
-    label: 'ALS',
+    label: '#endALS',
     pathname: '/als',
   },
   {
