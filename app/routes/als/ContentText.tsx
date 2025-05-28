@@ -7,9 +7,9 @@ import styles from './content.module.css';
 const ContentText = ({ visible, titleId }: { visible: boolean; titleId: string }) => (
   <>
   <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-    <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://www.als.org/'}>The ALS Association</Link></Text></ListItem>
-    <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://www.alssandiego.org'}>ALS San Diego</Link></Text></ListItem>
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://www.alsaz.org/'}>ALS Arizona</Link></Text></ListItem>
+    <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://www.als.org/'}>The ALS Association</Link></Text></ListItem>
+    <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://www.alssandiego.org'}>ALS San Diego</Link></Text></ListItem>    
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://www.als.net/'}>ALS Therapy Development Institute</Link></Text></ListItem>
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://augiesquest.org/'}>Augie's Quest</Link></Text></ListItem>
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://axeals.org/'}>axeALS Foundation (Stevens Nation)</Link></Text></ListItem>

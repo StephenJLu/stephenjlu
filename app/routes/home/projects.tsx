@@ -16,6 +16,8 @@ import webdevBanner from 'app/static/images/webdev.png';
 import webdevPlaceholder from 'app/static/images/webdev-placeholder.svg';
 import musicBanner from 'app/static/images/music.svg';
 import musicPlaceholder from 'app/static/images/music-placeholder.svg';
+import alsBanner from 'app/static/images/alssection.svg';
+import alsPlaceholder from 'app/static/images/alssection-placeholder.svg';
 
 interface ProjectsProps {
   id?: string;
@@ -63,6 +65,10 @@ export function Projects({
   music: {
     src: musicBanner,
     placeholder: musicPlaceholder,
+  },
+  als: {
+    src: alsBanner,
+    placeholder: alsPlaceholder,
   },  
 };
 

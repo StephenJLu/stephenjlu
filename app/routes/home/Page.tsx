@@ -21,12 +21,13 @@ export const Page = () => {
   const home = useRef<HTMLElement>(null as unknown as HTMLElement);
   const forensics = useRef<HTMLElement>(null as unknown as HTMLElement);
   const webdev = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const als = useRef<HTMLElement>(null as unknown as HTMLElement);
   const csiceo = useRef<HTMLElement>(null as unknown as HTMLElement);
   const music = useRef<HTMLElement>(null as unknown as HTMLElement);
   const research = useRef<HTMLElement>(null as unknown as HTMLElement);
   
   useEffect(() => {
-    const sections = [home, forensics, webdev, csiceo, music, research];
+    const sections = [home, forensics, webdev, als, csiceo, music, research];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -69,7 +70,7 @@ export const Page = () => {
       id="home"
       sectionRef={home}
       visible={visibleSections.includes(home.current)}
-      />
+      />      
       <Projects
       id="webdev"
       sectionRef={webdev}
@@ -89,10 +90,19 @@ export const Page = () => {
       buttonLink="https://www.CSItoCEO.com"      
       />
       <Projects
+      id="als"
+      sectionRef={als}
+      visible={visibleSections.includes(als.current)}
+      index={3}
+      title="What is ALS?"
+      buttonText="#EndALS"
+      buttonLink="/als"      
+      />
+      <Projects
       id="music"
       sectionRef={music}
       visible={visibleSections.includes(music.current)}
-      index={3}
+      index={4}
       title="Music & Electronic Production"
       buttonText="Listen In"
       buttonLink="/projects/music"      
