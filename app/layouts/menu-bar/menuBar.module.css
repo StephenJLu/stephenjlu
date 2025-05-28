@@ -177,30 +177,33 @@
   }
 
   .mobileNav {
-    --backdrop: blur(40px) saturate(180%);
+  --backdrop: blur(40px) saturate(180%);
 
-position: fixed;
-inset: 0;
-background: rgba(0, 0, 0, 0.85);
--webkit-backdrop-filter: var(--backdrop);
-backdrop-filter: var(--backdrop);
-transform: translate3d(0, -100%, 0);
-transition: transform var(--durationL) var(--bezierFastoutSlowin),
-            background-color var(--durationL) var(--bezierFastoutSlowin);
-display: none;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-z-index: var(--zIndex3);
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: var(--backdrop);
+  backdrop-filter: var(--backdrop);
+  transform: translate3d(0, -100%, 0);
+  transition: all var(--durationL) var(--bezierFastoutSlowin);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--zIndex3);
 
-@media (--mediaMobile), (--mediaMobileLS) {
-  display: flex;
-}
+  @supports not (backdrop-filter: blur(40px)) {
+    background-color: rgba(0, 0, 0, 0.95);
+  }
 
-&[data-visible='true'] {
-  transform: none;
-  background: rgba(0, 0, 0, 0.92);
-}
+  @media (--mediaMobile), (--mediaMobileLS) {
+    display: flex;
+  }
+
+  &[data-visible='true'] {
+    transform: none;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
 }
 
   .mobileNavLink {
