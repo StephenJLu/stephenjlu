@@ -2,43 +2,47 @@
 
 .menuButton {    
   border: none;
-  color: var(--textBody);
-  cursor: pointer;  
-  font-weight: 300;
-  padding: 20px 20px 20px 20px;
-  border-radius: 3em;
-  transition: background-color 0.3s ease;
+    color: var(--textBody);
+    cursor: pointer;  
+    font-weight: 400;
+    padding: 12px 24px;
+    border-radius: 3em;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: var(--headerNavFontSize);
 }
 
 .menuButton.active {
   background-color: rgba(255, 255, 255, 0.9);
-  color: rgba(0, 0, 0, 1);
-  font-weight: 700;  
-  /* Match existing transition */
-  transition: all 0.3s ease;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 600;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
   /* Ensure hover state doesn't override active state */
 .menuButton.active:hover {
-  background-color: rgba(255, 255, 255, 1);  
+  background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);  
 }
 
 
 .menuButton:hover {
   background-color: rgba(255, 255, 255, 0.75);
-  color: rgba(0, 0, 0, 1);
-  animation: bounce 0.5s; /* Apply the bounce animation on hover */
+    color: rgba(0, 0, 0, 1);
+    animation: bounce 0.5s;
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-6px);
+    }
+    60% {
+      transform: translateY(-3px);
+    }
   }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
 }

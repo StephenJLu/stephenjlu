@@ -171,7 +171,7 @@ export const Gallery = () => {
     <Section className={styles.gallery}>
       <Heading
         level={3}
-        as="h1"
+        as="h3"
         className={styles.title}
       >
         <DecoderText text="Photo Gallery" start={true} delay={300} />

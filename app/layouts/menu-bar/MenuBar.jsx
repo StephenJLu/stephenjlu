@@ -95,6 +95,7 @@ useEffect(() => {
                     item={item}
                     isActive={activeItem === item.label}
                     onClick={() => setActiveItem(item.label)}
+                    className={styles.menuButton}
                   />
                 </RouterLink>
               </li>
