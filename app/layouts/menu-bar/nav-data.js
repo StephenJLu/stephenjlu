@@ -18,6 +18,10 @@ export const navLinks = [
     pathname: '/#forensics',
   },
   {
+    label: 'ALS',
+    pathname: '/als',
+  },
+  {
     label: 'Contact',
     pathname: '/contact',
   },
