@@ -128,21 +128,12 @@ export const WebDev = () => {
             title="A Lasting Strength: Change What It Means to Live with ALS"
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/A-Lasting-Strength"      
-            />
+            />            
             <Projects
             id="striae"
             sectionRef={striae}
             visible={visibleSections.includes(striae.current)}
             index={7}
-            title="Striae: A Firearms Examiner's Comparison Companion"
-            buttonText="Sign up for the Beta"
-            buttonLink="https://striae.allyforensics.com/beta"      
-            />
-            <Projects
-            id="striae"
-            sectionRef={striae}
-            visible={visibleSections.includes(striae.current)}
-            index={8}
             title="Striae: A Firearms Examiner's Comparison Companion"
             buttonText="Project Suspended"
             buttonLink="/"      
