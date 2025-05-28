@@ -74,21 +74,12 @@ export const WebDev = () => {
       id="content"
       sectionRef={content}
       visible={visibleSections.includes(content.current)}
-      />
-            <Projects
-            id="striae"
-            sectionRef={striae}
-            visible={visibleSections.includes(striae.current)}
-            index={1}
-            title="Striae: A Firearms Examiner's Comparison Companion"
-            buttonText="Sign up for the Beta"
-            buttonLink="https://striae.allyforensics.com/beta"      
-            />
+      />            
             <Projects
             id="legacy"
             sectionRef={legacy}
             visible={visibleSections.includes(legacy.current)}
-            index={2}
+            index={1}
             title="Legacy Portfolio Website: legacy.stephenjlu.com"
             buttonText="Visit Website"
             buttonLink="https://legacy.stephenjlu.com"      
@@ -97,7 +88,7 @@ export const WebDev = () => {
             id="turnstile"
             sectionRef={turnstile}
             visible={visibleSections.includes(turnstile.current)}
-            index={3}
+            index={2}
             title="Cloudflare Turnstile: An Implementation of Cloudflare's CAPTCHA Challenge"
             buttonText="Full Documentation"
             buttonLink="https://docs.stephenjlu.com/docs-stephenjlu/projects/how-to-implement-cloudflares-turnstile"      
@@ -106,7 +97,7 @@ export const WebDev = () => {
             id="comments"
             sectionRef={comments}
             visible={visibleSections.includes(comments.current)}
-            index={4}
+            index={3}
             title="Cloudflare R2 Object Storage: Serving a Comments Field with Cloudflare R2 Object Storage"
             buttonText="Full Documentation"
             buttonLink="https://docs.stephenjlu.com/docs-stephenjlu/projects/using-cloudflare-r2-object-storage-to-serve-a-comments-field"      
@@ -115,7 +106,7 @@ export const WebDev = () => {
             id="cac"
             sectionRef={cac}
             visible={visibleSections.includes(cac.current)}
-            index={5}
+            index={4}
             title="California Association of Criminalists"
             buttonText="Visit Website"
             buttonLink="https://www.cacnews.org"      
@@ -124,7 +115,7 @@ export const WebDev = () => {
             id="fltc"
             sectionRef={fltc}
             visible={visibleSections.includes(fltc.current)}
-            index={6}
+            index={5}
             title="Forensic Leaders Training Center: Flexibility in Leadership. Trust through Consistency."
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/FLTC"      
@@ -133,10 +124,28 @@ export const WebDev = () => {
             id="als"
             sectionRef={als}
             visible={visibleSections.includes(als.current)}
-            index={7}
+            index={6}
             title="A Lasting Strength: Change What It Means to Live with ALS"
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/A-Lasting-Strength"      
+            />
+            <Projects
+            id="striae"
+            sectionRef={striae}
+            visible={visibleSections.includes(striae.current)}
+            index={7}
+            title="Striae: A Firearms Examiner's Comparison Companion"
+            buttonText="Sign up for the Beta"
+            buttonLink="https://striae.allyforensics.com/beta"      
+            />
+            <Projects
+            id="striae"
+            sectionRef={striae}
+            visible={visibleSections.includes(striae.current)}
+            index={8}
+            title="Striae: A Firearms Examiner's Comparison Companion"
+            buttonText="Project Suspended"
+            buttonLink="/"      
             />         
       </div>       
   );
