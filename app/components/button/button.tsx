@@ -35,8 +35,7 @@ export const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonPr
     }
 
     return (
-      <ButtonContent
-        unstable_viewTransition
+      <ButtonContent        
         as={Link}
         prefetch="intent"
         to={href}

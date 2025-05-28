@@ -12,6 +12,8 @@
     height: var(--buttonSize);
     padding: var(--buttonPadding);
     cursor: pointer;
+    view-transition-name: button;
+    transition: opacity 0.3s ease;
     transition-property: opacity, color, background;
     transition-duration: var(--durationS);
     transition-timing-function: var(--bezierFastoutSlowin);

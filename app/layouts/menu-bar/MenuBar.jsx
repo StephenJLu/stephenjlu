@@ -63,8 +63,7 @@ useEffect(() => {
   
     return (
     <header className={styles.navbar} ref={headerRef} data-theme='dark'>
-      <RouterLink
-        unstable_viewTransition
+      <RouterLink        
         prefetch="intent"
         to={location.pathname === '/' ? '/#home' : '/'}
         data-navbar-item
@@ -83,8 +82,7 @@ useEffect(() => {
           <ul className={styles.menuBarList}>
             {navLinks.map((item, index) => (
               <li key={index}>
-                <RouterLink
-                  unstable_viewTransition
+                <RouterLink                  
                   prefetch="intent"
                   to={item.pathname}
                   key={item.label}
@@ -109,8 +107,7 @@ useEffect(() => {
         {({ visible, nodeRef }) => (
           <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
             {navLinks.map((item, index) => (
-              <RouterLink
-                unstable_viewTransition
+              <RouterLink                
                 prefetch="intent"
                 to={item.pathname}
                 key={item.label}

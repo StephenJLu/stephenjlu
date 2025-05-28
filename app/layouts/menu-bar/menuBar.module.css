@@ -27,6 +27,8 @@
 }
 
 .menuBarList {
+  view-transition-name: nav-item;
+  transition: opacity 0.3s ease;
   list-style: none;
   color: 'var(--textBody)';
   display: flex;
@@ -71,7 +73,8 @@
 
   .navbar {
     --headerNavFontSize: calc((16 / 16) * 1rem);
-
+    view-transition-name: nav-header;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,6 +100,8 @@
   .logo {
     display: flex;
     position: relative;
+    view-transition-name: nav-logo;
+    transition: opacity 0.3s ease;
     padding: var(--spaceS) var(--spaceS) var(--spaceL);
     z-index: var(--zIndex2);
 
@@ -141,6 +146,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    view-transition-name: nav-link;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     padding: var(--spaceS);
     width: var(--space2XL);
     height: var(--space2XL);
@@ -165,6 +172,8 @@
     inset: 0;
     background: color-mix(in lab, var(--background) 70%, transparent);
     transform: translate3d(0, -100%, 0);
+    view-transition-name: nav-icon;
+    transition: opacity 0.3s ease;
     transition-property: background;
     transition-duration: var(--durationL);
     transition-timing-function: var(--bezierFastoutSlowin);

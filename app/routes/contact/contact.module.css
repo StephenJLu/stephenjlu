@@ -60,6 +60,8 @@
   max-width: var(--maxWidthS);
   width: 100%;
   padding: var(--space2XL) 0;
+  view-transition-name: contact-form;
+  transition: opacity 0.3s ease;
 
   @media (--mediaMobile) {
     padding: var(--space5XL) 0 var(--space2XL);

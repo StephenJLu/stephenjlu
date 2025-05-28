@@ -8,7 +8,8 @@
       color-mix(in lab, var(--accent) var(--lineOpacity), transparent),
       color-mix(in lab, var(--accent) var(--lineOpacity), transparent)
     );
-
+    view-transition-name: nav-link;
+    transition: opacity 0.3s ease;
     cursor: pointer;
     display: inline;
     color: var(--linkColor);
