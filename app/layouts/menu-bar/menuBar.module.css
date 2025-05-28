@@ -177,30 +177,30 @@
   }
 
   .mobileNav {
-    --backdrop: blur(40px) saturate(180%);
+  --backdrop: blur(24px) saturate(120%);
 
-position: fixed;
-inset: 0;
-background: rgba(0, 0, 0, 0.85);
--webkit-backdrop-filter: var(--backdrop);
-backdrop-filter: var(--backdrop);
-transform: translate3d(0, -100%, 0);
-transition: transform var(--durationL) var(--bezierFastoutSlowin),
-            background-color var(--durationL) var(--bezierFastoutSlowin);
-display: none;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-z-index: var(--zIndex3);
+  position: fixed;
+  inset: 0;
+  background: color-mix(in lab, var(--background) 70%, transparent);
+  -webkit-backdrop-filter: var(--backdrop);
+  backdrop-filter: var(--backdrop);
+  transform: translate3d(0, -100%, 0);
+  transition: transform var(--durationL) var(--bezierFastoutSlowin),
+              background-color var(--durationL) var(--bezierFastoutSlowin);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--zIndex3);
 
-@media (--mediaMobile), (--mediaMobileLS) {
-  display: flex;
-}
+  @media (--mediaMobile), (--mediaMobileLS) {
+    display: flex;
+  }
 
-&[data-visible='true'] {
-  transform: none;
-  background: rgba(0, 0, 0, 0.92);
-}
+  &[data-visible='true'] {
+    transform: none;
+    background: color-mix(in lab, var(--background) 85%, transparent);
+  }
 }
 
   .mobileNavLink {
