@@ -191,7 +191,6 @@
   align-items: center;
   justify-content: center;
   z-index: var(--zIndex3);
-  padding: 0 var(--spaceM); /* Add horizontal padding */
 
   @supports not (backdrop-filter: blur(40px)) {
     background-color: rgba(0, 0, 0, 0.95);
@@ -199,7 +198,6 @@
 
   @media (--mediaMobile), (--mediaMobileLS) {
     display: flex;
-    padding: 0 var(--spaceOuter); /* Increase padding on mobile */
   }
 
   &[data-visible='true'] {
@@ -216,20 +214,12 @@
     color: var(--textBody);
     padding: var(--spaceL);
     opacity: 0;
-    max-width: 100%; /* Ensure text doesn't overflow */
-    overflow-wrap: break-word; /* Handle long text */
-    margin: 0 auto; /* Center the text */
     transition-property: opacity;
     transition-duration: var(--durationS);
     transition-timing-function: var(--bezierFastoutSlowin);
     transition-delay: var(--transitionDelay);
     position: relative;
     top: calc(var(--spaceM) * -1);
-
-    @media (--mediaMobile) {
-      padding: var(--spaceM) var(--spaceL);
-      font-size: calc(var(--headerNavFontSize) * 0.9); /* Slightly reduce font size on mobile */
-    }
 
     @media (--mediaUseMotion) {
       transition-property: transform, opacity;
