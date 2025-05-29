@@ -8,6 +8,10 @@
   Cache-Control: public, max-age=3600, s-maxage=3600
 /shortcut.png
   Cache-Control: public, max-age=3600, s-maxage=3600
+/*.css
+  Cache-Control: public, max-age=3600, s-maxage=3600
+/*.js
+  Cache-Control: public, max-age=3600, s-maxage=3600
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
 /*.ttf
