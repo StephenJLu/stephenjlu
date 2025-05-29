@@ -9,15 +9,11 @@
   :global(:where(html, body)) {
     min-height: 100%;
     width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
   }
 
   :global(:where(*, *::before, *::after)) {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
     min-width: 0;
   }
 
