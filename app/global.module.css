@@ -22,8 +22,11 @@
     transition-property: background, opacity;
     color: var(--textBody);
     height: 100vh;
-    width: 100vw;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
+    position: relative;
     opacity: 1;
      background-image:  
                     url('./static/images/starry-bg.gif'),
