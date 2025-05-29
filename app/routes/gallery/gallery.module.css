@@ -2,17 +2,7 @@
   min-height: 100vh;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 120px 20px;
-}
-
-.title {
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-/* Override default gallery styles if needed */
-:global(.image-gallery) {
-  background: var(--backgroundColor);
+  padding: 100px 20px;
 }
 
 /* Center image descriptions */
@@ -40,7 +30,7 @@
 }
 
 :global(.image-gallery-slide) {
-  height: 75vh; /* Set your desired height */
+  height: 50vh; /* Set your desired height */
 }
 
 :global(.image-gallery-image) {
