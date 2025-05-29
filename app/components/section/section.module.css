@@ -1,37 +1,33 @@
 @layer components {
   .section {
-    width: 100%;
-    max-width: var(--maxWidthL);
-    margin: 0 auto;
-    padding-right: var(--spaceM);
-    padding-left: var(--spaceM);
-    box-sizing: border-box;
+    padding-right: var(--space5XL);
+    padding-left: calc(var(--space4XL) * 2);
 
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+      outline: none;
+    }
 
-  @media (--mediaTablet) {
-    padding-left: var(--spaceL);
-    padding-right: var(--spaceL);
-    width: 100%;
-  }
+    @media (min-width: 2080px) {
+      padding-left: var(--space5XL);
+    }
 
-  @media (--mediaMobile) {
-    padding-left: var(--spaceM);
-    padding-right: var(--spaceM);
-    width: 100%;
-    overflow-x: hidden;
-  }
+    @media (--mediaTablet) {
+      padding-left: calc(var(--space4XL) + var(--space3XL));
+    }
 
-  @media (--mediaMobileS) {
-    padding-left: var(--spaceS);
-    padding-right: var(--spaceS);
-  }
+    @media (--mediaMobile) {
+      padding-right: var(--spaceL);
+      padding-left: var(--spaceL);
+    }
 
-  @media (--mediaMobileLS) {
-    padding-left: var(--spaceM);
-    padding-right: var(--spaceM);
+    @media (--mediaMobile), (--mediaMobileLS) {
+      padding-left: var(--spaceOuter);
+      padding-right: var(--spaceOuter);
+    }
+
+    @media (max-width: 820px) and (max-height: 420px) {
+      padding-left: var(--space4XL);
+      padding-right: var(--space4XL);
+    }
   }
-}
 }
