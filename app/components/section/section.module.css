@@ -1,7 +1,7 @@
 @layer components {
   .section {
     padding-right: var(--space5XL);
-    padding-left: calc(var(--space4XL) * 2);
+    padding-left: calc(var(--spaceXL) * 2);
 
     &:focus {
       outline: none;
