@@ -6,25 +6,37 @@
                       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>http://stephenjlu.com/</loc>
-    <lastmod>2024-12-21</lastmod>
+    <lastmod>2025-05-28</lastmod>
     <priority>1</priority>
     <changefreq>daily</changefreq>
   </url>
   <url>
     <loc>http://stephenjlu.com/projects/webdev</loc>
-    <lastmod>2024-12-21</lastmod>
+    <lastmod>2025-05-28</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://stephenjlu.com/projects/music</loc>
-    <lastmod>2024-12-21</lastmod>
+    <lastmod>2025-05-28</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://stephenjlu.com/contact</loc>
-    <lastmod>2024-12-21</lastmod>
+    <lastmod>2025-05-28</lastmod>
+    <priority>1</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://stephenjlu.com/gallery</loc>
+    <lastmod>2025-05-28</lastmod>
+    <priority>1</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://stephenjlu.com/als</loc>
+    <lastmod>2025-05-28</lastmod>
     <priority>1</priority>
     <changefreq>weekly</changefreq>
   </url>  
