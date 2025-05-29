@@ -1,8 +1,6 @@
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Section } from '~/components/section/section';
-import { Heading } from '~/components/heading/heading';
-import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { baseMeta } from '../../utils/meta';
 import styles from './gallery.module.css';
 
@@ -168,14 +166,7 @@ const images = [
 
 export const Gallery = () => {
   return (
-    <Section className={styles.gallery}>
-      <Heading
-        level={3}
-        as="h3"
-        className={styles.title}
-      >
-        <DecoderText text="Photo Gallery" start={true} delay={300} />
-      </Heading>
+    <Section className={styles.gallery}>      
       <ImageGallery 
         items={images}
         showPlayButton={true}

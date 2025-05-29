@@ -51,6 +51,7 @@
     "@storybook/test": "^8.4.7",
     "@storybook/theming": "^8.4.7",
     "@types/react": "^19.0.1",
+    "@types/react-image-gallery": "^1.2.4",
     "chromatic": "^11.20.2",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
