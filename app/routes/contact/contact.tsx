@@ -7,7 +7,7 @@ import { Icon } from '~/components/icon/icon';
 import { Input } from '~/components/input/input';
 import { Section } from '~/components/section/section';
 import { Text } from '~/components/text/text';
-import { tokens } from '~/components/theme-provider/theme';
+import { tokens } from '~/components/theme-provider/theme.js';
 import { Transition } from '~/components/transition/transition';
 import { Turnstile } from '~/components/turnstile/turnstile';
 import { verifyTurnstileToken } from '~/utils/turnstile';

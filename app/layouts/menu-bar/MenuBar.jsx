@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import MenuButton from '~/components/button/MenuButton';
 import { Icon } from '~/components/icon/icon';
 import { Monogram } from '~/components/monogram/monogram';
-import { tokens } from '~/components/theme-provider/theme';
+import { tokens } from '~/components/theme-provider/theme.js';
 import { Transition } from '~/components/transition/transition';
 import { useScrollToHash } from '../../hooks';
 import { Link as RouterLink, useLocation } from '@remix-run/react';
