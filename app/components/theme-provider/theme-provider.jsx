@@ -31,13 +31,19 @@ export const ThemeProvider = ({
   return (
     <ThemeContext.Provider
       value={{
-        theme,        
+        theme,
+        themeStyle: themes[theme], // Add theme styles
+        toggleTheme: () => {}, // Add theme toggle functionality if needed
       }}
     >
-      {isRootProvider && children}
-      {/* Nested providers need a div to override theme tokens */}
-      {!isRootProvider && (
-       <Component className={classes(className)} data-theme={theme} {...rest}>
+      {isRootProvider ? (
+        children
+      ) : (
+        <Component 
+          className={classes(className)} 
+          data-theme={theme} 
+          {...rest}
+        >
           {children}
         </Component>
       )}

@@ -66,7 +66,7 @@ export default function App() {
       </head>      
       <body>
         <Rotation />
-        <ThemeProvider theme={theme} className="">
+        <ThemeProvider theme={theme} className="theme-provider">  
           <MenuBar />
           <main id="main-content" className={styles.container} tabIndex={-1}>
             <Outlet />
