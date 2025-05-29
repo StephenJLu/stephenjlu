@@ -169,16 +169,41 @@ export const Gallery = () => {
     <Section className={styles.gallery}>      
       <ImageGallery 
         items={images}
+        additionalClass={styles.content}
+        thumbnailPosition="bottom"
         showPlayButton={true}
         showFullscreenButton={true}
         showThumbnails={true}
         showNav={true}
         showBullets={false}
+        lazyLoad={true}
         autoPlay={false}
         slideInterval={3000}
         slideDuration={450}
-        thumbnailPosition="bottom"
-        lazyLoad={true}
+        renderItem={(item) => (
+          <div className={styles.slideWrapper}>
+            <img 
+              src={item.original}
+              alt={item.originalAlt}
+              className={styles.image}
+              loading="lazy"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+            />
+            <div className={styles.descriptionWrapper}>
+              <p className={styles.description}>{item.description}</p>
+            </div>
+          </div>
+        )}
+        renderThumbInner={(item) => (
+          <div className={styles.thumbnail}>
+            <img
+              src={item.thumbnail}
+              alt={item.thumbnailAlt}
+              className={styles.thumbnailImage}
+              loading="lazy"
+            />
+          </div>
+        )}        
       />
     </Section>
   );
