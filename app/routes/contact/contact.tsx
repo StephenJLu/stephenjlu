@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef } from 'react';
 import Button from '~/components/button/button';
 import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Divider } from '~/components/divider/divider';
@@ -50,7 +50,7 @@ export async function action ({ request, context }: { request: Request, context:
   // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
   const errors: { name?: string; email?: string; message?: string } = {};
-  const token = formData.get('cf-turnstile-response') as string;
+  
 
   //Return without sending email if bot
   if (isBot) return json({ success: true }, { status: 200 });
@@ -87,7 +87,8 @@ export async function action ({ request, context }: { request: Request, context:
   
   // Verify the Turnstile token
    try {
-
+    
+    const token = formData.get('cf-turnstile-response') as string;
     const verificationResult = await verifyTurnstileToken(token);
     
     if ('status' in verificationResult) {
@@ -176,16 +177,7 @@ export const Contact = () => {
   const actionData = useActionData<ActionData>();
   const { state } = useNavigation();
   const sending = state === 'submitting';
-  const [widgetId, setWidgetId] = useState<string>();
   
-
-  /* Remove Turnstile widget after successful submission */
-  useEffect(() => {
-    if (actionData?.success && widgetId && window.turnstile) {
-      window.turnstile.remove(widgetId);
-    }
-  }, [actionData?.success, widgetId]);
-
   
   return (
     <Section data-theme="dark" className={styles.contact}>
@@ -225,7 +217,7 @@ export const Contact = () => {
             multiline={false}
             style={{}}
             autoComplete="phone"
-            type="hidden"
+            type="phone"
             {...phone}
             />        
             <Input
@@ -297,11 +289,11 @@ export const Contact = () => {
             </Transition>
             {/* Turnstile widget, sets WidgetId */}
             <Turnstile
-            className={styles.turnstile}
+            className={styles.turnstile}            
+            theme="dark"
             data-status={status}            
-            style={getDelay(tokens.base.durationM, initDelay)}
-            onWidgetId={setWidgetId}                                    
-            />
+            style={getDelay(tokens.base.durationM, initDelay)}                                                
+            />                          
             <Button
               className={styles.button}
               data-status={status}
@@ -314,7 +306,7 @@ export const Contact = () => {
               type="submit"
             >
               Send message
-            </Button>
+            </Button>                        
           </Form>          
         )}
       </Transition>

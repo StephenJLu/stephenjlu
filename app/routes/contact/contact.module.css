@@ -181,7 +181,6 @@
   display: none;
 }
 
-
 .button {
   --buttonLoaderDelay: var(--durationL);
 
