@@ -1,0 +1,9 @@
+
+.page {  
+  padding: 0;   
+  overflow-x: hidden;  
+  line-height: 2;
+  width: 100%;
+  z-index: 1; 
+}
+

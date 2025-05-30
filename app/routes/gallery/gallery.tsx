@@ -1,15 +1,17 @@
+import React, { useState, useEffect } from 'react';
+import { Section } from '~/components/section/section';
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { Section } from '~/components/section/section';
-import { baseMeta } from '../../utils/meta';
 import styles from './gallery.module.css';
 
-export const meta = () => {
-  return baseMeta({
-    title: 'Gallery',
-    description: 'A collection of memories and moments',
-  });
-};
+interface GalleryProps {
+  id?: string;
+  sectionRef?: React.RefObject<HTMLElement>;
+}
+
+interface GalleryComponentProps extends GalleryProps {
+  visible: boolean;    
+}
 
 const images = [
   {
@@ -164,47 +166,68 @@ const images = [
   },
 ];
 
-export const Gallery = () => {
+export const Gallery = ({ id, visible, sectionRef }: GalleryComponentProps) => {  
+  const [focused, setFocused] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const titleId = `${id}-title`; 
+  
+  useEffect(() => {
+    setMounted(true);
+    const timeout = setTimeout(() => setFocused(true), 1000);
+    return () => clearTimeout(timeout);
+  }, []);
+  
   return (
-    <Section className={styles.gallery}>      
-      <ImageGallery 
-        items={images}
-        additionalClass={styles.content}
-        thumbnailPosition="bottom"
-        showPlayButton={true}
-        showFullscreenButton={true}
-        showThumbnails={true}
-        showNav={true}
-        showBullets={false}
-        lazyLoad={true}
-        autoPlay={false}
-        slideInterval={3000}
-        slideDuration={450}
-        renderItem={(item) => (
-          <div className={styles.slideWrapper}>
-            <img 
-              src={item.original}
-              alt={item.originalAlt}
-              className={styles.image}
-              loading="lazy"
-              sizes="(max-width: 1200px) 100vw, 1200px"
-            />
-            <div className={styles.descriptionWrapper}>
-              <p className={styles.description}>{item.description}</p>
+    <Section       
+      className={styles.gallery}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}  
+      as="section"
+      ref={sectionRef}
+      id={id}
+      aria-labelledby={titleId}
+      tabIndex={-1}
+      data-visible={mounted}    
+    >
+      <div className={styles.content} data-visible={visible || focused}>
+        <ImageGallery 
+          items={images}
+          thumbnailPosition="bottom"
+          showPlayButton={true}
+          showFullscreenButton={true}
+          showThumbnails={true}
+          showNav={true}
+          showBullets={false}
+          lazyLoad={true}
+          autoPlay={false}
+          slideInterval={3000}
+          slideDuration={450}
+          renderItem={(item) => (
+            <div className={styles.slideWrapper} data-visible={visible || focused}>
+              <img 
+                src={item.original}
+                alt={item.originalAlt}
+                className={styles.image}
+                loading="lazy"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+              />
+              <div className={styles.descriptionWrapper}>
+                <p className={styles.description}>{item.description}</p>
+              </div>
             </div>
-          </div>
-        )}
-        renderThumbInner={(item) => (
-          <div className={styles.thumbnail}>
-            <img
-              src={item.thumbnail}
-              alt={item.thumbnailAlt}
-              className={styles.thumbnailImage}
-              loading="lazy"
-            />
-          </div>
-        )}        
-      />
+          )}
+          renderThumbInner={(item) => (
+            <div className={styles.thumbnail}>
+              <img
+                src={item.thumbnail}
+                alt={item.thumbnailAlt}
+                className={styles.thumbnailImage}
+                loading="lazy"
+              />
+            </div>
+          )}        
+        />
+      </div>
     </Section>
   );
 };
