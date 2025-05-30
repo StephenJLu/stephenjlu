@@ -58,7 +58,7 @@ export const ALS = () => {
   
   
   return (
-    <div data-theme='dark' className={`${styles.webdev} ${styles.container}`}>               
+    <div data-theme='dark' className={`${styles.als} ${styles.container}`}>               
       <Intro
       id="intro"
       sectionRef={intro}
