@@ -1,6 +1,6 @@
 import { useId, useRef, useState } from 'react';
 import { Icon } from '~/components/icon/icon';
-import { tokens } from '~/components/theme-provider/theme.js';
+import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition/transition';
 import { classes, cssProps, msToNum } from '../../utils/style';
 import { TextArea } from './text-area';

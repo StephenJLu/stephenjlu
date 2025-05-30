@@ -123,8 +123,8 @@ const dark = {
 
 const light = {
   background: 'oklch(96.12% 0 0)',
-  backgroundLight: 'oklch(100% 0 0)',
-  primary: 'oklch(0% 0 0)',
+  backgroundLight: 'var(--white)',
+  primary: 'var(--black)',
   accent: 'oklch(18.3% 0.1 264.6)',
   error: 'oklch(63.17% 0.259 25.41)',
   text: 'var(--black)',  

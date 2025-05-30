@@ -12,10 +12,9 @@ interface MenuButtonProps {
   item: MenuItem;
   isActive?: boolean;
   onClick: (item: MenuItem) => void;
-  className?: string;
 }
 
-const MenuButton: React.FC<MenuButtonProps> = ({ item, isActive, onClick, className }) => {
+const MenuButton: React.FC<MenuButtonProps> = ({ item, isActive, onClick }) => {
   const handleClick = () => {
     onClick(item);
   };
@@ -24,7 +23,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({ item, isActive, onClick, classN
     <button
       type="button"
       onClick={handleClick}
-      className={`${styles.menuButton} ${isActive ? styles.active : ''} ${className || ''}`}
+      className={`${styles.menuButton} ${isActive ? styles.active : ''}`}
     >
       {item.label}
     </button>

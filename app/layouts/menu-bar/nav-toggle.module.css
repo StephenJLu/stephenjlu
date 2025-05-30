@@ -8,10 +8,6 @@
     right: var(--inset);
     z-index: var(--zIndex4);
     display: none;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    border-radius: 50%;
-    padding: 8px;
 
     @media (--mediaMobile), (--mediaMobileLS) {
       display: flex;
@@ -27,50 +23,47 @@
   }
 
   .icon {
-    --iconSize: 24px;
+    --iconSize: var(--spaceXL);
     position: absolute;
-    transition-property: opacity, fill, transform;
+    transition-property: opacity, fill;
     transition-duration: var(--durationM);
-    transition-timing-function: ease-in-out;
+    transition-timing-function: var(--bezierFastoutSlowin);
     opacity: 1;
     transform: rotate(0deg);
-    fill: var(--textLight);
+    fill: var(--text);
     width: var(--iconSize);
     height: var(--iconSize);
 
     @media (--mediaUseMotion) {
       transition-delay: 0.1s;
+      transition-property: opacity, transform, fill;
     }
 
     &[data-open='true'] {
       opacity: 0;
-      transform: rotate(90deg);
 
       @media (--mediaUseMotion) {
         transition-delay: 0s;
+        transform: rotate(45deg);
       }
     }
 
     &[data-close='true'] {
       opacity: 0;
-      transform: rotate(-90deg);
 
       @media (--mediaUseMotion) {
         transition-delay: 0s;
+        transform: rotate(-45deg);
       }
     }
 
     &[data-open='true']&[data-close='true'] {
       opacity: 1;
-      transform: rotate(0deg);
 
       @media (--mediaUseMotion) {
         transition-delay: 0.1s;
+        transform: rotate(0deg);
       }
     }
-  }
-
-  .toggle:hover .icon {
-    fill: var(--textLight);
   }
 }

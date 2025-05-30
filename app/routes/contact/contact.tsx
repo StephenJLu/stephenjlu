@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Button from '~/components/button/button';
 import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Divider } from '~/components/divider/divider';
@@ -7,7 +7,7 @@ import { Icon } from '~/components/icon/icon';
 import { Input } from '~/components/input/input';
 import { Section } from '~/components/section/section';
 import { Text } from '~/components/text/text';
-import { tokens } from '~/components/theme-provider/theme.js';
+import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition/transition';
 import { Turnstile } from '~/components/turnstile/turnstile';
 import { verifyTurnstileToken } from '~/utils/turnstile';
@@ -50,7 +50,7 @@ export async function action ({ request, context }: { request: Request, context:
   // SendLayer API endpoint
   const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
   const errors: { name?: string; email?: string; message?: string } = {};
-  
+  const token = formData.get('cf-turnstile-response') as string;
 
   //Return without sending email if bot
   if (isBot) return json({ success: true }, { status: 200 });
@@ -87,8 +87,7 @@ export async function action ({ request, context }: { request: Request, context:
   
   // Verify the Turnstile token
    try {
-    
-    const token = formData.get('cf-turnstile-response') as string;
+
     const verificationResult = await verifyTurnstileToken(token);
     
     if ('status' in verificationResult) {
@@ -177,14 +176,24 @@ export const Contact = () => {
   const actionData = useActionData<ActionData>();
   const { state } = useNavigation();
   const sending = state === 'submitting';
+  const [widgetId, setWidgetId] = useState<string>();
   
+
+  /* Remove Turnstile widget after successful submission */
+  useEffect(() => {
+    if (actionData?.success && widgetId && window.turnstile) {
+      window.turnstile.remove(widgetId);
+    }
+  }, [actionData?.success, widgetId]);
+
   
   return (
     <Section data-theme="dark" className={styles.contact}>
       <Transition unmount in={!actionData?.success} timeout={1600}>
         {({ status, nodeRef }: { status: string; nodeRef: React.RefObject<HTMLFormElement> }) => (
           
-          <Form            
+          <Form
+            unstable_viewTransition
             className={styles.form}
             method="post"
             ref={nodeRef}
@@ -216,7 +225,7 @@ export const Contact = () => {
             multiline={false}
             style={{}}
             autoComplete="phone"
-            type="phone"
+            type="hidden"
             {...phone}
             />        
             <Input
@@ -288,11 +297,11 @@ export const Contact = () => {
             </Transition>
             {/* Turnstile widget, sets WidgetId */}
             <Turnstile
-            className={styles.turnstile}            
-            theme="dark"
+            className={styles.turnstile}
             data-status={status}            
-            style={getDelay(tokens.base.durationM, initDelay)}                                                
-            />                          
+            style={getDelay(tokens.base.durationM, initDelay)}
+            onWidgetId={setWidgetId}                                    
+            />
             <Button
               className={styles.button}
               data-status={status}
@@ -305,7 +314,7 @@ export const Contact = () => {
               type="submit"
             >
               Send message
-            </Button>                        
+            </Button>
           </Form>          
         )}
       </Transition>

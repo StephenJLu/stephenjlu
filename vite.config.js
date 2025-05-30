@@ -11,7 +11,7 @@ import rehypeImgSize from 'rehype-img-size';
 import rehypeSlug from 'rehype-slug';
 import rehypePrism from '@mapbox/rehype-prism';
 
-const config = defineConfig({
+export default defineConfig({
   assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
   build: {
     assetsInlineLimit: 1024,
@@ -36,5 +36,3 @@ const config = defineConfig({
     jsconfigPaths(),
   ],
 });
-
-export default config;
