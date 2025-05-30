@@ -9,6 +9,8 @@
 @custom-media --mediaTouch (pointer: coarse);
 @custom-media --mediaNoTouch (pointer: fine);
 
+@layer reset, base, components, utilities;
+
 @layer base {
   :global(:root) {
     --mobileNavOffset: calc(var(--spaceOuter) * 2 + var(--space2XL));
