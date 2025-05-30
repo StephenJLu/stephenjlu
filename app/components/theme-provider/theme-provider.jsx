@@ -14,7 +14,7 @@ import AtlasGroteskLCRegularItalic from '~/fonts/AGRegularItalic.ttf';
 import AtlasGroteskLCThinItalic from '~/fonts/AGThinItalic.ttf';
 import { createContext, useContext } from 'react';
 import { classes, media } from '~/utils/style';
-import { themes, tokens } from './theme.js';
+import { themes, tokens } from './theme';
 
 export const ThemeContext = createContext({});
 
@@ -31,19 +31,13 @@ export const ThemeProvider = ({
   return (
     <ThemeContext.Provider
       value={{
-        theme,
-        themeStyle: themes[theme], // Add theme styles
-        toggleTheme: () => {}, // Add theme toggle functionality if needed
+        theme,        
       }}
     >
-      {isRootProvider ? (
-        children
-      ) : (
-        <Component 
-          className={classes(className)} 
-          data-theme={theme} 
-          {...rest}
-        >
+      {isRootProvider && children}
+      {/* Nested providers need a div to override theme tokens */}
+      {!isRootProvider && (
+       <Component className={classes(className)} data-theme={theme} {...rest}>
           {children}
         </Component>
       )}

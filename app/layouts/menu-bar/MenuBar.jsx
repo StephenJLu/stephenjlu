@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import MenuButton from '~/components/button/MenuButton';
 import { Icon } from '~/components/icon/icon';
 import { Monogram } from '~/components/monogram/monogram';
-import { tokens } from '~/components/theme-provider/theme.js';
+import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition/transition';
 import { useScrollToHash } from '../../hooks';
 import { Link as RouterLink, useLocation } from '@remix-run/react';
@@ -62,9 +62,9 @@ useEffect(() => {
   };  
   
     return (
-    <header className={styles.navbar} ref={headerRef} data-theme='dark'>      
+    <header className={styles.navbar} ref={headerRef} data-theme='dark'>
       <RouterLink
-      unstable_viewTransition        
+        unstable_viewTransition
         prefetch="intent"
         to={location.pathname === '/' ? '/#home' : '/'}
         data-navbar-item
@@ -84,7 +84,7 @@ useEffect(() => {
             {navLinks.map((item, index) => (
               <li key={index}>
                 <RouterLink
-                unstable_viewTransition                  
+                  unstable_viewTransition
                   prefetch="intent"
                   to={item.pathname}
                   key={item.label}
@@ -97,7 +97,6 @@ useEffect(() => {
                     item={item}
                     isActive={activeItem === item.label}
                     onClick={() => setActiveItem(item.label)}
-                    className={styles.menuButton}
                   />
                 </RouterLink>
               </li>
@@ -111,7 +110,7 @@ useEffect(() => {
           <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
             {navLinks.map((item, index) => (
               <RouterLink
-              unstable_viewTransition                
+                unstable_viewTransition
                 prefetch="intent"
                 to={item.pathname}
                 key={item.label}
