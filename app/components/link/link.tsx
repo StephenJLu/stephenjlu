@@ -58,7 +58,8 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     }
 
     return (
-      <RouterLink        
+      <RouterLink
+        unstable_viewTransition
         prefetch="intent"
         {...linkProps}
         to={href}
