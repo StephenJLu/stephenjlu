@@ -13,8 +13,7 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
-    "dev": "node ./scripts/dev.cjs && remix vite:dev",
-    "start": "wrangler pages dev ./build/client",
+    "dev": "node ./scripts/dev.cjs && remix vite:dev",    
     "deploy": "npm run build && wrangler pages deploy ./build/client --project-name stephenjlu"
   },
   "dependencies": {
