@@ -15,7 +15,7 @@ const ContentText2 = ({ visible, titleId }: { visible: boolean; titleId: string 
     </List>
     <br />
     <br />
-    <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>Please <Link href='/contact'>get in touch</Link> if you know of an organization or individual who should be added to this list.</Text> 
+    <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>Please <Link href='/contact'>get in touch</Link> if you know of an organization or individual in the fight against ALS.</Text> 
       </>
 );
 
