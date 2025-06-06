@@ -44,7 +44,7 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
         <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>Human Biology and Biochemistry
       </Heading>
       <List>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Niemann-Pick Type C Disease</Text></ListItem>
+        <ListItem><Text className={styles.description} data-visible={visible} size="l">Niemann-Pick Disease Type C</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Neutral Lipid Trafficking</Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Fluorescent Microscopy</Text></ListItem>
       </List>
