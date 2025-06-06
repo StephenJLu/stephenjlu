@@ -85,7 +85,7 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
     <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Reevaluation of the Role of Early Trypsin Activity in the Transcriptional Activation of the Late Trypsin Gene in the Mosquito <i>Aedes aegypti</i><br/><Link secondary href={'https://doi.org/10.1016/j.ibmb.2006.01.011'}>Journal Link</Link></Text></ListItem>
+        <ListItem><Text className={styles.description} data-visible={visible} size="l">Reevaluation of the role of early trypsin activity in the transcriptional activation of the late trypsin gene in the mosquito <i>Aedes aegypti</i><br/><Link secondary href={'https://doi.org/10.1016/j.ibmb.2006.01.011'}>Journal Link</Link></Text></ListItem>
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Neutral Lipid Trafficking Differentiates Niemann-Pick C (NPC) 1 from NPC2 Mutant Fibroblasts<br/><Link secondary href={nihPoster} target="_blank" rel="noopener noreferrer" download>Download Poster</Link></Text></ListItem>
         </List>
     </TableCell>
