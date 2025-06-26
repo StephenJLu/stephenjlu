@@ -14,10 +14,7 @@ const ContentText2 = ({ visible, titleId }: { visible: boolean; titleId: string 
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://sunnystrong.com/'}>SunnyStrong</Link></Text></ListItem>
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://www.instagram.com/witt_wolfpack/'}>Todd Witt</Link></Text></ListItem>     
     </List>
-    <br />
-    <br />
-    <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>Please <Link href='/contact'>get in touch</Link> if you know of an organization or individual in the fight against ALS.</Text> 
-      </>
+    </>
 );
 
 export default ContentText2;
