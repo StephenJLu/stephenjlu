@@ -11,7 +11,8 @@ const ContentText2 = ({ visible, titleId }: { visible: boolean; titleId: string 
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://www.instagram.com/alswarriorjenn/'}>Jennifer Schroedl</Link></Text></ListItem>
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://www.teamhighoctane.com/'}>Julian Rodriguez</Link></Text></ListItem>
     <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://www.amazon.com/dp/B0DNN4337V'}>Mayuri Saxena</Link></Text></ListItem>
-    <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://sunnystrong.com/'}>SunnyStrong</Link></Text></ListItem>    
+    <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://sunnystrong.com/'}>SunnyStrong</Link></Text></ListItem>
+    <ListItem><Text className={styles.description} data-visible={visible} size={'l'}><Link secondary href={'https://www.instagram.com/witt_wolfpack/'}>Todd Witt</Link></Text></ListItem>     
     </List>
     <br />
     <br />
