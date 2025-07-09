@@ -181,9 +181,27 @@ export const Contact = () => {
   
   return (
     <Section data-theme="dark" className={styles.contact}>
+      <a
+          style={{
+            float: 'none',
+            position: 'fixed',
+            right: '-2px',
+            top: '25%',
+            display: 'block',
+            zIndex: 20000,
+          }}
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://stephenjlu.setmore.com"
+        >
+          <img
+            style={{ border: 'none' }}
+            src="https://storage.googleapis.com/full-assets/setmore/images/1.0/Calendar/Setmore-Book-Now.png"
+            alt="Click here to book an appointment with Stephen"
+          />
+        </a>
       <Transition unmount in={!actionData?.success} timeout={1600}>
-        {({ status, nodeRef }: { status: string; nodeRef: React.RefObject<HTMLFormElement> }) => (
-          
+        {({ status, nodeRef }: { status: string; nodeRef: React.RefObject<HTMLFormElement> }) => (          
           <Form
             unstable_viewTransition
             className={styles.form}
