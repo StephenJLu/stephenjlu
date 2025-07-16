@@ -40,7 +40,7 @@ export const socialLinks = [
   },
   {
     label: 'LinkedIn',
-    url: `https://www.linkedin.com/in/${config.linkedin}`,
+    url: `www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=${config.linkedin}`,
     icon: 'linkedin',
   },
   {
