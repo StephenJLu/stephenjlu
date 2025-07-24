@@ -14,6 +14,9 @@
   "ascii": " _________________       \n(  ____ \u005C__    _( \u005C      \n| (    \u005C/  )  ( | (      \n| (_____   |  | | |      \n(_____  )  |  | | |      \n      ) |  |  | | |      \n/\u005C____) |\u005C_)  ) | (____/\u005C\n\u005C_______(____/  (_______/\n",
   "delay": 500,
   "avatar": "https://legacy.stephenjlu.com/images/steve.svg",
-  "cft_public_key": "0x4AAAAAAA30n09B49oMBU_q"
+  "cft_public_key": "0x4AAAAAAA30n09B49oMBU_q",
+  "elevenLabsPublicUserId": "a871dbe8a750379e6fe2538b8e1c5148807097630d28c4ad5f6f79647f676665",
+  "elevenLabsTextColorRgba": "rgba(255, 255, 255, 1.0)",
+  "elevenLabsBackgroundColorRgba": "rgba(0, 0, 0, 0.2)"
 
 }

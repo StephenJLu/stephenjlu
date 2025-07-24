@@ -3,6 +3,7 @@
   min-height: 100vh;  
   padding-bottom: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 
   @media (--mediaTablet) {
@@ -31,6 +32,16 @@
   }
 }
 
+.audioContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  z-index: 2;
+}
+
 .content {
   display: grid;
   grid-template-columns: 1fr 50%;
@@ -40,6 +51,7 @@
   min-height: 100vh; 
   align-items: center; 
   justify-content: center;
+  margin: 0 auto;
 
   @media (--mediaTablet) {
     max-width: 600px;

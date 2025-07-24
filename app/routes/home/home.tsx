@@ -6,6 +6,7 @@ import { Link } from '~/components/link/link';
 import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Transition } from '~/components/transition/transition';
 import { Divider } from '~/components/divider/divider';
+import { ElevenLabsAudioNative } from '~/components/audio-native/ElevenLabsAudioNative';
 import InViewport from '~/components/in-viewport/InViewport';
 import PolaroidImage from '~/components/image/PolaroidImage';
 import styles from './home.module.css';
@@ -60,6 +61,14 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
       aria-labelledby={titleId}
       tabIndex={-1}      
       >
+        <div className={styles.audioContainer}>
+        <ElevenLabsAudioNative
+          publicUserId={config.elevenLabsPublicUserId}
+          textColorRgba={config.elevenLabsTextColorRgba}
+          backgroundColorRgba={config.elevenLabsBackgroundColorRgba}
+          size="small"
+        />
+      </div>
         <Transition in={visible || focused} timeout={0} unmount={false}>
           {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
           <div className={styles.content} ref={nodeRef}>
