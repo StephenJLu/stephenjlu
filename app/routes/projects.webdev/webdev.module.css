@@ -7,3 +7,13 @@
   z-index: 1; 
 }
 
+.audioContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  z-index: 2;
+}
+
