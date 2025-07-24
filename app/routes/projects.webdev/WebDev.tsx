@@ -65,15 +65,7 @@ export const WebDev = () => {
   
   
   return (
-    <div data-theme='dark' className={`${styles.webdev} ${styles.container}`}>
-      <div className={styles.audioContainer}>
-        <ElevenLabsAudioNative
-          publicUserId={config.elevenLabsPublicUserId}
-          textColorRgba={config.elevenLabsTextColorRgba}
-          backgroundColorRgba={config.elevenLabsBackgroundColorRgba}
-          size="small"
-        />
-      </div>               
+    <div data-theme='dark' className={`${styles.webdev} ${styles.container}`}>                  
       <Intro
       id="intro"
       sectionRef={intro}
