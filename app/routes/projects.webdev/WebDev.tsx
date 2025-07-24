@@ -5,6 +5,7 @@ import config from "app/config.json";
 import { Intro } from './intro';
 import { Content } from './content';
 import { Projects } from './projects';
+import { ElevenLabsAudioNative } from '~/components/audio-native/ElevenLabsAudioNative';
 
 export const meta = () => {
   return baseMeta({
@@ -64,7 +65,15 @@ export const WebDev = () => {
   
   
   return (
-    <div data-theme='dark' className={`${styles.webdev} ${styles.container}`}>               
+    <div data-theme='dark' className={`${styles.webdev} ${styles.container}`}>
+      <div className={styles.audioContainer}>
+        <ElevenLabsAudioNative
+          publicUserId={config.elevenLabsPublicUserId}
+          textColorRgba={config.elevenLabsTextColorRgba}
+          backgroundColorRgba={config.elevenLabsBackgroundColorRgba}
+          size="small"
+        />
+      </div>               
       <Intro
       id="intro"
       sectionRef={intro}
