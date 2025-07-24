@@ -61,6 +61,7 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
       aria-labelledby={titleId}
       tabIndex={-1}      
       >
+        {/*
         <div className={styles.audioContainer}>
         <ElevenLabsAudioNative
           publicUserId={config.elevenLabsPublicUserId}
@@ -69,6 +70,7 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
           size="small"
         />
       </div>
+      */}
         <Transition in={visible || focused} timeout={0} unmount={false}>
           {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
           <div className={styles.content} ref={nodeRef}>
