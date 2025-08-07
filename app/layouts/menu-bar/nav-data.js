@@ -18,8 +18,8 @@ export const navLinks = [
     pathname: '/#forensics',
   },
   {
-    label: '#endALS',
-    pathname: '/als',
+    label: 'Book',
+    pathname: 'https://www.CSItoCEO.com',
   },
   {
     label: 'Gallery',
