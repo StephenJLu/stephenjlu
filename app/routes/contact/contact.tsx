@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Button from '~/components/button/button';
 import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Divider } from '~/components/divider/divider';
@@ -177,6 +177,18 @@ export const Contact = () => {
   const actionData = useActionData<ActionData>();
   const { state } = useNavigation();
   const sending = state === 'submitting';
+
+  useEffect(() => {    
+    if (document.getElementById('setmore_script')) return;
+    const script = document.createElement('script');
+    script.id = 'setmore_script';
+    script.type = 'text/javascript';
+    script.src = 'https://assets.setmore.com/integration/static/setmoreIframeLive.js';
+    document.body.appendChild(script);
+    return () => {      
+      script.remove();
+    };
+  }, []);
   
   
   return (
@@ -190,13 +202,14 @@ export const Contact = () => {
             display: 'block',
             zIndex: 20000,
           }}
+          id="Setmore_button_iframe"
+          href="https://stephenjlu.setmore.com"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://stephenjlu.setmore.com"
         >
           <img
             style={{ border: 'none' }}
-            src="https://storage.googleapis.com/full-assets/setmore/images/1.0/Calendar/Setmore-Book-Now.png"
+            src="https://assets.setmore.com/integration/images/newdesign/others/book-now-button-float.svg"          
             alt="Click here to book an appointment with Stephen"
           />
         </a>
