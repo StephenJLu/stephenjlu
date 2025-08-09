@@ -23,6 +23,7 @@ This is the latest iteration of my portfolio website to showcase my professional
 
 ## Last Major Update 📆
 
+- [Release v2.0](https://github.com/StephenJLu/stephenjlu/releases/tag/v2.0) - August 8, 2025
 - Minor Updates - May 29, 2025
 - [Release v1.0](https://github.com/StephenJLu/stephenjlu/releases/tag/v1.0) - December 24, 2024
 
@@ -44,6 +45,7 @@ This is the latest iteration of my portfolio website to showcase my professional
 - [Component Storybook](https://storybook.stephenjlu.com)
 - Contact form using SendLayer API
 - Cloudflare Turnstile widget
+- Setmore Booking widget
 
 ### Want to build a site like this?
 
