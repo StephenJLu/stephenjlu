@@ -10,10 +10,12 @@ This is the latest iteration of my portfolio website to showcase my professional
 
 # Hi there 👋
 
-- 🔭 I’m currently working on converting my website to React
+### Some Fun Facts About Me
 - 🤟 I’m learning American Sign Language (ASL)
-- 👯 I will help you reach your personal web design and development goals. [Contact me](https://stephenjlu.com/contact)
-- ⚡ Fun fact: I've gone skydiving twice and I used to work crime scenes
+- 🩸 In a previous life, I studied mosquitoes
+- 💀 I have been to the Body Farm in TN and dug up a few graves
+- 🪂 I've gone skydiving twice
+- 🚔 I used to work crime scenes
 
 ## Web URL 🌎
 
