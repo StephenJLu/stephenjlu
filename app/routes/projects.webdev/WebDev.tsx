@@ -137,7 +137,7 @@ export const WebDev = () => {
             index={7}
             title="Striae: A Firearms Examiner's Comparison Companion"
             buttonText="Project Suspended"
-            buttonLink="#"      
+            buttonLink="https://github.com/StephenJLu/striae"      
             />         
       </div>       
   );
