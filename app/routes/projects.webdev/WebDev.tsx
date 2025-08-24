@@ -5,7 +5,7 @@ import config from "app/config.json";
 import { Intro } from './intro';
 import { Content } from './content';
 import { Projects } from './projects';
-import { ElevenLabsAudioNative } from '~/components/audio-native/ElevenLabsAudioNative';
+import { ElevenLabsAudioNative } from 'archive/audio-native/ElevenLabsAudioNative';
 
 export const meta = () => {
   return baseMeta({

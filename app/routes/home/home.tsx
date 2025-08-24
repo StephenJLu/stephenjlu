@@ -6,7 +6,7 @@ import { Link } from '~/components/link/link';
 import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Transition } from '~/components/transition/transition';
 import { Divider } from '~/components/divider/divider';
-import { ElevenLabsAudioNative } from '~/components/audio-native/ElevenLabsAudioNative';
+import { ElevenLabsAudioNative } from 'archive/audio-native/ElevenLabsAudioNative';
 import InViewport from '~/components/in-viewport/InViewport';
 import PolaroidImage from '~/components/image/PolaroidImage';
 import styles from './home.module.css';
@@ -26,7 +26,7 @@ const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) =
   <>
     <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Hello there</Heading>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-      I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-front-end web designer and developer. Throughout
+      I'm a retired Crime Scene Investigator and Forensic Firearms Examiner-turned-full-stack web designer and developer. Throughout
       my varied careers, I've studied everything from mosquitoes and disease biology to bloodstain patterns,
       bullet trajectories, and digging up clandestine graves.
       </Text>
@@ -63,17 +63,7 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
       id={id}
       aria-labelledby={titleId}
       tabIndex={-1}      
-      >
-        {/*
-        <div className={styles.audioContainer}>
-        <ElevenLabsAudioNative
-          publicUserId={config.elevenLabsPublicUserId}
-          textColorRgba={config.elevenLabsTextColorRgba}
-          backgroundColorRgba={config.elevenLabsBackgroundColorRgba}
-          size="small"
-        />
-      </div>
-      */}
+      >        
         <Transition in={visible || focused} timeout={0} unmount={false}>
           {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
           <div className={styles.content} ref={nodeRef}>
