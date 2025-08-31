@@ -82,7 +82,7 @@ export const WebDev = () => {
             visible={visibleSections.includes(striae.current)}
             index={1}
             title="Striae: A Firearms Examiner's Comparison Companion"
-            buttonText="In Development"
+            buttonText="Beta Period"
             buttonLink="https://www.striae.org"      
             />             
             <Projects
