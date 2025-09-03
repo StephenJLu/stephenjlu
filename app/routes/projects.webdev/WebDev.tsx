@@ -111,21 +111,12 @@ export const WebDev = () => {
             title="Legacy Portfolio Website: legacy.stephenjlu.com"
             buttonText="Visit Website"
             buttonLink="https://legacy.stephenjlu.com"      
-            />
-            <Projects
-            id="cac"
-            sectionRef={cac}
-            visible={visibleSections.includes(cac.current)}
-            index={5}
-            title="California Association of Criminalists"
-            buttonText="Visit Website"
-            buttonLink="https://www.cacnews.org"      
-            />
+            />            
             <Projects
             id="fltc"
             sectionRef={fltc}
             visible={visibleSections.includes(fltc.current)}
-            index={6}
+            index={5}
             title="Forensic Leaders Training Center: Flexibility in Leadership. Trust through Consistency."
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/FLTC"      
@@ -134,7 +125,7 @@ export const WebDev = () => {
             id="als"
             sectionRef={als}
             visible={visibleSections.includes(als.current)}
-            index={7}
+            index={6}
             title="A Lasting Strength: Change What It Means to Live with ALS"
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/A-Lasting-Strength"      
