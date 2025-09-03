@@ -5,7 +5,6 @@ import config from "app/config.json";
 import { Intro } from './intro';
 import { Content } from './content';
 import { Projects } from './projects';
-import { ElevenLabsAudioNative } from 'archive/audio-native/ElevenLabsAudioNative';
 
 export const meta = () => {
   return baseMeta({
@@ -21,14 +20,13 @@ export const WebDev = () => {
   const content = useRef<HTMLElement>(null as unknown as HTMLElement);
   const legacy = useRef<HTMLElement>(null as unknown as HTMLElement);  
   const fltc = useRef<HTMLElement>(null as unknown as HTMLElement);
-  const als = useRef<HTMLElement>(null as unknown as HTMLElement);
-  const cac = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const als = useRef<HTMLElement>(null as unknown as HTMLElement);  
   const turnstile = useRef<HTMLElement>(null as unknown as HTMLElement);
   const comments = useRef<HTMLElement>(null as unknown as HTMLElement);
   const striae = useRef<HTMLElement>(null as unknown as HTMLElement);
   
   useEffect(() => {
-    const sections = [intro, content, legacy, fltc, als, cac, turnstile, comments, striae];
+    const sections = [intro, content, legacy, fltc, als, turnstile, comments, striae];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
