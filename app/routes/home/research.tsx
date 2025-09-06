@@ -10,7 +10,7 @@ import styles from './research.module.css';
 import banner from 'app/static/images/research.png';
 import bannerFull from 'app/static/images/researchfull.png';
 import bannerPlaceholder from 'app/static/images/research-placeholder.svg';
-import publicCV from '/docs/sjlu-public-cv.pdf';
+import publicCV from '/docs/lu-cv-public.pdf';
 import ResearchText from './ResearchText';
 interface ResearchProps {
   id?: string;
@@ -89,10 +89,10 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
                 </InViewport>            
               </div>
                 <ResearchText visible={visible} titleId={titleId} />
-                {/*<Button iconHoverShift href={publicCV} target="_blank" rel="noopener noreferrer" iconEnd="copy" download>
-                            {'Download CV'}
-                          </Button>*/}
-                          </div>          
+                  <Button iconHoverShift href={publicCV} target="_blank" rel="noopener noreferrer" iconEnd="copy" download="Lu - Public CV.pdf">
+                              {'Download CV'}
+                  </Button>
+              </div>          
           </>
         )}        
       </Transition>

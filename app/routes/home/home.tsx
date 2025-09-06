@@ -3,6 +3,7 @@ import { Section } from '~/components/section/section';
 import { Heading } from '~/components/heading/heading';
 import { Text } from '~/components/text/text';
 import { Link } from '~/components/link/link';
+import Button from '~/components/button/button';
 import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Transition } from '~/components/transition/transition';
 import { Divider } from '~/components/divider/divider';
@@ -35,9 +36,11 @@ const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) =
      <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
       I'm learning American Sign Language. You can view my progress notes <Link href='https://listed.to/@StephenJLu'>here</Link>.
     </Text>
-    <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-    <Link href='/gallery'>View Photo Gallery</Link>
-    </Text>
+    <div className={styles.button} data-visible={visible}>
+      <Button iconHoverShift href='/gallery' iconEnd="arrow-right">
+        Photo Gallery
+      </Button>
+    </div>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>
      Thanks for visiting!
     </Text>

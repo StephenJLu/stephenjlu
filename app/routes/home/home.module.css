@@ -150,6 +150,7 @@
 .button {
   opacity: 0;
   transition: opacity var(--durationXL) ease var(--durationL);
+  padding-bottom: 3rem;
 
   &[data-visible='true'] {
     transform: none;
