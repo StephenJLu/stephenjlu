@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Section } from '~/components/section/section';
+// @ts-ignore
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import styles from './gallery.module.css';
@@ -202,7 +203,7 @@ export const Gallery = ({ id, visible, sectionRef }: GalleryComponentProps) => {
           autoPlay={false}
           slideInterval={3000}
           slideDuration={450}
-          renderItem={(item) => (
+          renderItem={(item: { original: string | undefined; originalAlt: string | undefined; description: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }) => (
             <div className={styles.slideWrapper} data-visible={visible || focused}>
               <img 
                 src={item.original}
@@ -216,7 +217,7 @@ export const Gallery = ({ id, visible, sectionRef }: GalleryComponentProps) => {
               </div>
             </div>
           )}
-          renderThumbInner={(item) => (
+          renderThumbInner={(item: { thumbnail: string | undefined; thumbnailAlt: string | undefined; }) => (
             <div className={styles.thumbnail}>
               <img
                 src={item.thumbnail}
