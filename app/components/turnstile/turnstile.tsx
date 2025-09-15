@@ -3,74 +3,81 @@ import keys from './keys.json';
 
 declare global {
   interface Window {
-
-  /* 
-  Possible Turnstile functions, per Cloudflare documentation
-  */ 
-  turnstile: {
-    render: (selector: string | HTMLElement, options: any) => string;
-    reset: (widgetId?: string) => void;
-    remove: (widgetId?: string) => void;
-  };
-}
+    turnstile?: {
+      render: (selector: string | HTMLElement, options: {
+        sitekey: string;
+        theme?: 'light' | 'dark' | 'auto';
+        size?: 'normal' | 'compact' | 'flexible';        
+        callback?: (token: string) => void;
+        'expired-callback'?: () => void;
+        'error-callback'?: () => void;
+      }) => string;
+      reset: (widgetId?: string) => void;
+      remove: (widgetId?: string) => void;    
+    };
+  }
 }
 
 type TurnstileTheme = 'light' | 'dark' | 'auto';
+type TurnstileSize = 'normal' | 'compact' | 'flexible';
 
-interface TurnstileProps {  
+interface TurnstileProps extends React.HTMLAttributes<HTMLDivElement> {  
   className?: string;
   onWidgetId?: (id: string) => void;
   success?: boolean;
-  theme?: TurnstileTheme;  
-  [key: string]: any; // Allow additional props
+  theme?: TurnstileTheme;
+  size?: TurnstileSize;  
 }
 
-/* 
-    A[Component Mounts] --> B[Create Script Tag]
-    B --> C[Load Turnstile API]
-    C --> D[Render Widget]
-    D --> E[Return Widget ID]
-    E --> F[Call onWidgetId]
-    A --> G[Component Unmounts]
-    G --> H[Remove Script]
-    H --> I[Remove Widget] 
-*/
+export const Turnstile = ({ 
+  className, 
+  onWidgetId, 
+  success, 
+  theme = 'dark',
+  size = 'flexible',  
+  ...rest 
+}: TurnstileProps) => {
+  const [widgetId, setWidgetId] = useState<string>();  
 
-export const Turnstile = ({ className, onWidgetId, success, theme, ...rest }: TurnstileProps) => {
-  const [widgetId, setWidgetId] = useState<string>();
+  useEffect(() => {    
+    if (document.querySelector('script[src*="turnstile"]')) {
+      return;
+    }
 
-  useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
     script.defer = true;
     script.async = true;
     script.onload = () => {
-      const id = window.turnstile.render('#cf-turnstile', {
-        sitekey: `${keys.cft_public_key}`,
-        theme: `${theme}`
-      });
-       setWidgetId(id);
-      if (onWidgetId) onWidgetId(id);
+      if (window.turnstile) {
+        const id = window.turnstile.render('#cf-turnstile', {
+          sitekey: keys.cft_public_key,
+          theme,
+          size          
+        });
+        setWidgetId(id);
+        if (onWidgetId) onWidgetId(id);
+      }
     };
     document.head.appendChild(script);
-    return () => {
-      document.head.removeChild(script);
+    
+    return () => {      
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
     };
-  }, [onWidgetId, theme]);
+  }, []);
 
-  /* Remove Turnstile widget after successful submission */
   useEffect(() => {
     if (success && widgetId && window.turnstile) {
       window.turnstile.reset(widgetId);
     }
-  }, [success, widgetId]);
-
-  /* Explicit render of Turnstile widget */
+  }, [success, widgetId]);   
   
   return (
     <div
-    id="cf-turnstile"
-     className={className}     
+      id="cf-turnstile"
+      className={className}
       {...rest}      
     />
   );

@@ -320,8 +320,7 @@ export const Contact = () => {
             </Transition>
             {/* Turnstile widget, sets WidgetId */}
             <Turnstile
-            className={styles.turnstile}            
-            theme="dark"
+            className={styles.turnstile}                        
             data-status={status}            
             style={getDelay(tokens.base.durationM, initDelay)}                                                
             />                          
