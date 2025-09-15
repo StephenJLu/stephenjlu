@@ -10,6 +10,7 @@ import { themeStyles } from '~/components/theme-provider/theme-provider';
 import Rotation from '~/components/bg-rotation/Rotation';
 import { MenuBar } from '~/layouts/menu-bar/MenuBar';
 import { Footer } from '~/layouts/footer/Footer';
+import { ErrorBoundary } from '~/components/error-page';
 import { useEffect } from 'react';
 
 import AtlasGroteskLC from '~/fonts/AGRegular.ttf';
@@ -66,13 +67,15 @@ export default function App() {
       </head>      
       <body>
         <Rotation />
-        <ThemeProvider theme={theme} className="theme-provider">  
-          <MenuBar />
-          <main id="main-content" className={styles.container} tabIndex={-1}>
-            <Outlet />
-            <Footer />
-          </main>
-        </ThemeProvider>        
+        <ErrorBoundary>
+          <ThemeProvider theme={theme} className="theme-provider">  
+            <MenuBar />
+            <main id="main-content" className={styles.container} tabIndex={-1}>
+              <Outlet />
+              <Footer />
+            </main>
+          </ThemeProvider>
+        </ErrorBoundary>        
         <ScrollRestoration />
         <Scripts />        
       </body>
