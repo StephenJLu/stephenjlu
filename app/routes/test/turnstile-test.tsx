@@ -45,8 +45,7 @@ export const TurnstileTest = () => {
     }}>
       <h1>Turnstile Test</h1>      
       <Form onSubmit={handleSubmit} style={{ marginTop: '2rem' }}>
-        <Turnstile
-          theme="dark"
+        <Turnstile          
           style={{ marginBottom: '1rem' }}
           success={status === 'success'}
         />

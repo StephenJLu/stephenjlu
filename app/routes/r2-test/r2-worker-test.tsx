@@ -139,8 +139,7 @@ export default function R2WorkerTest() {
       className={`${styles.textarea} ${actionData?.errors?.comment ? styles.error : ''}`}
     />
   </label>
-        <Turnstile
-          theme="dark"
+        <Turnstile          
           className={styles.turnstile}
           success={actionData?.success}
         />
