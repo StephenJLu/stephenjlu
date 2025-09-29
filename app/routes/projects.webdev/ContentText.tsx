@@ -128,7 +128,7 @@ const ContentText = ({ visible, titleId }: { visible: boolean; titleId: string }
       </Heading>
     </TableCell>
     <TableCell>
-        <Text className={styles.description} data-visible={visible} size="l">TP-Link WiFi 6 AX3000 PCIe WiFi Card w/ External Antenna</Text>
+        <Text className={styles.description} data-visible={visible} size="l">TP-Link Wi-Fi 7 Archer TBE550E PCIe Wi-Fi & Bluetooth 5.4 Adapter w/ External Antennas</Text>
     </TableCell>
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
