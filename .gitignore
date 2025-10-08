@@ -1,6 +1,7 @@
 node_modules
 
-/.cache
+.dns
+.cache
 *.env
 build/
 .wrangler
