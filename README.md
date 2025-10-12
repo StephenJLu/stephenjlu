@@ -45,7 +45,6 @@ This is the latest iteration of my portfolio website to showcase my professional
 - [Component Storybook](https://storybook.stephenjlu.com)
 - Contact form using SendLayer API
 - Cloudflare Turnstile widget
-- Setmore Booking widget
 
 ### Want to build a site like this?
 

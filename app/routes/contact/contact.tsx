@@ -177,42 +177,9 @@ export const Contact = () => {
   const actionData = useActionData<ActionData>();
   const { state } = useNavigation();
   const sending = state === 'submitting';
-
-  useEffect(() => {    
-    if (document.getElementById('setmore_script')) return;
-    const script = document.createElement('script');
-    script.id = 'setmore_script';
-    script.type = 'text/javascript';
-    script.src = 'https://assets.setmore.com/integration/static/setmoreIframeLive.js';
-    document.body.appendChild(script);
-    return () => {      
-      script.remove();
-    };
-  }, []);
-  
   
   return (
-    <Section data-theme="dark" className={styles.contact}>
-      <a
-          style={{
-            float: 'none',
-            position: 'fixed',
-            right: '-2px',
-            top: '25%',
-            display: 'block',
-            zIndex: 20000,
-          }}
-          id="Setmore_button_iframe"
-          href="https://stephenjlu.setmore.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            style={{ border: 'none' }}
-            src="https://assets.setmore.com/integration/images/newdesign/others/book-now-button-float.svg"          
-            alt="Click here to book an appointment with Stephen"
-          />
-        </a>
+    <Section data-theme="dark" className={styles.contact}>      
       <Transition unmount in={!actionData?.success} timeout={1600}>
         {({ status, nodeRef }: { status: string; nodeRef: React.RefObject<HTMLFormElement> }) => (          
           <Form
