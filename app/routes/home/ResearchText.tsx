@@ -49,34 +49,7 @@ const ResearchText = ({ visible, titleId }: { visible: boolean; titleId: string 
         <ListItem><Text className={styles.description} data-visible={visible} size="l">Fluorescent Microscopy</Text></ListItem>
       </List>
     </TableCell>
-  </TableRow>
-  <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
-      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Primary Investigators and Lead Research Teams</Heading>
-    </TableCell>
-    </TableRow>
-    <TableRow className={styles.row} data-visible={visible}>
-    <TableCell>
-      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>University of Arizona</Heading>
-      <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>Dr. Michael A. Wells</b></Text></ListItem>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">James E. Pennington</Text></ListItem>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Jorge Zamora</Text></ListItem>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">April R. Stonehouse</Text></ListItem>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Linda M. Mobula</Text></ListItem>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Michelle C. Hines</Text></ListItem>
-      </List>
-      <Heading className={styles.title} data-visible={visible} level={5} weight={'thin'}>NIH/NIDDK</Heading>
-      <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l"><b>Dr. E. Joan Blanchette-Mackie</b></Text></ListItem>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Peter Pentchev</Text></ListItem>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Nancy Dwyer</Text></ListItem>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Lin Sun</Text></ListItem>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Marcy Comly</Text></ListItem>
-        <ListItem><Text className={styles.description} data-visible={visible} size="l">Sanjay Patel</Text></ListItem>
-      </List>
-    </TableCell>
-  </TableRow>
+  </TableRow>  
   <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Publications</Heading>
