@@ -64,6 +64,12 @@ const images = [
     originalAlt: 'April 24, 2023 - The FBI San Diego Citizens Academy Graduation, Class of 2023',
   },
   {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d354da31-0de2-42fa-9485-f128263a4700/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d354da31-0de2-42fa-9485-f128263a4700/public',
+    description: 'July 17, 2003 - At the welcoming reception for Asian Pacific American interns hosted by Secretary of Labor Elaine L. Chao, the first woman of Asian descent to serve in a U.S. presidential cabinet.',
+    originalAlt: 'July 17, 2003 - At the welcoming reception for Asian Pacific American interns hosted by Secretary of Labor Elaine L. Chao, the first woman of Asian descent to serve in a U.S. presidential cabinet.',
+  },
+  {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/724a417b-e66a-4a23-e579-caa282ea2b00/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/724a417b-e66a-4a23-e579-caa282ea2b00/public',
     description: 'January 24, 2020 - On top of the Flatiron in Apache Junction, AZ',
