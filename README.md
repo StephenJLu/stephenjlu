@@ -23,8 +23,8 @@ This is the latest iteration of my portfolio website to showcase my professional
 
 ## Last Major Update 📆
 
+- [Release v3.0](https://github.com/StephenJLu/stephenjlu/releases/tag/v3.0) - December 10, 2025
 - [Release v2.0](https://github.com/StephenJLu/stephenjlu/releases/tag/v2.0) - August 8, 2025
-- Minor Updates - May 29, 2025
 - [Release v1.0](https://github.com/StephenJLu/stephenjlu/releases/tag/v1.0) - December 24, 2024
 
 ## Languages Used 💻
@@ -43,8 +43,9 @@ This is the latest iteration of my portfolio website to showcase my professional
 ## Features 🌟
 
 - [Component Storybook](https://storybook.stephenjlu.com)
-- Contact form using SendLayer API
-- Cloudflare Turnstile widget
+- [Contact form using SendLayer API](https://sendlayer.com/)
+- [Cloudflare Turnstile widget](https://developers.cloudflare.com/turnstile/)
+- [React Image Gallery](https://github.com/xiaolin/react-image-gallery)
 
 ### Want to build a site like this?
 
