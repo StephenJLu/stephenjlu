@@ -24,8 +24,14 @@ const images = [
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/08a0e532-fc4b-4ac2-e62d-0067e7262e00/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/08a0e532-fc4b-4ac2-e62d-0067e7262e00/public',
-    description: 'June 14, 2019 - The Apple-A-Shun Kids post-excavation at the Body Farm, University of Tennessee, Knoxville, Forensic Anthropology Center.',
+    description: 'June 14, 2019 - The Apple-A-Shun Kids post-excavation at the Body Farm, University of Tennessee, Knoxville, Forensic Anthropology Center',
     originalAlt: 'June 14, 2019 - The Apple-A-Shun Kids post-excavation at the Body Farm, University of Tennessee, Knoxville, Forensic Anthropology Center',
+  },
+  {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d1562e64-7af8-4196-7439-4ab53e87dc00/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d1562e64-7af8-4196-7439-4ab53e87dc00/public',
+    description: 'October 8, 2016 - Steve is still interested in insects as a CSI',
+    originalAlt: 'October 8, 2016 - Steve is still interested in insects as a CSI',
   },
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/1dd7cd8c-5b36-4d05-a511-7e1ac361eb00/public',
@@ -64,10 +70,16 @@ const images = [
     originalAlt: 'April 24, 2023 - The FBI San Diego Citizens Academy Graduation, Class of 2023',
   },
   {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/cf18d894-38d0-4c06-b555-1a86dad48900/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/cf18d894-38d0-4c06-b555-1a86dad48900/public',
+    description: 'September 20, 2021 - Steve repping Team Gleason and the New Orleans Saints on Sports Day during Forensic Science Week 2021',
+    originalAlt: 'September 20, 2021 - Steve repping Team Gleason and the New Orleans Saints on Sports Day during Forensic Science Week 2021',
+  },
+  {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d354da31-0de2-42fa-9485-f128263a4700/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d354da31-0de2-42fa-9485-f128263a4700/public',
-    description: 'July 17, 2003 - At the welcoming reception for Asian Pacific American interns hosted by Secretary of Labor Elaine L. Chao, the first woman of Asian descent to serve in a U.S. presidential cabinet.',
-    originalAlt: 'July 17, 2003 - At the welcoming reception for Asian Pacific American interns hosted by Secretary of Labor Elaine L. Chao, the first woman of Asian descent to serve in a U.S. presidential cabinet.',
+    description: 'July 17, 2003 - At the welcoming reception for Asian Pacific American interns hosted by Secretary of Labor Elaine L. Chao, the first woman of Asian descent to serve in a U.S. presidential cabinet',
+    originalAlt: 'July 17, 2003 - At the welcoming reception for Asian Pacific American interns hosted by Secretary of Labor Elaine L. Chao, the first woman of Asian descent to serve in a U.S. presidential cabinet',
   },
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/724a417b-e66a-4a23-e579-caa282ea2b00/public',
@@ -80,6 +92,12 @@ const images = [
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/cd1a7670-0725-4b0e-7832-6d79746d2300/public',
     description: 'February 22, 2019 - Celebrating with friends in the Gaslamp Quarter, San Diego, CA',
     originalAlt: 'February 22, 2019 - Celebrating with friends in the Gaslamp Quarter, San Diego, CA',
+  },
+  {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d091c558-1964-4dba-dc80-bbc555eea500/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d091c558-1964-4dba-dc80-bbc555eea500/public',
+    description: 'December 22, 2015 - Desert Eagle Disassembly',
+    originalAlt: 'December 22, 2015 - Desert Eagle Disassembly',
   },
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/1a0aae4f-b5fc-46a3-b15c-1e042727ff00/public',
@@ -142,6 +160,12 @@ const images = [
     originalAlt: 'August 25, 2016 - Stephen working in the Firearms Lab at the San Diego County Sheriff\'s Department Regional Crime Laboratory',
   },
   {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/5ca65afe-6ff9-4a68-c567-9b1192ee2200/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/5ca65afe-6ff9-4a68-c567-9b1192ee2200/public',
+    description: 'August 4, 2015 - Stephen working a scene at Las Pulgas',
+    originalAlt: 'August 4, 2015 - Stephen working a scene at Las Pulgas',
+  },
+  {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/37e0bc7b-da0e-436d-8535-1b024471f600/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/37e0bc7b-da0e-436d-8535-1b024471f600/public',
     description: 'July 7, 2022 - The San Diego County Sheriff\'s LGBTQ+ Advisory Council',
@@ -160,6 +184,12 @@ const images = [
     originalAlt: 'May 6, 2017 - Team silliness at the Silicon Valley Kettlebell Open Competition',
   },
   {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/fc1b3291-585e-4d0e-504e-c4f6f01b5200/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/fc1b3291-585e-4d0e-504e-c4f6f01b5200/public',
+    description: 'May 6, 2017 - Team KOR post-competition at the Silicon Valley Kettlebell Open Competition',
+    originalAlt: 'May 6, 2017 - Team KOR post-competition at the Silicon Valley Kettlebell Open Competition',
+  },
+  {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/34f7e070-5acc-4a9d-4273-7269bc4c3f00/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/34f7e070-5acc-4a9d-4273-7269bc4c3f00/public',
     description: 'August 12, 2004 - At the Pattaya Million Years Stone Park & Crocodile Farm in Pattaya City, Thailand',
@@ -170,6 +200,12 @@ const images = [
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/18b611a4-171e-4899-a3ed-b8c40a5e1100/public',
     description: 'November 7, 2014 - Heading into battle on a tiger at the Columbus Zoo',
     originalAlt: 'November 7, 2014 - Heading into battle on a tiger at the Columbus Zoo',
+  },
+  {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/89fa070f-a712-4aff-45be-74d7d77bd900/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/89fa070f-a712-4aff-45be-74d7d77bd900/public',
+    description: 'January 6, 2019 - There is beauty everywhere, you just have to look',
+    originalAlt: 'January 6, 2019 - There is beauty everywhere, you just have to look',
   },
 ];
 
