@@ -124,6 +124,12 @@ const images = [
     originalAlt: 'April 9, 2009 - Retro silliness at the Arizona Department of Public Safety Southern Regional Crime Laboratory',
   },
   {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/46792c5d-6606-4abd-cfc4-2ae60196d200/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/46792c5d-6606-4abd-cfc4-2ae60196d200/public',
+    description: 'August 20, 2011 - Steve and teammate at a Crossfit event in Tucson, AZ',
+    originalAlt: 'August 20, 2011 - Steve and teammate at a Crossfit event in Tucson, AZ',
+  },
+  {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/cb9bf561-f023-4603-5a31-613acffec400/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/cb9bf561-f023-4603-5a31-613acffec400/public',
     description: 'May 8, 2005 - At the Phi Beta Kappa induction ceremony with fellow inductees at the University of Arizona',
