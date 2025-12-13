@@ -46,6 +46,12 @@ const images = [
     originalAlt: 'July 10, 2013 - Being morbidly silly at a Basic Bloodstain Pattern Analysis course in San Diego, CA',
   },
   {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/c762673d-584e-49ba-2249-adb211416e00/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/c762673d-584e-49ba-2249-adb211416e00/public',
+    description: 'December 19, 2019 - Aries checking out his Christmas gift',
+    originalAlt: 'December 19, 2019 - Aries checking out his Christmas gift',
+  },
+  {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d34ab7d3-84af-4f23-0be0-143e1814f500/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d34ab7d3-84af-4f23-0be0-143e1814f500/public',
     description: 'October 30, 2016 - Camping with friends',
@@ -104,7 +110,7 @@ const images = [
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/1a0aae4f-b5fc-46a3-b15c-1e042727ff00/public',
     description: 'March 22, 2014 - Talking about forensics with some young visitors at Meet a Scientist Day at Petco Park',
     originalAlt: 'March 22, 2014 - Talking about forensics with some young visitors at Meet a Scientist Day at Petco Park',
-  },  
+  },    
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/a76e13b7-824c-44b8-4221-88d125736500/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/a76e13b7-824c-44b8-4221-88d125736500/public',
@@ -116,6 +122,12 @@ const images = [
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/c2b128c0-15f4-49e7-8938-afebd8033d00/public',
     description: 'August 7, 2003 - Stephen working in the Blanchette-Mackie laboratory at the NIDDK/NIH',
     originalAlt: 'August 7, 2003 - Stephen working in the Blanchette-Mackie laboratory at the NIDDK/NIH',
+  },
+  {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d62a16d6-3564-4a9e-007e-bb74bee05200/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d62a16d6-3564-4a9e-007e-bb74bee05200/public',
+    description: 'August 13, 2003 - Stephen performing fluorescent microscopy in the Blanchette-Mackie laboratory at the NIDDK/NIH',
+    originalAlt: 'August 13, 2003 - Stephen performing fluorescent microscopy in the Blanchette-Mackie laboratory at the NIDDK/NIH',
   },
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/6295a3da-655f-4e85-5eba-68dff6605700/public',
@@ -146,6 +158,12 @@ const images = [
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/839097d6-ada3-42a4-a523-ac91a7ff9e00/public',
     description: 'January 14, 2017 - Stephen at the top of the Mt. Woodson Trail near Potato Chip Rock',
     originalAlt: 'January 14, 2017 - Stephen at the top of the Mt. Woodson Trail near Potato Chip Rock',
+  },
+  {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/c0dfea0a-a903-4693-33ea-a33f0761e700/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/c0dfea0a-a903-4693-33ea-a33f0761e700/public',
+    description: 'December 18, 2020 - Aries was hesitant to take Christmas photos, but we used it anyway',
+    originalAlt: 'December 18, 2020 - Aries was hesitant to take Christmas photos, but we used it anyway',
   },
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/2d153d00-2343-4f70-dc4d-8ec5ad789400/public',
@@ -206,6 +224,12 @@ const images = [
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/18b611a4-171e-4899-a3ed-b8c40a5e1100/public',
     description: 'November 7, 2014 - Heading into battle on a tiger at the Columbus Zoo',
     originalAlt: 'November 7, 2014 - Heading into battle on a tiger at the Columbus Zoo',
+  },
+  {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/c76204bb-532e-4922-2f9f-9afd8483ac00/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/c76204bb-532e-4922-2f9f-9afd8483ac00/public',
+    description: 'January 20, 2025 - Steve and Aries near his EOW (January 24, 2025)',
+    originalAlt: 'January 20, 2025 - Steve and Aries near his EOW (January 24, 2025)',
   },
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/89fa070f-a712-4aff-45be-74d7d77bd900/public',
