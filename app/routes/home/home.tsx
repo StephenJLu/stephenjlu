@@ -32,10 +32,7 @@ const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) =
       </Text>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
       Welcome to my portfolio site! Here you'll find information <Link href='/#forensics'>about me</Link>, <Link href='/#webdev'>my work</Link>, and how to <Link href='/contact'>get in touch</Link>. I've also written a few articles about my transition from forensics to web development, which you can find <Link href='https://ledger.stephenjlu.com'>here</Link>. My current project is <Link href='https://www.striae.org' target="_blank" rel="noopener noreferrer">Striae</Link>, an annotation web app for firearms examiners.
-     </Text>
-     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-      I'm learning American Sign Language. You can view my progress notes <Link href='https://listed.to/@StephenJLu'>here</Link>.
-    </Text>
+     </Text>     
     <div className={styles.button} data-visible={visible}>
       <Button iconHoverShift href='/gallery' iconEnd="arrow-right">
         Photo Gallery
