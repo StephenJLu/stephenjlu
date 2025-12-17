@@ -68,6 +68,21 @@ const ForensicsText = ({ visible, titleId }: { visible: boolean; titleId: string
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
+      <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>Professional Affiliations</Heading>
+    </TableCell>
+    </TableRow>
+    <TableRow className={styles.row} data-visible={visible}>
+    <TableCell>
+      <List className={styles.description} data-visible={visible} size="l" as={'ul'}>
+        <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.cacnews.org'}>California Association of Criminalists (2007 — Present)</Link></Text></ListItem>
+        <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.afte.org/'}>Association of Firearm and Tool Mark Examiners (2015 — Present)</Link></Text></ListItem>
+        <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.theiai.org/'}>International Association for Identification (2015 — Present)</Link></Text></ListItem>
+        <ListItem><Text className={styles.description} data-visible={visible} size="l"><Link secondary href={'https://www.fbisdcaaa.org/'}>FBI San Diego Citizens Academy Alumni Association (2023 — Present)</Link></Text></ListItem>
+      </List>
+    </TableCell>
+    </TableRow>  
+  <TableRow className={styles.row} data-visible={visible}>
+    <TableCell>
       <Heading className={styles.title} data-visible={visible} level={4} weight={'regular'}>
         Publications
       </Heading>
