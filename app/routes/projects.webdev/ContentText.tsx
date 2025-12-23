@@ -88,7 +88,7 @@ const ContentText = ({ visible, titleId }: { visible: boolean; titleId: string }
       </Heading>
     </TableCell>
     <TableCell>
-        <Text className={styles.description} data-visible={visible} size="l">EVGA GeForce RTX 3070 FTW3 ULTRA GAMING, 08G-P5-3767-KR, 8GB GDDR6, iCX3 Technology, ARGB LED, Metal Backplate</Text>
+        <Text className={styles.description} data-visible={visible} size="l">EVGA NVIDIA GeForce RTX 3070 FTW3 ULTRA GAMING, 08G-P5-3767-KR, 8GB GDDR6, iCX3 Technology, ARGB LED, Metal Backplate</Text>
     </TableCell>
   </TableRow>
   <TableRow className={styles.row} data-visible={visible}>
