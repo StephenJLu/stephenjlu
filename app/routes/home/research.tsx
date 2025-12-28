@@ -89,9 +89,14 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
                 </InViewport>            
               </div>
                 <ResearchText visible={visible} titleId={titleId} />
-                  <Button iconHoverShift href={publicCV} target="_blank" rel="noopener noreferrer" iconEnd="copy" download="Lu - Public CV.pdf">
-                              {'Download CV'}
-                  </Button>
+                  <div className={styles.actions}>
+                    <Button iconHoverShift href={publicCV} target="_blank" rel="noopener noreferrer" iconEnd="copy" download="Lu - Public CV.pdf">
+                      {'Download CV'}
+                    </Button>
+                    <Button iconHoverShift href="https://orcid.org/0009-0006-1296-7245" target="_blank" rel="noopener noreferrer" iconEnd="link">
+                      {'ORCID Profile'}
+                    </Button>
+                  </div>
               </div>          
           </>
         )}        

@@ -195,6 +195,13 @@ white-space: nowrap;
   }
 }
 
+.actions {
+  display: inline-flex;
+  gap: var(--spaceM);
+  align-items: center;
+  margin-top: var(--spaceS);
+}
+
 
   
 
