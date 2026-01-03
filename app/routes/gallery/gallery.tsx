@@ -54,8 +54,8 @@ const images = [
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d34ab7d3-84af-4f23-0be0-143e1814f500/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d34ab7d3-84af-4f23-0be0-143e1814f500/public',
-    description: 'October 30, 2016 - Camping with friends',
-    originalAlt: 'October 30, 2016 - Camping with friends',
+    description: 'October 30, 2016 - Camping with friends in Julian, CA',
+    originalAlt: 'October 30, 2016 - Camping with friends in Julian, CA',
   },
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/57ffeb5d-be58-4d54-abf4-054030170200/public',
@@ -94,10 +94,10 @@ const images = [
     originalAlt: 'January 24, 2020 - On top of the Flatiron in Apache Junction, AZ',
   },
   {
-    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/cd1a7670-0725-4b0e-7832-6d79746d2300/public',
-    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/cd1a7670-0725-4b0e-7832-6d79746d2300/public',
-    description: 'February 22, 2019 - Celebrating with friends in the Gaslamp Quarter, San Diego, CA',
-    originalAlt: 'February 22, 2019 - Celebrating with friends in the Gaslamp Quarter, San Diego, CA',
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/be3f3f65-4784-45d6-f79b-c45160864800/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/be3f3f65-4784-45d6-f79b-c45160864800/public',
+    description: 'October 30, 2016 - Camping with friends in Julian, CA',
+    originalAlt: 'October 30, 2016 - Camping with friends in Julian, CA',
   },
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d091c558-1964-4dba-dc80-bbc555eea500/public',
