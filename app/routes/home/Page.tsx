@@ -6,6 +6,7 @@ import { Home } from './home';
 import { Forensics } from './forensics';
 import { Research } from './research';
 import { Projects } from './projects';
+import { BlueSky } from './bluesky';
 import { Header } from '~/layouts/header/Header';
 
 export const meta = () => {
@@ -25,9 +26,10 @@ export const Page = () => {
   const csiceo = useRef<HTMLElement>(null as unknown as HTMLElement);
   const music = useRef<HTMLElement>(null as unknown as HTMLElement);
   const research = useRef<HTMLElement>(null as unknown as HTMLElement);
+  const bluesky = useRef<HTMLElement>(null as unknown as HTMLElement);
   
   useEffect(() => {
-    const sections = [home, forensics, webdev, als, csiceo, music, research];
+    const sections = [home, forensics, webdev, als, csiceo, music, research, bluesky];
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -70,6 +72,11 @@ export const Page = () => {
       id="home"
       sectionRef={home}
       visible={visibleSections.includes(home.current)}
+      />
+      <BlueSky
+      id="bluesky"
+      sectionRef={bluesky}
+      visible={visibleSections.includes(bluesky.current)}
       />      
       <Projects
       id="webdev"
@@ -116,7 +123,7 @@ export const Page = () => {
       id="research"
       sectionRef={research}
       visible={visibleSections.includes(research.current)}
-      />              
+      />                    
       </div>       
   );
 };
