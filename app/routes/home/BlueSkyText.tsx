@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Heading } from '~/components/heading/heading';
 import { Text } from '~/components/text/text';
+import { Link } from '~/components/link/link';
 import styles from './bluesky.module.css';
 
 // Declare the custom element for TypeScript
@@ -33,14 +34,14 @@ const BlueSkyText = ({ visible, titleId }: { visible: boolean; titleId: string }
         weight={'light'} 
         id={titleId}
       >
-        Follow Me on BlueSky
+        BlueSky Feed
       </Heading>
       <Text 
         className={styles.description} 
         data-visible={visible} 
         size="l"
       >
-        Stay updated with my latest thoughts, projects, and insights. Follow me on BlueSky for real-time updates and conversations.
+        Stay updated with my latest thoughts, projects, and insights. <Link href='https://bsky.app/profile/stephenjlu.com'>Follow me on BlueSky</Link> for real-time updates and conversations.
       </Text>
       <div 
         className={styles.feedContainer} 
