@@ -24,7 +24,7 @@ export const BlueSky = ({ id, visible, sectionRef }: BlueSkyComponentProps) => {
       const script = document.createElement('script');
       script.id = scriptId;
       script.type = 'module';
-      script.src = '/bsky-embed.es.js';
+      script.src = 'https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js';
       script.async = true;
       document.body.appendChild(script);
     }
