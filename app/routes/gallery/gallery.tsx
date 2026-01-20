@@ -24,8 +24,8 @@ const images = [
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/08a0e532-fc4b-4ac2-e62d-0067e7262e00/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/08a0e532-fc4b-4ac2-e62d-0067e7262e00/public',
-    description: 'June 14, 2019 - The Apple-A-Shun Kids post-excavation at the Body Farm, University of Tennessee, Knoxville, Forensic Anthropology Center',
-    originalAlt: 'June 14, 2019 - The Apple-A-Shun Kids post-excavation at the Body Farm, University of Tennessee, Knoxville, Forensic Anthropology Center',
+    description: 'June 14, 2019 - The Apple-A-Shun Kids post-exhumation at the Body Farm, University of Tennessee, Knoxville, Forensic Anthropology Center',
+    originalAlt: 'June 14, 2019 - The Apple-A-Shun Kids post-exhumation at the Body Farm, University of Tennessee, Knoxville, Forensic Anthropology Center',
   },
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d1562e64-7af8-4196-7439-4ab53e87dc00/public',
