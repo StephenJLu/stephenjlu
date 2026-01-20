@@ -46,17 +46,17 @@ const images = [
     originalAlt: 'July 10, 2013 - Being morbidly silly at a Basic Bloodstain Pattern Analysis course in San Diego, CA',
   },
   {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/7d219b5e-cf00-41fa-620a-5d25b5b06a00/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/7d219b5e-cf00-41fa-620a-5d25b5b06a00/public',
+    description: 'June 21, 2012 - Investigating a case with Chopper the Biker CSI Dog',
+    originalAlt: 'June 21, 2012 - Investigating a case with Chopper the Biker CSI Dog',
+  },
+  {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/c762673d-584e-49ba-2249-adb211416e00/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/c762673d-584e-49ba-2249-adb211416e00/public',
     description: 'December 19, 2019 - Aries checking out his Christmas gift',
     originalAlt: 'December 19, 2019 - Aries checking out his Christmas gift',
-  },
-  {
-    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d34ab7d3-84af-4f23-0be0-143e1814f500/public',
-    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/d34ab7d3-84af-4f23-0be0-143e1814f500/public',
-    description: 'October 30, 2016 - Camping with friends in Julian, CA',
-    originalAlt: 'October 30, 2016 - Camping with friends in Julian, CA',
-  },
+  },  
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/57ffeb5d-be58-4d54-abf4-054030170200/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/57ffeb5d-be58-4d54-abf4-054030170200/public',
@@ -184,10 +184,40 @@ const images = [
     originalAlt: 'August 25, 2016 - Stephen working in the Firearms Lab at the San Diego County Sheriff\'s Department Regional Crime Laboratory',
   },
   {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/604fa96d-d13a-4c11-8c89-4e4d49e0d700/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/604fa96d-d13a-4c11-8c89-4e4d49e0d700/public',
+    description: 'June 27, 2014 - Stephen working in the field',
+    originalAlt: 'June 27, 2014 - Stephen working in the field',
+  },
+  {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/5ca65afe-6ff9-4a68-c567-9b1192ee2200/public',
     thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/5ca65afe-6ff9-4a68-c567-9b1192ee2200/public',
     description: 'August 4, 2015 - Stephen working a scene at Las Pulgas',
     originalAlt: 'August 4, 2015 - Stephen working a scene at Las Pulgas',
+  },
+  {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/0ab19fcb-97a5-47e6-2d78-6b62a7d92600/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/0ab19fcb-97a5-47e6-2d78-6b62a7d92600/public',
+    description: 'September 8, 2012 - Stephen checking in at the STAR/PAL surf camp',
+    originalAlt: 'September 8, 2012 - Stephen checking in at the STAR/PAL surf camp',
+  },
+  {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/58037923-bd41-4855-f0fa-024a0f6d4b00/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/58037923-bd41-4855-f0fa-024a0f6d4b00/public',
+    description: 'September 8, 2012 - STAR/PAL surf instructor demonstrating basic surfing techniques to the students',
+    originalAlt: 'September 8, 2012 - STAR/PAL surf instructor demonstrating basic surfing techniques to the students',
+  },
+  {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/7dbc3d85-979d-4c7d-6b65-3df57946c000/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/7dbc3d85-979d-4c7d-6b65-3df57946c000/public',
+    description: 'September 8, 2012 - Stephen looks on as a student catches on',
+    originalAlt: 'September 8, 2012 - Stephen looks on as a student catches on',
+  },
+  {
+    original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/67c41717-2d40-450b-d7b1-578a7a2c6e00/public',
+    thumbnail: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/67c41717-2d40-450b-d7b1-578a7a2c6e00/public',
+    description: 'September 8, 2012 - The Fall 2012 STAR/PAL Surf Camp',
+    originalAlt: 'September 8, 2012 - The Fall 2012 STAR/PAL Surf Camp',
   },
   {
     original: 'https://stephenjlu.com/cdn-cgi/imagedelivery/X7Zx0_LYqqniiMBhW2W3Dg/37e0bc7b-da0e-436d-8535-1b024471f600/public',
