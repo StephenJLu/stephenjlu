@@ -31,10 +31,13 @@ const IntroText = ({ visible, titleId }: { visible: boolean; titleId: string }) 
       His first personal website—which detailed starship specifications and histories from Star Trek—was hosted by GeoCities, one of the first widely available platforms offering free website creation and hosting in the 1990s.
      </Text>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
-     In college, Stephen took additional courses in JavaScript and has continued to work on personal web development projects ever since. While serving as Lead Webmaster for the California Association of Criminalists, he overhauled the organization's website for more effective and attractive visitor engagement and communication.
+      In college, Stephen took additional courses in JavaScript and has continued to work on personal web development projects ever since. While serving as Lead Webmaster for the California Association of Criminalists, he overhauled the organization's website for more effective and attractive visitor engagement and communication.
+     </Text>
+     <Text className={styles.description} data-visible={visible} size="l" as={'p'}>
+      In a culmination of his programming and web development experience, Stephen designed, developed, and shipped Striae, a comparison image annotation platform for forensic firearms examiners. Striae streamlines the process of labeling and annotating digital comparison images, directly linking notes to specific digital evidence, generating well-formatted reports with a single click, and facilitating authenticated digital confirmations and peer review.
      </Text>
     <Text className={styles.description} data-visible={visible} size="l" as={'p'} style={{ fontStyle: 'italic' }}>
-     Scroll down for information about Stephen's development environment, coding languages, and web development projects.
+      Scroll down for information about Stephen's development environment, coding languages, and web development projects.
     </Text>
   </>
 
