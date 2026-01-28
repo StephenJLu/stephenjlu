@@ -46,6 +46,7 @@ This is the latest iteration of my portfolio website to showcase my professional
 - [Contact form using SendLayer API](https://sendlayer.com/)
 - [Cloudflare Turnstile widget](https://developers.cloudflare.com/turnstile/)
 - [React Image Gallery](https://github.com/xiaolin/react-image-gallery)
+- [Hashnode Blog - Headless CMS](https://github.com/Hashnode/starter-kit)
 - [Bluesky Feed Embed](https://github.com/Vincenius/bsky-embed)
 
 ### Want to build a site like this?
