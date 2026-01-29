@@ -55,6 +55,10 @@ This repo is public and open source. I want people to be able to learn from it a
 
 All content, projects, and information contained in the site are my own and protected by copyright. I do not give you permission to present any such content contained therein as your own. If you have any questions, please contact me below.
 
+#### Design Inspiration
+
+[Hamish Williams](https://hamishw.com)
+
 ## Contact Me 📨
 
 [Contact Stephen](https://www.stephenjlu.com/contact)
