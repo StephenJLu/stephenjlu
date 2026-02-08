@@ -49,9 +49,9 @@ export const socialLinks = [
     icon: 'github',
   },
   {
-    label: 'Docs',
-    url: `https://docs.stephenjlu.com`,
-    icon: 'copy',
+    label: 'Keybase',
+    url: `https://keybase.io/stephenjlu`,
+    icon: 'keybase',
   },
   {
     label: 'Tic-Tac-Toe',
