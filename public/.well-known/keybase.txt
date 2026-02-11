@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/stephenjlu
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://stephenjlu.com
+  * I am stephenjlu (https://keybase.io/stephenjlu) on keybase.
+  * I have a public key ASAKWYuLxhqhdePAuDulLzWWUusZk7mQi-1lMyjF8lsSbgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01200a598b8bc61aa175e3c0b83ba52f359652eb1993b9908bed653328c5f25b126e0a",
+      "host": "keybase.io",
+      "kid": "01200a598b8bc61aa175e3c0b83ba52f359652eb1993b9908bed653328c5f25b126e0a",
+      "uid": "ef43479353eb3b8be30c76fd0919c219",
+      "username": "stephenjlu"
+    },
+    "merkle_root": {
+      "ctime": 1770769949,
+      "hash": "26d2f8f637766047877af7c7a1910f146b05fb238342d722b08cba42adb4a70802e84566699a4ef99fdd53f48339035af1e11f0bee1af1e02dab20e6eb56168e",
+      "hash_meta": "31351881bcdef045874750b498157820264fa7f2c86b3a2f8ff3b299cd3a3114",
+      "seqno": 27400777
+    },
+    "service": {
+      "entropy": "OCB0qoCW6b2zmTaxP8udpyCU",
+      "hostname": "stephenjlu.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.5.5"
+  },
+  "ctime": 1770769965,
+  "expire_in": 504576000,
+  "prev": "40d51177cede426f9386a62178138d0bbc93cbdb3b55fe747b637e116fa81fc4",
+  "seqno": 23,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgClmLi8YaoXXjwLg7pS81llLrGZO5kIvtZTMoxfJbEm4Kp3BheWxvYWTESpcCF8QgQNURd87eQm+ThqYheBONC7yTy9s7Vf50e2N+EW+oH8TEIJBKCOaMHPHTTND8jEgZvtXlyr0g+SZkogM0TAhWwL9kAgHCo3NpZ8RA11LoklvIQkXaP4ag2Ylc2ir/VhSynLth+BNsq1jM1H6OZLsN7T6bc4A4QZgew+QEemuNQtgoM8oP6g6xn811D6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIG0oOWKJIc4kSUi2M+IzH97DdZHDK+fwHg4fSkBAqQ88o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/stephenjlu
+
+==================================================================
