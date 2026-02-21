@@ -11,26 +11,26 @@
   line-height: 1;
   padding: 20px 20px 20px 20px;
   border-radius: 3em;
-  transition: color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .active {}
 
 .menuButton.active {
-  background-color: transparent;
-  color: var(--text);
+  background-color: var(--accent);
+  color: var(--black);
   font-weight: var(--fontWeightBold);
 }
 
   /* Ensure hover state doesn't override active state */
 .menuButton.active:hover {
-  background-color: transparent;
+  background-color: var(--accent);
 }
 
 
 .menuButton:hover {
-  background-color: transparent;
-  color: var(--text);
+  background-color: var(--accent);
+  color: var(--black);
   animation: bounce 0.5s; /* Apply the bounce animation on hover */
 }
 
