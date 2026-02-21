@@ -2,12 +2,36 @@
   .toggle {
     --offset: var(--spaceXS);
     --inset: calc(var(--spaceOuter) - var(--offset));
+    --buttonTextColor: var(--text);
+    --buttonSize: calc((48 / 16) * 1rem);
 
     position: fixed;
     top: var(--inset);
     right: var(--inset);
     z-index: var(--zIndex4);
     display: none;
+    background: transparent;
+
+    &::after {
+      background: transparent;
+    }
+
+    &:hover::after,
+    &:active::after {
+      background: transparent;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 2px;
+    }
+
+    @media (--mediaUseMotion) {
+      &:hover,
+      &:active {
+        transform: none;
+      }
+    }
 
     @media (--mediaMobile), (--mediaMobileLS) {
       display: flex;
