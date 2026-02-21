@@ -82,12 +82,30 @@ export const WebDev = () => {
             title="Striae: A Firearms Examiner's Comparison Companion"
             buttonText="Live App"
             buttonLink="https://www.striae.org"      
-            />                         
+            />             
+            <Projects
+            id="turnstile"
+            sectionRef={turnstile}
+            visible={visibleSections.includes(turnstile.current)}
+            index={2}
+            title="Cloudflare Turnstile: An Implementation of Cloudflare's CAPTCHA Challenge"
+            buttonText="Full Documentation"
+            buttonLink="https://docs.stephenjlu.com/docs-stephenjlu/projects/how-to-implement-cloudflares-turnstile"      
+            />
+            <Projects
+            id="comments"
+            sectionRef={comments}
+            visible={visibleSections.includes(comments.current)}
+            index={3}
+            title="Cloudflare R2 Object Storage: Serving a Comments Field with Cloudflare R2 Object Storage"
+            buttonText="Full Documentation"
+            buttonLink="https://docs.stephenjlu.com/docs-stephenjlu/projects/using-cloudflare-r2-object-storage-to-serve-a-comments-field"      
+            />
             <Projects
             id="legacy"
             sectionRef={legacy}
             visible={visibleSections.includes(legacy.current)}
-            index={2}
+            index={4}
             title="Legacy Portfolio Website: legacy.stephenjlu.com"
             buttonText="Visit Website"
             buttonLink="https://legacy.stephenjlu.com"      
@@ -96,7 +114,7 @@ export const WebDev = () => {
             id="fltc"
             sectionRef={fltc}
             visible={visibleSections.includes(fltc.current)}
-            index={3}
+            index={5}
             title="Forensic Leaders Training Center: Flexibility in Leadership. Trust through Consistency."
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/FLTC"      
@@ -105,7 +123,7 @@ export const WebDev = () => {
             id="als"
             sectionRef={als}
             visible={visibleSections.includes(als.current)}
-            index={4}
+            index={6}
             title="A Lasting Strength: Change What It Means to Live with ALS"
             buttonText="GitHub Archive"
             buttonLink="https://github.com/StephenJLu/A-Lasting-Strength"      
