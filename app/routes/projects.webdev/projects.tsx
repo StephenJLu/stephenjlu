@@ -8,7 +8,7 @@ import { Image } from '~/components/image/image';
 import { Transition } from '~/components/transition/transition';
 import { useTheme } from '~/components/theme-provider/theme-provider';
 import { useWindowSize } from 'app/hooks';
-import { cssProps, media } from 'app/utils/style';
+import { media } from 'app/utils/style';
 import styles from './projects.module.css';
 import legacyBanner from 'app/static/images/legacy.svg';
 import legacyPlaceholder from 'app/static/images/legacy-placeholder.svg';
@@ -18,10 +18,6 @@ import alsBanner from 'app/static/images/als.svg';
 import alsPlaceholder from 'app/static/images/als-placeholder.svg';
 import cacBanner from 'app/static/images/cac.svg';
 import cacPlaceholder from 'app/static/images/cac-placeholder.svg';
-import turnstileBanner from 'app/static/images/turnstile.svg';
-import turnstilePlaceholder from 'app/static/images/turnstile-placeholder.svg';
-import commentsBanner from 'app/static/images/comments.svg';
-import commentsPlaceholder from 'app/static/images/comments-placeholder.svg';
 import striaeBanner from 'app/static/images/striae.svg';
 import striaePlaceholder from 'app/static/images/striae-placeholder.svg';
 
@@ -75,15 +71,7 @@ export function Projects({
   cac: {
     src: cacBanner,
     placeholder: cacPlaceholder,
-  },
-  turnstile: {
-    src: turnstileBanner,
-    placeholder: turnstilePlaceholder,
-  },
-  comments: {
-    src: commentsBanner,
-    placeholder: commentsPlaceholder,
-  },
+  },  
   striae: {
     src: striaeBanner,
     placeholder: striaePlaceholder,
