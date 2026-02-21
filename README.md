@@ -61,6 +61,6 @@ All content, projects, and information contained in the site are my own and prot
 
 ## Contact Me 📨
 
-[Contact Form](https://www.stephenjlu.com/contact)
+[Contact Stephen](https://www.stephenjlu.com/contact)
 
 [Keybase Profile](https://keybase.io/stephenjlu)
