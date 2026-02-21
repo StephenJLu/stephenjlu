@@ -2,31 +2,35 @@
 
 .menuButton {    
   border: none;
-  color: var(--textBody);
+  background-color: transparent;
+  color: var(--text);
   cursor: pointer;  
-  font-weight: 300;
+  font-family: var(--fontStack);
+  font-size: var(--headerNavFontSize, var(--fontSizeBodyS));
+  font-weight: var(--fontWeightMedium);
+  line-height: 1;
   padding: 20px 20px 20px 20px;
   border-radius: 3em;
-  transition: background-color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
+.active {}
+
 .menuButton.active {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: rgba(0, 0, 0, 1);
-  font-weight: 700;  
-  /* Match existing transition */
-  transition: all 0.3s ease;
+  background-color: transparent;
+  color: var(--text);
+  font-weight: var(--fontWeightBold);
 }
 
   /* Ensure hover state doesn't override active state */
 .menuButton.active:hover {
-  background-color: rgba(255, 255, 255, 1);  
+  background-color: transparent;
 }
 
 
 .menuButton:hover {
-  background-color: rgba(255, 255, 255, 0.75);
-  color: rgba(0, 0, 0, 1);
+  background-color: transparent;
+  color: var(--text);
   animation: bounce 0.5s; /* Apply the bounce animation on hover */
 }
 
