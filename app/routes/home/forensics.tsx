@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Section } from '~/components/section/section';
-import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Transition } from '~/components/transition/transition';
-import { Divider } from '~/components/divider/divider';
-import InViewport from '~/components/in-viewport/InViewport';
+import { DividerDecoderText } from '~/components/divider-decoder-text/divider-decoder-text';
 import { Image } from '~/components/image/image';
 import styles from './forensics.module.css';
 import banner from 'app/static/images/forensics.png';
@@ -20,13 +18,8 @@ interface ForensicsComponentProps extends ForensicsProps {
   visible: boolean;  
 }
 
-
-interface ForensicsComponentProps extends ForensicsProps {
-  visible: boolean;}
-
 export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) => {  
   const [focused, setFocused] = useState(false);
-  const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;  
   
   return (
@@ -61,32 +54,15 @@ export const Forensics = ({ id, visible, sectionRef }: ForensicsComponentProps) 
         <div className={styles.gradient} data-visible={visible}/>
       </div>                     
             <div className={styles.content} data-visible={visible}>
-              <div className={styles.tag} aria-hidden>
-                <Divider                                    
-                  notchHeight="8px"
-                  collapsed={!visible}
-                  collapseDelay={1000}
-                />
-                <InViewport>
-                {(inViewport) => {
-                  useEffect(() => {
-                    if (inViewport) {
-                      setIsInViewport(true);
-                    }
-                  }, [inViewport]);
-                  return (
-                    <div className={styles.tagText} data-visible={visible}>
-                      {isInViewport && (
-                        <DecoderText
-                          text={'Forensic Experience'}
-                          delay={1600}
-                        />
-                      )}
-                    </div>
-                  );
-                }}
-                </InViewport>            
-              </div>
+              <DividerDecoderText
+                visible={visible}
+                text="Forensic Experience"
+                className={styles.tag}
+                textClassName={styles.tagText}
+                dividerDelay={1000}
+                decoderDelay={1600}
+                notchHeight="8px"
+              />
                 <ForensicsText visible={visible} titleId={titleId} />  
                 </div>        
           </>

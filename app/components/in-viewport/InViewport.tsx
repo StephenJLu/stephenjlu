@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState, ReactElement } from 'react';
+import React, { useEffect, useRef, useState, ReactNode } from 'react';
 
 interface InViewportProps {
-  children: (isInViewport: boolean) => ReactElement;
+  children: (isInViewport: boolean) => ReactNode;
 }
 
 const InViewport: React.FC<InViewportProps> = ({ children }) => {
@@ -25,15 +25,19 @@ const InViewport: React.FC<InViewportProps> = ({ children }) => {
     }
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
-      }
+      observer.disconnect();
     };
   }, []);
 
   const childElement = children(isInViewport);
 
-  return React.cloneElement(childElement, { ref: elementRef });
+  if (React.isValidElement(childElement)) {
+    return React.cloneElement(childElement, {
+      ref: elementRef,
+    } as React.Attributes);
+  }
+
+  return <div ref={elementRef}>{childElement}</div>;
 };
 
 export default InViewport;

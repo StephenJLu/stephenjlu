@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Section } from '~/components/section/section';
-import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Transition } from '~/components/transition/transition';
-import { Divider } from '~/components/divider/divider';
-import InViewport from '~/components/in-viewport/InViewport';
+import { DividerDecoderText } from '~/components/divider-decoder-text/divider-decoder-text';
 import { Image } from '~/components/image/image';
 import { Button } from '~/components/button/button';
 import styles from './research.module.css';
@@ -21,13 +19,8 @@ interface ResearchComponentProps extends ResearchProps {
   visible: boolean;  
 }
 
-
-interface ResearchComponentProps extends ResearchProps {
-  visible: boolean;}
-
 export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) => {  
   const [focused, setFocused] = useState(false);
-  const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;  
   
   return (
@@ -62,32 +55,15 @@ export const Research = ({ id, visible, sectionRef }: ResearchComponentProps) =>
         <div className={styles.gradient} data-visible={visible}/>
       </div>
       <div className={styles.content} data-visible={visible}>
-              <div className={styles.tag} aria-hidden>
-                <Divider                                    
-                  notchHeight="8px"
-                  collapsed={!visible}
-                  collapseDelay={1000}
-                />
-                <InViewport>
-                {(inViewport) => {
-                  useEffect(() => {
-                    if (inViewport) {
-                      setIsInViewport(true);
-                    }
-                  }, [inViewport]);
-                  return (
-                    <div className={styles.tagText} data-visible={visible}>
-                      {isInViewport && (
-                        <DecoderText
-                          text={'Research Experience'}
-                          delay={1600}
-                        />
-                      )}
-                    </div>
-                  );
-                }}
-                </InViewport>            
-              </div>
+              <DividerDecoderText
+                visible={visible}
+                text="Research Experience"
+                className={styles.tag}
+                textClassName={styles.tagText}
+                dividerDelay={1000}
+                decoderDelay={1600}
+                notchHeight="8px"
+              />
                 <ResearchText visible={visible} titleId={titleId} />
                   <div className={styles.actions}>
                     <Button iconHoverShift href={publicCV} target="_blank" rel="noopener noreferrer" iconEnd="copy" download="Lu - Public CV.pdf">

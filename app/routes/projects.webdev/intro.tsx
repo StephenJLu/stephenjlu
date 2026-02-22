@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Section } from '~/components/section/section';
 import { Heading } from '~/components/heading/heading';
 import { Text } from '~/components/text/text';
 import { Image } from '~/components/image/image';
-import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Transition } from '~/components/transition/transition';
-import { Divider } from '~/components/divider/divider';
-import InViewport from '~/components/in-viewport/InViewport';
+import { DividerDecoderText } from '~/components/divider-decoder-text/divider-decoder-text';
 import PolaroidImage from '~/components/image/PolaroidImage';
 import styles from './intro.module.css';
 import coding from './coding.jpg';
@@ -42,12 +40,9 @@ const IntroText = ({ visible, titleId }: { visible: boolean; titleId: string }) 
   </>
 
 );
-interface IntroComponentProps extends IntroProps {
-  visible: boolean;}
 
 export const Intro = ({ id, visible, sectionRef }: IntroComponentProps) => {  
   const [focused, setFocused] = useState(false);
-  const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;  
   
   return (
@@ -83,33 +78,16 @@ export const Intro = ({ id, visible, sectionRef }: IntroComponentProps) => {
           <div className={styles.content} ref={nodeRef}>
             <div className={styles.column}>
               <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>Web Design and Development for the Public Good</Heading>
-              <div className={styles.tag} aria-hidden>
-                <Divider
-                  notchWidth="64px"
-                  notchHeight="8px"
-                  collapsed={!visible}
-                  collapseDelay={1000}
-                />
-                <InViewport>
-                {(inViewport) => {
-                  useEffect(() => {
-                    if (inViewport) {
-                      setIsInViewport(true);
-                    }
-                  }, [inViewport]);
-                  return (
-                    <div className={styles.tagText} data-visible={visible}>
-                      {isInViewport && (
-                        <DecoderText
-                          text={'#buildinpublic'}
-                          delay={1300}
-                        />
-                      )}
-                    </div>
-                  );
-                }}
-                </InViewport>            
-              </div>
+              <DividerDecoderText
+                visible={visible}
+                text="#buildinpublic"
+                className={styles.tag}
+                textClassName={styles.tagText}
+                dividerDelay={1000}
+                decoderDelay={1300}
+                notchWidth="64px"
+                notchHeight="8px"
+              />
                 <IntroText visible={visible} titleId={titleId} />
             </div>
               <div className={styles.column}>                        
