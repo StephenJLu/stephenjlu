@@ -1,41 +1,53 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link as RouterLink, useLocation } from '@remix-run/react';
 import MenuButton from '~/components/button/MenuButton';
 import { Icon } from '~/components/icon/icon';
 import { Monogram } from '~/components/monogram/monogram';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition/transition';
 import { useScrollToHash } from '../../hooks';
-import { Link as RouterLink, useLocation } from '@remix-run/react';
 import { cssProps, msToNum, numToMs } from '../../utils/style';
 import { NavToggle } from './nav-toggle';
 import { navLinks, socialLinks } from './nav-data';
 import styles from './menuBar.module.css';
 import config from '../../config.json';
 
-export const MenuBar = () => {      
-  const [activeItem, setActiveItem] = useState();  
-  const [current, setCurrent] = useState();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [target, setTarget] = useState();  
-  const location = useLocation();  
-  const headerRef = useRef();  
-  const scrollToHash = useScrollToHash();  
+interface NavItem {
+  label: string;
+  pathname: string;
+}
 
-useEffect(() => {
-    // Prevent ssr mismatch by storing this in state
+interface SocialLink {
+  label: string;
+  url: string;
+  icon: string;
+}
+
+interface NavbarIconsProps {
+  desktop?: boolean;
+}
+
+export const MenuBar = () => {
+  const [activeItem, setActiveItem] = useState<string>();
+  const [current, setCurrent] = useState<string>();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [target, setTarget] = useState<string | null>(null);
+  const location = useLocation();
+  const headerRef = useRef<HTMLElement | null>(null);
+  const scrollToHash = useScrollToHash();
+
+  useEffect(() => {
     setCurrent(`${location.pathname}${location.hash}`);
   }, [location]);
 
-  // Handle smooth scroll nav items
   useEffect(() => {
     if (!target || location.pathname !== '/') return;
     setCurrent(`${location.pathname}${target}`);
     scrollToHash(target, () => setTarget(null));
   }, [location.pathname, scrollToHash, target]);
 
-  // Check if a nav item should be active
   const getCurrent = (url = '') => {
-    const nonTrailing = current?.endsWith('/') ? current?.slice(0, -1) : current;
+    const nonTrailing = current?.endsWith('/') ? current.slice(0, -1) : current;
 
     if (url === nonTrailing) {
       return 'page';
@@ -44,8 +56,10 @@ useEffect(() => {
     return '';
   };
 
-  // Handle navigation item click
-  const handleNavItemClick = (event, item) => {
+  const handleNavItemClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    item: NavItem
+  ) => {
     const hash = event.currentTarget.href.split('#')[1];
     setTarget(null);
     setActiveItem(item.label);
@@ -53,16 +67,19 @@ useEffect(() => {
     if (hash && location.pathname === '/') {
       setTarget(`#${hash}`);
       event.preventDefault();
-    }    
+    }
   };
 
-  const handleMobileNavClick = (event,item) => {
+  const handleMobileNavClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    item: NavItem
+  ) => {
     handleNavItemClick(event, item);
     if (menuOpen) setMenuOpen(false);
-  };  
-  
-    return (
-    <header className={styles.navbar} ref={headerRef} data-theme='dark'>
+  };
+
+  return (
+    <header className={styles.navbar} ref={headerRef} data-theme="dark">
       <RouterLink
         unstable_viewTransition
         prefetch="intent"
@@ -70,18 +87,15 @@ useEffect(() => {
         data-navbar-item
         className={styles.logo}
         aria-label={`${config.name}, ${config.role}`}
-        onClick={(event) => handleMobileNavClick(event, { label: 'Home', pathname: '/' })}
+        onClick={event => handleMobileNavClick(event, { label: 'Home', pathname: '/' })}
       >
         <Monogram />
       </RouterLink>
       <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
-        <nav className={styles.nav}>
-<div
-      className={styles.menuBarContainer}            
-    >
-     
+      <nav className={styles.nav}>
+        <div className={styles.menuBarContainer}>
           <ul className={styles.menuBarList}>
-            {navLinks.map((item, index) => (
+            {(navLinks as NavItem[]).map((item, index) => (
               <li key={index}>
                 <RouterLink
                   unstable_viewTransition
@@ -91,7 +105,7 @@ useEffect(() => {
                   data-navbar-item
                   className={styles.navLink}
                   aria-current={getCurrent(item.pathname)}
-                  onClick={(event) => handleNavItemClick(event, item)}
+                  onClick={event => handleNavItemClick(event, item)}
                 >
                   <MenuButton
                     item={item}
@@ -101,14 +115,14 @@ useEffect(() => {
                 </RouterLink>
               </li>
             ))}
-          </ul>        
-      </div>
-      <NavbarIcons desktop />
+          </ul>
+        </div>
+        <NavbarIcons desktop />
       </nav>
       <Transition unmount in={menuOpen} timeout={msToNum(tokens.base.durationL)}>
-        {({ visible, nodeRef }) => (
+        {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLElement> }) => (
           <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
-            {navLinks.map((item, index) => (
+            {(navLinks as NavItem[]).map((item, index) => (
               <RouterLink
                 unstable_viewTransition
                 prefetch="intent"
@@ -117,11 +131,9 @@ useEffect(() => {
                 className={styles.mobileNavLink}
                 data-visible={visible}
                 aria-current={getCurrent(item.pathname)}
-                onClick={(event) => handleMobileNavClick(event, item)}
+                onClick={event => handleMobileNavClick(event, item)}
                 style={cssProps({
-                  transitionDelay: numToMs(
-                    Number(msToNum(tokens.base.durationS)) + index * 50
-                  ),
+                  transitionDelay: numToMs(Number(msToNum(tokens.base.durationS)) + index * 50),
                 })}
               >
                 {item.label}
@@ -135,9 +147,9 @@ useEffect(() => {
   );
 };
 
-const NavbarIcons = ({ desktop }) => (
+const NavbarIcons = ({ desktop }: NavbarIconsProps) => (
   <div className={styles.navIcons}>
-    {socialLinks.map(({ label, url, icon }) => (
+    {(socialLinks as SocialLink[]).map(({ label, url, icon }) => (
       <a
         key={label}
         data-navbar-item={desktop || undefined}

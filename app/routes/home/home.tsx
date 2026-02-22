@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Section } from '~/components/section/section';
 import { Heading } from '~/components/heading/heading';
 import { Text } from '~/components/text/text';
 import { Link } from '~/components/link/link';
 import Button from '~/components/button/button';
-import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Transition } from '~/components/transition/transition';
-import { Divider } from '~/components/divider/divider';
-import InViewport from '~/components/in-viewport/InViewport';
+import { DividerDecoderText } from '~/components/divider-decoder-text/divider-decoder-text';
 import PolaroidImage from '~/components/image/PolaroidImage';
 import styles from './home.module.css';
 import config from '../../config.json';
@@ -44,12 +42,9 @@ const HomeText = ({ visible, titleId }: { visible: boolean; titleId: string }) =
   </>
 
 );
-interface HomeComponentProps extends HomeProps {
-  visible: boolean;}
 
 export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {  
   const [focused, setFocused] = useState(false);
-  const [isInViewport, setIsInViewport] = useState(false);
   const titleId = `${id}-title`;  
   
   return (
@@ -67,33 +62,14 @@ export const Home = ({ id, visible, sectionRef }: HomeComponentProps) => {
           {({ visible, nodeRef }: { visible: boolean; nodeRef: React.RefObject<HTMLDivElement> }) => (
           <div className={styles.content} ref={nodeRef}>
             <div className={styles.column}>
-              <div className={styles.tag} aria-hidden>
-                <Divider
-                  notchWidth="64px"
-                  notchHeight="8px"
-                  collapsed={!visible}
-                  collapseDelay={1000}
-                />
-                <InViewport>
-                {(inViewport) => {
-                  useEffect(() => {
-                    if (inViewport) {
-                      setIsInViewport(true);
-                    }
-                  }, [inViewport]);
-                  return (
-                    <div className={styles.tagText} data-visible={visible}>
-                      {isInViewport && (
-                        <DecoderText
-                          text={`${config.name}`}
-                          delay={1300}
-                        />
-                      )}
-                    </div>
-                  );
-                }}
-                </InViewport>            
-              </div>
+              <DividerDecoderText
+                visible={visible}
+                text={config.name}
+                className={styles.tag}
+                textClassName={styles.tagText}
+                dividerDelay={1000}
+                decoderDelay={1300}
+              />
                 <HomeText visible={visible} titleId={titleId} />
             </div>
               <div className={styles.column}>                        

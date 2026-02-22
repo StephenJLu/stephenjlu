@@ -6,9 +6,8 @@ import { Section } from '~/components/section/section';
 import { Text } from '~/components/text/text';
 import { Image } from '~/components/image/image';
 import { Transition } from '~/components/transition/transition';
-import { useTheme } from '~/components/theme-provider/theme-provider';
 import { useWindowSize } from 'app/hooks';
-import { cssProps, media } from 'app/utils/style';
+import { media } from 'app/utils/style';
 import styles from './projects.module.css';
 import productionBanner from 'app/static/images/production.png';
 import productionPlaceholder from 'app/static/images/production-placeholder.svg';
@@ -20,10 +19,17 @@ interface ProjectsProps {
   index?: number;
   title?: string;
   description?: string;
-  bannerImage?: string;
+
   buttonText?: string;
   buttonLink?: string;
   alternate?: boolean;
+}
+
+interface ProjectImage {
+  src: string;
+  placeholder: string;
+  width: number;
+  height: number;
 }
 
 export function Projects({
@@ -33,39 +39,32 @@ export function Projects({
   index = 0,
   title,
   description,
-  bannerImage,
   buttonText,
   buttonLink,
   alternate,
   ...rest
 }: ProjectsProps) {
   const [focused, setFocused] = useState(false);  
-  const theme = useTheme();
   const width = useWindowSize();  
   const titleId = `${id}-title`;
   const isMobile = width.w <= media.tablet;  
-  const svgOpacity = theme === 'light' ? 0.7 : 1;
   const indexText = index < 10 ? `0${index}` : index;
 
-  const imageMap: Record<string, { src: string; placeholder: string }> = {
+  const imageMap: Record<string, ProjectImage> = {
   production: {
     src: productionBanner,
     placeholder: productionPlaceholder,
+    width: 550,
+    height: 300,
   },  
 };
-
-  interface RenderBannerProps {
-    id: string;
-    visible: boolean;
-      
-  }
 
   interface RenderDetailsProps {
     visible: boolean;  
   }
 
 function renderBanner({ id, visible }: { id: string; visible: boolean }) {
-  const { src, placeholder } = imageMap[id] || {};
+  const { src, placeholder, width, height } = imageMap[id] || {};
 
   return (
     <div className={styles.banner} data-visible={visible}>
@@ -75,7 +74,8 @@ function renderBanner({ id, visible }: { id: string; visible: boolean }) {
         src={src}
         placeholder={placeholder}
         alt="Project banner"                
-        height={300}
+        width={width}
+        height={height}
         style={{ objectFit: 'cover' }}
       />
     </div>
