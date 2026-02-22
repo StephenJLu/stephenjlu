@@ -19,7 +19,7 @@ interface ProjectsProps {
   index?: number;
   title?: string;
   description?: string;
-  bannerImage?: string;
+
   buttonText?: string;
   buttonLink?: string;
   alternate?: boolean;
