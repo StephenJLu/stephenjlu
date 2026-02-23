@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Divider } from '~/components/divider/divider';
 import { DecoderText } from '~/components/decoder-text/decoder-text';
 import InViewport from '~/components/in-viewport/InViewport';
+import styles from './divider-decoder-text.module.css';
 
 interface DividerDecoderTextProps {
   visible: boolean;
@@ -62,7 +63,13 @@ export const DividerDecoderText: React.FC<DividerDecoderTextProps> = ({
               collapseDelay={shouldAnimate ? currentDividerDelay : 0}
             />
             <div className={textClassName} data-visible={visible}>
-              {shouldAnimate && <DecoderText text={text} delay={currentDecoderDelay} />}
+              {shouldAnimate ? (
+                <DecoderText text={text} delay={currentDecoderDelay} />
+              ) : (
+                <span aria-hidden className={styles.placeholder}>
+                  {text}
+                </span>
+              )}
             </div>
           </div>
         );
