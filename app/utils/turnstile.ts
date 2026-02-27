@@ -1,8 +1,4 @@
 import keys from '~/components/turnstile/keys.json';
-/*
-Turnstile token verification utility function
-*/
-
 interface TurnstileResponse {
   success: boolean;
   'error-codes'?: string[];
@@ -15,8 +11,6 @@ interface TurnstileError {
 
 export async function verifyTurnstileToken(token: string): Promise<TurnstileResponse | TurnstileError> {
   try {
-    
-    /* Worker URL for Turnstile verification */
     const workerUrl = `${keys.worker_url}`;
 
     const verificationResponse = await fetch(workerUrl, {
@@ -32,7 +26,7 @@ export async function verifyTurnstileToken(token: string): Promise<TurnstileResp
       throw new Error(`Expected JSON response but received: ${contentType}`);
     }
 
-    const verificationResult = await verificationResponse.json();
+    const verificationResult = await verificationResponse.json() as TurnstileResponse;
     return verificationResult;
   } catch (error) {
     console.error('Error verifying Turnstile token:', error);

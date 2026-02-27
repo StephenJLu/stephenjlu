@@ -291,31 +291,19 @@ export const Contact = () => {
             data-status={status}            
             style={getDelay(tokens.base.durationM, initDelay)}                                                
             />                          
-            <div className={styles.buttonGroup}>
-              <Button
-                className={styles.button}
-                data-status={status}
-                data-sending={sending}
-                style={getDelay(tokens.base.durationL, initDelay)}
-                disabled={sending}
-                loading={sending}
-                loadingText="Sending..."
-                icon="send"
-                type="submit"
-              >
-                Send message
-              </Button>
-              <Button
-                secondary
-                className={styles.button}
-                data-status={status}
-                style={getDelay(tokens.base.durationL, initDelay)}
-                href="https://stephenjlu.setmore.com"
-                icon="link"
-              >
-                Book appointment
-              </Button>
-            </div>                        
+            <Button
+              className={styles.button}
+              data-status={status}
+              data-sending={sending}
+              style={getDelay(tokens.base.durationL, initDelay)}
+              disabled={sending}
+              loading={sending}
+              loadingText="Sending..."
+              icon="send"
+              type="submit"
+            >
+              Send message
+            </Button>                       
           </Form>          
         )}
       </Transition>

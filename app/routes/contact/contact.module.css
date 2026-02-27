@@ -181,13 +181,6 @@
   display: none;
 }
 
-.buttonGroup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spaceL);
-  align-items: center;
-}
-
 .button {
   --buttonLoaderDelay: var(--durationL);
 
