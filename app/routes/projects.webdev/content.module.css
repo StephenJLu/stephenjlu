@@ -131,6 +131,45 @@
   }
 }
 
+.systemSetupBanner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: var(--spaceM);
+  max-width: 100%;
+  height: auto;
+}
+
+.systemSetupHeading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.systemSetupBannerLink {
+  display: inline-flex;
+  align-items: center;
+  padding-bottom: 0;
+  background: none;
+}
+
+.systemSetupHeading .systemSetupBannerLink:hover,
+.systemSetupHeading .systemSetupBannerLink:focus {
+  padding-bottom: 0;
+  background: none;
+}
+
+@media (--mediaMobile), (--mediaMobileLS) {
+  .systemSetupHeading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .systemSetupBanner {
+    margin-left: 0;
+    margin-top: var(--spaceS);
+  }
+}
+
   .row {
     --rowBorder: 1px solid color-mix(in lab, var(--text) 20%, transparent);
     border-top: var(--rowBorder);

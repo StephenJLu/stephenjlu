@@ -19,7 +19,16 @@ const ContentText = ({ visible, titleId }: { visible: boolean; titleId: string }
     </List>
     <br />
     <br /> 
-  <Heading className={styles.title} data-visible={visible} level={3} weight={'light'} id={titleId}>System Setup</Heading>
+  <Heading className={`${styles.title} ${styles.systemSetupHeading}`} data-visible={visible} level={3} weight={'light'} id={titleId}>
+    System Setup
+    <Link secondary className={styles.systemSetupBannerLink} href={'https://valid.x86.fr/x41rwd'}>
+      <img
+        className={styles.systemSetupBanner}
+        src={'https://valid.x86.fr/cache/banner/x41rwd-6.png'}
+        alt={'x86.fr validation banner'}
+      />
+    </Link>
+  </Heading>
     <Table className={styles.table} data-visible={visible}>  
   <TableRow className={styles.row} data-visible={visible}>
     <TableCell>
