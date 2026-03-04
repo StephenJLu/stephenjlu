@@ -21,10 +21,10 @@ const ContentText = ({ visible, titleId }: { visible: boolean; titleId: string }
     <br /> 
   <Heading className={`${styles.title} ${styles.systemSetupHeading}`} data-visible={visible} level={3} weight={'light'} id={titleId}>
     System Setup
-    <Link secondary className={styles.systemSetupBannerLink} href={'https://valid.x86.fr/x41rwd'}>
+    <Link secondary className={styles.systemSetupBannerLink} href={'https://valid.x86.fr/c82jks'}>
       <img
         className={styles.systemSetupBanner}
-        src={'https://valid.x86.fr/cache/banner/x41rwd-6.png'}
+        src={'https://valid.x86.fr/cache/banner/c82jks-6.png'}
         alt={'x86.fr validation banner'}
       />
     </Link>
