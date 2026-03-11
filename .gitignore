@@ -17,9 +17,10 @@ storybook-static/
 hashnode-archive/
 email-service/
 workers/
-turnstile/
+app/components/turnstile
 
 scripts
 DO-NOT-RUN.txt
 app/config.json
+
 
