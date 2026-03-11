@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Button from '~/components/button/button';
 import { DecoderText } from '~/components/decoder-text/decoder-text';
 import { Divider } from '~/components/divider/divider';
@@ -29,6 +29,7 @@ export const meta = () => {
 const MAX_NAME_LENGTH = 128;
 const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
+const MIN_MESSAGE_LENGTH = 20;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 interface ActionData {
@@ -47,16 +48,12 @@ export async function action ({ request, context }: { request: Request, context:
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
-  // SendLayer API endpoint
-  const sendLayerEndpoint = 'https://console.sendlayer.com/api/v1/email'; // Update based on documentation
   const errors: { name?: string; email?: string; message?: string } = {};
-  
 
-  //Return without sending email if bot
+  // Return without sending email if bot
   if (isBot) return json({ success: true }, { status: 200 });
 
-  // Handle input validation on the server
-
+  // Server-side input validation
   if (!name) {
     errors.name = 'Please enter your name.';
   }
@@ -69,28 +66,31 @@ export async function action ({ request, context }: { request: Request, context:
     errors.message = 'Please enter a message.';
   }
 
-  if (name.length > MAX_NAME_LENGTH) {
-    errors.email = `Name must be shorter than ${MAX_NAME_LENGTH} characters.`;
+  if (message && message.length < MIN_MESSAGE_LENGTH) {
+    errors.message = `Message must be at least ${MIN_MESSAGE_LENGTH} characters.`;
   }
 
-  if (email.length > MAX_EMAIL_LENGTH) {
+  if (name && name.length > MAX_NAME_LENGTH) {
+    errors.name = `Name must be shorter than ${MAX_NAME_LENGTH} characters.`;
+  }
+
+  if (email && email.length > MAX_EMAIL_LENGTH) {
     errors.email = `Email address must be shorter than ${MAX_EMAIL_LENGTH} characters.`;
   }
 
-  if (message.length > MAX_MESSAGE_LENGTH) {
+  if (message && message.length > MAX_MESSAGE_LENGTH) {
     errors.message = `Message must be shorter than ${MAX_MESSAGE_LENGTH} characters.`;
   }
 
   if (Object.keys(errors).length > 0) {
     return json<ActionData>({ errors }, { status: 400 });
   }
-  
+
   // Verify the Turnstile token
-   try {
-    
+  try {
     const token = formData.get('cf-turnstile-response') as string;
     const verificationResult = await verifyTurnstileToken(token);
-    
+
     if ('status' in verificationResult) {
       return json<ActionData>(
         { errors: { message: verificationResult.message } },
@@ -105,63 +105,50 @@ export async function action ({ request, context }: { request: Request, context:
       );
     }
 
-    const response = await fetch(sendLayerEndpoint, {
+    const relayUrl = context.cloudflare.env.CONTACT_RELAY_URL;
+    if (!relayUrl) {
+      console.error('CONTACT_RELAY_URL is not configured.');
+      return json<ActionData>(
+        { errors: { message: 'Contact service is unavailable. Please try again later.' } },
+        { status: 200 }
+      );
+    }
+
+    const relayHeaders: Record<string, string> = {
+      'Content-Type': 'application/json',
+    };
+    if (context.cloudflare.env.CONTACT_RELAY_TOKEN) {
+      relayHeaders['Authorization'] = `Bearer ${context.cloudflare.env.CONTACT_RELAY_TOKEN}`;
+    }
+
+    const response = await fetch(relayUrl, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${context.cloudflare.env.SL_API_KEY}`,
-      },
+      headers: relayHeaders,
       body: JSON.stringify({
-        "from": {
-          "name": "StephenJLu.com",
-          "email": "no-reply@stephenjlu.com"
-        },
-        "to": [
-          {
-            "name": "Stephen J. Lu",
-            "email": "Stephen@StephenJLu.com"
-          }
-        ],
-        "subject": "New Contact Form Submission",
-        "ContentType": "HTML",
-        "HTMLContent": `<html><body>
-          <p>You have a new contact form submission:</p>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Message:</strong><br/>${message}</p>
-        </body></html>`,
-        "PlainContent": `You have a new contact form submission:
-        
-Name: ${name}
-Email: ${email}
-Message:
-${message}`,
-        "Tags": [
-          "tag-name",
-          "daily"
-        ],
-        "Headers": {
-          "X-Mailer": "StephenJLu.com",
-          "X-Test": "test header"
-        }
+        name,
+        email,
+        message,
+        submissionType: 'contact',
       }),
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error('SendLayer Error:', errorData);
-      return json({ error: 'Failed to send email. Please try again later.' }, { status: 500 });
+      const relayBody = await response.text().catch(() => '');
+      console.error('Relay error:', response.status, relayBody);
+      return json<ActionData>(
+        { errors: { message: 'Failed to send message. Please try again later.' } },
+        { status: 200 }
+      );
     }
 
-    console.log('Received POST request');
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Message:', message);
     return json({ success: true }, { status: 200 });
 
   } catch (error) {
-    console.error('Error sending email:', error);
-    return json({ error: 'An unexpected error occurred.' }, { status: 500 });
+    console.error('Error sending message:', error);
+    return json<ActionData>(
+      { errors: { message: 'An unexpected error occurred.' } },
+      { status: 200 }
+    );
   }
 };
 

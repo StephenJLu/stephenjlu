@@ -15,6 +15,7 @@ archive/
 public/draco
 storybook-static/
 hashnode-archive/
+email-service/
 
 scripts
 DO-NOT-RUN.txt
