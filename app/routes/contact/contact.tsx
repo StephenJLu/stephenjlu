@@ -38,7 +38,6 @@ interface ActionData {
     name?: string;
     email?: string;
     message?: string;
-    phone?: string;    
   };
 }
 
@@ -128,7 +127,6 @@ export async function action ({ request, context }: { request: Request, context:
         name,
         email,
         message,
-        submissionType: 'contact',
       }),
     });
 
